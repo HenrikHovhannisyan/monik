@@ -1,0 +1,100 @@
+:root {
+    --white: #f0f8ff;
+    --black: #000000;
+    --dark: #191c24;
+    --soft-pink: #FFCCCC;
+    --light-blue: #AEEEEE;
+    --lavender: #E6E6FA;
+    --light-yellow: #FFFFCC;
+    --pale-green: #CCFFCC;
+}
+
+body {
+    background-color: var(--black);
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin-nav {
+    background-color: var(--dark);
+}
+
+/* Start Left Menu */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: var(--dark);
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: var(--white);
+}
+
+#sidebar ul li a i {
+    background-color: #2a2d3a;
+    padding: 10px;
+    border-radius: 100%;
+    color: #8e64e4;
+}
+
+#sidebar ul li a:hover {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+#sidebar ul li.active > a {
+    color: #6c7392;
+    background-color: #0f1015;
+    margin-right: 25px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: calc(100vh - 55px);
+    transition: all 0.3s;
+}
+
+.card {
+    background-color: var(--dark);
+    color: #6c7392;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 15px;
+}
+
+.card .btn {
+    background: rgba(0, 210, 91, 0.11);
+    border-radius: 7px;
+    color: #00d25b;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+/* End Left Menu */
