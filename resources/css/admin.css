@@ -51,15 +51,23 @@ a {
     background-color: #2a2d3a;
     padding: 10px;
     border-radius: 100%;
+}
+
+#sidebar .fa-desktop {
     color: #8e64e4;
 }
-
-#sidebar ul li a:hover {
-    color: var(--black);
-    background-color: var(--white);
+#sidebar .fa-users {
+    color: #ffab00;
+}
+#sidebar .fa-layer-group {
+    color: #fc424a;
+}
+#sidebar .fa-shirt {
+    color: #00d25b;
 }
 
-#sidebar ul li.active > a {
+#sidebar ul li.active > a,
+#sidebar ul li a:hover {
     color: #6c7392;
     background-color: #0f1015;
     margin-right: 25px;

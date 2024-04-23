@@ -30,4 +30,15 @@ class HomeController extends Controller
         return view('admin.index', compact('usersCount'));
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return Renderable
+     */
+    public function users()
+    {
+        $users = User::all();
+        return view('admin.pages.users', compact('users'));
+    }
+
 }
