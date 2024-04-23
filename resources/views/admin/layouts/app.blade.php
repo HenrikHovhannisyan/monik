@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-dark shadow-sm admin-nav">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="{{asset('/images/logo.png')}}" alt="Sofia Logo" height="55">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
