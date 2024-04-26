@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('auth/google', 'App\Http\Controllers\Auth\GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'App\Http\Controllers\\Auth\GoogleController@handleGoogleCallback');
 
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin'], 'namespace' => '\App\Http\Controllers\Admin'], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
