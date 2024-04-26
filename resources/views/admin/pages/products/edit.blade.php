@@ -153,7 +153,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Update
+            </button>
         </form>
     </div>
 

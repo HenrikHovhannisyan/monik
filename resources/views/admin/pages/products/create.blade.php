@@ -160,7 +160,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-success">
+                <i class="fa-solid fa-plus"></i>
+                Add
+            </button>
         </form>
 
     </div>
