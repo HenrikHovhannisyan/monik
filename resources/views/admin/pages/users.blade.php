@@ -1,7 +1,12 @@
 @extends('admin.layouts.app')
 
+@section('title')
+    @parent | {{ 'Users List' }}
+@endsection
+
 @section('content')
     <div class="container-fluid p-0">
+        <h2 class="text-white mb-3">Users List</h2>
         <table class="table table-dark table-striped table-bordered table-responsive">
             <thead>
             <tr>

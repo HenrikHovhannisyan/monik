@@ -10,7 +10,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
                         <h3 class="m-0">Users - {{ $usersCount }}</h3>
-                        <a href="#" class="btn">
+                        <a href="{{route('users')}}" class="btn">
                             View
                         </a>
                     </div>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
                         <h3 class="m-0">Category - {{ $usersCount }}</h3>
-                        <a href="#" class="btn">
+                        <a href="{{route('categories.index')}}" class="btn">
                             View
                         </a>
                     </div>

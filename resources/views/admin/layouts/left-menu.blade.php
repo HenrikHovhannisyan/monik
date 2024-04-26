@@ -12,8 +12,8 @@
                 Users
             </a>
         </li>
-        <li class="{{isActiveRoute('category')}}">
-            <a href="{{route('users')}}">
+        <li class="{{isActiveRoute('categories.index')}}">
+            <a href="{{route('categories.index')}}">
                 <i class="fa-solid fa-layer-group me-1"></i>
                 Category
             </a>
