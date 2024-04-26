@@ -20,7 +20,7 @@
         @method('PUT')
 
             <div class="row">
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="name_am" class="form-label text-white">
                         Name AM
                         <span class="text-danger"> *</span>
@@ -28,7 +28,7 @@
                     <input type="text" name="name_am" id="name_am" value="{{ $category->name_am }}" class="form-control"
                            placeholder="Name AM" required>
                 </div>
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="name_ru" class="form-label text-white">
                         Name RU
                         <span class="text-danger"> *</span>
@@ -36,7 +36,7 @@
                     <input type="text" name="name_ru" id="name_ru" value="{{ $category->name_ru }}" class="form-control"
                            placeholder="Name RU" required>
                 </div>
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="name_en" class="form-label text-white">
                         Name EN
                         <span class="text-danger"> *</span>
@@ -45,7 +45,7 @@
                            placeholder="Name EN" required>
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="description_am" class="form-label text-white">
                         Description AM
                     </label>
@@ -53,7 +53,7 @@
                               placeholder="Description AM">{{ $category->description_am }}</textarea>
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="description_ru" class="form-label text-white">
                         Description RU
                     </label>
@@ -61,7 +61,7 @@
                               placeholder="Description RU">{{ $category->description_ru }}</textarea>
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
+                <div class="mb-3 col-12 col-lg-4">
                     <label for="description_en" class="form-label text-white">
                         Description EN
                     </label>
@@ -69,7 +69,7 @@
                               placeholder="Description EN">{{ $category->description_en }}</textarea>
                 </div>
 
-                <div class="mb-3 col-12 col-md-6">
+                <div class="mb-3 col-12 col-lg-6">
                     <label for="imageUpload" class="form-label text-white">
                         Upload Image
                     </label>

@@ -99,6 +99,16 @@ a {
     cursor: pointer!important;
 }
 
+.ck-editor__editable {
+    min-height: 200px;
+    background-color: #212529 !important;
+    color: var(--white);
+}
+
+.ck-powered-by {
+    display: none;
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;

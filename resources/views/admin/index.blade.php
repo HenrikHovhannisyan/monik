@@ -36,7 +36,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
                         <h3 class="m-0">Product - {{ $usersCount }}</h3>
-                        <a href="#" class="btn">
+                        <a href="{{route('products.index')}}" class="btn">
                             View
                         </a>
                     </div>

@@ -30,6 +30,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin'], 'names
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::get('/users', 'HomeController@users')->name('users');
     Route::resource('categories', 'CategoryController');
+    Route::resource('products', 'ProductController');
 });
 
 

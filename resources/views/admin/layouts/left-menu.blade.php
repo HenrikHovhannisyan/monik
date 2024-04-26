@@ -18,8 +18,8 @@
                 Category
             </a>
         </li>
-        <li class="{{isActiveRoute('product')}}">
-            <a href="{{route('users')}}">
+        <li class="{{isActiveRoute('products.index')}}">
+            <a href="{{route('products.index')}}">
                 <i class="fa-solid fa-shirt me-1"></i>
                 Products
             </a>

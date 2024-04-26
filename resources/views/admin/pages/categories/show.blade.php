@@ -15,7 +15,7 @@
             </a>
         </div>
         <section class="content">
-            <div class="card col-12 col-md-6 mx-auto">
+            <div class="card col-12 col-md-10">
                 <div class="card-body p-2">
                     <ul>
                         <li class="mb-2">
