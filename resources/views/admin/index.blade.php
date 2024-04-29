@@ -22,7 +22,7 @@
                         <i class="fa-solid fa-layer-group fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Category - {{ $usersCount }}</h3>
+                        <h3 class="m-0">Category - {{ $categoryCount }}</h3>
                         <a href="{{route('categories.index')}}" class="btn">
                             View
                         </a>
@@ -35,7 +35,7 @@
                         <i class="fa-solid fa-shirt fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Product - {{ $usersCount }}</h3>
+                        <h3 class="m-0">Product - {{ $productCount }}</h3>
                         <a href="{{route('products.index')}}" class="btn">
                             View
                         </a>
