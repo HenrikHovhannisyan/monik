@@ -83,7 +83,9 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'am',
+
+    'locales' => ['am','ru','en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +171,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        \App\Services\Localization\LocalizationServiceProvider::class,
     ])->toArray(),
 
     /*

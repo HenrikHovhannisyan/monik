@@ -31,7 +31,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark shadow-sm admin-nav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{asset('/images/logo.png')}}" alt="Sofia Logo" height="55">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

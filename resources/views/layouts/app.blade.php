@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Sofia') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -30,7 +30,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -45,6 +45,27 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="dropdown">
+                            @php $lng = config('main.lang.' . App::getLocale()); @endphp
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img width="18" class="me-2" src="{{ asset($lng['icon']) }}"
+                                         alt="{{ $lng['name'] }}"> {{ $lng['name'] }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @foreach(config('main.lang') as $k => $v)
+                                        @if($k !== $lng['key'])
+                                            <li>
+                                                <a class="dropdown-item" href="/{{ $k }}" title="{{ $v['name'] }}">
+                                                    <img width="18" class="me-2" src="{{ asset($v['icon']) }}"
+                                                         alt="{{ $v['name'] }}"> {{ $v['name'] }}
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

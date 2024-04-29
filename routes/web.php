@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Services\Localization\LocalizationService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
@@ -16,15 +17,20 @@ use App\Http\Controllers\Auth\GoogleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(
+    [
+        'prefix' => LocalizationService::locale(),
+        'middleware' => 'setLocale'
+    ],
+    function () {
 
-Auth::routes();
+        Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
+        Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+    });
 
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin'], 'namespace' => '\App\Http\Controllers\Admin'], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
@@ -32,5 +38,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin'], 'names
     Route::resource('categories', 'CategoryController');
     Route::resource('products', 'ProductController');
 });
+
+
 
 
