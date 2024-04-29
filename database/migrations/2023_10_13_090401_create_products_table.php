@@ -28,6 +28,8 @@ return new class extends Migration
             $table->json('size');
             $table->json('gender');
             $table->string('color')->nullable();
+            $table->string('quantity');
+            $table->string('status');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

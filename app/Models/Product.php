@@ -24,6 +24,8 @@ class Product extends Model
         'size',
         'gender',
         'color',
+        'quantity',
+        'status',
         'category_id',
     ];
 

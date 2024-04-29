@@ -32,10 +32,13 @@
     @endif
 
     @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show col-md-8 m-auto mb-3" role="alert">
-            <i class="fa-solid fa-circle-exclamation fa-lg"></i>
-            <strong>Please check the form below for errors</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 </div>

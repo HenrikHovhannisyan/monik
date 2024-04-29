@@ -18,6 +18,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Code</th>
                 <th scope="col">Image</th>
                 <th scope="col">Name AM</th>
                 <th scope="col">Name RU</th>
@@ -29,6 +30,7 @@
             @foreach ($products as $product)
                 <tr>
                     <td>{{ ++$i }}</td>
+                    <td>{{ $product->code }}</td>
                     <td>
                         @foreach(json_decode($product->images) as $imagePath)
                             <img src="{{asset($imagePath)}}" width="55px">

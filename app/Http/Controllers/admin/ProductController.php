@@ -44,6 +44,7 @@ class ProductController extends Controller
      *
      * @param Request $request
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function store(Request $request)
     {
@@ -54,11 +55,11 @@ class ProductController extends Controller
             'description_am' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'size' => 'required|array',
             'gender' => 'required|array',
-            'color' => 'required',
+            'quantity' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -80,7 +81,7 @@ class ProductController extends Controller
         $input['category_id'] = $request->category_id;
         $input['size'] = json_encode($request->size);
         $input['gender'] = json_encode($request->gender);
-        $input['code'] = 123;
+        $input['code'] = random_int(1000, 9999) - random_int(1000, 9999);
 
         Product::create($input);
 
@@ -137,11 +138,11 @@ class ProductController extends Controller
             'description_am' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'size' => 'required|array',
             'gender' => 'required|array',
-            'color' => 'required',
+            'quantity' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -167,6 +168,10 @@ class ProductController extends Controller
                     }
                 }
             }
+        }
+
+        if (!$request->status) {
+            $input['status'] = 'off';
         }
 
         $input['category_id'] = $request->category_id;

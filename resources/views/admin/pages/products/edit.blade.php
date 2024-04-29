@@ -15,9 +15,10 @@
             </a>
         </div>
 
-        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" data-bs-theme="dark">
-        @csrf
-        @method('PUT')
+        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data"
+              data-bs-theme="dark">
+            @csrf
+            @method('PUT')
 
             <div class="row">
                 <div class="mb-3 col-12 col-lg-4">
@@ -50,7 +51,7 @@
                         <span class="text-danger"> *</span>
                     </label>
                     <textarea class="form-control" style="height:150px" name="description_am" id="description_am"
-                              placeholder="Description AM" required>{{$product->description_am}}</textarea>
+                              placeholder="Description AM">{{$product->description_am}}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="description_ru" class="form-label text-white">
@@ -58,7 +59,7 @@
                         <span class="text-danger"> *</span>
                     </label>
                     <textarea class="form-control" style="height:150px" name="description_ru" id="description_ru"
-                              placeholder="Description RU" required>{{$product->description_ru}}</textarea>
+                              placeholder="Description RU">{{$product->description_ru}}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="description_en" class="form-label text-white">
@@ -66,7 +67,7 @@
                         <span class="text-danger"> *</span>
                     </label>
                     <textarea class="form-control" style="height:150px" name="description_en" id="description_en"
-                              placeholder="Description EN" required>{{$product->description_en}}</textarea>
+                              placeholder="Description EN">{{$product->description_en}}</textarea>
                 </div>
                 <div class="mb-3 col-12">
                     <div class="row">
@@ -75,45 +76,20 @@
                                 Price:
                                 <span class="text-danger">*</span>
                             </label>
-                            <input type="number" name="price" id="price" value="{{ $product->price }}" class="form-control" placeholder="Price"
-                                   required>
+                            <input type="number" name="price" id="price" value="{{ $product->price }}"
+                                   class="form-control" placeholder="Price" min="0" required>
                         </div>
                         <div class="form-group col-lg-4">
                             <label for="discount_percent" class="form-label text-white">Discount Percent:</label>
-                            <input type="number" name="discount" id="discount_percent" value="{{ $product->discount }}" class="form-control"
-                                   placeholder="Discount Percent">
+                            <input type="number" name="discount" id="discount_percent" value="{{ $product->discount }}"
+                                   class="form-control" min="0" placeholder="Discount Percent">
                         </div>
                         <div class="form-group col-lg-4">
                             <label for="discount" class="form-label text-white">Discount Price:</label>
-                            <input type="number" id="discount" class="form-control" value="{{$discount}}" placeholder="Discount Price"
-                                   disabled>
+                            <input type="number" id="discount" class="form-control" value="{{$discount}}"
+                                   placeholder="Discount Price" disabled>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3 col-12 col-lg-4">
-                    <label class="form-label text-white">
-                        Size:
-                        <span class="text-danger">*</span>
-                    </label>
-                    <div class="d-flex">
-                        @foreach($availableSizes as $size)
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" name="size[]" value="{{ $size }}" id="{{ $size }}"
-                                    {{ in_array($size, $selectedSizes) ? 'checked' : '' }}>
-                                <label class="form-check-label text-white" for="{{ $size }}">{{ $size }}</label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="mb-3 col-12 col-lg-4">
-                    <label for="images" class="form-label text-white">
-                        Images:
-                        <span class="text-danger">*</span>
-                    </label>
-                    @foreach(json_decode($product->images) as $imagePath)
-                        <img src="{{asset($imagePath)}}" width="100px" class="m-1">
-                    @endforeach
-                    <input type="file" name="images[]" class="form-control" id="images" placeholder="image" multiple>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="category_id" class="form-label text-white">
@@ -130,26 +106,79 @@
                     </select>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
-                    <label for="color" class="form-label text-white">
-                        Color:
-                    </label>
-                    <input type="text" name="color" id="color" value="{{ $product->color }}" class="form-control" placeholder="Color">
-
-                </div>
-                <div class="mb-3 col-12 col-lg-4">
                     <label class="form-label text-white">
-                        Gender:
+                        Size:
                         <span class="text-danger">*</span>
                     </label>
                     <div class="d-flex">
-                        @foreach($availableGender as $gender)
+                        @foreach($availableSizes as $size)
                             <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" name="gender[]" value="{{ $gender }}" id="{{ $gender }}"
-                                    {{ in_array($gender, $selectedGender) ? 'checked' : '' }}>
-                                <label class="form-check-label text-white" for="{{ $gender }}">{{ $gender }}</label>
+                                <input class="form-check-input" type="checkbox" name="size[]" value="{{ $size }}"
+                                       id="{{ $size }}"
+                                    {{ in_array($size, $selectedSizes) ? 'checked' : '' }}>
+                                <label class="form-check-label text-white" for="{{ $size }}">{{ $size }}</label>
                             </div>
                         @endforeach
                     </div>
+                </div>
+                <div class="mb-3 col-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label text-white">
+                                Gender:
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="d-flex">
+                                @foreach($availableGender as $gender)
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="checkbox" name="gender[]"
+                                               value="{{ $gender }}"
+                                               id="{{ $gender }}"
+                                            {{ in_array($gender, $selectedGender) ? 'checked' : '' }}>
+                                        <label class="form-check-label text-white"
+                                               for="{{ $gender }}">{{ $gender }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label text-white">
+                                Status:
+                            </label>
+                            <div class="d-flex">
+                                <input class="form-check-input" type="checkbox" name="status" id="status" {{ $product->status === 'on' ? 'checked' : '' }}>
+                                <label for="status" class="form-check-label text-white ms-2">
+                                    New
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 col-12 col-lg-4">
+                    <label for="quantity" class="form-label text-white">
+                        Quantity:
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="number" name="quantity" id="quantity" value="{{ $product->quantity }}"
+                           class="form-control" placeholder="Quantity" min="0"
+                           required>
+                </div>
+                <div class="mb-3 col-12 col-lg-4">
+                    <label for="color" class="form-label text-white">
+                        Color:
+                    </label>
+                    <input type="text" name="color" id="color" value="{{ $product->color }}" class="form-control"
+                           placeholder="Color">
+                </div>
+                <div class="mb-3 col-12 col-lg-4">
+                    <label for="images" class="form-label text-white">
+                        Images:
+                        <span class="text-danger">*</span>
+                    </label>
+                    @foreach(json_decode($product->images) as $imagePath)
+                        <img src="{{asset($imagePath)}}" width="100px" class="m-1">
+                    @endforeach
+                    <input type="file" name="images[]" class="form-control" id="images" placeholder="image" multiple>
                 </div>
             </div>
 
