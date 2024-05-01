@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Sofia') }}</title>
+    <title>{{ config('app.name', 'Sofia') }} @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -19,8 +19,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+@yield('style')
 
-    <!-- Scripts -->
+<!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
@@ -59,7 +60,8 @@
                                 @foreach(config('main.lang') as $k => $v)
                                     @if($k !== $lng['key'])
                                         <li>
-                                            <a class="dropdown-item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                            <a class="dropdown-item select-lang" href="/{{ $k }}"
+                                               title="{{ $v['name'] }}" data-lang="{{ $k }}">
                                                 <img width="18" class="me-2" src="{{ asset($v['icon']) }}"
                                                      alt="{{ $v['name'] }}"> {{ $v['name'] }}
                                             </a>
@@ -111,5 +113,7 @@
         @yield('content')
     </main>
 </div>
+
+@yield('script')
 </body>
 </html>
