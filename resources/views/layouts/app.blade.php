@@ -18,14 +18,14 @@
     {{--  Styles  --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-@yield('style')
+    <link rel="stylesheet" href="{{asset('css/app.css?v=' . time())}}">
+    @yield('style')
 
-<!-- Scripts -->
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/app.js?v=' . time())}}"></script>
 </head>
 <body>
 <div id="app">
