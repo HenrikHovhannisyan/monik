@@ -238,7 +238,7 @@
             <div class="container">
                 <ul class="desktop-menu-category-list">
                     <li class="menu-category">
-                        <a href="#" class="menu-title">{{ __('index.home') }}</a>
+                        <a href="{{ route('home') }}" class="menu-title">{{ __('index.home') }}</a>
                     </li>
 
                     <li class="menu-category">
@@ -433,7 +433,7 @@
 
             <ul class="mobile-menu-category-list">
                 <li class="menu-category">
-                    <a href="#" class="menu-title">{{ __('index.home') }}</a>
+                    <a href="{{ route('home') }}" class="menu-title">{{ __('index.home') }}</a>
                 </li>
                 <li class="menu-category">
                     <a href="#" class="menu-title">{{ __('index.about_us') }}</a>
