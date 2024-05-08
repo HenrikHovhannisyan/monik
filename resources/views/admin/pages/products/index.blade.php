@@ -21,9 +21,10 @@
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
                     <th scope="col">Image</th>
-                    <th scope="col">Name AM</th>
-                    <th scope="col">Name RU</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Name EN</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
                     <th width="280px">{{ 'Action' }}</th>
                 </tr>
                 </thead>
@@ -37,9 +38,19 @@
                                 <img src="{{asset($imagePath)}}" width="55px">
                             @endforeach
                         </td>
-                        <td>{{ $product->name_am }}</td>
-                        <td>{{ $product->name_ru }}</td>
+                        <td>{{ $product->category->name_en }}</td>
                         <td>{{ $product->name_en }}</td>
+                        <td>
+                            <span class="d-block text-success">Price - {{ $product->price }}֏</span>
+                            @if($product->discount)
+                                <span class="d-block text-warning">Discount - {{ $product->discount }}%</span>
+                                <span class="d-block text-info">
+                                    Final price -
+                                    {{ $product->price - ($product->price * $product->discount) / 100 }}֏
+                                </span>
+                            @endif
+                        </td>
+                        <td>{{ $product->quantity }}</td>
                         <td>
                             <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                                 <a class="btn btn-outline-success btn-sm m-1"

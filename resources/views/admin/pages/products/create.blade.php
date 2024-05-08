@@ -74,13 +74,12 @@
                                 <span class="text-danger">*</span>
                             </label>
                             <input type="number" name="price" id="price" class="form-control" placeholder="Price"
-                                   min="0"
-                                   required>
+                                   min="0" value="{{old('price')}}" required>
                         </div>
                         <div class="form-group col-lg-4">
                             <label for="discount_percent" class="form-label text-white">Discount Percent:</label>
                             <input type="number" name="discount" id="discount_percent" class="form-control" min="0"
-                                   placeholder="Discount Percent">
+                                   placeholder="Discount Percent" value="{{old('discount')}}">
                         </div>
                         <div class="form-group col-lg-4">
                             <label for="discount" class="form-label text-white">Discount Price:</label>
@@ -97,7 +96,10 @@
                     <select name="category_id" id="category_id" class="form-control" required>
                         <option value="">Select a category</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name_en }}</option>
+                            <option
+                                value="{{ $category->id }}" {{ (old('category_id') == $category->id) ? 'selected' : '' }}>
+                                {{ $category->name_en }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -108,23 +110,28 @@
                     </label>
                     <div class="d-flex">
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[]" value="0-3" id="0-3">
+                            <input class="form-check-input" type="checkbox" name="size[]" value="0-3"
+                                   id="0-3" <?php echo (in_array('0-3', old('size', []))) ? 'checked' : ''; ?>>
                             <label class="form-check-label text-white" for="0-3">0-3</label>
                         </div>
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[]" value="3-6" id="3-6">
+                            <input class="form-check-input" type="checkbox" name="size[]" value="3-6"
+                                   id="3-6" <?php echo (in_array('3-6', old('size', []))) ? 'checked' : ''; ?>>
                             <label class="form-check-label text-white" for="3-6">3-6</label>
                         </div>
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[]" value="6-12" id="6-12">
+                            <input class="form-check-input" type="checkbox" name="size[]" value="6-12"
+                                   id="6-12" <?php echo (in_array('6-12', old('size', []))) ? 'checked' : ''; ?>>
                             <label class="form-check-label text-white" for="6-12">6-12</label>
                         </div>
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[]" value="12-18" id="12-18">
+                            <input class="form-check-input" type="checkbox" name="size[]" value="12-18"
+                                   id="12-18" <?php echo (in_array('12-18', old('size', []))) ? 'checked' : ''; ?>>
                             <label class="form-check-label text-white" for="12-18">12-18</label>
                         </div>
                         <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[]" value="18-24" id="18-24">
+                            <input class="form-check-input" type="checkbox" name="size[]" value="18-24"
+                                   id="18-24" <?php echo (in_array('18-24', old('size', []))) ? 'checked' : ''; ?>>
                             <label class="form-check-label text-white" for="18-24">18-24</label>
                         </div>
                     </div>
@@ -139,12 +146,12 @@
                             <div class="d-flex">
                                 <div class="form-check me-3">
                                     <input class="form-check-input" type="checkbox" name="gender[]" value="boy"
-                                           id="boy">
+                                           id="boy" <?php echo (in_array('boy', old('gender', []))) ? 'checked' : ''; ?>>
                                     <label class="form-check-label text-white" for="boy">Boy</label>
                                 </div>
                                 <div class="form-check me-3">
                                     <input class="form-check-input" type="checkbox" name="gender[]" value="girl"
-                                           id="girl">
+                                           id="girl" <?php echo (in_array('girl', old('gender', []))) ? 'checked' : ''; ?>>
                                     <label class="form-check-label text-white" for="girl">Girl</label>
                                 </div>
                             </div>
@@ -154,10 +161,16 @@
                                 Status:
                             </label>
                             <div class="d-flex">
-                                <input class="form-check-input" type="checkbox" name="status" id="status">
-                                <label for="status" class="form-check-label text-white ms-2">
-                                    New
-                                </label>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="checkbox" name="status[]" value="new"
+                                           id="new" <?php echo (in_array('new', old('status', []))) ? 'checked' : ''; ?>>
+                                    <label class="form-check-label text-white" for="new">New</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="checkbox" name="status[]" value="top"
+                                           id="top" <?php echo (in_array('top', old('status', []))) ? 'checked' : ''; ?>>
+                                    <label class="form-check-label text-white" for="top">Top</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -168,14 +181,14 @@
                         <span class="text-danger">*</span>
                     </label>
                     <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Quantity"
-                           min="0"
-                           required>
+                           min="0" value="{{old('quantity')}}" required>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="color" class="form-label text-white">
                         Color:
                     </label>
-                    <input type="text" name="color" id="color" class="form-control" placeholder="Color">
+                    <input type="text" name="color" id="color" class="form-control" placeholder="Color"
+                           value="{{old('color')}}">
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="images" class="form-label text-white">

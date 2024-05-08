@@ -146,10 +146,16 @@
                                 Status:
                             </label>
                             <div class="d-flex">
-                                <input class="form-check-input" type="checkbox" name="status" id="status" {{ $product->status === 'on' ? 'checked' : '' }}>
-                                <label for="status" class="form-check-label text-white ms-2">
-                                    New
-                                </label>
+                                @foreach($availableStatus as $status)
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="checkbox" name="status[]"
+                                               value="{{ $status }}"
+                                               id="{{ $status }}"
+                                            {{ in_array($status, $selectedStatus) ? 'checked' : '' }}>
+                                        <label class="form-check-label text-white"
+                                               for="{{ $status }}">{{ $status }}</label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

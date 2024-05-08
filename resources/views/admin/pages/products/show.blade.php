@@ -39,9 +39,34 @@
                         <tr>
                             <th>Status</th>
                             <td class="text-white">
-                                {{ $product->status === 'on' ? 'New' : '' }}
+                                @foreach($status as $key => $value)
+                                    {{ $value }}
+                                    @if(!$loop->last)
+                                        ,
+                                    @endif
+                                @endforeach
                             </td>
                         </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td class="text-white">
+                                {{ $product->price }}֏
+                            </td>
+                        </tr>
+                        @if($product->discount)
+                            <tr>
+                                <th>Discount</th>
+                                <td class="text-white">
+                                    {{ $product->discount }}%
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Final price</th>
+                                <td class="text-white">
+                                    {{ $product->price - ($product->price * $product->discount) / 100 }}֏
+                                </td>
+                            </tr>
+                        @endif
                         <tr>
                             <th>Name AM</th>
                             <td class="text-white">
@@ -78,12 +103,14 @@
                                 {!! html_entity_decode($product->description_en) !!}
                             </td>
                         </tr>
-                        <tr>
-                            <th>Color</th>
-                            <td class="text-white">
-                                {{ $product->color }}
-                            </td>
-                        </tr>
+                        @if($product->color)
+                            <tr>
+                                <th>Color</th>
+                                <td class="text-white">
+                                    {{ $product->color }}
+                                </td>
+                            </tr>
+                        @endif
                         <tr>
                             <th>Size</th>
                             <td class="text-white">
