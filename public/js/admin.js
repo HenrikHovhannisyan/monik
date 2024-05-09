@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
@@ -6,9 +5,10 @@ $(document).ready(function () {
 });
 
 /* Start upload image */
-$('#imageUpload').change(function(){
+$('#imageUpload').change(function () {
     readImgUrlAndPreview(this);
-    function readImgUrlAndPreview(input){
+
+    function readImgUrlAndPreview(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
 ClassicEditor.create(document.querySelector("#description_am"), {
     toolbar: {
         items: [
@@ -46,7 +45,6 @@ ClassicEditor.create(document.querySelector("#description_am"), {
         shouldNotGroupWhenFull: false
     }
 }).catch((error) => {
-    console.error(error);
 });
 ClassicEditor.create(document.querySelector("#description_ru"), {
     toolbar: {
@@ -61,7 +59,7 @@ ClassicEditor.create(document.querySelector("#description_ru"), {
         shouldNotGroupWhenFull: false
     }
 }).catch((error) => {
-    console.error(error);
+
 });
 ClassicEditor.create(document.querySelector("#description_en"), {
     toolbar: {
@@ -76,5 +74,5 @@ ClassicEditor.create(document.querySelector("#description_en"), {
         shouldNotGroupWhenFull: false
     }
 }).catch((error) => {
-    console.error(error);
+
 });

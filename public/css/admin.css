@@ -78,7 +78,7 @@ a {
 #content {
     width: 100%;
     padding: 20px;
-    min-height: calc(100vh - 55px);
+    min-height: calc(100vh - 81px);
     transition: all 0.3s;
 }
 

@@ -58,6 +58,6 @@
                 </tbody>
             </table>
         </div>
+        {!! $categories->links('vendor.pagination.bootstrap-4') !!}
     </div>
-
 @endsection
