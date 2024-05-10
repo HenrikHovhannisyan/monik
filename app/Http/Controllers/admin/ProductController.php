@@ -154,6 +154,10 @@ class ProductController extends Controller
 
         $input = $request->all();
 
+        if ($request->status === null) {
+            $input['status'] = 'null';
+        }
+
         if ($request->hasFile('images')) {
             $imagePaths = [];
 

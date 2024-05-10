@@ -151,7 +151,9 @@
                                         <input class="form-check-input" type="checkbox" name="status[]"
                                                value="{{ $status }}"
                                                id="{{ $status }}"
-                                            {{ in_array($status, $selectedStatus) ? 'checked' : '' }}>
+                                               @if(is_array($selectedStatus) && in_array($status, $selectedStatus))
+                                               checked
+                                            @endif>
                                         <label class="form-check-label text-white"
                                                for="{{ $status }}">{{ $status }}</label>
                                     </div>
