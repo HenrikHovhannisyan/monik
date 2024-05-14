@@ -1,5 +1,4 @@
-@php $lng = config('main.lang.' . App::getLocale()); @endphp
-    <!doctype html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -7,207 +6,118 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Sofia') }} @yield('title')</title>
+    <title>{{ config('app.name', 'Sofia') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     {{--  Styles  --}}
-    {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"--}}
-    {{--          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">--}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    @yield('style')
 
-<!-- Scripts -->
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    {{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"--}}
-    {{--            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"--}}
-    {{--            crossorigin="anonymous"></script>--}}
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script defer src="{{asset('js/app.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
 <div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand p-0" href="{{ route('home') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Sofia logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-
-    <div class="overlay" data-overlay></div>
-
-    <!--
-    - MODAL
-  -->
-
-{{--<div class="modal" data-modal>
-    <div class="modal-close-overlay" data-modal-overlay></div>
-
-    <div class="modal-content">
-        <button class="modal-close-btn" data-modal-close>
-            <ion-icon name="close-outline"></ion-icon>
-        </button>
-
-        <div class="newsletter-img">
-            <img
-                src="./images/newsletter.png"
-                alt="subscribe newsletter"
-                width="400"
-                height="400"
-            />
-        </div>
-
-        <div class="newsletter">
-            <form action="#">
-                <div class="newsletter-header">
-                    <h3 class="newsletter-title">Subscribe Newsletter.</h3>
-
-                    <p class="newsletter-desc">
-                        Subscribe the <b>Anon</b> to get latest products and discount
-                        update.
-                    </p>
-                </div>
-
-                <input
-                    type="email"
-                    name="email"
-                    class="email-field"
-                    placeholder="Email Address"
-                    required
-                />
-
-                <button type="submit" class="btn-newsletter">Subscribe</button>
-            </form>
-        </div>
-    </div>
-</div>--}}
-
-<!--
-    - NOTIFICATION TOAST
-  -->
-
-    <div class="notification-toast" data-toast>
-        <button class="toast-close-btn" data-toast-close>
-            <ion-icon name="close-outline"></ion-icon>
-        </button>
-
-        <div class="toast-banner">
-            <img
-                src="./images/products/jewellery-1.jpg"
-                alt="Rose Gold Earrings"
-                width="80"
-                height="70"
-            />
-        </div>
-
-        <div class="toast-detail">
-            <p class="toast-message">Someone in new just bought</p>
-
-            <p class="toast-title">Rose Gold Earrings</p>
-
-            <p class="toast-meta">
-                <time datetime="PT2M">2 Minutes</time>
-                ago
-            </p>
-        </div>
-    </div>
-
-    <!--
-    - HEADER
-  -->
-
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <ul class="header-social-container">
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-instagram"></ion-icon>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{isActiveRoute('home')}}" href="{{ route('home') }}">
+                            {{ __('index.home') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            {{ __('index.products') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            {{ __('index.about_us') }}
                         </a>
                     </li>
                 </ul>
 
-                <div class="header-alert-news">
-                    <p>
-                        <b>Free Shipping</b>
-                        This Week Order Over - $55
-                    </p>
-                </div>
-
-                <div class="header-top-actions">
-                    <div class="dropdown">
-                        <button class="dropbtn">
-                            {{ $lng['name'] }}
-                        </button>
-                        <div class="dropdown-content">
-                            @foreach(config('main.lang') as $k => $v)
-                                @if($k !== $lng['key'])
-                                    <a class="select-lang" href="/{{ $k }}" title="{{ $v['name'] }}"
-                                       data-lang="{{ $k }}">
-                                        {{ $v['name'] }}
-                                    </a>
-                                @endif
-                            @endforeach
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="dropdown">
+                        @php $lng = config('main.lang.' . App::getLocale()); @endphp
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle ps-0" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <img width="18" class="me-2" src="{{ asset($lng['icon']) }}"
+                                     alt="{{ $lng['name'] }}"> {{ $lng['name'] }}
+                            </button>
+                            <ul class="dropdown-menu">
+                                @foreach(config('main.lang') as $k => $v)
+                                    @if($k !== $lng['key'])
+                                        <li>
+                                            <a class="dropdown-item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}"
+                                               data-lang="{{ $k }}">
+                                                <img width="18" class="me-2" src="{{ asset($v['icon']) }}" alt="{{ $v['name'] }}"> {{ $v['name'] }}
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
-
+                    </li>
+                    <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <a class="dropbtn" href="{{ route('login') }}">{{ __( 'index.login' ) }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
                         @endif
 
-                        {{-- @if (Route::has('register'))
-                             <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                             </li>
-                         @endif--}}
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
                     @else
-                        <div class=" dropdown">
-                            <a class="dropbtn" href="#" role="button"
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-content">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __( 'index.logout' ) }}
+                                    {{ __('Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
-                        </div>
+                        </li>
                     @endguest
-                </div>
+                </ul>
             </div>
         </div>
-
-        @include('layouts.header-main')
-
-        @include('layouts.desktop-menu')
-
-        @include('layouts.mobile-header')
-
-        @include('layouts.mobile-menu')
-
-        @include('layouts.basket')
-    </header>
+    </nav>
 
     <main class="py-4">
         @yield('content')
     </main>
 </div>
-
-@yield('script')
 </body>
 </html>
