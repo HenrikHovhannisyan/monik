@@ -4,14 +4,30 @@
 
 /* Extra large */
 @media screen and (max-width: 1200px) {
+    #categories .item {
+        width: 200px;
+    }
 }
 
 /* Large */
 @media screen and (max-width: 992px) {
+
 }
 
 /* Medium */
 @media screen and (max-width: 768px) {
+    .title {
+        margin-bottom: 30px;
+    }
+
+    #banner,
+    #categories {
+        margin-bottom: 30px;
+    }
+
+    #categories .item {
+        width: 200px;
+    }
 }
 
 /* Small */

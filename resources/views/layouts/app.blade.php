@@ -12,18 +12,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     {{--  Styles  --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script defer src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand p-0" href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.png') }}" alt="Sofia logo" height="40">
             </a>
@@ -98,6 +100,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @if(Auth::user() && Auth::user()->is_admin === 1)
+                                    <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -115,7 +120,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 </div>

@@ -7,5 +7,6 @@ return [
     'about_us' => 'О нас',
     'logout' => 'Выйти',
     'login' => 'Войти',
+    'categories' => 'Категории',
 
 ];

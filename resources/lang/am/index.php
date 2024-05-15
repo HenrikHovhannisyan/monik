@@ -7,4 +7,5 @@ return [
     'about_us' => 'Մեր մասին',
     'logout' => 'Դուրս գալ',
     'login' => 'Մուտք',
+    'categories' => 'Կատեգորիաներ',
 ];

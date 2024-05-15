@@ -1,3 +1,4 @@
+// Start Get Language
 document.addEventListener('DOMContentLoaded', function () {
     const dropdownItems = document.querySelectorAll('.select-lang');
     dropdownItems.forEach(item => {
@@ -13,5 +14,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// End Get Language
 
+// Start Banner
+new Swiper(".banner", {
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+    },
+});
+
+// End Banner
+new Swiper(".category", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        992: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+        },
+    }
+});
 

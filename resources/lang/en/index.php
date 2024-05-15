@@ -7,5 +7,6 @@ return [
     'about_us' => 'About us',
     'logout' => 'Logout',
     'login' => 'Login',
+    'categories' => 'Categories',
 
 ];
