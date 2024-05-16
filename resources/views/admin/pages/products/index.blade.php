@@ -19,12 +19,12 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Code</th>
+                    <th scope="col" style="min-width: 100px;">Code</th>
                     <th scope="col">Image</th>
                     <th scope="col">Category</th>
                     <th scope="col">Name EN</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
+                    <th scope="col" style="min-width: 155px;">Price</th>
+                    <th scope="col" style="min-width: 160px;">Sizes</th>
                     <th width="280px">{{ 'Action' }}</th>
                 </tr>
                 </thead>
@@ -38,7 +38,7 @@
                                 <img src="{{asset($imagePath)}}" width="55px">
                             @endforeach
                         </td>
-                        <td>{{ $product->category->name_en }}</td>
+                        <td>{{ $product->category->name_ru }}</td>
                         <td>{{ $product->name_en }}</td>
                         <td>
                             <span class="d-block text-success">Price - {{ $product->price }}֏</span>
@@ -50,7 +50,21 @@
                                 </span>
                             @endif
                         </td>
-                        <td>{{ $product->quantity }}</td>
+                        <td>
+                            @php
+                                $sizes = json_decode($product->size, true); // Decode the 'size' JSON field
+                            @endphp
+                            @if(is_array($sizes))
+                                @foreach($sizes as $sizeName => $item)
+                                    @if(!is_null($item['quantity']))
+                                        <p class="mb-0">
+                                            ({{ $sizeName }}) - {{ $item['quantity'] }}
+                                        </p>
+                                    @endif
+                                @endforeach
+                            @endif
+                            <b>Total quantity - {{ $product->quantity }}</b>
+                        </td>
                         <td>
                             <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                                 <a class="btn btn-outline-success btn-sm m-1"
@@ -73,6 +87,7 @@
                 </tbody>
             </table>
         </div>
+        {!! $products->links('vendor.pagination.bootstrap-4') !!}
     </div>
 
 @endsection

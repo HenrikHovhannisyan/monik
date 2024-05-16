@@ -105,37 +105,33 @@
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label class="form-label text-white">
-                        Size:
+                        Sizes:
                         <span class="text-danger">*</span>
                     </label>
-                    <div class="d-flex">
-                        <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[name]" value="0-3"
-                                   id="0-3" <?php echo (in_array('0-3', old('size', []))) ? 'checked' : ''; ?>>
-                            <label class="form-check-label text-white" for="0-3">0-3</label>
+                    <div id="sizes-container" class="d-flex">
+                        <div class="d-grid size-group">
+                            <label for="size-0-3" class="form-check-label text-white">0-3</label>
+                            <input type="number" id="size-0-3" name="size[0-3][quantity]" class="form-control" placeholder="Quantity" min="0">
                         </div>
-                        <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[name]" value="3-6"
-                                   id="3-6" <?php echo (in_array('3-6', old('size', []))) ? 'checked' : ''; ?>>
-                            <label class="form-check-label text-white" for="3-6">3-6</label>
+                        <div class="d-grid size-group">
+                            <label for="size-3-6" class="form-check-label text-white">3-6</label>
+                            <input type="number" id="size-3-6" name="size[3-6][quantity]" class="form-control" placeholder="Quantity" min="0">
                         </div>
-                        <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[name]" value="6-12"
-                                   id="6-12" <?php echo (in_array('6-12', old('size', []))) ? 'checked' : ''; ?>>
-                            <label class="form-check-label text-white" for="6-12">6-12</label>
+                        <div class="d-grid size-group">
+                            <label for="size-6-12" class="form-check-label text-white">6-12</label>
+                            <input type="number" id="size-6-12" name="size[6-12][quantity]" class="form-control" placeholder="Quantity" min="0">
                         </div>
-                        <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[name]" value="12-18"
-                                   id="12-18" <?php echo (in_array('12-18', old('size', []))) ? 'checked' : ''; ?>>
-                            <label class="form-check-label text-white" for="12-18">12-18</label>
+                        <div class="d-grid size-group">
+                            <label for="size-12-18" class="form-check-label text-white">12-18</label>
+                            <input type="number" id="size-12-18" name="size[12-18][quantity]" class="form-control" placeholder="Quantity" min="0">
                         </div>
-                        <div class="form-check me-3">
-                            <input class="form-check-input" type="checkbox" name="size[name]" value="18-24"
-                                   id="18-24" <?php echo (in_array('18-24', old('size', []))) ? 'checked' : ''; ?>>
-                            <label class="form-check-label text-white" for="18-24">18-24</label>
+                        <div class="d-grid size-group">
+                            <label for="size-18-24" class="form-check-label text-white">18-24</label>
+                            <input type="number" id="size-18-24" name="size[18-24][quantity]" class="form-control" placeholder="Quantity" min="0">
                         </div>
                     </div>
                 </div>
+
                 <div class="mb-3 col-12 col-lg-4">
                     <div class="row">
                         <div class="col-12 col-lg-6">
@@ -174,14 +170,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3 col-12 col-lg-4">
-                    <label for="quantity" class="form-label text-white">
-                        Quantity:
-                        <span class="text-danger">*</span>
-                    </label>
-                    <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Quantity"
-                           min="0" value="{{old('quantity')}}" required>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="color" class="form-label text-white">

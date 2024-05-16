@@ -107,16 +107,15 @@
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label class="form-label text-white">
-                        Size:
+                        Sizes:
                         <span class="text-danger">*</span>
                     </label>
-                    <div class="d-flex">
+                    <div id="sizes-container" class="d-flex">
                         @foreach($availableSizes as $size)
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" name="size[]" value="{{ $size }}"
-                                       id="{{ $size }}"
-                                    {{ in_array($size, $selectedSizes) ? 'checked' : '' }}>
-                                <label class="form-check-label text-white" for="{{ $size }}">{{ $size }}</label>
+                            <div class="d-grid size-group">
+                                <label for="size-{{ $size }}" class="form-check-label text-white">{{ $size }}</label>
+                                <input type="number" id="size-{{ $size }}" name="size[{{ $size }}][quantity]" class="form-control" placeholder="Quantity"
+                                       min="0" value="{{ isset($selectedSizes[$size]['quantity']) ? $selectedSizes[$size]['quantity'] : '' }}">
                             </div>
                         @endforeach
                     </div>
@@ -161,15 +160,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3 col-12 col-lg-4">
-                    <label for="quantity" class="form-label text-white">
-                        Quantity:
-                        <span class="text-danger">*</span>
-                    </label>
-                    <input type="number" name="quantity" id="quantity" value="{{ $product->quantity }}"
-                           class="form-control" placeholder="Quantity" min="0"
-                           required>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="color" class="form-label text-white">

@@ -26,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $gender = Product::whereJsonContains('gender', ["boy", "girl"])->get();
+        $status = Product::whereJsonContains('status', ["new", "top"])->get();
+//        dd($status);
         $product = Product::all();
         $categories = Category::has('products')->get();
 

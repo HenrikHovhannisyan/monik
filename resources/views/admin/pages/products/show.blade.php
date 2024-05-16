@@ -31,20 +31,36 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>Sizes</th>
+                            <td class="text-white">
+                                @foreach($size as $sizeName => $item)
+                                    @if( $item['quantity'])
+                                        <span class="d-inline-flex px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">
+                                            ({{ $sizeName }}) - {{ $item['quantity'] }}
+                                        </span>
+                                    @endif
+                                @endforeach
+                            </td>
+                        </tr>
+                        <tr>
                             <th>Category</th>
                             <td class="text-white">
-                                {{ $product->category->name_en }}
+                                {{ $product->category->name_ru }}
                             </td>
                         </tr>
                         <tr>
                             <th>Status</th>
                             <td class="text-white">
-                                @foreach($status as $key => $value)
-                                    {{ $value }}
-                                    @if(!$loop->last)
-                                        ,
-                                    @endif
-                                @endforeach
+                                @if($status)
+                                    @foreach($status as $key => $value)
+                                        {{ $value }}
+                                        @if(!$loop->last)
+                                            ,
+                                        @endif
+                                    @endforeach
+                                @else
+                                    No status available
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -111,16 +127,6 @@
                                 </td>
                             </tr>
                         @endif
-                        <tr>
-                            <th>Size</th>
-                            <td class="text-white">
-                                @foreach($size as $key => $value){{ $value }}
-                                @if(!$loop->last)
-                                    ,
-                                @endif
-                                @endforeach
-                            </td>
-                        </tr>
                         <tr>
                             <th>Gender</th>
                             <td class="text-white">

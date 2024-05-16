@@ -60,7 +60,6 @@ class ProductController extends Controller
             'size' => 'required|array',
             'gender' => 'required|array',
             'status' => 'array',
-            'quantity' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -79,10 +78,18 @@ class ProductController extends Controller
             $input['images'] = json_encode($imagePaths);
         }
 
+        $totalQuantity = 0;
+        foreach ($request->size as $size) {
+            if (isset($size['quantity']) && is_numeric($size['quantity'])) {
+                $totalQuantity += (int) $size['quantity'];
+            }
+        }
+
         $input['category_id'] = $request->category_id;
         $input['size'] = json_encode($request->size);
         $input['gender'] = json_encode($request->gender);
         $input['status'] = json_encode($request->status);
+        $input['quantity'] = $totalQuantity;
         $input['code'] = random_int(1000, 9999) . '-' . random_int(1000, 9999);
 
         Product::create($input);
@@ -90,6 +97,7 @@ class ProductController extends Controller
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }
+
 
 
     /**
@@ -100,9 +108,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $size = json_decode($product->size);
-        $gender = json_decode($product->gender);
-        $status = json_decode($product->status);
+        $size = json_decode($product->size, true);
+        $gender = json_decode($product->gender, true);
+        $status = json_decode($product->status, true);
         return view('admin.pages.products.show', compact('product', 'size', 'gender', 'status'));
     }
 
@@ -115,7 +123,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        $selectedSizes = json_decode($product->size);
+        $selectedSizes = json_decode($product->size, true);
         $selectedGender = json_decode($product->gender);
         $selectedStatus = json_decode($product->status);
         $availableSizes = ['0-3', '3-6', '6-12', '12-18', '18-24'];
@@ -148,7 +156,6 @@ class ProductController extends Controller
             'size' => 'required|array',
             'gender' => 'required|array',
             'status' => 'array',
-            'quantity' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -169,6 +176,7 @@ class ProductController extends Controller
             }
             $input['images'] = json_encode($imagePaths);
 
+            // Delete existing images
             if ($product->images) {
                 $existingImages = json_decode($product->images);
                 foreach ($existingImages as $oldImage) {
@@ -178,9 +186,22 @@ class ProductController extends Controller
                     }
                 }
             }
+        } else {
+            $input['images'] = $product->images; // Keep existing images if no new images are uploaded
+        }
+
+        // Calculate the sum of quantities from the size array
+        $totalQuantity = 0;
+        foreach ($request->size as $size) {
+            if (isset($size['quantity']) && is_numeric($size['quantity'])) {
+                $totalQuantity += (int) $size['quantity'];
+            }
         }
 
         $input['category_id'] = $request->category_id;
+        $input['size'] = json_encode($request->size);
+        $input['quantity'] = $totalQuantity; // Store the total quantity
+
         $product->update($input);
 
         return redirect()->route('products.index')
