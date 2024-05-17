@@ -32,12 +32,12 @@ new Swiper(".category", {
     },
     breakpoints: {
         768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-        },
-        992: {
             slidesPerView: 4,
             spaceBetween: 40,
+        },
+        992: {
+            slidesPerView: 5,
+            spaceBetween: 50,
         },
     }
 });
