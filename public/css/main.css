@@ -11,6 +11,10 @@ p {
     margin-bottom: 0;
 }
 
+main {
+    padding-top: 71px;
+}
+
 .title {
     text-align: center;
     margin-bottom: 50px;
@@ -21,32 +25,64 @@ p {
     margin-bottom: 50px;
 }
 
-/* Start Banner */
-.swiper {
-    width: 100%;
-    height: 100%;
+/* Start Nav Bar */
+.navbar {
+    font-size: 18px;
 }
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
+.dropdown-menu-images {
+    width: max-content;
+    min-width: unset;
+    padding: 5px;
+}
+
+.dropdown-menu-images .dropdown-item {
+    padding: 5px 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.swiper-slide img {
+.dropdown-menu-images .dropdown-item img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
+
+/* End Nav Bar */
+
+/* Start Banner */
+.banner {
+    background-image: linear-gradient(-225deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(0, 36, 61, 0.6) 50%),
+    url('https://img.freepik.com/premium-photo/baby-shower-background-with-celebration-party-real_762118-3606.jpg');
+    color: white;
+    text-align: center;
+    height: calc(100vh - 71px);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.6);
+}
+
+.banner p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+    margin-bottom: 50px;
+}
+
 /* End Banner */
 
 
 /* Start Category */
-#categories img{
+#categories img {
     width: 55px;
     margin-right: 15px;
 }
@@ -65,4 +101,5 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 /* End Category */

@@ -17,19 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
 // End Get Language
 
 // Start Banner
-new Swiper(".banner", {
-    pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-    },
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-    },
-});
+
 
 // End Banner
+
+// Start Home Category Section
 new Swiper(".category", {
     slidesPerView: 2,
     spaceBetween: 20,
@@ -50,3 +42,4 @@ new Swiper(".category", {
     }
 });
 
+// End Home Category Section

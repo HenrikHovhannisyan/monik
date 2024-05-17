@@ -3,20 +3,11 @@
 @section('content')
 
     <section id="banner">
-        <div class="swiper banner">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/previews/041/930/836/non_2x/baby-items-horizontal-web-banner-kid-toys-booties-diapers-ball-pacifier-bodysuit-pyramid-and-other-newborn-elements-illustration-for-header-website-cover-templates-in-modern-design-vector.jpg"
-                        alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/previews/041/930/836/non_2x/baby-items-horizontal-web-banner-kid-toys-booties-diapers-ball-pacifier-bodysuit-pyramid-and-other-newborn-elements-illustration-for-header-website-cover-templates-in-modern-design-vector.jpg"
-                        alt="">
-                </div>
+        <div class="banner">
+            <div class="banner-content">
+                <h1>Welcome</h1>
+                <p>sofia.am</p>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
     </section>
     <section id="categories">
