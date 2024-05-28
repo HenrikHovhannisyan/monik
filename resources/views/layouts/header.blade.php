@@ -4,7 +4,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img class="logo_dark" src="{{ asset('images/logo.png') }}" alt="logo"/>
+                    <img class="logo_dark" src="{{ asset('images/logo.png?v=' . time()) }}" alt="logo"/>
                 </a>
                 <button
                     class="navbar-toggler"
@@ -302,49 +302,43 @@
                             >
                         </li>
                         <li>
-                            <a class="nav-link nav_item" href="login.html">
+                            <a class="nav-link nav_item" href="{{ route('login') }}">
                                 <i class="ti-user"></i>
-                                Login
+                                {{ __('Login') }}
                             </a>
                         </li>
                         <li class="dropdown">
+                            @php $lng = config('main.lang.' . App::getLocale()); @endphp
                             <a
                                 class="dropdown-toggle nav-link"
                                 href="#"
                                 data-bs-toggle="dropdown"
                             >
                                 <img
-                                    src="{{ asset('images/flags/eng.png') }}"
+                                    src="{{ asset($lng['icon']) }}"
                                     class="rounded-circle"
                                     width="18"
-                                    alt="English"
+                                    alt="{{ $lng['name'] }}"
                                 />
-                                English
+                                {{ $lng['name'] }}
                             </a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li>
-                                        <a class="dropdown-item nav-link nav_item" href="#">
-                                            <img
-                                                src="{{ asset('images/flags/fn.png') }}"
-                                                class="rounded-circle"
-                                                width="18"
-                                                alt="France"
-                                            />
-                                            France
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item nav-link nav_item" href="#">
-                                            <img
-                                                src="{{ asset('images/flags/us.png') }}"
-                                                class="rounded-circle"
-                                                width="18"
-                                                alt="United States"
-                                            />
-                                            United States
-                                        </a>
-                                    </li>
+                                    @foreach(config('main.lang') as $k => $v)
+                                        @if($k !== $lng['key'])
+                                            <li>
+                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                                    <img
+                                                        src="{{ asset($v['icon']) }}"
+                                                        class="rounded-circle"
+                                                        width="18"
+                                                        alt="{{ $v['name'] }}"
+                                                    />
+                                                    {{ $v['name'] }}
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
