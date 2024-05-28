@@ -15,31 +15,3 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // End Get Language
-
-// Start Banner
-
-
-// End Banner
-
-// Start Home Category Section
-new Swiper(".category", {
-    slidesPerView: 2,
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-    },
-    breakpoints: {
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-        },
-        992: {
-            slidesPerView: 5,
-            spaceBetween: 50,
-        },
-    }
-});
-
-// End Home Category Section
