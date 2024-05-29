@@ -20,60 +20,11 @@
                     id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav">
-                        <li class="dropdown">
-                            <a
-                                class="dropdown-toggle nav-link"
-                                href="index.html#"
-                                data-bs-toggle="dropdown"
-                            >Pages</a
-                            >
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li>
-                                        <a
-                                            class="dropdown-item nav-link nav_item"
-                                            href="faq.html"
-                                        >Faq</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item nav-link nav_item"
-                                            href="404.html"
-                                        >404 Error Page</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item nav-link nav_item"
-                                            href="login.html"
-                                        >Login</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item nav-link nav_item"
-                                            href="signup.html"
-                                        >Register</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item nav-link nav_item"
-                                            href="term-condition.html"
-                                        >Terms and Conditions</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li class="dropdown dropdown-mega-menu">
-                            <a
-                                class="dropdown-toggle nav-link"
-                                href="index.html#"
-                                data-bs-toggle="dropdown"
-                            >Products</a
-                            >
+                            <a class="dropdown-toggle nav-link" href="index.html#" title="{{ __('index.categories') }}"
+                               data-bs-toggle="dropdown">
+                                {{ __('index.categories') }}
+                            </a>
                             <div class="dropdown-menu">
                                 <ul class="mega-menu d-lg-flex">
                                     <li class="mega-menu-col col-lg-3">
@@ -147,41 +98,32 @@
                                     </li>
                                 </ul>
                                 <div class="d-lg-flex menu_banners row g-3 px-3">
-                                    <div class="col-sm-4">
-                                        <div class="header-banner">
-                                            <img
-                                                src="{{ asset('images/menu_banner1.jpg') }}"
-                                                alt="menu_banner1"
-                                            />
+                                    <div class="col-sm-4 header_banner_content">
+                                        <div class="shop_banner">
+                                            <img src="{{ asset('images/menu_banner1.jpg') }}" alt="menu_banner1"/>
                                             <div class="banne_info">
-                                                <h6>10% Off</h6>
-                                                <h4>New Arrival</h4>
+                                                <h6 class="shop_subtitle">10% Off</h6>
+                                                <h4 class="shop_title">New Arrival</h4>
                                                 <a href="index.html#">Shop now</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 header_banner_content">
                                         <div class="header-banner">
-                                            <img
-                                                src="{{ asset('images/menu_banner2.jpg') }}"
-                                                alt="menu_banner2"
-                                            />
+                                            <img src="{{ asset('images/menu_banner2.jpg') }}" alt="menu_banner2"/>
                                             <div class="banne_info">
-                                                <h6>15% Off</h6>
-                                                <h4>Men's Fashion</h4>
+                                                <h6 class="shop_subtitle">15% Off</h6>
+                                                <h4 class="shop_title">Men's Fashion</h4>
                                                 <a href="index.html#">Shop now</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 header_banner_content">
                                         <div class="header-banner">
-                                            <img
-                                                src="{{ asset('images/menu_banner3.jpg') }}"
-                                                alt="menu_banner3"
-                                            />
+                                            <img src="{{ asset('images/menu_banner3.jpg') }}" alt="menu_banner3"/>
                                             <div class="banne_info">
-                                                <h6>23% Off</h6>
-                                                <h4>Kids Fashion</h4>
+                                                <h6 class="shop_subtitle">23% Off</h6>
+                                                <h4 class="shop_title">Kids Fashion</h4>
                                                 <a href="index.html#">Shop now</a>
                                             </div>
                                         </div>
@@ -189,124 +131,50 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown dropdown-mega-menu">
-                            <a
-                                class="dropdown-toggle nav-link"
-                                href="index.html#"
-                                data-bs-toggle="dropdown"
-                            >Shop</a
-                            >
-                            <div class="dropdown-menu">
-                                <ul class="mega-menu d-lg-flex">
-                                    <li class="mega-menu-col col-lg-9">
-                                        <ul class="d-lg-flex">
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Shop Page Layout</li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="shop-left-sidebar.html"
-                                                        >Left Sidebar</a
-                                                        >
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Other Pages</li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="shop-cart.html"
-                                                        >Cart</a
-                                                        >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="checkout.html"
-                                                        >Checkout</a
-                                                        >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="my-account.html"
-                                                        >My Account</a
-                                                        >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="wishlist.html"
-                                                        >Wishlist</a
-                                                        >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="order-completed.html"
-                                                        >Order Completed</a
-                                                        >
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Product Pages</li>
-                                                    <li>
-                                                        <a
-                                                            class="dropdown-item nav-link nav_item"
-                                                            href="shop-product-detail.html"
-                                                        >Default</a
-                                                        >
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <div class="header_banner">
-                                            <div class="header_banner_content">
-                                                <div class="shop_banner">
-                                                    <div class="banner_img overlay_bg_40">
-                                                        <img
-                                                            src="{{ asset('images/shop_banner.jpg') }}"
-                                                            alt="shop_banner"
-                                                        />
-                                                    </div>
-                                                    <div class="shop_bn_content">
-                                                        <h5 class="text-uppercase shop_subtitle">
-                                                            New Collection
-                                                        </h5>
-                                                        <h3 class="text-uppercase shop_title">
-                                                            Sale 30% Off
-                                                        </h3>
-                                                        <a
-                                                            href="index.html#"
-                                                            class="btn btn-white rounded-0 btn-sm text-uppercase"
-                                                        >Shop Now</a
-                                                        >
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li>
-                            <a class="nav-link nav_item" href="contact.html"
-                            >Contact Us</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link nav_item" href="{{ route('login') }}">
-                                <i class="ti-user"></i>
-                                {{ __('Login') }}
+                            <a class="nav-link nav_item" href="contact.html" title="{{ __("index.contact-us") }}">
+                                {{ __("index.contact-us") }}
                             </a>
                         </li>
+                        @guest
+                            <li>
+                                <a class="nav-link nav_item" href="{{ route('login') }}">
+                                    <i class="ti-user"></i>
+                                    {{ __('index.login') }}
+                                </a>
+                            </li>
+                        @else
+                            <li class="dropdown">
+                                <a class="dropdown-toggle nav-link user_name" href="#" data-bs-toggle="dropdown"
+                                   title="{{ Auth::user()->name }}">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu">
+                                    <ul>
+                                        @if(Auth::user() && Auth::user()->is_admin === 1)
+                                            <li>
+                                                <a class="dropdown-item nav-link nav_item"
+                                                   href="{{ route('dashboard') }}"
+                                                   title="{{ __('index.admin-panel') }}">
+                                                    {{ __('index.admin-panel') }}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}"
+                                                   title="{{ __('index.logout') }}"
+                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    {{ __('index.logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                      class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
+                            </li>
+                        @endguest
                         <li class="dropdown">
                             @php $lng = config('main.lang.' . App::getLocale()); @endphp
                             <a
@@ -327,7 +195,8 @@
                                     @foreach(config('main.lang') as $k => $v)
                                         @if($k !== $lng['key'])
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}"
+                                                   title="{{ $v['name'] }}" data-lang="{{ $k }}">
                                                     <img
                                                         src="{{ asset($v['icon']) }}"
                                                         class="rounded-circle"
@@ -346,17 +215,17 @@
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
                     <li>
-                        <a href="javascript:;" class="nav-link search_trigger"
-                        ><i class="linearicons-magnifier"></i
-                            ></a>
+                        <a href="javascript:;" class="nav-link search_trigger" title="{{ __("index.search") }}">
+                            <i class="linearicons-magnifier"></i>
+                        </a>
                         <div class="search_wrap">
-                  <span class="close-search"
-                  ><i class="ion-ios-close-empty"></i
-                      ></span>
+                            <span class="close-search">
+                                <i class="ion-ios-close-empty"></i>
+                             </span>
                             <form>
                                 <input
                                     type="text"
-                                    placeholder="Search"
+                                    placeholder="{{ __("index.search") }}"
                                     class="form-control"
                                     id="search_input"
                                 />
@@ -368,48 +237,43 @@
                         <div class="search_overlay"></div>
                     </li>
                     <li class="dropdown cart_dropdown">
-                        <a
-                            class="nav-link cart_trigger"
-                            href="index.html#"
-                            data-bs-toggle="dropdown"
-                        ><i class="linearicons-cart"></i
-                            ><span class="cart_count">2</span></a
-                        >
+                        <a class="nav-link cart_trigger" href="index.html#" data-bs-toggle="dropdown" title="{{ __("index.cart") }}">
+                            <i class="linearicons-cart"></i>
+                            <span class="cart_count">2</span>
+                        </a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>
-                                    <a href="index.html#" class="item_remove"
-                                    ><i class="ion-close"></i
-                                        ></a>
-                                    <a href="index.html#"
-                                    ><img
-                                            src="{{ asset('images/cart_thamb1.jpg') }}"
-                                            alt="cart_thumb1"
-                                        />Variable product 001</a
-                                    >
+                                    <a href="index.html#" class="item_remove">
+                                        <i class="ion-close"></i>
+                                    </a>
+                                    <a href="index.html#"><img src="{{ asset('images/cart_thamb1.jpg') }}"
+                                                               alt="cart_thumb1"/>
+                                        Variable product 001
+                                    </a>
                                     <span class="cart_quantity">
-                        1 x
-                        <span class="cart_amount">
-                          <span class="price_symbole">$</span></span
-                        >78.00</span
-                                    >
+                                        1 x
+                                        <span class="cart_amount">
+                                          <span class="price_symbole">$</span>
+                                        </span>
+                                        78.00
+                                    </span>
                                 </li>
                                 <li>
-                                    <a href="index.html#" class="item_remove"
-                                    ><i class="ion-close"></i
-                                        ></a>
-                                    <a href="index.html#"
-                                    ><img
-                                            src="{{ asset('images/cart_thamb2.jpg') }}"
-                                            alt="cart_thumb2"
-                                        />Ornare sed consequat</a
-                                    >
+                                    <a href="index.html#" class="item_remove">
+                                        <i class="ion-close"></i>
+                                    </a>
+                                    <a href="index.html#">
+                                        <img src="{{ asset('images/cart_thamb2.jpg') }}" alt="cart_thumb2"/>
+                                        Ornare sed consequat
+                                    </a>
                                     <span class="cart_quantity">
-                        1 x
-                        <span class="cart_amount">
-                          <span class="price_symbole">$</span></span
-                        >81.00</span
-                                    >
+                                        1 x
+                                        <span class="cart_amount">
+                                            <span class="price_symbole">$</span>
+                                        </span>
+                                        81.00
+                                    </span>
                                 </li>
                             </ul>
                             <div class="cart_footer">
@@ -434,13 +298,10 @@
                         </div>
                     </li>
                     <li class="dropdown cart_dropdown">
-                        <a
-                            class="nav-link cart_trigger"
-                            href="index.html#"
-                            data-bs-toggle="dropdown"
-                        ><i class="linearicons-heart"></i
-                            ><span class="cart_count">2</span></a
-                        >
+                        <a class="nav-link cart_trigger" href="index.html#" data-bs-toggle="dropdown" title="{{ __("index.wish-list") }}">
+                            <i class="linearicons-heart"></i>
+                            <span class="cart_count">2</span>
+                        </a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>

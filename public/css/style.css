@@ -2346,6 +2346,16 @@ input.text {
   -ms-flex-align: center;
   align-items: center;
 }
+
+.dropdown > .user_name {
+    display: inline-block;
+    max-width: 10ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    position: relative;
+}
 /*===================================*
   02.END HEADER STYLE
 *===================================*/
