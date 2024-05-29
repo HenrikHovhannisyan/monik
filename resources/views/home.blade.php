@@ -32,83 +32,19 @@
                                         data-margin="30"
                                         data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'
                                     >
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/1.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Hat</span>
-                                                </a>
+                                        @foreach($categories as $category)
+                                            <div class="item">
+                                                <div class="categories_box">
+                                                    <a href="index-4.html#">
+                                                        <img
+                                                            src="{{ asset( $category->image ) }}"
+                                                            alt=""
+                                                        />
+                                                        <span>{{ $category->{lang('name')} }}</span>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/2.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Body</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/3.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Hygienic sets</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/4.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Pajamas</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/5.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Socks</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/6.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Trousers</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="categories_box">
-                                                <a href="index-4.html#">
-                                                    <img
-                                                        src="{{ asset('images/categories_box/7.png') }}"
-                                                        alt=""
-                                                    />
-                                                    <span>Shirts</span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -2683,7 +2619,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="text-center trading_img">
-                            <img src="images/tranding_img.png" alt="tranding_img" />
+                            <img src="images/tranding_img.png" alt="tranding_img"/>
                         </div>
                     </div>
                 </div>
@@ -3062,7 +2998,7 @@
                     <div class="col-lg-4">
                         <div class="icon_box icon_box_style1">
                             <div class="icon">
-                                <img src="images/icons/delivery.png" alt="Delivery" />
+                                <img src="images/icons/delivery.png" alt="Delivery"/>
                             </div>
                             <div class="icon_box_content">
                                 <h5>Free Delivery</h5>
@@ -3093,7 +3029,7 @@
                     <div class="col-lg-4">
                         <div class="icon_box icon_box_style1">
                             <div class="icon">
-                                <img src="{{ asset('images/icons/support.png') }}" alt="Support" />
+                                <img src="{{ asset('images/icons/support.png') }}" alt="Support"/>
                             </div>
                             <div class="icon_box_content">
                                 <h5>27/4 Support</h5>

@@ -145,7 +145,7 @@
                             </li>
                         @else
                             <li class="dropdown">
-                                <a class="dropdown-toggle nav-link user_name" href="#" data-bs-toggle="dropdown"
+                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"
                                    title="{{ Auth::user()->name }}">
                                     {{ Auth::user()->name }}
                                 </a>
