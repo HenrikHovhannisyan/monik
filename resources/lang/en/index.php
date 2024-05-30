@@ -2,8 +2,8 @@
 
 return [
     'logout' => 'Logout',
-    'login' => 'Login',
 
+    'home' => 'Home',
     'products' => 'Products',
     'about-us' => 'About us',
     'contact-us' => 'Contact Us',
@@ -13,5 +13,15 @@ return [
     'search' => 'Search',
     'cart' => 'Cart',
     'wish-list' => 'Wish List',
+
+//    Login
+    'login' => 'Login',
+    'your_email' => 'Your Email',
+    'password' => 'Password',
+    'remember_me' => 'Remember me',
+    'forgot_password' => 'Forgot password?',
+    'or' => 'or',
+    'no_account' => "Don't Have an Account?",
+    'sign_up_now' => 'Sign up now',
 
 ];

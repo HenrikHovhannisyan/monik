@@ -20,24 +20,24 @@ use App\Http\Controllers\Auth\GoogleController;
 Route::group(
     [
         'prefix' => LocalizationService::locale(),
-        'middleware' => 'setLocale'
+        'middleware' => ['web', 'setLocale']
     ],
     function () {
-
         Auth::routes();
 
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+    }
+);
 
-    });
-
-Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin'], 'namespace' => '\App\Http\Controllers\Admin'], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['web', 'auth', 'is_admin'], 'namespace' => '\App\Http\Controllers\Admin'], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::get('/users', 'HomeController@users')->name('users');
     Route::resource('categories', 'CategoryController');
     Route::resource('products', 'ProductController');
 });
+
 
 
 

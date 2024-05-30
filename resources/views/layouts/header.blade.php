@@ -159,6 +159,7 @@
                                                     {{ __('index.admin-panel') }}
                                                 </a>
                                             </li>
+                                        @endif
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}"
                                                    title="{{ __('index.logout') }}"
@@ -170,7 +171,6 @@
                                                     @csrf
                                                 </form>
                                             </li>
-                                        @endif
                                     </ul>
                                 </div>
                             </li>
