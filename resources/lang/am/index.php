@@ -24,4 +24,12 @@ return [
     'no_account' => 'Հաշիվ չունե՞ք',
     'sign_up_now' => 'Գրանցվեք հիմա',
 
+//    Register
+    'register' => 'Գրանցվել',
+    'create_account' => 'Գրանցվել',
+    'enter_name' => 'Մուտքագրեք ձեր անունը',
+    'enter_email' => 'Մուտքագրեք ձեր էլ. հասցեն',
+    'confirm_password' => 'Հաստատեք գաղտնաբառը',
+    'already_account' => 'Արդեն ունեք հաշիվ?',
+
 ];

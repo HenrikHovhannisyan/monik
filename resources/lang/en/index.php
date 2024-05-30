@@ -24,4 +24,12 @@ return [
     'no_account' => "Don't Have an Account?",
     'sign_up_now' => 'Sign up now',
 
+//    Register
+    'register' => 'Register',
+    'create_account' => 'Create an Account',
+    'enter_name' => 'Enter Your Name',
+    'enter_email' => 'Enter Your Email',
+    'confirm_password' => 'Confirm Password',
+    'already_account' => 'Already have an account?',
+
 ];
