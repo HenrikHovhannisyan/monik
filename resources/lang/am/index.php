@@ -2,6 +2,8 @@
 
 return [
     'logout' => 'Դուրս գալ',
+    'reset_password' => 'Վերակայել գաղտնաբառը',
+    'send_password_reset_link' => 'Ուղարկել գաղտնաբառի վերակայման հղումը',
 
     'home' => 'Գլխավոր էջ',
     'products' => 'Ապրանքներ',

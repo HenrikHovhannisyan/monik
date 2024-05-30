@@ -2,6 +2,8 @@
 
 return [
     'logout' => 'Выйти',
+    'reset_password' => 'Сбросить пароль',
+    'send_password_reset_link' => 'Отправить ссылку для сброса пароля',
 
     'home' => 'Главная',
     'products' => 'Продукты',
