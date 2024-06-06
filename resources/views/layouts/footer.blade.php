@@ -48,7 +48,11 @@
                         <h6 class="widget_title">Useful Links</h6>
                         <ul class="widget_links">
                             <li><a href="index.html#">About Us</a></li>
-                            <li><a href="index.html#">FAQ</a></li>
+                            <li>
+                                <a href="{{ route('faq') }}">
+                                    {{ __("index.faq") }}
+                                </a>
+                            </li>
                             <li><a href="index.html#">Location</a></li>
                             <li><a href="index.html#">Affiliates</a></li>
                             <li><a href="index.html#">Contact</a></li>

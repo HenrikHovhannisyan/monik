@@ -34,4 +34,8 @@ return [
     'confirm_password' => 'Confirm Password',
     'already_account' => 'Already have an account?',
 
+//    Faq
+    'faqs' => 'Frequently asked questions',
+    'faq' => 'FAQ',
+
 ];

@@ -33,6 +33,15 @@ p {
     margin-bottom: 25px;
 }
 
+.accordion_style1 a > p {
+    margin-bottom: 0;
+    color: #292b2c;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.collapsed > *,
 a {
     color: #292b2c;
     text-decoration: none;
@@ -40,11 +49,13 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
+.accordion_style1 a > p:hover,
 a:hover {
     color: #ff324d;
     text-decoration: none;
 }
 
+.accordion_style1 a > p:focus,
 a:focus {
     outline: none;
 }
