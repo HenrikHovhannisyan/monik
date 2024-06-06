@@ -31,48 +31,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function textEditor(name) {
+    return ClassicEditor.create(document.querySelector(name), {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
+                '|', 'link', 'codeBlock',
+                '|', 'bulletedList', 'numberedList', 'todoList',
+            ],
+            shouldNotGroupWhenFull: false
+        }
+    }).catch((error) => {
 
-ClassicEditor.create(document.querySelector("#description_am"), {
-    toolbar: {
-        items: [
-            'undo', 'redo',
-            '|', 'heading',
-            '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-            '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
-            '|', 'link', 'codeBlock',
-            '|', 'bulletedList', 'numberedList', 'todoList',
-        ],
-        shouldNotGroupWhenFull: false
-    }
-}).catch((error) => {
-});
-ClassicEditor.create(document.querySelector("#description_ru"), {
-    toolbar: {
-        items: [
-            'undo', 'redo',
-            '|', 'heading',
-            '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-            '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
-            '|', 'link', 'codeBlock',
-            '|', 'bulletedList', 'numberedList', 'todoList',
-        ],
-        shouldNotGroupWhenFull: false
-    }
-}).catch((error) => {
+    });
+}
 
-});
-ClassicEditor.create(document.querySelector("#description_en"), {
-    toolbar: {
-        items: [
-            'undo', 'redo',
-            '|', 'heading',
-            '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-            '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
-            '|', 'link', 'codeBlock',
-            '|', 'bulletedList', 'numberedList', 'todoList',
-        ],
-        shouldNotGroupWhenFull: false
-    }
-}).catch((error) => {
-
-});
+textEditor("#description_am");
+textEditor("#description_ru");
+textEditor("#description_en");
+textEditor("#answer_am");
+textEditor("#answer_ru");
+textEditor("#answer_en");
+textEditor("#question_am");
+textEditor("#question_ru");
+textEditor("#question_en");

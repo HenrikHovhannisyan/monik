@@ -24,5 +24,11 @@
                 Products
             </a>
         </li>
+        <li class="{{isActiveRoute('faqs.index')}}">
+            <a href="{{route('faqs.index')}}">
+                <i class="fa-solid fa-clipboard-question me-1"></i>
+                Faqs
+            </a>
+        </li>
     </ul>
 </section>

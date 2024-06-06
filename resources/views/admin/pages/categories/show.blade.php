@@ -40,7 +40,7 @@
                             <li class="mb-2">
                                 <strong>Description AM :</strong>
                                 <span class="text-white">
-                                    {{ $category->description_am }}
+                                    {!! html_entity_decode($category->description_am) !!}
                                 </span>
                             </li>
                         @endif
@@ -48,7 +48,7 @@
                             <li class="mb-2">
                                 <strong>Description RU :</strong>
                                 <span class="text-white">
-                                    {{ $category->description_ru }}
+                                    {!! html_entity_decode($category->description_ru) !!}
                                 </span>
                             </li>
                         @endif
@@ -56,7 +56,7 @@
                             <li class="mb-2">
                                 <strong>Description EN :</strong>
                                 <span class="text-white">
-                                    {{ $category->description_en }}
+                                    {!! html_entity_decode($category->description_en) !!}
                                 </span>
                             </li>
                         @endif

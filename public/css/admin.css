@@ -61,19 +61,29 @@ input[type=number] {
     background-color: #2a2d3a;
     padding: 10px;
     border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
 }
 
 #sidebar .fa-desktop {
     color: #8e64e4;
 }
+
 #sidebar .fa-users {
     color: #ffab00;
 }
+
 #sidebar .fa-layer-group {
     color: #fc424a;
 }
+
 #sidebar .fa-shirt {
     color: #00d25b;
+}
+
+#sidebar .fa-clipboard-question {
+    color: #0052d2;
 }
 
 #sidebar ul li.active > a,
@@ -106,7 +116,7 @@ input[type=number] {
 }
 
 #imagePreview {
-    cursor: pointer!important;
+    cursor: pointer !important;
 }
 
 .ck-editor__editable {

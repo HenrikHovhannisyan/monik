@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
@@ -31,7 +32,8 @@ class HomeController extends Controller
         $usersCount = count(User::all());
         $categoryCount = count(Category::all());
         $productCount = count(Product::all());
-        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount'));
+        $faqCount = count(Faq::all());
+        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'faqCount'));
     }
 
     /**

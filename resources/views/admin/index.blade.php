@@ -42,6 +42,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 col-lg-3 mb-3">
+                <div class="card">
+                    <div class="text-center text-white">
+                        <i class="fa-solid fa-clipboard-question fa-5x"></i>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start mt-3">
+                        <h3 class="m-0">Faqs - {{ $faqCount }}</h3>
+                        <a href="{{route('faqs.index')}}" class="btn">
+                            View
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
