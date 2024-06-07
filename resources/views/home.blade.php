@@ -139,23 +139,21 @@
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
                                                         <li class="add-to-cart">
-                                                            <a href="index.html#"
-                                                            ><i class="icon-basket-loaded"></i> Add To
-                                                                Cart</a
+                                                            <a href="index.html#">
+                                                                <i class="icon-basket-loaded"></i>
+                                                                Add To Cart
+                                                            </a
                                                             >
                                                         </li>
-
                                                         <li>
-                                                            <a
-                                                                href="shop-quick-view.html"
-                                                                class="popup-ajax"
-                                                            ><i class="icon-magnifier-add"></i
-                                                                ></a>
+                                                            <a href="shop-quick-view.html" class="popup-ajax">
+                                                                <i class="icon-magnifier-add"></i>
+                                                            </a>
                                                         </li>
                                                         <li>
-                                                            <a href="index.html#"
-                                                            ><i class="icon-heart"></i
-                                                                ></a>
+                                                            <a href="index.html#">
+                                                                <i class="icon-heart"></i>
+                                                            </a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -199,6 +197,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="product">
                                             <div class="product_img">
