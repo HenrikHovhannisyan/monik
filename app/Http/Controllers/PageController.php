@@ -13,4 +13,9 @@ class PageController extends Controller
 
         return view('pages.faq', compact('faqs'));
     }
+
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 }

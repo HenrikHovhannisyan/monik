@@ -48,7 +48,7 @@
                         <h6 class="widget_title">{{ __("index.pages") }}</h6>
                         <ul class="widget_links">
                             <li>
-                                <a href="index.html#" title="{{ __("index.contact") }}">
+                                <a href="{{ route('contact') }}" title="{{ __("index.contact") }}">
                                     {{ __("index.contact") }}
                                 </a>
                             </li>

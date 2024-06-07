@@ -129,7 +129,7 @@
                             </div>
                         </li>
                         <li>
-                            <a class="nav-link nav_item" href="contact.html" title="{{ __("index.contact") }}">
+                            <a class="nav-link nav_item" href="{{ route('contact') }}" title="{{ __("index.contact") }}">
                                 {{ __("index.contact") }}
                             </a>
                         </li>

@@ -38,4 +38,17 @@ return [
 //    Faq
     'faqs' => 'Frequently asked questions',
 
+    // Contact page
+    'address' => 'Address',
+    'email_address' => 'Email Address',
+    'phone' => 'Phone',
+    'get_in_touch' => 'Get In touch',
+    'enter_name_placeholder' => 'Enter Name ',
+    'enter_email_placeholder' => 'Enter Email ',
+    'enter_phone_placeholder' => 'Enter Phone No. ',
+    'enter_subject_placeholder' => 'Enter Subject',
+    'message_placeholder' => 'Message ',
+    'send_message' => 'Send Message',
+    'contact_info_text' => 'Send us your questions, and we will respond promptly. We are always happy to assist you with information about our products, provide advice on selecting goods, and resolve any issues that may arise. Our team of professionals is ready to provide you with high-quality service and support.',
+
 ];

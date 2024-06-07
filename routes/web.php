@@ -28,6 +28,7 @@ Route::group(
 
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+        Route::get('/contact', [PageController::class, 'contact'])->name('contact');
         Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
     }
