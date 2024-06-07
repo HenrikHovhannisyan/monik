@@ -30,8 +30,7 @@ class HomeController extends Controller
         $status = Product::whereJsonContains('status', ["new", "top"])->get();
 //        dd($status);
         $product = Product::all();
-        $categories = Category::has('products')->get();
 
-        return view('home', compact('product', 'categories'));
+        return view('home', compact('product'));
     }
 }

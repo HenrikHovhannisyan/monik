@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'pages' => 'Страницы',
     'logout' => 'Выйти',
     'reset_password' => 'Сбросить пароль',
     'send_password_reset_link' => 'Отправить ссылку для сброса пароля',
@@ -8,7 +9,7 @@ return [
     'home' => 'Главная',
     'products' => 'Продукты',
     'about-us' => 'О нас',
-    'contact-us' => 'Связаться с нами',
+    'contact' => 'Контакт',
     'categories' => 'Категории',
 
     'admin-panel' => 'Админка',
@@ -36,6 +37,5 @@ return [
 
 //    Faq
     'faqs' => 'Часто задаваемые вопросы',
-    'faq' => 'ЧЗВ',
 
 ];

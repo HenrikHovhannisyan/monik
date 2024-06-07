@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'pages' => 'Էջեր',
     'logout' => 'Դուրս գալ',
     'reset_password' => 'Վերակայել գաղտնաբառը',
     'send_password_reset_link' => 'Ուղարկել գաղտնաբառի վերակայման հղումը',
@@ -8,7 +9,7 @@ return [
     'home' => 'Գլխավոր էջ',
     'products' => 'Ապրանքներ',
     'about-us' => 'Մեր մասին',
-    'contact-us' => 'Կապ մեզ հետ',
+    'contact' => 'Կապ',
     'categories' => 'Կատեգորիաներ',
 
     'admin-panel' => 'Ադմինկա',
@@ -36,6 +37,5 @@ return [
 
 //    Faq
     'faqs' => 'Հաճախակի տրվող հարցեր',
-    'faq' => 'ՀՏՀ',
 
 ];

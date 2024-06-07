@@ -45,29 +45,34 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="widget">
-                        <h6 class="widget_title">Useful Links</h6>
+                        <h6 class="widget_title">{{ __("index.pages") }}</h6>
                         <ul class="widget_links">
-                            <li><a href="index.html#">About Us</a></li>
                             <li>
-                                <a href="{{ route('faq') }}">
-                                    {{ __("index.faq") }}
+                                <a href="index.html#" title="{{ __("index.contact") }}">
+                                    {{ __("index.contact") }}
                                 </a>
                             </li>
-                            <li><a href="index.html#">Location</a></li>
-                            <li><a href="index.html#">Affiliates</a></li>
-                            <li><a href="index.html#">Contact</a></li>
+                            <li>
+                                <a href="{{ route('faq') }}" title="{{ __("index.faqs") }}">
+                                    {{ __("index.faqs") }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="widget">
-                        <h6 class="widget_title">Category</h6>
+                        <h6 class="widget_title">
+                            {{ __("index.categories") }}
+                        </h6>
                         <ul class="widget_links">
-                            <li><a href="index.html#">Men</a></li>
-                            <li><a href="index.html#">Woman</a></li>
-                            <li><a href="index.html#">Kids</a></li>
-                            <li><a href="index.html#">Best Saller</a></li>
-                            <li><a href="index.html#">New Arrivals</a></li>
+                            @foreach($categories->shuffle()->slice(0, 5) as $category)
+                                <li>
+                                    <a href="index.html#">
+                                        {{ $category->{lang('name')} }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -110,7 +115,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="mb-md-0 text-center text-md-start">
-                        © 2020 All Rights Reserved by Sofia
+                        © {{ date('Y') }} {{ __("messages.all_rights_reserved") }} {{ config('app.name', 'Sofia') }}
                     </p>
                 </div>
                 <div class="col-md-6">

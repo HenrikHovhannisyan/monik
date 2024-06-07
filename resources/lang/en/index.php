@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'pages' => 'Pages',
     'logout' => 'Logout',
     'reset_password' => 'Reset Password',
     'send_password_reset_link' => 'Send Password Reset Link',
@@ -8,7 +9,7 @@ return [
     'home' => 'Home',
     'products' => 'Products',
     'about-us' => 'About us',
-    'contact-us' => 'Contact Us',
+    'contact' => 'Contact',
     'categories' => 'Categories',
 
     'admin-panel' => 'Admin panel',
@@ -36,6 +37,5 @@ return [
 
 //    Faq
     'faqs' => 'Frequently asked questions',
-    'faq' => 'FAQ',
 
 ];

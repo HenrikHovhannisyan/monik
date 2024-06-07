@@ -15,10 +15,7 @@
                 >
                     <span class="ion-android-menu"></span>
                 </button>
-                <div
-                    class="collapse navbar-collapse justify-content-end"
-                    id="navbarSupportedContent"
-                >
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="dropdown dropdown-mega-menu">
                             <a class="dropdown-toggle nav-link" href="index.html#" title="{{ __('index.categories') }}"
@@ -132,8 +129,8 @@
                             </div>
                         </li>
                         <li>
-                            <a class="nav-link nav_item" href="contact.html" title="{{ __("index.contact-us") }}">
-                                {{ __("index.contact-us") }}
+                            <a class="nav-link nav_item" href="contact.html" title="{{ __("index.contact") }}">
+                                {{ __("index.contact") }}
                             </a>
                         </li>
                         @guest
