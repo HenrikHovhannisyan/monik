@@ -158,7 +158,7 @@
                                         @if(Auth::user() && Auth::user()->is_admin === 1)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
-                                                   href="{{ route('dashboard') }}"
+                                                   href="{{ route('account') }}"
                                                    title="{{ __('index.my_account') }}">
                                                     {{ __('index.my_account') }}
                                                 </a>
