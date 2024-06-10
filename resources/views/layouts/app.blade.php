@@ -81,6 +81,7 @@
 <body>
 <div id="app">
     @include('vendor.ad')
+    @include('vendor.logout')
     @include('layouts.header')
     <main>
         @yield('content')

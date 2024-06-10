@@ -166,14 +166,9 @@
                                         @endif
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}"
-                                                   title="{{ __('index.logout') }}"
-                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                   title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                                     {{ __('index.logout') }}
                                                 </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                      class="d-none">
-                                                    @csrf
-                                                </form>
                                             </li>
                                     </ul>
                                 </div>

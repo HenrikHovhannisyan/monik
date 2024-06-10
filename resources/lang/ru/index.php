@@ -80,4 +80,10 @@ return [
     'new_password' => 'Новый пароль',
     'save' => 'Сохранить',
     'view' => 'просмотр',
+
+//  Logout modal
+    'confirm_logout' => 'Подтвердите выход',
+    'confirm_logout_message' => 'Вы уверены, что хотите выйти из системы?',
+    'cancel' => 'Отмена',
+
 ];

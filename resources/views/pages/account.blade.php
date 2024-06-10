@@ -40,26 +40,34 @@
                         <div class="dashboard_menu">
                             <ul class="nav nav-tabs flex-column" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="ti-layout-grid2"></i>{{ __("index.dashboard") }}</a>
+                                    <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false" title="{{ __("index.dashboard") }}">
+                                        <i class="ti-layout-grid2"></i>
+                                        {{ __("index.dashboard") }}
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="ti-shopping-cart-full"></i>{{ __("index.orders") }}</a>
+                                    <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false" title="{{ __("index.orders") }}">
+                                        <i class="ti-shopping-cart-full"></i>
+                                        {{ __("index.orders") }}
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="ti-location-pin"></i>{{ __("index.my_address") }}</a>
+                                    <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true" title="{{ __("index.my_address") }}">
+                                        <i class="ti-location-pin"></i>
+                                        {{ __("index.my_address") }}
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="ti-id-badge"></i>{{ __("index.account_details") }}</a>
+                                    <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true" title="{{ __("index.account_details") }}">
+                                        <i class="ti-id-badge"></i>
+                                        {{ __("index.account_details") }}
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('logout') }}" title="{{ __('index.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a class="nav-link" href="{{ route('logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal" title="{{ __('index.logout') }}">
                                         <i class="ti-lock"></i>
                                         {{ __('index.logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          class="d-none">
-                                        @csrf
-                                    </form>
                                 </li>
                             </ul>
                         </div>

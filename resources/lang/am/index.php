@@ -80,4 +80,10 @@ return [
     'new_password' => 'Նոր գաղտնաբառ',
     'save' => 'Պահպանել',
     'view' => 'դիտել',
+
+//  Logout modal
+    'confirm_logout' => 'Հաստատեք դուրս գալը',
+    'confirm_logout_message' => 'Համոզվա՞ծ եք, որ ցանկանում եք դուրս գալ:',
+    'cancel' => 'Չեղարկել',
+
 ];

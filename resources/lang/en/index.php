@@ -81,4 +81,9 @@ return [
     'save' => 'Save',
     'view' => 'view',
 
+//  Logout modal
+    'confirm_logout' => 'Confirm Logout',
+    'confirm_logout_message' => 'Are you sure you want to log out?',
+    'cancel' => 'Cancel',
+
 ];
