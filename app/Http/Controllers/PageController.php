@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -21,6 +21,7 @@ class PageController extends Controller
 
     public function account()
     {
-        return view('pages.account');
+        $user = Auth::user();
+        return view('pages.account', compact('user'));
     }
 }
