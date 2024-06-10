@@ -3,7 +3,7 @@
     <div class="footer_top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="index.html#"
@@ -11,39 +11,20 @@
                                 /></a>
                         </div>
                         <p>
-                            If you are going to use of Lorem Ipsum need to be sure there
-                            isn't hidden of text
+                            <b>{{ __('messages.comfort_and_style') }}</b>
                         </p>
                     </div>
                     <div class="widget">
                         <ul class="social_icons social_white">
                             <li>
-                                <a href="index.html#"
-                                ><i class="ion-social-facebook"></i
-                                    ></a>
-                            </li>
-                            <li>
-                                <a href="index.html#"><i class="ion-social-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="index.html#"
-                                ><i class="ion-social-googleplus"></i
-                                    ></a>
-                            </li>
-                            <li>
-                                <a href="index.html#"
-                                ><i class="ion-social-youtube-outline"></i
-                                    ></a>
-                            </li>
-                            <li>
-                                <a href="index.html#"
-                                ><i class="ion-social-instagram-outline"></i
-                                    ></a>
+                                <a href="index.html#">
+                                    <i class="fa-brands fa-instagram fa-2x"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="widget">
                         <h6 class="widget_title">{{ __("index.pages") }}</h6>
                         <ul class="widget_links">
@@ -60,7 +41,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="widget">
                         <h6 class="widget_title">
                             {{ __("index.categories") }}
@@ -68,7 +49,7 @@
                         <ul class="widget_links">
                             @foreach($categories->shuffle()->slice(0, 5) as $category)
                                 <li>
-                                    <a href="index.html#">
+                                    <a href="index.html#" title="{{ $category->{lang('name')} }}">
                                         {{ $category->{lang('name')} }}
                                     </a>
                                 </li>
@@ -76,21 +57,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="widget">
-                        <h6 class="widget_title">My Account</h6>
-                        <ul class="widget_links">
-                            <li><a href="index.html#">My Account</a></li>
-                            <li><a href="index.html#">Discount</a></li>
-                            <li><a href="index.html#">Returns</a></li>
-                            <li><a href="index.html#">Orders History</a></li>
-                            <li><a href="index.html#">Order Tracking</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="widget">
-                        <h6 class="widget_title">Contact Info</h6>
+                        <h6 class="widget_title">{{ __('index.contact_info') }}</h6>
                         <ul class="contact_info contact_info_light">
                             <li>
                                 <i class="ti-location-pin"></i>
@@ -121,23 +90,13 @@
                 <div class="col-md-6">
                     <ul class="footer_payment text-center text-lg-end">
                         <li>
-                            <a href="index.html#"
-                            ><img src="{{ asset('images/payment/visa.png') }}" alt="visa"
-                                /></a>
+                            <img src="{{ asset('images/payment/visa.png') }}" alt="visa"/>
                         </li>
                         <li>
-                            <a href="index.html#"
-                            ><img
-                                    src="{{ asset('images/payment/master_card.png') }}"
-                                    alt="master_card"
-                                /></a>
+                            <img src="{{ asset('images/payment/master_card.png') }}" alt="master_card"/>
                         </li>
                         <li>
-                            <a href="index.html#"
-                            ><img
-                                    src="{{ asset('images/payment/amarican_express.png') }}"
-                                    alt="amarican_express"
-                                /></a>
+                            <img src="{{ asset('images/payment/amarican_express.png') }}" alt="amarican_express"/>
                         </li>
                     </ul>
                 </div>

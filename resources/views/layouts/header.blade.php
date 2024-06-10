@@ -148,12 +148,19 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <ul>
+                                        <li>
+                                            <a class="dropdown-item nav-link nav_item text-success"
+                                               href="{{ route('dashboard') }}"
+                                               title="{{ __('index.admin-panel') }}">
+                                                {{ __('index.admin-panel') }}
+                                            </a>
+                                        </li>
                                         @if(Auth::user() && Auth::user()->is_admin === 1)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
                                                    href="{{ route('dashboard') }}"
-                                                   title="{{ __('index.admin-panel') }}">
-                                                    {{ __('index.admin-panel') }}
+                                                   title="{{ __('index.my_account') }}">
+                                                    {{ __('index.my_account') }}
                                                 </a>
                                             </li>
                                         @endif
