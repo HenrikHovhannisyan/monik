@@ -3,7 +3,7 @@
 return [
     'pages' => 'Էջեր',
     'logout' => 'Դուրս գալ',
-    'reset_password' => 'Վերակայել գաղտնաբառը',
+    'reset_password' => 'Վերականգնել գաղտնաբառը',
     'send_password_reset_link' => 'Ուղարկել գաղտնաբառի վերակայման հղումը',
     'contact_info' => 'Կոնտակտային տվյալներ',
 
