@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    @parent | {{ __("index.register") }}
+@endsection
+
 @section('content')
     <!-- START SECTION BREADCRUMB -->
     <div class="breadcrumb_section bg_gray page-title-mini">
