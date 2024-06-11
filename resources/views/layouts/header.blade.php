@@ -6,13 +6,7 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img class="logo_dark" src="{{ asset('images/logo.png?v=' . time()) }}" alt="logo"/>
                 </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-expanded="false"
-                >
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false">
                     <span class="ion-android-menu"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -28,11 +22,9 @@
                                         <ul>
                                             <li class="dropdown-header">Woman's</li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="shop-left-sidebar.html"
-                                                >Donec porttitor</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="shop-left-sidebar.html">
+                                                    Donec porttitor
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
@@ -40,32 +32,24 @@
                                         <ul>
                                             <li class="dropdown-header">Men's</li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="shop-cart.html"
-                                                >Donec vitae ante ante</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="shop-cart.html">
+                                                    Donec vitae ante ante
+                                                </a>
                                             </li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="checkout.html"
-                                                >Etiam ac rutrum</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="checkout.html">
+                                                    Etiam ac rutrum
+                                                </a>
                                             </li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="wishlist.html"
-                                                >Quisque condimentum</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="wishlist.html">
+                                                    Quisque condimentum
+                                                </a>
                                             </li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="order-completed.html"
-                                                >Vivamus in tortor</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="order-completed.html">
+                                                    Vivamus in tortor
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
@@ -73,11 +57,9 @@
                                         <ul>
                                             <li class="dropdown-header">Kid's</li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="shop-product-detail.html"
-                                                >Donec vitae facilisis</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">
+                                                    Donec vitae facilisis
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
@@ -85,11 +67,9 @@
                                         <ul>
                                             <li class="dropdown-header">Accessories</li>
                                             <li>
-                                                <a
-                                                    class="dropdown-item nav-link nav_item"
-                                                    href="shop-product-detail.html"
-                                                >Donec vitae facilisis</a
-                                                >
+                                                <a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">
+                                                    Donec vitae facilisis
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
@@ -142,31 +122,25 @@
                             </li>
                         @else
                             <li class="dropdown">
-                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"
-                                   title="{{ Auth::user()->name }}">
+                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown" title="{{ Auth::user()->name }}">
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li>
-                                            <a class="dropdown-item nav-link nav_item text-success"
-                                               href="{{ route('dashboard') }}"
-                                               title="{{ __('index.admin-panel') }}">
+                                            <a class="dropdown-item nav-link nav_item text-success" href="{{ route('dashboard') }}" title="{{ __('index.admin-panel') }}">
                                                 {{ __('index.admin-panel') }}
                                             </a>
                                         </li>
                                         @if(Auth::user() && Auth::user()->is_admin === 1)
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item"
-                                                   href="{{ route('account') }}"
-                                                   title="{{ __('index.my_account') }}">
+                                                <a class="dropdown-item nav-link nav_item" href="{{ route('account') }}" title="{{ __('index.my_account') }}">
                                                     {{ __('index.my_account') }}
                                                 </a>
                                             </li>
                                         @endif
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}"
-                                                   title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                                <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}" title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                                     {{ __('index.logout') }}
                                                 </a>
                                             </li>
@@ -176,17 +150,8 @@
                         @endguest
                         <li class="dropdown">
                             @php $lng = config('main.lang.' . App::getLocale()); @endphp
-                            <a
-                                class="dropdown-toggle nav-link"
-                                href="#"
-                                data-bs-toggle="dropdown"
-                            >
-                                <img
-                                    src="{{ asset($lng['icon']) }}"
-                                    class="rounded-circle"
-                                    width="18"
-                                    alt="{{ $lng['name'] }}"
-                                />
+                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">
+                                <img src="{{ asset($lng['icon']) }}" class="rounded-circle" width="18" alt="{{ $lng['name'] }}"/>
                                 {{ $lng['name'] }}
                             </a>
                             <div class="dropdown-menu">
@@ -194,14 +159,8 @@
                                     @foreach(config('main.lang') as $k => $v)
                                         @if($k !== $lng['key'])
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}"
-                                                   title="{{ $v['name'] }}" data-lang="{{ $k }}">
-                                                    <img
-                                                        src="{{ asset($v['icon']) }}"
-                                                        class="rounded-circle"
-                                                        width="18"
-                                                        alt="{{ $v['name'] }}"
-                                                    />
+                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18" alt="{{ $v['name'] }}"/>
                                                     {{ $v['name'] }}
                                                 </a>
                                             </li>
@@ -222,12 +181,7 @@
                                 <i class="ion-ios-close-empty"></i>
                              </span>
                             <form>
-                                <input
-                                    type="text"
-                                    placeholder="{{ __("index.search") }}"
-                                    class="form-control"
-                                    id="search_input"
-                                />
+                                <input type="text" placeholder="{{ __("index.search") }}" class="form-control" id="search_input"/>
                                 <button type="submit" class="search_icon">
                                     <i class="ion-ios-search-strong"></i>
                                 </button>
@@ -279,19 +233,19 @@
                                 <p class="cart_total">
                                     <strong>Subtotal:</strong>
                                     <span class="cart_price">
-                        <span class="price_symbole">$</span></span
-                                    >159.00
+                                        <span class="price_symbole">
+                                            $
+                                        </span>
+                                    </span>
+                                    159.00
                                 </p>
                                 <p class="cart_buttons">
-                                    <a
-                                        href="shop-cart.html"
-                                        class="btn btn-fill-line rounded-0 view-cart"
-                                    >View Cart</a
-                                    ><a
-                                        href="checkout.html"
-                                        class="btn btn-fill-out rounded-0 checkout"
-                                    >Checkout</a
-                                    >
+                                    <a href="shop-cart.html" class="btn btn-fill-line rounded-0 view-cart">
+                                        View Cart
+                                    </a>
+                                    <a href="checkout.html" class="btn btn-fill-out rounded-0 checkout">
+                                        Checkout
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -304,53 +258,49 @@
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>
-                                    <a href="index.html#" class="item_remove"
-                                    ><i class="ion-close"></i
-                                        ></a>
-                                    <a href="index.html#"
-                                    ><img
-                                            src="{{ asset('images/cart_thamb1.jpg') }}"
-                                            alt="cart_thumb1"
-                                        />Variable product 001</a
-                                    >
+                                    <a href="index.html#" class="item_remove">
+                                        <i class="ion-close"></i>
+                                    </a>
+                                    <a href="index.html#">
+                                        <img src="{{ asset('images/cart_thamb1.jpg') }}" alt="cart_thumb1"/>
+                                        Variable product 001
+                                    </a>
                                     <span class="cart_quantity">
-                        1 x
-                        <span class="cart_amount">
-                          <span class="price_symbole">$</span></span
-                        >78.00</span
-                                    >
+                                        1 x
+                                        <span class="cart_amount">
+                                          <span class="price_symbole">$</span>
+                                        </span>
+                                        78.00
+                                    </span>
                                 </li>
                                 <li>
-                                    <a href="index.html#" class="item_remove"
-                                    ><i class="ion-close"></i
-                                        ></a>
-                                    <a href="index.html#"
-                                    ><img
-                                            src="{{ asset('images/cart_thamb2.jpg') }}"
-                                            alt="cart_thumb2"
-                                        />Ornare sed consequat</a
-                                    >
+                                    <a href="index.html#" class="item_remove">
+                                        <i class="ion-close"></i>
+                                    </a>
+                                    <a href="index.html#">
+                                        <img src="{{ asset('images/cart_thamb2.jpg') }}" alt="cart_thumb2"/>
+                                        Ornare sed consequat
+                                    </a>
                                     <span class="cart_quantity">
-                        1 x
-                        <span class="cart_amount">
-                          <span class="price_symbole">$</span></span
-                        >81.00</span
-                                    >
+                                    1 x
+                                    <span class="cart_amount">
+                                      <span class="price_symbole">$</span></span>
+                                        81.00
+                                    </span>
                                 </li>
                             </ul>
                             <div class="cart_footer">
                                 <p class="cart_total">
                                     <strong>Subtotal:</strong>
                                     <span class="cart_price">
-                        <span class="price_symbole">$</span></span
-                                    >159.00
+                                        <span class="price_symbole">$</span>
+                                    </span>
+                                    159.00
                                 </p>
                                 <p class="cart_buttons">
-                                    <a
-                                        href="wishlist.html"
-                                        class="btn btn-fill-out rounded-0 view-cart"
-                                    >View Wishlist</a
-                                    >
+                                    <a href="wishlist.html" class="btn btn-fill-out rounded-0 view-cart">
+                                        View Wishlist
+                                    </a>
                                 </p>
                             </div>
                         </div>
