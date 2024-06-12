@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body text-center d-grid gap-3">
                 <i class="text-success fa-regular fa-circle-check fa-5x fa-fade"></i>
-                {{ session('success') }}
+                <h3>{{ session('success') }}</h3>
             </div>
             <div class="modal-footer border-0">
                 <button type="button" class="btn btn-fill-out btn-sm" data-bs-dismiss="modal">{{ __('index.ok') }}</button>
