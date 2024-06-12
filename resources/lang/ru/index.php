@@ -85,6 +85,7 @@ return [
     'save' => 'Сохранить',
     'view' => 'просмотр',
     'add_address' => 'Добавить адрес',
+    'add_phone' => 'Добавить телефон',
 
 //  Logout modal
     'confirm_logout' => 'Подтвердите выход',

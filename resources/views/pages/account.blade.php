@@ -247,76 +247,103 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>{{ __("index.account_details") }}</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form method="post" name="enq">
+                                        <form method="POST" action="{{ route('account.update', $user->id) }}">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="row">
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label>
-                                                        {{ __("index.first_name") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="name" type="text">
+                                                    <label>{{ __("index.first_name") }}<span class="required">*</span></label>
+                                                    <input required class="form-control @error('first_name') is-invalid @enderror" name="first_name" type="text" value="{{ $user->account->first_name ?? '' }}">
+                                                    @error('first_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label>
-                                                        {{ __("index.last_name") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="phone">
+                                                    <label>{{ __("index.last_name") }}<span class="required">*</span></label>
+                                                    <input required class="form-control @error('last_name') is-invalid @enderror" name="last_name" type="text" value="{{ $user->account->last_name ?? '' }}">
+                                                    @error('last_name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col-md-12 mb-3">
-                                                    <label>
-                                                        {{ __("index.display_name") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="dname" type="text" value="{{ $user->name }}">
+                                                    <label>{{ __("index.display_name") }}<span class="required">*</span></label>
+                                                    <input required class="form-control @error('name') is-invalid @enderror" name="name" type="text" value="{{ $user->name }}">
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col-md-12 mb-3">
-                                                    <label>
-                                                        {{ __("index.email_address") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="email" type="email" value="{{ $user->email }}">
+                                                    <label>{{ __("index.email_address") }}<span class="required">*</span></label>
+                                                    <input required class="form-control @error('email') is-invalid @enderror" name="email" type="email" value="{{ $user->email }}">
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="phone-container">
+                                                    <div class="mb-3 d-flex align-items-center justify-content-between">
+                                                        <label>{{ __("index.phone") }}<span class="required">*</span></label>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary add-phone">{{ __("index.add_phone") }}</button>
+                                                    </div>
+                                                    @if($user->account && $user->account->phones && count($user->account->phones) > 0)
+                                                        @foreach($user->account->phones as $phone)
+                                                            <div class="form-group col-md-12 mb-3 phone-group d-flex">
+                                                                <input required class="form-control" name="phone[]" type="tel" value="{{ $phone->phone_number }}">
+                                                                <button type="button" class="btn btn-sm btn-danger remove-phone" style="display: none;">
+                                                                    <i class="fa-regular fa-trash-can remove-phone"></i>
+                                                                </button>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <div class="form-group col-md-12 mb-3 phone-group d-flex">
+                                                            <input required class="form-control" name="phone[]" type="tel">
+                                                            <button type="button" class="btn btn-sm btn-danger remove-phone" style="display: none;">
+                                                                <i class="fa-regular fa-trash-can remove-phone"></i>
+                                                            </button>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group col-md-12 mb-3">
-                                                    <label>
-                                                        {{ __("index.phone") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="phone" type="tel">
+                                                    <label>{{ __("index.new_password") }}<span class="required">*</span></label>
+                                                    <input class="form-control @error('password') is-invalid @enderror" name="password" type="password">
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group col-md-12 mb-3">
-                                                    <label>
-                                                        {{ __("index.current_password") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="password" type="password">
+                                                    <label>{{ __("index.confirm_password") }}<span class="required">*</span></label>
+                                                    <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" type="password">
+                                                    @error('password_confirmation')
+                                                    <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
-                                                <div class="form-group col-md-12 mb-3">
-                                                    <label>
-                                                        {{ __("index.new_password") }}
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <input required="" class="form-control" name="npassword" type="password">
-                                                </div>
-                                                <div class="form-group col-md-12 mb-3">
-                                                    <label>{{ __("index.confirm_password") }} <span class="required">*</span></label>
-                                                    <input required="" class="form-control" name="cpassword" type="password">
-                                                </div>
+
                                                 <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">{{ __("index.save") }}</button>
+                                                    <button type="submit" class="btn btn-fill-out">{{ __("index.save") }}</button>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

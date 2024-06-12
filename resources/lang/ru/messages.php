@@ -7,5 +7,6 @@ return [
     'address_added' => 'Адрес добавлен успешно.',
     'address_updated' => 'Адрес успешно обновлен.',
     'address_deleted' => 'Адрес успешно удален.',
+    'data_successfully_updated' => 'Данные успешно обновлены.',
 
 ];

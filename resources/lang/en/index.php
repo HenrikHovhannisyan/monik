@@ -85,6 +85,7 @@ return [
     'save' => 'Save',
     'view' => 'view',
     'add_address' => 'Add Address',
+    'add_phone' => 'Add Phone',
 
 //  Logout modal
     'confirm_logout' => 'Confirm Logout',

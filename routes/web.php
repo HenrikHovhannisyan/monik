@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -37,6 +38,7 @@ Route::group(
 
         Route::middleware(['auth'])->group(function () {
             Route::resource('addresses', AddressController::class);
+            Route::resource('account', AccountController::class);
         });
     }
 );

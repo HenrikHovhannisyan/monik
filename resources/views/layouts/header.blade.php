@@ -127,23 +127,23 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <ul>
-                                        <li>
-                                            <a class="dropdown-item nav-link nav_item text-success" href="{{ route('dashboard') }}" title="{{ __('index.admin-panel') }}">
-                                                {{ __('index.admin-panel') }}
-                                            </a>
-                                        </li>
                                         @if(Auth::user() && Auth::user()->is_admin === 1)
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item" href="{{ route('account') }}" title="{{ __('index.my_account') }}">
-                                                    {{ __('index.my_account') }}
+                                                <a class="dropdown-item nav-link nav_item text-success" href="{{ route('dashboard') }}" title="{{ __('index.admin-panel') }}">
+                                                    {{ __('index.admin-panel') }}
                                                 </a>
                                             </li>
                                         @endif
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}" title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                                    {{ __('index.logout') }}
-                                                </a>
-                                            </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link nav_item" href="{{ route('account') }}" title="{{ __('index.my_account') }}">
+                                                {{ __('index.my_account') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}" title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                                {{ __('index.logout') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
