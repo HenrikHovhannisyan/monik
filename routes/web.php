@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Services\Localization\LocalizationService;
@@ -33,6 +34,10 @@ Route::group(
 
         Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+        Route::middleware(['auth'])->group(function () {
+            Route::resource('addresses', AddressController::class);
+        });
     }
 );
 

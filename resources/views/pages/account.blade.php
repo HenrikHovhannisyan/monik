@@ -126,25 +126,128 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card mb-3 mb-lg-0">
-                                            <div class="card-header">
+                                            <div class="card-header d-flex justify-content-between">
                                                 <h3>{{ __("index.my_address") }}</h3>
+                                                <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                                    {{ __("index.add_address") }}
+                                                </button>
                                             </div>
                                             <div class="card-body">
-                                                <address>
-                                                    House #15<br>
-                                                    Road #1<br>
-                                                    Block #C<br>
-                                                    Angali<br>
-                                                    Vedora<br>
-                                                    1212<br>
-                                                </address>
-                                                <p>New York</p>
-                                                <a href="#" class="btn btn-fill-out">{{ __("index.edit") }}</a>
+                                                @if($user->addresses->isEmpty())
+                                                    <p>{{ __("index.no_address_message") }}</p>
+                                                    <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                                        {{ __("index.add_address") }}
+                                                    </button>
+                                                @else
+                                                    @foreach($user->addresses as $address)
+                                                        <address>
+                                                            {{ $address->state }}<br>
+                                                            {{ $address->address }}<br>
+                                                            @if($address->address2)
+                                                                {{ $address->address2 }}<br>
+                                                            @endif
+                                                            {{ $address->postcode }}<br>
+                                                        </address>
+                                                        <p>{{ $address->city }}</p>
+                                                        <div class="d-flex">
+                                                            <a href="#" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#editAddressModal{{ $address->id }}">
+                                                                {{ __("index.edit") }}
+                                                            </a>
+                                                            <form action="{{ route('addresses.destroy', ['address' => $address->id]) }}" method="POST" class="ms-2">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-line-fill btn-sm">
+                                                                    {{ __("index.delete") }}
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <hr>
+
+                                                        <!-- Edit Address Modal -->
+                                                        <div class="modal fade" id="editAddressModal{{ $address->id }}" tabindex="-1">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header border-0">
+                                                                        <h2 class="modal-title fs-5" id="editModalLabel">
+                                                                            {{ __('index.edit_address') }}
+                                                                        </h2>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        @isset($address)
+                                                                            <form method="post" action="{{ route('addresses.update', ['address' => $address->id]) }}">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <div class="form-group mb-3">
+                                                                                    <div class="custom_select">
+                                                                                        <select class="form-control" name="city" required>
+                                                                                            <option value="">{{ __('index.select_city') }}</option>
+                                                                                            <option value="Yerevan" {{ $address->city == 'Yerevan' ? 'selected' : '' }}>{{ __('index.cities.Yerevan') }}</option>
+                                                                                            <option value="Gyumri" {{ $address->city == 'Gyumri' ? 'selected' : '' }} disabled>{{ __('index.cities.Gyumri') }}</option>
+                                                                                            <option value="Vanadzor" {{ $address->city == 'Vanadzor' ? 'selected' : '' }} disabled>{{ __('index.cities.Vanadzor') }}</option>
+                                                                                            <option value="Hrazdan" {{ $address->city == 'Hrazdan' ? 'selected' : '' }} disabled>{{ __('index.cities.Hrazdan') }}</option>
+                                                                                            <option value="Vagharshapat" {{ $address->city == 'Vagharshapat' ? 'selected' : '' }} disabled>{{ __('index.cities.Vagharshapat') }}</option>
+                                                                                            <option value="Abovyan" {{ $address->city == 'Abovyan' ? 'selected' : '' }} disabled>{{ __('index.cities.Abovyan') }}</option>
+                                                                                            <option value="Kapan" {{ $address->city == 'Kapan' ? 'selected' : '' }} disabled>{{ __('index.cities.Kapan') }}</option>
+                                                                                            <option value="Ararat" {{ $address->city == 'Ararat' ? 'selected' : '' }} disabled>{{ __('index.cities.Ararat') }}</option>
+                                                                                            <option value="Armavir" {{ $address->city == 'Armavir' ? 'selected' : '' }} disabled>{{ __('index.cities.Armavir') }}</option>
+                                                                                            <option value="Gavar" {{ $address->city == 'Gavar' ? 'selected' : '' }} disabled>{{ __('index.cities.Gavar') }}</option>
+                                                                                            <option value="Artashat" {{ $address->city == 'Artashat' ? 'selected' : '' }} disabled>{{ __('index.cities.Artashat') }}</option>
+                                                                                            <option value="Ijevan" {{ $address->city == 'Ijevan' ? 'selected' : '' }} disabled>{{ __('index.cities.Ijevan') }}</option>
+                                                                                            <option value="Charentsavan" {{ $address->city == 'Charentsavan' ? 'selected' : '' }} disabled>{{ __('index.cities.Charentsavan') }}</option>
+                                                                                            <option value="Goris" {{ $address->city == 'Goris' ? 'selected' : '' }} disabled>{{ __('index.cities.Goris') }}</option>
+                                                                                            <option value="Masis" {{ $address->city == 'Masis' ? 'selected' : '' }} disabled>{{ __('index.cities.Masis') }}</option>
+                                                                                            <option value="Ashtarak" {{ $address->city == 'Ashtarak' ? 'selected' : '' }} disabled>{{ __('index.cities.Asharak') }}</option>
+                                                                                            <option value="Sisian" {{ $address->city == 'Sisian' ? 'selected' : '' }} disabled>{{ __('index.cities.Sisian') }}</option>
+                                                                                            <option value="Spitak" {{ $address->city == 'Spitak' ? 'selected' : '' }} disabled>{{ __('index.cities.Spitak') }}</option>
+                                                                                            <option value="Sevan" {{ $address->city == 'Sevan' ? 'selected' : '' }} disabled>{{ __('index.cities.Sevan') }}</option>
+                                                                                            <option value="Martuni" {{ $address->city == 'Martuni' ? 'selected' : '' }} disabled>{{ __('index.cities.Martuni') }}</option>
+                                                                                            <option value="Vardenis" {{ $address->city == 'Vardenis' ? 'selected' : '' }} disabled>{{ __('index.cities.Vardenis') }}</option>
+                                                                                            <option value="Yeghvard" {{ $address->city == 'Yeghvard' ? 'selected' : '' }} disabled>{{ __('index.cities.Yeghvard') }}</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group mb-3">
+                                                                                    <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }}"
+                                                                                           value="{{ $address->state }}" required>
+                                                                                </div>
+                                                                                <div class="form-group mb-3">
+                                                                                    <input type="text" class="form-control" name="address"
+                                                                                           placeholder="{{ __('index.address') }} *"
+                                                                                           value="{{ $address->address }}" required>
+                                                                                </div>
+                                                                                <div class="form-group mb-3">
+                                                                                    <input type="text" class="form-control" name="address2"
+                                                                                           placeholder="{{ __('index.address2') }}"
+                                                                                           value="{{ $address->address2 }}">
+                                                                                </div>
+                                                                                <div class="form-group mb-3">
+                                                                                    <input class="form-control" type="text" name="postcode"
+                                                                                           placeholder="{{ __('index.postcode') }}"
+                                                                                           value="{{ $address->postcode }}" required>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <button type="submit" class="btn btn-fill-out btn-sm">
+                                                                                        {{ __('index.save') }}
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-line-fill btn-sm" data-bs-dismiss="modal">
+                                                                                        {{ __('index.cancel') }}
+                                                                                    </button>
+                                                                                </div>
+                                                                            </form>
+                                                                        @endisset
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
                                 <div class="card">
                                     <div class="card-header">

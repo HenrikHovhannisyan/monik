@@ -22,6 +22,7 @@ class PageController extends Controller
     public function account()
     {
         $user = Auth::user();
+        $user->load('addresses');
         return view('pages.account', compact('user'));
     }
 }

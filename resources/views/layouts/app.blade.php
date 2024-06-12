@@ -80,8 +80,10 @@
 </head>
 <body>
 <div id="app">
-    @include('vendor.ad')
-    @include('vendor.logout')
+    @include('vendor.modal.ad')
+    @include('vendor.modal.logout')
+    @include('vendor.modal.address')
+    @include('vendor.modal.success-message')
     @include('layouts.header')
     <main>
         @yield('content')
