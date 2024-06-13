@@ -507,20 +507,20 @@ PAGE JS
     });
   });
 
-  function ajax_magnificPopup() {
-    $(".popup-ajax").magnificPopup({
-      type: "ajax",
-      callbacks: {
-        ajaxContentAdded: function () {
-          slick_slider();
-          carousel_slider();
-          pluseminus();
-          product_color_switch();
-          galleryZoomProduct();
-        },
-      },
-    });
-  }
+    function ajax_magnificPopup() {
+        $(".popup-ajax").magnificPopup({
+            type: "ajax",
+            callbacks: {
+                ajaxContentAdded: function() {
+                    slick_slider();
+                    carousel_slider();
+                    pluseminus();
+                    product_color_switch();
+                    galleryZoomProduct();
+                },
+            },
+        });
+    }
 
   $(".video_popup, .iframe_popup").magnificPopup({
     type: "iframe",

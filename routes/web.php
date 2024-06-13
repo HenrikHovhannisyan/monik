@@ -40,6 +40,10 @@ Route::group(
             Route::resource('addresses', AddressController::class);
             Route::resource('account', AccountController::class);
         });
+
+        Route::get('/shop-quick-view', function () {
+            return view('vendor.modal.shop-quick-view');
+        })->name('shop.quick.view');
     }
 );
 

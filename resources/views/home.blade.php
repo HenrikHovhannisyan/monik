@@ -146,7 +146,7 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="shop-quick-view.html" class="popup-ajax">
+                                                            <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
                                                                 <i class="icon-magnifier-add"></i>
                                                             </a>
                                                         </li>

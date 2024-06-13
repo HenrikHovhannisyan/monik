@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const phoneContainer = document.querySelector('.phone-container');
     const addPhoneBtn = document.querySelector('.add-phone');
 
+    if (!addPhoneBtn) {
+        return;
+    }
+
     addPhoneBtn.addEventListener('click', function() {
         const phoneGroup = document.createElement('div');
         phoneGroup.classList.add('form-group', 'col-md-12', 'mb-3', 'phone-group', 'd-flex');
@@ -58,5 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateRemoveButtons();
 });
+
 
 // End add new phone
