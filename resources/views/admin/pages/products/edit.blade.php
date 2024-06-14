@@ -100,7 +100,7 @@
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}"
                                     @if($product->category_id == $category->id) selected @endif>
-                                {{ $category->name_en }}
+                                {{ $category->name_ru }}
                             </option>
                         @endforeach
                     </select>

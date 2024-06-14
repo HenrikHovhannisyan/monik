@@ -27,10 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         $gender = Product::whereJsonContains('gender', ["boy", "girl"])->get();
-        $status = Product::whereJsonContains('status', ["new", "top"])->get();
-//        dd($status);
-        $product = Product::all();
+        $newProducts = Product::whereJsonContains('status', ["new"])->inRandomOrder()->take(8)->get();
+        $topProducts = Product::whereJsonContains('status', ["top"])->inRandomOrder()->take(8)->get();
+        $saleProducts = Product::inRandomOrder()->whereNotNull('discount')->take(8)->get();
+        $allProducts = Product::inRandomOrder()->take(8)->get();
+        $sliderProducts = Product::inRandomOrder()->take(5)->get();
 
-        return view('home', compact('product'));
+        return view('home', compact('allProducts', 'newProducts', 'topProducts', 'saleProducts', 'sliderProducts'));
     }
 }
