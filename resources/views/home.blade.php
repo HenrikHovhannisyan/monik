@@ -460,7 +460,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="text-center trading_img">
-                            <img src="{{ asset('images/ad_img.png') }}" alt="{{ __('ad.new_season_trends') }}"/>
+                            <img src="{{ asset('images/tranding_img.png') }}" alt="{{ __('ad.new_season_trends') }}"/>
                         </div>
                     </div>
                 </div>

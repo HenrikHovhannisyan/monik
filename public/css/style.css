@@ -3316,7 +3316,6 @@ input.text {
     text-transform: capitalize;
     margin-top: 5px;
     display: block;
-    max-width: 15ch;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
