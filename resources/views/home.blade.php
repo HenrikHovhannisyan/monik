@@ -460,7 +460,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="text-center trading_img">
-                            <img src="images/tranding_img.png" alt="tranding_img"/>
+                            <img src="{{ asset('images/ad_img.png') }}" alt="{{ __('ad.new_season_trends') }}"/>
                         </div>
                     </div>
                 </div>
@@ -576,7 +576,7 @@
                     <div class="col-lg-4">
                         <div class="icon_box icon_box_style1">
                             <div class="icon">
-                                <img src="images/icons/delivery.png" alt="{{ __('index.free_delivery') }}"/>
+                                <img src="{{ asset('images/icons/delivery.png') }}" alt="{{ __('index.free_delivery') }}"/>
                             </div>
                             <div class="icon_box_content">
                                 <h5>{{ __('index.free_delivery') }}</h5>
