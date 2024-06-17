@@ -158,7 +158,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
+                                                                <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                                     <i class="icon-magnifier-add"></i>
                                                                 </a>
                                                             </li>
@@ -236,7 +236,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
+                                                                <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                                     <i class="icon-magnifier-add"></i>
                                                                 </a>
                                                             </li>
@@ -314,7 +314,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
+                                                                <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                                     <i class="icon-magnifier-add"></i>
                                                                 </a>
                                                             </li>
@@ -392,7 +392,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
+                                                                <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                                     <i class="icon-magnifier-add"></i>
                                                                 </a>
                                                             </li>
@@ -523,7 +523,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('shop.quick.view') }}" class="popup-ajax">
+                                                        <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                             <i class="icon-magnifier-add"></i>
                                                         </a>
                                                     </li>
@@ -546,16 +546,16 @@
                                             <div class="product_price">
                                                 @if($product->discount)
                                                     <span class="price">
-                                                                {{ $product->price - ($product->price * $product->discount) / 100 }}֏
-                                                            </span>
+                                                        {{ $product->price - ($product->price * $product->discount) / 100 }}֏
+                                                    </span>
                                                     <del>{{ $product->price }}֏</del>
                                                     <div class="on_sale">
                                                         <span>{{ $product->discount }}%</span>
                                                     </div>
                                                 @else
                                                     <span class="price">
-                                                                {{ $product->price }}֏
-                                                            </span>
+                                                        {{ $product->price }}֏
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>

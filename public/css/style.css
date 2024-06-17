@@ -5479,6 +5479,7 @@ body > .zoomContainer {
 .switch_lable {
     float: left;
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .pr_detail .pr_switch_wrap {
@@ -5488,7 +5489,8 @@ body > .zoomContainer {
 .product_size_switch span {
     cursor: pointer;
     text-transform: uppercase;
-    width: 32px;
+    width: max-content;
+    padding: 0 5px;
     display: inline-block;
     border: 2px solid #ddd;
     text-align: center;
@@ -7703,4 +7705,26 @@ blockquote p:last-child {
 
 .input-group > .input-group-append > .btn {
     height: 100%;
+}
+
+
+.message {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 100000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

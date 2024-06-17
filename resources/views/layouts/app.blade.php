@@ -90,6 +90,10 @@
     </main>
     @include('layouts.footer')
 
+
+    <div id="successMessage" class="message success hidden">
+        {{ __("index.copied_sku") }}: <span id="copiedSKU"></span>
+    </div>
     <a href="#" class="scrollup" style="display: none">
         <i class="ion-ios-arrow-up"></i>
     </a>

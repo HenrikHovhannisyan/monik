@@ -710,28 +710,36 @@ PAGE JS
     galleryZoomProduct();
   });
 
-  function pluseminus() {
-    $(".plus").on("click", function () {
-      if ($(this).prev().val()) {
-        $(this)
-          .prev()
-          .val(+$(this).prev().val() + 1);
-      }
-    });
-    $(".minus").on("click", function () {
-      if ($(this).next().val() > 1) {
-        if ($(this).next().val() > 1)
-          $(this)
-            .next()
-            .val(+$(this).next().val() - 1);
-      }
-    });
-  }
-  $(document).ready(function () {
-    pluseminus();
-  });
+    function pluseminus() {
+        $(".product_size_switch span").on("click", function () {
 
-  $(document).ready(function () {
+            let maxQuantity = parseInt($(this).attr("data-max"));
+            $(".qty").attr("data-max", maxQuantity);
+            $(".qty").val(1);
+            $(".btn-addtocart").removeAttr("disabled");
+        });
+        $(".plus").on("click", function () {
+            let max = parseInt($(".qty").attr("data-max"));
+            let current = parseInt($(".qty").val());
+            if (current < max) {
+                $(".qty").val(current + 1);
+            }
+        });
+
+        $(".minus").on("click", function () {
+            let current = parseInt($(".qty").val());
+            if (current > 1) {
+                $(".qty").val(current - 1);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        pluseminus();
+    });
+
+
+    $(document).ready(function () {
     ajax_magnificPopup();
   });
 

@@ -65,3 +65,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // End add new phone
+
+// Start copy product code
+function copyProductCode(code) {
+    let successMessage = document.getElementById('successMessage');
+    let copiedSKU = document.getElementById('copiedSKU');
+    
+    navigator.clipboard.writeText(code);
+    copiedSKU.textContent = code;
+    successMessage.classList.remove('hidden');
+
+    setTimeout(function() {
+        successMessage.classList.add('hidden');
+    }, 5000);
+}
+
+// End copy product code

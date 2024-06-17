@@ -1,83 +1,90 @@
-
 <div class="ajax_quick_view">
     <div class="row">
         <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
             <div class="product-image">
                 <div class="product_img_box">
-                    <img id="product_img" src='/images/product_img1.jpg' data-zoom-image="/images/product_zoom_img1.jpg" alt="product_img1" />
+                    <img id="product_img" src='{{ asset(json_decode($product->images)[0]) }}' data-zoom-image="{{ asset(json_decode($product->images)[0]) }}" alt="product_img1" />
                 </div>
                 <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4" data-slides-to-scroll="1" data-infinite="false">
-                    <div class="item">
-                        <a href="shop-quick-view.html#" class="product_gallery_item active" data-image="/images/product_img1.jpg" data-zoom-image="/images/product_zoom_img1.jpg">
-                            <img src="/images/product_small_img1.jpg" alt="product_small_img1" />
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="shop-quick-view.html#" class="product_gallery_item" data-image="/images/product_img1-2.jpg" data-zoom-image="/images/product_zoom_img2.jpg">
-                            <img src="/images/product_small_img2.jpg" alt="product_small_img2" />
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="shop-quick-view.html#" class="product_gallery_item" data-image="/images/product_img1-3.jpg" data-zoom-image="/images/product_zoom_img3.jpg">
-                            <img src="/images/product_small_img3.jpg" alt="product_small_img3" />
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="shop-quick-view.html#" class="product_gallery_item" data-image="/images/product_img1-4.jpg" data-zoom-image="/images/product_zoom_img4.jpg">
-                            <img src="/images/product_small_img4.jpg" alt="product_small_img4" />
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="shop-quick-view.html#" class="product_gallery_item" data-image="/images/product_img1-4.jpg" data-zoom-image="/images/product_zoom_img4.jpg">
-                            <img src="/images/product_small_img4.jpg" alt="product_small_img4" />
-                        </a>
-                    </div>
+                    @foreach(json_decode($product->images) as $index => $imagePath)
+                        <div class="item">
+                            <a href="#" class="product_gallery_item {{ $index == 0 ? 'active' : '' }}" data-image="{{asset($imagePath)}}" data-zoom-image="{{asset($imagePath)}}">
+                                <img src="{{asset($imagePath)}}" alt="product_small_img{{ $index + 1 }}" />
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="pr_detail">
                 <div class="product_description">
-                    <h4 class="product_title"><a href="shop-quick-view.html#">Blue Dress For Woman</a></h4>
+                    <h4 class="product_title">
+                        <a href="shop-quick-view.html#" title="{{ $product->{lang('name')} }}">
+                            {{ $product->{lang('name')} }}
+                        </a>
+                    </h4>
                     <div class="product_price">
-                        <span class="price">$45.00</span>
-                        <del>$55.25</del>
-                        <div class="on_sale">
-                            <span>35% Off</span>
-                        </div>
-                    </div>
-                    <div class="rating_wrap">
-                        <div class="rating">
-                            <div class="product_rate" style="width:80%"></div>
-                        </div>
-                        <span class="rating_num">(21)</span>
+                        @if($product->discount)
+                            <span class="price">
+                                {{ $product->price - ($product->price * $product->discount) / 100 }}֏
+                            </span>
+                            <del>{{ $product->price }}֏</del>
+                            <div class="on_sale">
+                                <span>{{ $product->discount }}%</span>
+                            </div>
+                        @else
+                            <span class="price">
+                                {{ $product->price }}֏
+                            </span>
+                        @endif
                     </div>
                     <div class="pr_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                        <p>
+                            {!! html_entity_decode( $product->{lang('description')})  !!}
+                        </p>
                     </div>
                     <div class="product_sort_info">
                         <ul>
-                            <li><i class="linearicons-shield-check"></i> 1 Year AL Jazeera Brand Warranty</li>
-                            <li><i class="linearicons-sync"></i> 30 Day Return Policy</li>
-                            <li><i class="linearicons-bag-dollar"></i> Cash on Delivery available</li>
+                            <li>
+                                <i class="fa-solid fa-rotate"></i>
+                                {{ __('index.14_day_return') }}
+                            </li>
                         </ul>
                     </div>
+                    @if($product->color)
+                        <div class="pr_switch_wrap">
+                            <span class="switch_lable">
+                                {{ __("index.color") }}
+                            </span>
+                            <div class="product_color_switch">
+                                <span data-color="{{ $product->color }}"></span>
+                            </div>
+                        </div>
+                    @endif
                     <div class="pr_switch_wrap">
-                        <span class="switch_lable">Color</span>
+                        <span class="switch_lable">
+                            {{ __("index.gender") }}
+                        </span>
                         <div class="product_color_switch">
-                            <span class="active" data-color="#87554B"></span>
-                            <span data-color="#333333"></span>
-                            <span data-color="#DA323F"></span>
+                            @foreach($gender as $key => $value)
+                                {{ __("index.$value") }}
+                                @if(!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
                         </div>
                     </div>
-                    <div class="pr_switch_wrap">
-                        <span class="switch_lable">Size</span>
+                    <div class="pr_switch_wrap d-flex align-items-center">
+                        <span class="switch_lable">
+                            {{ __("index.size") }}
+                        </span>
                         <div class="product_size_switch">
-                            <span>xs</span>
-                            <span>s</span>
-                            <span>m</span>
-                            <span>l</span>
-                            <span>xl</span>
+                            @foreach($size as $sizeName => $item)
+                                @if( $item['quantity'])
+                                    <span data-max="{{ $item['quantity'] }}">{{ $sizeName }}</span>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -91,25 +98,36 @@
                         </div>
                     </div>
                     <div class="cart_btn">
-                        <button class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Add to cart</button>
-                        <a class="add_compare" href="shop-quick-view.html#"><i class="icon-shuffle"></i></a>
+                        <button class="btn btn-fill-out btn-addtocart" type="button" disabled>
+                            <i class="icon-basket-loaded"></i>
+                            {{ __("index.add_to_cart") }}
+                        </button>
                         <a class="add_wishlist" href="shop-quick-view.html#"><i class="icon-heart"></i></a>
                     </div>
                 </div>
                 <hr />
                 <ul class="product-meta">
-                    <li>SKU: <a href="shop-quick-view.html#">BE45VGRT</a></li>
-                    <li>Category: <a href="shop-quick-view.html#">Clothing</a></li>
-                    <li>Tags: <a href="shop-quick-view.html#" rel="tag">Cloth</a>, <a href="shop-quick-view.html#" rel="tag">printed</a> </li>
+                    <li>
+                        SKU:
+                        <a href="#" title="{{ $product->code }}">
+                            {{ $product->code }}
+                        </a>
+                        <button class="btn btn-outline-secondary ps-2 pe-1 p-0" onclick="copyProductCode('{{ $product->code }}')">
+                            <i class="fa-solid fa-copy copy-icon"></i>
+                        </button>
+                    </li>
+                    <li>{{ __("index.category") }}:
+                        <a href="#" title="{{ $product->category->{lang('name')} }}">
+                            {{ $product->category->{lang('name')} }}
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="product_share">
-                    <span>Share:</span>
+                    <span>{{ __("index.share") }}:</span>
                     <ul class="social_icons">
                         <li><a href="shop-quick-view.html#"><i class="ion-social-facebook"></i></a></li>
                         <li><a href="shop-quick-view.html#"><i class="ion-social-twitter"></i></a></li>
-                        <li><a href="shop-quick-view.html#"><i class="ion-social-googleplus"></i></a></li>
-                        <li><a href="shop-quick-view.html#"><i class="ion-social-youtube-outline"></i></a></li>
                         <li><a href="shop-quick-view.html#"><i class="ion-social-instagram-outline"></i></a></li>
                     </ul>
                 </div>
@@ -117,6 +135,3 @@
         </div>
     </div>
 </div>
-
-
-

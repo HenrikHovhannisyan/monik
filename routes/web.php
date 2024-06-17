@@ -33,6 +33,8 @@ Route::group(
         Route::get('/contact', [PageController::class, 'contact'])->name('contact');
         Route::get('/my-account', [PageController::class, 'account'])->name('account');
 
+        Route::get('/shop-quick-view/{id}', [HomeController::class, 'quickView'])->name('shop.quick.view');
+
         Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
@@ -41,9 +43,6 @@ Route::group(
             Route::resource('account', AccountController::class);
         });
 
-        Route::get('/shop-quick-view', function () {
-            return view('vendor.modal.shop-quick-view');
-        })->name('shop.quick.view');
     }
 );
 
