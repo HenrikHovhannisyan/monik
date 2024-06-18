@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -36,23 +32,6 @@ class HomeController extends Controller
         $sliderProducts = Product::inRandomOrder()->take(5)->get();
 
         return view('home', compact('allProducts', 'newProducts', 'topProducts', 'saleProducts', 'sliderProducts'));
-    }
-
-    /**
-     * @param $id
-     * @return Factory|View
-     */
-    public function quickView($id)
-    {
-        $product = Product::find($id);
-        $size = json_decode($product->size, true);
-        $gender = json_decode($product->gender, true);
-
-        if (!$product) {
-            abort(404, 'Product not found');
-        }
-
-        return view('vendor.modal.shop-quick-view', compact('product', 'size', 'gender'));
     }
 
 }

@@ -147,24 +147,24 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="shop-product-detail.html">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
                                                         <ul class="list_none pr_action_btn">
                                                             <li class="add-to-cart">
                                                                 <a href="index.html#">
-                                                                    <i class="icon-basket-loaded"></i>
+                                                                    <i class="fa-solid fa-cart-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
-                                                                    <i class="icon-magnifier-add"></i>
+                                                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="index.html#">
-                                                                    <i class="icon-heart"></i>
+                                                                    <i class="fa-solid fa-heart"></i>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -173,7 +173,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="shop-product-detail.html">
+                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -225,24 +225,24 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="shop-product-detail.html">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
                                                         <ul class="list_none pr_action_btn">
                                                             <li class="add-to-cart">
                                                                 <a href="index.html#">
-                                                                    <i class="icon-basket-loaded"></i>
+                                                                    <i class="fa-solid fa-cart-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
-                                                                    <i class="icon-magnifier-add"></i>
+                                                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="index.html#">
-                                                                    <i class="icon-heart"></i>
+                                                                    <i class="fa-solid fa-heart"></i>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -251,7 +251,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="shop-product-detail.html">
+                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -303,24 +303,24 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="shop-product-detail.html">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
                                                         <ul class="list_none pr_action_btn">
                                                             <li class="add-to-cart">
                                                                 <a href="index.html#">
-                                                                    <i class="icon-basket-loaded"></i>
+                                                                    <i class="fa-solid fa-cart-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
-                                                                    <i class="icon-magnifier-add"></i>
+                                                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="index.html#">
-                                                                    <i class="icon-heart"></i>
+                                                                    <i class="fa-solid fa-heart"></i>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -329,7 +329,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="shop-product-detail.html">
+                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -381,24 +381,24 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="shop-product-detail.html">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
                                                         <ul class="list_none pr_action_btn">
                                                             <li class="add-to-cart">
                                                                 <a href="index.html#">
-                                                                    <i class="icon-basket-loaded"></i>
+                                                                    <i class="fa-solid fa-cart-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
-                                                                    <i class="icon-magnifier-add"></i>
+                                                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="index.html#">
-                                                                    <i class="icon-heart"></i>
+                                                                    <i class="fa-solid fa-heart"></i>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -407,7 +407,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="shop-product-detail.html">
+                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -512,24 +512,24 @@
                                             @endif
                                         </div>
                                         <div class="product_img">
-                                            <a href="shop-product-detail.html">
+                                            <a href="{{ route('product', ['id' => $product->id]) }}">
                                                 <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                             </a>
                                             <div class="product_action_box">
                                                 <ul class="list_none pr_action_btn">
                                                     <li class="add-to-cart">
                                                         <a href="index.html#">
-                                                            <i class="icon-basket-loaded"></i>
+                                                            <i class="fa-solid fa-cart-plus"></i>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
-                                                            <i class="icon-magnifier-add"></i>
+                                                            <i class="fa-solid fa-magnifying-glass-plus"></i>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="index.html#">
-                                                            <i class="icon-heart"></i>
+                                                            <i class="fa-solid fa-heart"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -538,7 +538,7 @@
                                         <div class="product_info">
                                             <h6 class="product_title">
                                                 <b>
-                                                    <a href="shop-product-detail.html">
+                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
                                                         {{ $product->{lang('name')} }}
                                                     </a>
                                                 </b>

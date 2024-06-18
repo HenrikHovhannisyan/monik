@@ -146,4 +146,10 @@ return [
         'Yeghvard' => 'Եղվարդ',
     ],
 
+//    Product detail
+    'product' => 'Ապրանք',
+    'description' => 'Նկարագրություն',
+    'additional_info' => 'Լրացուցիչ տեղեկություն',
+    'similar_products' => 'Նմանատիպ Ապրանքներ',
+
 ];

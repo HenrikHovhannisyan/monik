@@ -20,7 +20,7 @@
             <div class="pr_detail">
                 <div class="product_description">
                     <h4 class="product_title">
-                        <a href="shop-quick-view.html#" title="{{ $product->{lang('name')} }}">
+                        <a href="{{ route('product', ['id' => $product->id]) }}" title="{{ $product->{lang('name')} }}">
                             {{ $product->{lang('name')} }}
                         </a>
                     </h4>
@@ -99,10 +99,12 @@
                     </div>
                     <div class="cart_btn">
                         <button class="btn btn-fill-out btn-addtocart" type="button" disabled>
-                            <i class="icon-basket-loaded"></i>
+                            <i class="fa-solid fa-cart-plus"></i>
                             {{ __("index.add_to_cart") }}
                         </button>
-                        <a class="add_wishlist" href="shop-quick-view.html#"><i class="icon-heart"></i></a>
+                        <a class="add_wishlist" href="shop-quick-view.html#">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
                     </div>
                 </div>
                 <hr />

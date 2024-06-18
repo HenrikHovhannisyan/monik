@@ -430,7 +430,7 @@ PAGE JS
 	*===================================*/
   function carousel_slider() {
     $(".carousel_slider").each(function () {
-      var $carousel = $(this);
+      let $carousel = $(this);
       $carousel.owlCarousel({
         dots: $carousel.data("dots"),
         loop: $carousel.data("loop"),
@@ -458,7 +458,7 @@ PAGE JS
 
   function slick_slider() {
     $(".slick_slider").each(function () {
-      var $slick_carousel = $(this);
+      let $slick_carousel = $(this);
       $slick_carousel.slick({
         arrows: $slick_carousel.data("arrows"),
         dots: $slick_carousel.data("dots"),

@@ -146,4 +146,10 @@ return [
         'Yeghvard' => 'Yeghvard',
     ],
 
+//    Product detail
+    'product' => 'Product',
+    'description' => 'Description',
+    'additional_info' => 'Additional information',
+    'similar_products' => 'Similar Products',
+
 ];
