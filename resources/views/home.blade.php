@@ -35,7 +35,7 @@
                                                     <a href="index-4.html#">
                                                         <img
                                                             src="{{ asset( $category->image ) }}"
-                                                            alt=""
+                                                            alt="{{ $category->{lang('name')} }}"
                                                         />
                                                         <span>{{ $category->{lang('name')} }}</span>
                                                     </a>

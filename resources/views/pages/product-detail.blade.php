@@ -41,7 +41,7 @@
                             <div class="product_img_box">
                                 <img id="product_img" src='{{ asset(json_decode($product->images)[0]) }}'
                                      data-zoom-image="{{ asset(json_decode($product->images)[0]) }}"
-                                     alt="product_img1"/>
+                                     alt="{{ $product->{lang('name')} }}"/>
                             </div>
                             <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4"
                                  data-slides-to-scroll="1" data-infinite="false">
@@ -49,7 +49,7 @@
                                     <div class="item">
                                         <a href="#" class="product_gallery_item {{ $index == 0 ? 'active' : '' }}"
                                            data-image="{{asset($imagePath)}}" data-zoom-image="{{asset($imagePath)}}">
-                                            <img src="{{asset($imagePath)}}" alt="product_small_img{{ $index + 1 }}"/>
+                                            <img src="{{asset($imagePath)}}" alt="{{ $product->{lang('name')} }}"/>
                                         </a>
                                     </div>
                                 @endforeach

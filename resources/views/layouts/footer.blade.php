@@ -6,9 +6,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="index.html#"
-                            ><img src="{{ asset('images/logo.png') }}" alt="logo"
-                                /></a>
+                            <a href="{{ route("home") }}">
+                                <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Sofia') }}"/>
+                            </a>
                         </div>
                         <p>
                             <b>{{ __('messages.comfort_and_style') }}</b>
