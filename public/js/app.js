@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function copyProductCode(code) {
     let successMessage = document.getElementById('successMessage');
     let copiedSKU = document.getElementById('copiedSKU');
-    
+
     navigator.clipboard.writeText(code);
     copiedSKU.textContent = code;
     successMessage.classList.remove('hidden');

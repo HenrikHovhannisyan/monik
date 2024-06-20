@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="{{asset('owlcarousel/css/owl.theme.default.min.css?v=' . time())}}"/>
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css?v=' . time())}}" />
+    <!-- jquery-ui CSS -->
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css?v=' . time())}}">
     <!-- Slick CSS -->
     <link rel="stylesheet" href="{{asset('css/slick.css?v=' . time())}}" />
     <link rel="stylesheet" href="{{asset('css/slick-theme.css?v=' . time())}}" />
@@ -52,6 +54,8 @@
 
     <!-- Latest jQuery -->
     <script defer src="{{asset('js/jquery-3.7.1.min.js?v=' . time())}}"></script>
+    <!-- jquery-ui -->
+    <script defer src="{{asset('js/jquery-ui.js?v=' . time())}}"></script>
     <!-- popper min js -->
     <script defer src="{{asset('js/popper.min.js?v=' . time())}}"></script>
     <!-- Latest compiled and minified Bootstrap -->

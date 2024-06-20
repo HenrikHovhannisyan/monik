@@ -5392,7 +5392,8 @@ footer .widget_title {
     display: inline-block;
 }
 
-.pr_detail .pr_desc p {
+.pr_detail .pr_desc p,
+.shop_container.list .pr_desc p {
     max-width: 100%;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -6389,10 +6390,6 @@ select option {
     border-radius: 0 !important;
     color: #687188;
     margin-left: 0px;
-    line-height: 36px;
-}
-
-.pagination_style1 .page-item a i {
     line-height: 36px;
 }
 

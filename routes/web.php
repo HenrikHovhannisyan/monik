@@ -36,6 +36,8 @@ Route::group(
 
         Route::get('/shop-quick-view/{id}', [ProductController::class, 'quickView'])->name('shop.quick.view');
         Route::get('/product/{id}', [ProductController::class, 'product'])->name('product');
+        Route::get('/products', [ProductController::class, 'products'])->name('products');
+        Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
 
         Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

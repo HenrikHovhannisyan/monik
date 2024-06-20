@@ -32,6 +32,8 @@ return [
     'share' => 'Share',
     'copied_sku' => 'SKU copied',
     'add_to_cart' => 'Add to cart',
+    'filter' => 'Filter',
+    'price' => 'Price',
 
     'home' => 'Home',
     'products' => 'Products',

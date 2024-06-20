@@ -21,6 +21,11 @@
                                 {{ __("index.home") }}
                             </a>
                         </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ route("products") }}">
+                                {{ __("index.products") }}
+                            </a>
+                        </li>
                         <li class="breadcrumb-item active">
                             {{ __("index.product") }} {{ $product->{lang('name')} }}
                         </li>
@@ -372,4 +377,5 @@
             </div>
         </div>
         <!-- END MAIN CONTENT -->
+    <!-- END MAIN CONTENT -->
 @endsection
