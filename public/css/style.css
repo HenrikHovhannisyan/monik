@@ -4897,7 +4897,7 @@ footer .widget_title {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: end;
     -ms-flex-align: center;
     align-items: center;
 }
@@ -5698,6 +5698,7 @@ body > .zoomContainer {
     border-radius: 0;
     background-color: #ddd;
     height: 4px;
+    width: calc(100% - 18px);
     margin-bottom: 20px;
 }
 

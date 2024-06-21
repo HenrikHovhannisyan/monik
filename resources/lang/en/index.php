@@ -32,7 +32,6 @@ return [
     'share' => 'Share',
     'copied_sku' => 'SKU copied',
     'add_to_cart' => 'Add to cart',
-    'filter' => 'Filter',
     'price' => 'Price',
 
     'home' => 'Home',
@@ -153,5 +152,14 @@ return [
     'description' => 'Description',
     'additional_info' => 'Additional information',
     'similar_products' => 'Similar Products',
+
+//    Products page
+    'filter' => 'Filter',
+    'clear_filter' => 'Clear Filter',
+    'widget_title' => 'Sort',
+    'default_sorting' => 'Default sorting',
+    'sort_by_price_low_to_high' => 'price: low to high',
+    'sort_by_price_high_to_low' => 'price: high to low',
+    'no_products_available' => 'There is no such product',
 
 ];

@@ -43,28 +43,56 @@ class ProductController extends Controller
         return view('pages.product-detail', compact('product', 'size', 'gender', 'randomProducts'));
     }
 
-    public function products()
+    public function products(Request $request)
     {
-        $products = Product::paginate(9);
-        $gender = Product::whereJsonContains('gender', ["boy", "girl"])->paginate(9);
-        $newProducts = Product::whereJsonContains('status', ["new"])->paginate(9);
-        $topProducts = Product::whereJsonContains('status', ["top"])->paginate(9);
-        $saleProducts = Product::whereNotNull('discount')->paginate(9);
+        $query = Product::query();
+
+        if ($request->has('categories')) {
+            $query->whereIn('category_id', $request->categories);
+        }
+
+        if ($request->has('gender')) {
+            $query->whereJsonContains('gender', $request->gender);
+        }
+
+        if ($request->has('status')) {
+            $query->whereJsonContains('status', $request->status);
+        }
+
+        if ($request->filled('price_first') && $request->filled('price_second')) {
+            $query->whereBetween('price', [$request->price_first, $request->price_second]);
+        }
+
+        if ($request->has('size')) {
+            foreach ($request->size as $size) {
+                $query->whereRaw("json_extract(size, '$.\"{$size}\".quantity') IS NOT NULL")
+                    ->whereRaw("CAST(json_extract(size, '$.\"{$size}\".quantity') AS UNSIGNED) > 0");
+            }
+        }
+
+        if ($request->has('discount')) {
+            $query->whereNotNull('discount');
+        }
+
+        if ($request->filled('sort')) {
+            switch ($request->sort) {
+                case 'price':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price-desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        $products = $query->paginate(12)->appends($request->query());
 
         return view('pages.products', compact('products'));
     }
 
-    public function filter(Request $request)
-    {
-        $products = Product::where(function ($query) {
-            $query->whereJsonContains('gender', ["boy", "girl"])
-                ->orWhereJsonContains('status', ["new", "top"])
-                ->orWhereJsonContains('size', ["0-3", "3-6", "6-12", "12-18", "18-24"])
-                ->orWhereNotNull('discount');
-        })->paginate(9);
 
-        return view('pages.products', compact('products'));
-    }
 
 
 }

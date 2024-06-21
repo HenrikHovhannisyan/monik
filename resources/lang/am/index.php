@@ -32,7 +32,6 @@ return [
     'share' => 'Կիսվել',
     'copied_sku' => 'SKU պատճենված է',
     'add_to_cart' => 'Ավելացնել զամբյուղում',
-    'filter' => 'Ֆիլտր',
     'price' => 'Գինը',
 
     'home' => 'Գլխավոր էջ',
@@ -153,5 +152,14 @@ return [
     'description' => 'Նկարագրություն',
     'additional_info' => 'Լրացուցիչ տեղեկություն',
     'similar_products' => 'Նմանատիպ Ապրանքներ',
+
+//    Products page
+    'filter' => 'Ֆիլտր',
+    'clear_filter' => 'Մաքրել ֆիլտրը',
+    'widget_title' => 'Դասավորել',
+    'default_sorting' => 'Սկզբնական տեսակավորում',
+    'sort_by_price_low_to_high' => 'գինը՝ աճման կարգով',
+    'sort_by_price_high_to_low' => 'գինը՝ նվազման կարգով',
+    'no_products_available' => 'Նման ապրանք չկա',
 
 ];

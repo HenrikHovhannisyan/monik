@@ -32,7 +32,6 @@ return [
     'share' => 'Делиться',
     'copied_sku' => 'SKU скопирован',
     'add_to_cart' => 'Добавить в корзину',
-    'filter' => 'Фильтр',
     'price' => 'Цена',
 
     'home' => 'Главная',
@@ -153,5 +152,14 @@ return [
     'description' => 'Описание',
     'additional_info' => 'Дополнительная информация',
     'similar_products' => 'Похожие продукты',
+
+//    Products page
+    'filter' => 'Фильтр',
+    'clear_filter' => 'Очистить фильтр',
+    'widget_title' => 'Сортировка',
+    'default_sorting' => 'Сортировка по умолчанию',
+    'sort_by_price_low_to_high' => 'цене: от низкой к высокой',
+    'sort_by_price_high_to_low' => 'цене: от высокой к низкой',
+    'no_products_available' => 'Нет такого товара',
 
 ];

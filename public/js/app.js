@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateRemoveButtons();
 });
 
-
 // End add new phone
 
 // Start copy product code
@@ -81,3 +80,4 @@ function copyProductCode(code) {
 }
 
 // End copy product code
+

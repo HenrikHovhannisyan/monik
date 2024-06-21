@@ -628,12 +628,11 @@ PAGE JS
             $(this).css("background-color", get_color);
         });
 
-        $(".product_color_switch span,.product_size_switch span").on(
-            "click",
-            function () {
-                $(this).siblings(this).removeClass("active").end().addClass("active");
-            }
-        );
+        $(".product_color_switch span,.product_size_switch span").on("click", function () {
+            $(this).siblings("span").removeClass("active").end().addClass("active");
+            var radio_id = $(this).data("for");
+            $("#" + radio_id).prop("checked", true);
+        });
     }
 
     $(document).ready(function () {
