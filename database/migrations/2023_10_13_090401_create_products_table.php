@@ -22,8 +22,8 @@ return new class extends Migration
             $table->text('description_am');
             $table->text('description_ru');
             $table->text('description_en');
-            $table->string('price');
-            $table->string('discount')->nullable();
+            $table->integer('price');
+            $table->integer('discount')->nullable();
             $table->json('images');
             $table->json('size');
             $table->json('gender');

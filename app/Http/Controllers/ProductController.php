@@ -56,11 +56,18 @@ class ProductController extends Controller
         }
 
         if ($request->has('status')) {
-            $query->whereJsonContains('status', $request->status);
+            $statuses = $request->status;
+            $query->where(function($query) use ($statuses) {
+                foreach ($statuses as $status) {
+                    $query->orWhereJsonContains('status', $status);
+                }
+            });
         }
 
         if ($request->filled('price_first') && $request->filled('price_second')) {
-            $query->whereBetween('price', [$request->price_first, $request->price_second]);
+            $max_price = Product::max('price');
+            $price_second = min($request->price_second, $max_price);
+            $query->whereBetween('price', [$request->price_first, $price_second]);
         }
 
         if ($request->has('size')) {
@@ -91,6 +98,7 @@ class ProductController extends Controller
 
         return view('pages.products', compact('products'));
     }
+
 
 
 
