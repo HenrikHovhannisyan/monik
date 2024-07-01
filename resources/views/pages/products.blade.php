@@ -171,7 +171,30 @@
                         </div>
                         {{ $products->links('vendor.pagination.default') }}
                     </div>
-                    @include('layouts.products-filter')
+                    <div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0 d-none d-lg-block">
+                        <div class="sidebar">
+                            @include('layouts.products-filter')
+                            <hr>
+                            <div class="widget">
+                                <div class="shop_banner">
+                                    <div class="banner_img overlay_bg_20">
+                                        <img src="{{ "/images/ad/sidebar_banner_img.png" }}" alt="{{ config('app.name', 'Sofia') }}">
+                                    </div>
+                                    <div class="shop_bn_content2 text_white">
+                                        <h5 class="text-uppercase shop_subtitle">
+                                            {{ __("ad.new_collection") }}
+                                        </h5>
+                                        <h3 class="text-uppercase shop_title">
+                                            {{ __("ad.sale_30_off") }}
+                                        </h3>
+                                        <a href="{{ route('products') }}" class="btn btn-white rounded-0 btn-sm text-uppercase">
+                                            {{ __("ad.shop_now") }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

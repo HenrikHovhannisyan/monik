@@ -156,7 +156,7 @@ return [
 
 //    Products page
     'filter' => 'Filter',
-    'clear_filter' => 'Clear Filter',
+    'clear_filter' => 'Clear',
     'widget_title' => 'Sort',
     'default_sorting' => 'Default sorting',
     'sort_by_price_low_to_high' => 'price: low to high',

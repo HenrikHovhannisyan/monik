@@ -156,7 +156,7 @@ return [
 
 //    Products page
     'filter' => 'Фильтр',
-    'clear_filter' => 'Очистить фильтр',
+    'clear_filter' => 'Очистить',
     'widget_title' => 'Сортировка',
     'default_sorting' => 'Сортировка по умолчанию',
     'sort_by_price_low_to_high' => 'цене: от низкой к высокой',

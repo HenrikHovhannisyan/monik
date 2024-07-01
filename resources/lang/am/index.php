@@ -156,7 +156,7 @@ return [
 
 //    Products page
     'filter' => 'Ֆիլտր',
-    'clear_filter' => 'Մաքրել ֆիլտրը',
+    'clear_filter' => 'Մաքրել',
     'widget_title' => 'Դասավորել',
     'default_sorting' => 'Սկզբնական տեսակավորում',
     'sort_by_price_low_to_high' => 'գինը՝ աճման կարգով',

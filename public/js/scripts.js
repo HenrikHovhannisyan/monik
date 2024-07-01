@@ -747,30 +747,126 @@ PAGE JS
     /*===================================*
       22. PRICE FILTER JS
       *===================================*/
-    $("#price_filter").each(function () {
-        let $filter_selector = $(this);
-        let a = $filter_selector.data("min-value");
-        let b = $filter_selector.data("max-value");
-        let c = $filter_selector.data("price-sign");
-        $filter_selector.slider({
-            range: true,
-            min: $filter_selector.data("min"),
-            max: $filter_selector.data("max"),
-            values: [a, b],
-            slide: function (event, ui) {
-                $("#flt_price").html(c + ui.values[0] + " - " + c + ui.values[1]);
-                $("#price_first").val(ui.values[0]);
-                $("#price_second").val(ui.values[1]);
-            },
-        });
-        $("#flt_price").html(
-            c +
-            $filter_selector.slider("values", 0) +
-            " - " +
-            c +
-            $filter_selector.slider("values", 1)
-        );
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const COLOR_TRACK = "#CBD5E1";
+        const COLOR_RANGE = "#ff324d";
+
+        // Function to set up slider events and initial state
+        function setupSlider(fromSlider, toSlider, fromTooltip, toTooltip, scale) {
+            const MIN = parseInt(fromSlider.getAttribute('min'));
+            const MAX = parseInt(fromSlider.getAttribute('max'));
+            const STEPS = parseInt(scale.dataset.steps);
+
+            function controlFromSlider(fromSlider, toSlider, fromTooltip, toTooltip) {
+                const [from, to] = getParsed(fromSlider, toSlider);
+                fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
+                if (from > to) {
+                    fromSlider.value = to;
+                }
+                setTooltip(fromSlider, fromTooltip);
+            }
+
+            function controlToSlider(fromSlider, toSlider, fromTooltip, toTooltip) {
+                const [from, to] = getParsed(fromSlider, toSlider);
+                fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
+                setToggleAccessible(toSlider);
+                if (from <= to) {
+                    toSlider.value = to;
+                } else {
+                    toSlider.value = from;
+                }
+                setTooltip(toSlider, toTooltip);
+            }
+
+            function getParsed(currentFrom, currentTo) {
+                const from = parseInt(currentFrom.value, 10);
+                const to = parseInt(currentTo.value, 10);
+                return [from, to];
+            }
+
+            function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+                const rangeDistance = to.max - to.min;
+                const fromPosition = from.value - to.min;
+                const toPosition = to.value - to.min;
+                controlSlider.style.background = `linear-gradient(
+                to right,
+                ${sliderColor} 0%,
+                ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+                ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+                ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%,
+                ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%,
+                ${sliderColor} 100%)`;
+            }
+
+            function setToggleAccessible(currentTarget) {
+                if (Number(currentTarget.value) <= 0) {
+                    toSlider.style.zIndex = 2;
+                } else {
+                    toSlider.style.zIndex = 0;
+                }
+            }
+
+            function setTooltip(slider, tooltip) {
+                const value = slider.value;
+                tooltip.textContent = `${value}֏`;
+                const thumbPosition = (value - slider.min) / (slider.max - slider.min);
+                const percent = thumbPosition * 100;
+                const markerWidth = 20;
+                const offset = (((percent - 50) / 50) * markerWidth) / 2;
+                tooltip.style.left = `calc(${percent}% - ${offset}px)`;
+            }
+
+            function createScale(min, max, step) {
+                const range = max - min;
+                const steps = range / step;
+                for (let i = 0; i <= steps; i++) {
+                    const value = min + (i * step);
+                    const percent = (value - min) / range * 100;
+                    const marker = document.createElement('div');
+                    marker.style.left = `${percent}%`;
+                    marker.textContent = `${value}֏`;
+                    scale.appendChild(marker);
+                }
+            }
+
+            // Set default values if they are not set
+            if (!fromSlider.value) fromSlider.value = MIN;
+            if (!toSlider.value) toSlider.value = MAX;
+
+            fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromTooltip, toTooltip);
+            toSlider.oninput = () => controlToSlider(fromSlider, toSlider, fromTooltip, toTooltip);
+
+            fillSlider(fromSlider, toSlider, COLOR_TRACK, COLOR_RANGE, toSlider);
+            setToggleAccessible(toSlider);
+            setTooltip(fromSlider, fromTooltip);
+            setTooltip(toSlider, toTooltip);
+            createScale(MIN, MAX, STEPS);
+        }
+
+        // Initialize sliders for desktop view
+        const fromSlider = document.querySelector('#fromSlider');
+        const toSlider = document.querySelector('#toSlider');
+        const fromTooltip = document.querySelector('#fromSliderTooltip');
+        const toTooltip = document.querySelector('#toSliderTooltip');
+        const scale = document.getElementById('scale');
+
+        if (fromSlider && toSlider && fromTooltip && toTooltip && scale) {
+            setupSlider(fromSlider, toSlider, fromTooltip, toTooltip, scale);
+        }
+
+        // Initialize sliders for mobile view
+        const fromSliderMobile = document.querySelector('#fromSlider_mobile');
+        const toSliderMobile = document.querySelector('#toSlider_mobile');
+        const fromTooltipMobile = document.querySelector('#fromSliderTooltip_mobile');
+        const toTooltipMobile = document.querySelector('#toSliderTooltip_mobile');
+        const scaleMobile = document.getElementById('scale_mobile');
+
+        if (fromSliderMobile && toSliderMobile && fromTooltipMobile && toTooltipMobile && scaleMobile) {
+            setupSlider(fromSliderMobile, toSliderMobile, fromTooltipMobile, toTooltipMobile, scaleMobile);
+        }
     });
+
 
     /*===================================*
       23. RATING STAR JS
