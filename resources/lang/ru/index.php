@@ -33,6 +33,7 @@ return [
     'copied_sku' => 'SKU скопирован',
     'add_to_cart' => 'Добавить в корзину',
     'price' => 'Цена',
+    'close' => 'Закрыть',
 
     'home' => 'Главная',
     'products' => 'Продукты',

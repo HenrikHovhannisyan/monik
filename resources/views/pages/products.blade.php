@@ -33,6 +33,9 @@
 
     <!-- START MAIN CONTENT -->
     <div class="main_content">
+        <button type="button" class="products-filter-modal d-block d-lg-none" data-bs-toggle="modal" data-bs-target="#products-filter">
+            <i class="fa-solid fa-filter"></i>
+        </button>
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -42,8 +45,12 @@
                                 <div class="product_header">
                                     <div class="product_header_right">
                                         <div class="products_view">
-                                            <a href="javascript:;" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-                                            <a href="javascript:;" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
+                                            <a href="javascript:;" class="shorting_icon grid active">
+                                                <i class="ti-view-grid"></i>
+                                            </a>
+                                            <a href="javascript:;" class="shorting_icon list">
+                                                <i class="ti-layout-list-thumb"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

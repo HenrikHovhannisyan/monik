@@ -4864,6 +4864,7 @@ footer .widget_title {
 /*===================================*
   23.START SHOP DESIGN
 *===================================*/
+.products-filter-modal,
 .shorting_icon {
     font-size: 18px;
     margin-right: 10px;
@@ -4881,6 +4882,7 @@ footer .widget_title {
     line-height: 45px;
 }
 
+.products-filter-modal,
 .shorting_icon.active {
     background-color: #ff324d;
     color: #fff;
@@ -7711,7 +7713,6 @@ blockquote p:last-child {
     height: 100%;
 }
 
-
 .message {
     position: fixed;
     bottom: 10px;
@@ -7731,4 +7732,14 @@ blockquote p:last-child {
 .hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+.products-filter-modal {
+    float: unset;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    z-index: 9;
+    margin-right: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }

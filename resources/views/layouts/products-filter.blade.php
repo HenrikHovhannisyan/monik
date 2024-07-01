@@ -1,4 +1,4 @@
-<div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
+<div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0 d-none d-lg-block">
     <div class="sidebar">
         <form method="GET" action="{{ route('products') }}">
             <div class="widget">
@@ -31,7 +31,6 @@
                                 <label class="form-check-label" for="{{ $category->id }}">
                                     <span>{{ $category->{lang('name')} }}</span>
                                 </label>
-                                <span>({{ count($category->products) }})</span>
                             </div>
                         </li>
                     @endforeach

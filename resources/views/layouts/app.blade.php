@@ -88,6 +88,7 @@
     @include('vendor.modal.logout')
     @include('vendor.modal.address')
     @include('vendor.modal.success-message')
+    @include('vendor.modal.products-filter')
     @include('layouts.header')
     <main>
         @yield('content')

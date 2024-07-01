@@ -33,6 +33,7 @@ return [
     'copied_sku' => 'SKU copied',
     'add_to_cart' => 'Add to cart',
     'price' => 'Price',
+    'close' => 'Close',
 
     'home' => 'Home',
     'products' => 'Products',
