@@ -20,88 +20,102 @@
                                 <ul class="mega-menu d-lg-flex">
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
-                                            <li class="dropdown-header">Woman's</li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="shop-left-sidebar.html">
-                                                    Donec porttitor
-                                                </a>
+                                            <li class="dropdown-header">
+                                                {{ __("index.boy") }}
                                             </li>
+                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                                <li>
+                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=boy">
+                                                        {{ $category->{lang('name')} }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
-                                            <li class="dropdown-header">Men's</li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="shop-cart.html">
-                                                    Donec vitae ante ante
-                                                </a>
+                                            <li class="dropdown-header">
+                                                {{ __("index.girl") }}
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="checkout.html">
-                                                    Etiam ac rutrum
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="wishlist.html">
-                                                    Quisque condimentum
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="order-completed.html">
-                                                    Vivamus in tortor
-                                                </a>
-                                            </li>
+                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                                <li>
+                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=girl">
+                                                        {{ $category->{lang('name')} }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
-                                            <li class="dropdown-header">Kid's</li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">
-                                                    Donec vitae facilisis
-                                                </a>
+                                            <li class="dropdown-header">
+                                                {{ __("index.new") }}
                                             </li>
+                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                                <li>
+                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&status%5B%5D=new">
+                                                        {{ $category->{lang('name')} }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
-                                            <li class="dropdown-header">Accessories</li>
-                                            <li>
-                                                <a class="dropdown-item nav-link nav_item" href="shop-product-detail.html">
-                                                    Donec vitae facilisis
-                                                </a>
+                                            <li class="dropdown-header">
+                                                {{ __("index.sale") }}
                                             </li>
+                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                                <li>
+                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&discount=sale">
+                                                        {{ $category->{lang('name')} }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                 </ul>
                                 <div class="d-lg-flex menu_banners row g-3 px-3">
                                     <div class="col-sm-4 header_banner_content">
-                                        <div class="shop_banner">
-                                            <img src="{{ asset('images/menu_banner1.jpg') }}" alt="menu_banner1"/>
+                                        <div class="header-banner">
+                                            <img src="{{ asset('images/menu_banner1.jpg') }}" alt="menu_banner2"/>
                                             <div class="banne_info">
-                                                <h6 class="shop_subtitle">10% Off</h6>
-                                                <h4 class="shop_title">New Arrival</h4>
-                                                <a href="index.html#">Shop now</a>
+                                                <h4 class="shop_title">
+                                                    {{ __("index.top") }}</h4>
+                                                <a href="{{ route('products') }}?status%5B%5D=top">
+                                                    {{ __("ad.shop_now") }}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 header_banner_content">
                                         <div class="header-banner">
-                                            <img src="{{ asset('images/menu_banner2.jpg') }}" alt="menu_banner2"/>
+                                            <img src="{{ asset('images/menu_banner2.png') }}" alt="menu_banner2"/>
                                             <div class="banne_info">
-                                                <h6 class="shop_subtitle">15% Off</h6>
-                                                <h4 class="shop_title">Men's Fashion</h4>
-                                                <a href="index.html#">Shop now</a>
+                                                <h6 class="shop_subtitle">
+                                                    {{ __("index.sale") }}
+                                                </h6>
+                                                <h4 class="shop_title">
+                                                    {{ __("index.boy") }}</h4>
+                                                <a href="{{ route('products') }}?gender%5B%5D=boy&discount=sale">
+                                                    {{ __("ad.shop_now") }}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 header_banner_content">
                                         <div class="header-banner">
-                                            <img src="{{ asset('images/menu_banner3.jpg') }}" alt="menu_banner3"/>
+                                            <img src="{{ asset('images/menu_banner3.png') }}" alt="menu_banner3"/>
                                             <div class="banne_info">
-                                                <h6 class="shop_subtitle">23% Off</h6>
-                                                <h4 class="shop_title">Kids Fashion</h4>
-                                                <a href="index.html#">Shop now</a>
+                                                <h6 class="shop_subtitle">
+                                                    {{ __("index.sale") }}
+                                                </h6>
+                                                <h4 class="shop_title">
+                                                    {{ __("index.girl") }}
+                                                </h4>
+                                                <a href="{{ route('products') }}?gender%5B%5D=girl&discount=sale">
+                                                    {{ __("ad.shop_now") }}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -7706,8 +7706,8 @@ blockquote p:last-child {
 .products-filter-modal {
     float: unset;
     position: fixed;
-    right: 20px;
-    top: 50%;
+    left: 20px;
+    bottom: 20px;
     z-index: 9;
     margin-right: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;

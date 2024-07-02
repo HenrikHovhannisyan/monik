@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $gender = Product::whereJsonContains('gender', ["boy", "girl"])->get();
         $newProducts = Product::whereJsonContains('status', ["new"])->inRandomOrder()->take(8)->get();
         $topProducts = Product::whereJsonContains('status', ["top"])->inRandomOrder()->take(8)->get();
         $saleProducts = Product::inRandomOrder()->whereNotNull('discount')->take(8)->get();
