@@ -32,7 +32,7 @@
                                         @foreach($categories as $category)
                                             <div class="item">
                                                 <div class="categories_box">
-                                                    <a href="index-4.html#">
+                                                    <a href="{{route('products')}}?categories%5B%5D={{ $category->id }}">
                                                         <img
                                                             src="{{ asset( $category->image ) }}"
                                                             alt="{{ $category->{lang('name')} }}"
