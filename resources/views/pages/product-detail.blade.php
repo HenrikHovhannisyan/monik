@@ -148,9 +148,6 @@
                                         <i class="fa-solid fa-cart-plus"></i>
                                         {{ __("index.add_to_cart") }}
                                     </button>
-                                    <a class="add_wishlist" href="shop-quick-view.html#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
                                 </div>
                             </div>
                             <hr/>
@@ -221,16 +218,19 @@
                                 </li>
                             </ul>
                             <div class="tab-content shop_info_tab">
-                                <div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
+                                <div class="tab-pane fade show active" id="Description" role="tabpanel"
+                                     aria-labelledby="Description-tab">
                                     {!! html_entity_decode( $product->{lang('description')})  !!}
                                 </div>
-                                <div class="tab-pane fade" id="Additional-info" role="tabpanel" aria-labelledby="Additional-info-tab">
+                                <div class="tab-pane fade" id="Additional-info" role="tabpanel"
+                                     aria-labelledby="Additional-info-tab">
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>SKU</td>
                                             <td>
                                                 {{ $product->code }}
-                                                <button class="btn btn-outline-secondary ps-2 pe-1 p-0" onclick="copyProductCode('{{ $product->code }}')">
+                                                <button class="btn btn-outline-secondary ps-2 pe-1 p-0"
+                                                        onclick="copyProductCode('{{ $product->code }}')">
                                                     <i class="fa-solid fa-copy copy-icon"></i>
                                                 </button>
                                             </td>
@@ -322,23 +322,14 @@
                                         </div>
                                         <div class="product_img">
                                             <a href="{{ route('product', ['id' => $product->id]) }}">
-                                                <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
+                                                <img src="{{ asset(json_decode($product->images)[0]) }}"
+                                                     alt="{{ $product->{lang('name')} }}"/>
                                             </a>
                                             <div class="product_action_box">
                                                 <ul class="list_none pr_action_btn">
-                                                    <li class="add-to-cart">
-                                                        <a href="index.html#">
-                                                            <i class="fa-solid fa-cart-plus"></i>
-                                                        </a>
-                                                    </li>
                                                     <li>
                                                         <a href="{{ route('product', ['id' => $product->id]) }}">
                                                             <i class="fa-regular fa-eye"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index.html#">
-                                                            <i class="fa-solid fa-heart"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -377,5 +368,4 @@
             </div>
         </div>
         <!-- END MAIN CONTENT -->
-    <!-- END MAIN CONTENT -->
 @endsection

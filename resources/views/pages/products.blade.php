@@ -97,19 +97,9 @@
                                             </a>
                                             <div class="product_action_box">
                                                 <ul class="list_none pr_action_btn">
-                                                    <li class="add-to-cart">
-                                                        <a href="index.html#">
-                                                            <i class="fa-solid fa-cart-plus"></i>
-                                                        </a>
-                                                    </li>
                                                     <li>
                                                         <a href="{{ route('shop.quick.view', ['id' => $product->id]) }}" class="popup-ajax">
                                                             <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index.html#">
-                                                            <i class="fa-solid fa-heart"></i>
                                                         </a>
                                                     </li>
                                                 </ul>

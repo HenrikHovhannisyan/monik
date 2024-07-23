@@ -102,9 +102,6 @@
                             <i class="fa-solid fa-cart-plus"></i>
                             {{ __("index.add_to_cart") }}
                         </button>
-                        <a class="add_wishlist" href="shop-quick-view.html#">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
                     </div>
                 </div>
                 <hr />
