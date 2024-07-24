@@ -713,12 +713,17 @@ PAGE JS
 
     function pluseminus() {
         $(".product_size_switch span").on("click", function () {
-
             let maxQuantity = parseInt($(this).attr("data-max"));
+            let sizeName = $(this).attr("data-size");
+
+            $("#sizeField").val(sizeName);
+
             $(".qty").attr("data-max", maxQuantity);
             $(".qty").val(1);
+
             $(".btn-addtocart").removeAttr("disabled");
         });
+
         $(".plus").on("click", function () {
             let max = parseInt($(".qty").attr("data-max"));
             let current = parseInt($(".qty").val());
@@ -738,6 +743,7 @@ PAGE JS
     $(document).ready(function () {
         pluseminus();
     });
+
 
 
     $(document).ready(function () {

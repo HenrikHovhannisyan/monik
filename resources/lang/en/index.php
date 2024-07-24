@@ -163,4 +163,16 @@ return [
     'sort_by_price_high_to_low' => 'price: high to low',
     'no_products_available' => 'There is no such product',
 
+//    Cart page
+    'shopping_cart' => 'Shopping Cart',
+    'name' => 'Name',
+    'quantity' => 'Quantity',
+    'remove' => 'Remove',
+    'cart_empty' => 'Your cart is empty.',
+    'cart_totals' => 'Cart Totals',
+    'cart_subtotal' => 'Cart Subtotal',
+    'shipping' => 'Shipping',
+    'free_ship' => 'Free Shipping',
+    'checkout' => 'Checkout',
+
 ];

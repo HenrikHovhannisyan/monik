@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -44,6 +45,7 @@ Route::group(
         Route::middleware(['auth'])->group(function () {
             Route::resource('addresses', AddressController::class);
             Route::resource('account', AccountController::class);
+            Route::resource('cart', CartController::class);
         });
 
     }

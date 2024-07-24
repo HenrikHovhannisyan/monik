@@ -163,4 +163,16 @@ return [
     'sort_by_price_high_to_low' => 'цене: от высокой к низкой',
     'no_products_available' => 'Нет такого товара',
 
+//    Cart page
+    'shopping_cart' => 'Корзина',
+    'name' => 'Название',
+    'quantity' => 'Количество',
+    'remove' => 'Удалить',
+    'cart_empty' => 'Ваша корзина пуста.',
+    'cart_totals' => 'Итоги корзины',
+    'cart_subtotal' => 'Промежуточный итог корзины',
+    'shipping' => 'Доставка',
+    'free_ship' => 'Бесплатная доставка',
+    'checkout' => 'Оформить заказ',
+
 ];

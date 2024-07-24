@@ -4,9 +4,11 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img class="logo_dark" src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Sofia') }}"/>
+                    <img class="logo_dark" src="{{ asset('images/logo.png?v=' . time()) }}"
+                         alt="{{ config('app.name', 'Sofia') }}"/>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-expanded="false">
                     <span class="ion-android-menu"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -25,7 +27,8 @@
                                             </li>
                                             @foreach ($categories->shuffle()->take(5) as $category)
                                                 <li>
-                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=boy">
+                                                    <a class="dropdown-item nav-link nav_item"
+                                                       href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=boy">
                                                         {{ $category->{lang('name')} }}
                                                     </a>
                                                 </li>
@@ -39,7 +42,8 @@
                                             </li>
                                             @foreach ($categories->shuffle()->take(5) as $category)
                                                 <li>
-                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=girl">
+                                                    <a class="dropdown-item nav-link nav_item"
+                                                       href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=girl">
                                                         {{ $category->{lang('name')} }}
                                                     </a>
                                                 </li>
@@ -53,7 +57,8 @@
                                             </li>
                                             @foreach ($categories->shuffle()->take(5) as $category)
                                                 <li>
-                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&status%5B%5D=new">
+                                                    <a class="dropdown-item nav-link nav_item"
+                                                       href="{{route('products')}}?categories%5B%5D={{ $category->id }}&status%5B%5D=new">
                                                         {{ $category->{lang('name')} }}
                                                     </a>
                                                 </li>
@@ -67,7 +72,8 @@
                                             </li>
                                             @foreach ($categories->shuffle()->take(5) as $category)
                                                 <li>
-                                                    <a class="dropdown-item nav-link nav_item" href="{{route('products')}}?categories%5B%5D={{ $category->id }}&discount=sale">
+                                                    <a class="dropdown-item nav-link nav_item"
+                                                       href="{{route('products')}}?categories%5B%5D={{ $category->id }}&discount=sale">
                                                         {{ $category->{lang('name')} }}
                                                     </a>
                                                 </li>
@@ -123,7 +129,8 @@
                             </div>
                         </li>
                         <li>
-                            <a class="nav-link nav_item" href="{{ route('contact') }}" title="{{ __("index.contact") }}">
+                            <a class="nav-link nav_item" href="{{ route('contact') }}"
+                               title="{{ __("index.contact") }}">
                                 {{ __("index.contact") }}
                             </a>
                         </li>
@@ -136,25 +143,31 @@
                             </li>
                         @else
                             <li class="dropdown">
-                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown" title="{{ Auth::user()->name }}">
+                                <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"
+                                   title="{{ Auth::user()->name }}">
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         @if(Auth::user() && Auth::user()->is_admin === 1)
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item text-success" href="{{ route('dashboard') }}" title="{{ __('index.admin-panel') }}">
+                                                <a class="dropdown-item nav-link nav_item text-success"
+                                                   href="{{ route('dashboard') }}"
+                                                   title="{{ __('index.admin-panel') }}">
                                                     {{ __('index.admin-panel') }}
                                                 </a>
                                             </li>
                                         @endif
                                         <li>
-                                            <a class="dropdown-item nav-link nav_item" href="{{ route('account') }}" title="{{ __('index.my_account') }}">
+                                            <a class="dropdown-item nav-link nav_item" href="{{ route('account') }}"
+                                               title="{{ __('index.my_account') }}">
                                                 {{ __('index.my_account') }}
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}" title="{{ __('index.logout') }}" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                            <a class="dropdown-item nav-link nav_item" href="{{ route('logout') }}"
+                                               title="{{ __('index.logout') }}" data-bs-toggle="modal"
+                                               data-bs-target="#logoutModal">
                                                 {{ __('index.logout') }}
                                             </a>
                                         </li>
@@ -165,7 +178,8 @@
                         <li class="dropdown">
                             @php $lng = config('main.lang.' . App::getLocale()); @endphp
                             <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">
-                                <img src="{{ asset($lng['icon']) }}" class="rounded-circle" width="18" alt="{{ $lng['name'] }}"/>
+                                <img src="{{ asset($lng['icon']) }}" class="rounded-circle" width="18"
+                                     alt="{{ $lng['name'] }}"/>
                                 {{ $lng['name'] }}
                             </a>
                             <div class="dropdown-menu">
@@ -173,8 +187,10 @@
                                     @foreach(config('main.lang') as $k => $v)
                                         @if($k !== $lng['key'])
                                             <li>
-                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}" title="{{ $v['name'] }}" data-lang="{{ $k }}">
-                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18" alt="{{ $v['name'] }}"/>
+                                                <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}"
+                                                   title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18"
+                                                         alt="{{ $v['name'] }}"/>
                                                     {{ $v['name'] }}
                                                 </a>
                                             </li>
@@ -195,7 +211,8 @@
                                 <i class="ion-ios-close-empty"></i>
                              </span>
                             <form>
-                                <input type="text" placeholder="{{ __("index.search") }}" class="form-control" id="search_input"/>
+                                <input type="text" placeholder="{{ __("index.search") }}" class="form-control"
+                                       id="search_input"/>
                                 <button type="submit" class="search_icon">
                                     <i class="ion-ios-search-strong"></i>
                                 </button>
@@ -204,64 +221,81 @@
                         <div class="search_overlay"></div>
                     </li>
                     <li class="dropdown cart_dropdown">
-                        <a class="nav-link cart_trigger" href="index.html#" data-bs-toggle="dropdown" title="{{ __("index.cart") }}">
+                        <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"
+                           title="{{ __("index.cart") }}">
                             <i class="linearicons-cart"></i>
-                            <span class="cart_count">2</span>
+                            <span class="cart_count">{{ $cartItems->count() }}</span>
                         </a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
-                                <li>
-                                    <a href="index.html#" class="item_remove">
-                                        <i class="ion-close"></i>
-                                    </a>
-                                    <a href="index.html#"><img src="{{ asset('images/cart_thamb1.jpg') }}"
-                                                               alt="cart_thumb1"/>
-                                        Variable product 001
-                                    </a>
-                                    <span class="cart_quantity">
-                                        1 x
-                                        <span class="cart_amount">
-                                          <span class="price_symbole">$</span>
+                                @forelse($cartItems as $item)
+                                    <li>
+                                        <a href="{{ route('cart.destroy', $item->id) }}" class="item_remove"
+                                           onclick="event.preventDefault(); document.getElementById('remove-cart-item-{{ $item->id }}').submit();">
+                                            <i class="ion-close"></i>
+                                        </a>
+                                        <a href="{{ route('product', $item->product_id) }}">
+                                            <img src="{{ asset(json_decode($item->product->images)[0]) }}"
+                                                 alt="{{ $item->product->{lang('name')} }}"/>
+                                            {{ $item->product->{lang('name')} }}
+                                        </a>
+                                        <span class="cart_quantity">
+                                            {{ $item->quantity }} x
+                                            <span class="cart_amount">
+                                                <span class="price_symbole">֏</span>
+                                                @if($item->product->discount)
+                                                    {{ ($item->product->price - ($item->product->price * $item->product->discount) / 100) }}
+                                                @else
+                                                    {{ $item->product->price }}
+                                                @endif
+                                            </span>
                                         </span>
-                                        78.00
-                                    </span>
-                                </li>
-                                <li>
-                                    <a href="index.html#" class="item_remove">
-                                        <i class="ion-close"></i>
-                                    </a>
-                                    <a href="index.html#">
-                                        <img src="{{ asset('images/cart_thamb2.jpg') }}" alt="cart_thumb2"/>
-                                        Ornare sed consequat
-                                    </a>
-                                    <span class="cart_quantity">
-                                        1 x
-                                        <span class="cart_amount">
-                                            <span class="price_symbole">$</span>
-                                        </span>
-                                        81.00
-                                    </span>
-                                </li>
+                                        <form id="remove-cart-item-{{ $item->id }}"
+                                              action="{{ route('cart.destroy', $item->id) }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <div class="text-center">
+                                            <h6>{{ __("index.cart_empty") }}</h6>
+                                            <a href="{{ route('products') }}" class="text-danger">
+                                                {{ __("ad.shop_now") }}
+                                            </a>
+                                        </div>
+                                    </li>
+                                @endforelse
                             </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total">
-                                    <strong>Subtotal:</strong>
-                                    <span class="cart_price">
-                                        <span class="price_symbole">
-                                            $
-                                        </span>
+                            @if($cartItems->count() > 0)
+                                <div class="cart_footer">
+                                    <p class="cart_total">
+                                        <strong>{{ __("index.total") }}:</strong>
+                                        <span class="cart_price">
+                                        <span class="price_symbole">֏</span>
+                                        @php
+                                            $subtotal = $cartItems->sum(function ($item) {
+                                                return $item->product->discount
+                                                    ? ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity
+                                                    : $item->product->price * $item->quantity;
+                                            });
+                                        @endphp
+                                            {{ $subtotal }}
                                     </span>
-                                    159.00
-                                </p>
-                                <p class="cart_buttons">
-                                    <a href="shop-cart.html" class="btn btn-fill-line rounded-0 view-cart">
-                                        View Cart
-                                    </a>
-                                    <a href="checkout.html" class="btn btn-fill-out rounded-0 checkout">
-                                        Checkout
-                                    </a>
-                                </p>
-                            </div>
+                                    </p>
+                                    <p class="cart_buttons">
+                                        <a href="{{ route('cart.index') }}"
+                                           class="btn btn-fill-line view-cart">
+                                            {{ __("index.cart") }}
+                                        </a>
+                                        <a href="#"
+                                           class="btn btn-fill-out checkout">
+                                            {{ __("index.checkout") }}
+                                        </a>
+                                    </p>
+                                </div>
+                            @endif
                         </div>
                     </li>
                 </ul>

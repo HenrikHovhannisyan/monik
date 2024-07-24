@@ -81,29 +81,36 @@
                         </span>
                         <div class="product_size_switch">
                             @foreach($size as $sizeName => $item)
-                                @if( $item['quantity'])
-                                    <span data-max="{{ $item['quantity'] }}">{{ $sizeName }}</span>
+                                @if($item['quantity'])
+                                    <span data-size="{{ $sizeName }}" data-max="{{ $item['quantity'] }}">
+                                        {{ $sizeName }}
+                                    </span>
                                 @endif
                             @endforeach
                         </div>
                     </div>
                 </div>
                 <hr />
-                <div class="cart_extra">
-                    <div class="cart-product-quantity">
-                        <div class="quantity">
-                            <input type="button" value="-" class="minus">
-                            <input type="text" name="quantity" value="1" title="Qty" class="qty" size="4">
-                            <input type="button" value="+" class="plus">
+                <form action="{{ route('cart.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <input type="hidden" name="size" id="sizeField" value="">
+                    <div class="cart_extra">
+                        <div class="cart-product-quantity">
+                            <div class="quantity">
+                                <input type="button" value="-" class="minus">
+                                <input type="text" name="quantity" value="1" title="Qty" class="qty" size="4">
+                                <input type="button" value="+" class="plus">
+                            </div>
+                        </div>
+                        <div class="cart_btn">
+                            <button class="btn btn-fill-out btn-addtocart" type="submit" disabled>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                {{ __("index.add_to_cart") }}
+                            </button>
                         </div>
                     </div>
-                    <div class="cart_btn">
-                        <button class="btn btn-fill-out btn-addtocart" type="button" disabled>
-                            <i class="fa-solid fa-cart-plus"></i>
-                            {{ __("index.add_to_cart") }}
-                        </button>
-                    </div>
-                </div>
+                </form>
                 <hr />
                 <ul class="product-meta">
                     <li>

@@ -163,4 +163,16 @@ return [
     'sort_by_price_high_to_low' => 'գինը՝ նվազման կարգով',
     'no_products_available' => 'Նման ապրանք չկա',
 
+//    Cart page
+    'shopping_cart' => 'Գնումների զամբյուղ',
+    'name' => 'Անուն',
+    'quantity' => 'Քանակ',
+    'remove' => 'Հեռացնել',
+    'cart_empty' => 'Ձեր զամբյուղը դատարկ է:',
+    'cart_totals' => 'Զամբյուղի արդյունքները',
+    'cart_subtotal' => 'Զամբյուղի ընդհանուր գումարը',
+    'shipping' => 'Առաքում',
+    'free_ship' => 'Անվճար առաքում',
+    'checkout' => 'Պատվիրել',
+
 ];

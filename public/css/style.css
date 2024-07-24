@@ -1595,6 +1595,11 @@ ul
     list-style: outside none none;
 }
 
+.cart_list img {
+    width: 80px;
+    height: 80px;
+}
+
 .cart_count,
 .wishlist_count {
     position: relative;

@@ -1,5 +1,5 @@
 // Start Get Language
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     const dropdownItems = document.querySelectorAll('.select-lang');
     dropdownItems.forEach(item => {
         item.addEventListener('click', function () {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (selectedLanguage && selectedLanguage !== "null" && window.location.pathname.slice(1, 3) !== selectedLanguage) {
         window.location.href = `/${selectedLanguage}`;
     }
-});
+});*/
 
 // End Get Language
 
@@ -80,4 +80,6 @@ function copyProductCode(code) {
 }
 
 // End copy product code
+
+
 
