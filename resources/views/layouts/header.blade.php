@@ -220,83 +220,11 @@
                         </div>
                         <div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown">
-                        <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"
-                           title="{{ __("index.cart") }}">
+                    <li>
+                        <a class="nav-link nav_item" href="{{ route('cart.index') }}" title="{{ __("index.cart") }}">
                             <i class="linearicons-cart"></i>
                             <span class="cart_count">{{ $cartItems->count() }}</span>
                         </a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                @forelse($cartItems as $item)
-                                    <li>
-                                        <a href="{{ route('cart.destroy', $item->id) }}" class="item_remove"
-                                           onclick="event.preventDefault(); document.getElementById('remove-cart-item-{{ $item->id }}').submit();">
-                                            <i class="ion-close"></i>
-                                        </a>
-                                        <a href="{{ route('product', $item->product_id) }}">
-                                            <img src="{{ asset(json_decode($item->product->images)[0]) }}"
-                                                 alt="{{ $item->product->{lang('name')} }}"/>
-                                            {{ $item->product->{lang('name')} }}
-                                        </a>
-                                        <span class="cart_quantity">
-                                            {{ $item->quantity }} x
-                                            <span class="cart_amount">
-                                                <span class="price_symbole">֏</span>
-                                                @if($item->product->discount)
-                                                    {{ ($item->product->price - ($item->product->price * $item->product->discount) / 100) }}
-                                                @else
-                                                    {{ $item->product->price }}
-                                                @endif
-                                            </span>
-                                        </span>
-                                        <form id="remove-cart-item-{{ $item->id }}"
-                                              action="{{ route('cart.destroy', $item->id) }}" method="POST"
-                                              style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                    </li>
-                                @empty
-                                    <li>
-                                        <div class="text-center">
-                                            <h6>{{ __("index.cart_empty") }}</h6>
-                                            <a href="{{ route('products') }}" class="text-danger">
-                                                {{ __("ad.shop_now") }}
-                                            </a>
-                                        </div>
-                                    </li>
-                                @endforelse
-                            </ul>
-                            @if($cartItems->count() > 0)
-                                <div class="cart_footer">
-                                    <p class="cart_total">
-                                        <strong>{{ __("index.total") }}:</strong>
-                                        <span class="cart_price">
-                                        <span class="price_symbole">֏</span>
-                                        @php
-                                            $subtotal = $cartItems->sum(function ($item) {
-                                                return $item->product->discount
-                                                    ? ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity
-                                                    : $item->product->price * $item->quantity;
-                                            });
-                                        @endphp
-                                            {{ $subtotal }}
-                                    </span>
-                                    </p>
-                                    <p class="cart_buttons">
-                                        <a href="{{ route('cart.index') }}"
-                                           class="btn btn-fill-line view-cart">
-                                            {{ __("index.cart") }}
-                                        </a>
-                                        <a href="#"
-                                           class="btn btn-fill-out checkout">
-                                            {{ __("index.checkout") }}
-                                        </a>
-                                    </p>
-                                </div>
-                            @endif
-                        </div>
                     </li>
                 </ul>
             </nav>
