@@ -49,7 +49,7 @@
                         <ul class="widget_links">
                             @foreach($categories->shuffle()->slice(0, 5) as $category)
                                 <li>
-                                    <a href="index.html#" title="{{ $category->{lang('name')} }}">
+                                    <a href="{{route('products')}}?categories%5B%5D={{ $category->id }}">
                                         {{ $category->{lang('name')} }}
                                     </a>
                                 </li>
