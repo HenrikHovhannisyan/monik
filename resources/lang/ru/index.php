@@ -175,4 +175,16 @@ return [
     'free_ship' => 'Бесплатная доставка',
     'checkout' => 'Оформить заказ',
 
+    //    Checkout page
+    'billing_details' => 'Платежные данные',
+    'additional_information' => 'Дополнительная информация',
+    'your_orders' => 'Ваши заказы',
+    'payment' => 'Оплата',
+    'cash' => 'Наличные',
+    'have_coupon' => 'Есть купон?',
+    'enter_coupon' => 'Введите код купона',
+    'apply_coupon' => 'Применить купон',
+    'ship_to_different_address' => 'Доставка на другой адрес?',
+    'order_notes' => 'Примечания к заказу',
+
 ];

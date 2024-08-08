@@ -149,7 +149,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="shop-cart.html#" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
+                            <a href="{{ route('checkout') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
                         </div>
                     </div>
                 </div>

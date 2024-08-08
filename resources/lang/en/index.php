@@ -175,4 +175,16 @@ return [
     'free_ship' => 'Free Shipping',
     'checkout' => 'Checkout',
 
+    //    Checkout page
+    'billing_details' => 'Billing Details',
+    'additional_information' => 'Additional information',
+    'your_orders' => 'Your Orders',
+    'payment' => 'Payment',
+    'cash' => 'Cash',
+    'have_coupon' => 'Have a coupon?',
+    'enter_coupon' => 'Enter Coupon Code',
+    'apply_coupon' => 'Apply Coupon',
+    'ship_to_different_address' => 'Ship to a different address?',
+    'order_notes' => 'Order notes',
+
 ];

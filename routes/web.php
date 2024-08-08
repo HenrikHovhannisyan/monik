@@ -33,7 +33,6 @@ Route::group(
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/faq', [PageController::class, 'faq'])->name('faq');
         Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-        Route::get('/my-account', [PageController::class, 'account'])->name('account');
 
         Route::get('/shop-quick-view/{id}', [ProductController::class, 'quickView'])->name('shop.quick.view');
         Route::get('/product/{id}', [ProductController::class, 'product'])->name('product');
@@ -43,9 +42,11 @@ Route::group(
         Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
         Route::middleware(['auth'])->group(function () {
+            Route::get('/my-account', [PageController::class, 'account'])->name('account');
             Route::resource('addresses', AddressController::class);
             Route::resource('account', AccountController::class);
             Route::resource('cart', CartController::class);
+            Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
         });
 
     }

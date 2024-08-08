@@ -25,4 +25,9 @@ class PageController extends Controller
         $user->load('addresses');
         return view('pages.account', compact('user'));
     }
+
+    public function checkout()
+    {
+        return view('pages.checkout');
+    }
 }

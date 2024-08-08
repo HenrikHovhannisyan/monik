@@ -175,4 +175,16 @@ return [
     'free_ship' => 'Անվճար առաքում',
     'checkout' => 'Պատվիրել',
 
+    //    Checkout page
+    'billing_details' => 'Վճարման տվյալներ',
+    'additional_information' => 'Լրացուցիչ տեղեկություն',
+    'your_orders' => 'Ձեր պատվերները',
+    'payment' => 'Վճարում',
+    'cash' => 'Կանխիկ',
+    'have_coupon' => 'Ունե՞ք կուպոն',
+    'enter_coupon' => 'Մուտքագրեք կուպոնի կոդը',
+    'apply_coupon' => 'Կիրառել կուպոնը',
+    'ship_to_different_address' => 'Ուղարկել այլ հասցեով?',
+    'order_notes' => 'Պատվերի նշումներ',
+
 ];
