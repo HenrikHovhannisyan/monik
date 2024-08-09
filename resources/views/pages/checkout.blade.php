@@ -73,9 +73,11 @@
                         <div class="medium_divider"></div>
                     </div>
                 </div>
-                <form method="post">
+                <form method="POST" action="{{ route('checkouts.store') }}">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
+                            <!-- Блок для выбора адреса доставки -->
                             <div class="heading_s1">
                                 <h4>{{ __("index.billing_details") }}</h4>
                             </div>
@@ -83,25 +85,28 @@
                                 <div class="custome-radio">
                                     <input class="form-check-input" required="" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
                                     <label class="form-check-label address_check" for="{{ $address->id }}">
-                                            {{ $address->city }},
-                                            {{ $address->state }},
-                                            {{ $address->state }},
-                                            {{ $address->address }},
-                                            @if($address->address2)
-                                                {{ $address->address2 }},
-                                            @endif
-                                            {{ $address->postcode }}
+                                        {{ $address->city }},
+                                        {{ $address->state }},
+                                        {{ $address->address }},
+                                        @if($address->address2)
+                                            {{ $address->address2 }},
+                                        @endif
+                                        {{ $address->postcode }}
                                     </label>
                                 </div>
-                            @endforeach
+                        @endforeach
+
+                        <!-- Блок для добавления заметок -->
                             <div class="heading_s1 mt-3">
                                 <h4>{{ __("index.additional_information") }}</h4>
                             </div>
                             <div class="form-group mb-0">
-                                <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}" name="order-notes"></textarea>
+                                <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}" name="order_notes"></textarea>
                             </div>
                         </div>
+
                         <div class="col-md-6">
+                            <!-- Блок для показа заказа -->
                             <div class="order_review">
                                 <div class="heading_s1">
                                     <h4>{{ __("index.your_orders") }}</h4>
@@ -115,32 +120,29 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @forelse($cartItems as $item)
+                                        @foreach($cartItems as $item)
                                             <tr>
                                                 <td>{{ $item->product->{lang('name')} }}
-                                                    <span class="product-qty">
-                                                        x {{ $item->quantity }}
-                                                    </span>
+                                                    <span class="product-qty">x {{ $item->quantity }}</span>
                                                 </td>
                                                 <td>
                                                     @if($item->product->discount)
                                                         <del>{{ $item->product->price }}֏</del>
                                                         <span class="price">
-                                                            {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                                                        </span>
+                                            {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                                        </span>
                                                     @else
                                                         {{ $item->product->price }}֏
                                                     @endif
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                        @endforeach
                                         </tbody>
                                         <tfoot>
                                         <tr>
                                             <th>{{ __("index.cart_subtotal") }}</th>
                                             <td class="product-subtotal">
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
-                                                ֏
+                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
                                             </td>
                                         </tr>
                                         <tr>
@@ -150,13 +152,14 @@
                                         <tr>
                                             <th>{{ __("index.total") }}</th>
                                             <td class="product-subtotal">
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
-                                                ֏
+                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
                                             </td>
                                         </tr>
                                         </tfoot>
                                     </table>
                                 </div>
+
+                                <!-- Блок для выбора способа оплаты -->
                                 <div class="payment_method">
                                     <div class="heading_s1">
                                         <h4>{{ __("index.payment") }}</h4>
@@ -165,15 +168,17 @@
                                         <div class="custome-radio">
                                             <input class="form-check-input" required="" type="radio" name="payment_option" id="cash" value="cash" checked="">
                                             <label class="form-check-label" for="cash">{{ __("index.cash") }}</label>
-{{--                                            <p data-method="option3" class="payment-text">{{ __("index.cash") }}</p>--}}
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-fill-out btn-block">{{ __("index.checkout") }}</a>
+
+                                <!-- Кнопка для отправки формы -->
+                                <button type="submit" class="btn btn-fill-out btn-block">{{ __("index.checkout") }}</button>
                             </div>
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

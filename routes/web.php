@@ -3,7 +3,9 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Services\Localization\LocalizationService;
@@ -47,6 +49,8 @@ Route::group(
             Route::resource('account', AccountController::class);
             Route::resource('cart', CartController::class);
             Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
+            Route::resource('checkouts', CheckoutController::class);
+            Route::resource('order-items', OrderItemController::class);
         });
 
     }

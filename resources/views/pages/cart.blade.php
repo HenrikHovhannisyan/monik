@@ -119,7 +119,8 @@
                         <div class="medium_divider"></div>
                     </div>
                 </div>
-                <div class="row">
+                @if($cartItems->isNotEmpty())
+                    <div class="row">
                     <div class="col">
                         <div class="border p-3 p-md-4">
                             <div class="heading_s1 mb-3">
@@ -153,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
