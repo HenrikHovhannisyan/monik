@@ -184,7 +184,6 @@ return [
     'have_coupon' => 'Ունե՞ք կուպոն',
     'enter_coupon' => 'Մուտքագրեք կուպոնի կոդը',
     'apply_coupon' => 'Կիրառել կուպոնը',
-    'ship_to_different_address' => 'Ուղարկել այլ հասցեով?',
     'order_notes' => 'Պատվերի նշումներ',
 
 ];

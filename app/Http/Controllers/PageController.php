@@ -28,6 +28,8 @@ class PageController extends Controller
 
     public function checkout()
     {
-        return view('pages.checkout');
+        $user = Auth::user();
+        $user->load('addresses');
+        return view('pages.checkout', compact('user'));
     }
 }

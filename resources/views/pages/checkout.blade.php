@@ -75,88 +75,33 @@
                 </div>
                 <form method="post">
                     <div class="row">
-                            <div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="heading_s1">
                                 <h4>{{ __("index.billing_details") }}</h4>
                             </div>
-                                <div class="ship_detail">
-                                    <div class="form-group mb-3">
-                                        <div class="chek-form">
-                                            <div class="custome-checkbox">
-                                                <input class="form-check-input" type="checkbox" name="checkbox"
-                                                       id="differentaddress">
-                                                <label class="form-check-label label_info"
-                                                       for="differentaddress"><span>{{ __("index.ship_to_different_address") }}</span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="different_address">
-                                        <div class="form-group mb-3">
-                                            <div class="custom_select">
-                                                <select class="form-control" name="city" required>
-                                                    <option value="">{{ __('index.select_city') }}</option>
-                                                    <option value="Yerevan">{{ __('index.cities.Yerevan') }}</option>
-                                                    <option value="Gyumri" disabled>{{ __('index.cities.Gyumri') }}</option>
-                                                    <option value="Vanadzor"
-                                                            disabled>{{ __('index.cities.Vanadzor') }}</option>
-                                                    <option value="Hrazdan"
-                                                            disabled>{{ __('index.cities.Hrazdan') }}</option>
-                                                    <option value="Vagharshapat"
-                                                            disabled>{{ __('index.cities.Vagharshapat') }}</option>
-                                                    <option value="Abovyan"
-                                                            disabled>{{ __('index.cities.Abovyan') }}</option>
-                                                    <option value="Kapan" disabled>{{ __('index.cities.Kapan') }}</option>
-                                                    <option value="Ararat" disabled>{{ __('index.cities.Ararat') }}</option>
-                                                    <option value="Armavir"
-                                                            disabled>{{ __('index.cities.Armavir') }}</option>
-                                                    <option value="Gavar" disabled>{{ __('index.cities.Gavar') }}</option>
-                                                    <option value="Artashat"
-                                                            disabled>{{ __('index.cities.Artashat') }}</option>
-                                                    <option value="Ijevan" disabled>{{ __('index.cities.Ijevan') }}</option>
-                                                    <option value="Charentsavan"
-                                                            disabled>{{ __('index.cities.Charentsavan') }}</option>
-                                                    <option value="Goris" disabled>{{ __('index.cities.Goris') }}</option>
-                                                    <option value="Masis" disabled>{{ __('index.cities.Masis') }}</option>
-                                                    <option value="Ashtarak"
-                                                            disabled>{{ __('index.cities.Asharak') }}</option>
-                                                    <option value="Sisian" disabled>{{ __('index.cities.Sisian') }}</option>
-                                                    <option value="Spitak" disabled>{{ __('index.cities.Spitak') }}</option>
-                                                    <option value="Sevan" disabled>{{ __('index.cities.Sevan') }}</option>
-                                                    <option value="Martuni"
-                                                            disabled>{{ __('index.cities.Martuni') }}</option>
-                                                    <option value="Vardenis"
-                                                            disabled>{{ __('index.cities.Vardenis') }}</option>
-                                                    <option value="Yeghvard"
-                                                            disabled>{{ __('index.cities.Yeghvard') }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input class="form-control" type="text" name="state"
-                                                   placeholder="{{ __('index.state') }}" required>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input type="text" class="form-control" name="address"
-                                                   placeholder="{{ __('index.address') }} *" required>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input type="text" class="form-control" name="address2"
-                                                   placeholder="{{ __('index.address2') }}">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <input class="form-control" type="text" name="postcode"
-                                                   placeholder="{{ __('index.postcode') }}" required>
-                                        </div>
-                                    </div>
+                            @foreach($user->addresses as $address)
+                                <div class="custome-radio">
+                                    <input class="form-check-input" required="" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
+                                    <label class="form-check-label address_check" for="{{ $address->id }}">
+                                            {{ $address->city }},
+                                            {{ $address->state }},
+                                            {{ $address->state }},
+                                            {{ $address->address }},
+                                            @if($address->address2)
+                                                {{ $address->address2 }},
+                                            @endif
+                                            {{ $address->postcode }}
+                                    </label>
                                 </div>
-                                <div class="heading_s1">
-                                    <h4>{{ __("index.additional_information") }}</h4>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}"></textarea>
-                                </div>
+                            @endforeach
+                            <div class="heading_s1 mt-3">
+                                <h4>{{ __("index.additional_information") }}</h4>
+                            </div>
+                            <div class="form-group mb-0">
+                                <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}" name="order-notes"></textarea>
+                            </div>
                         </div>
-                            <div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="order_review">
                                 <div class="heading_s1">
                                     <h4>{{ __("index.your_orders") }}</h4>
@@ -170,23 +115,33 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Blue Dress For Woman <span class="product-qty">x 2</span></td>
-                                            <td>$90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lether Gray Tuxedo <span class="product-qty">x 1</span></td>
-                                            <td>$55.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>woman full sliv dress <span class="product-qty">x 3</span></td>
-                                            <td>$204.00</td>
-                                        </tr>
+                                        @forelse($cartItems as $item)
+                                            <tr>
+                                                <td>{{ $item->product->{lang('name')} }}
+                                                    <span class="product-qty">
+                                                        x {{ $item->quantity }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    @if($item->product->discount)
+                                                        <del>{{ $item->product->price }}֏</del>
+                                                        <span class="price">
+                                                            {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                                                        </span>
+                                                    @else
+                                                        {{ $item->product->price }}֏
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                         <tr>
                                             <th>{{ __("index.cart_subtotal") }}</th>
-                                            <td class="product-subtotal">$349.00</td>
+                                            <td class="product-subtotal">
+                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
+                                                ֏
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>{{ __("index.shipping") }}</th>
@@ -194,7 +149,10 @@
                                         </tr>
                                         <tr>
                                             <th>{{ __("index.total") }}</th>
-                                            <td class="product-subtotal">$349.00</td>
+                                            <td class="product-subtotal">
+                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
+                                                ֏
+                                            </td>
                                         </tr>
                                         </tfoot>
                                     </table>
@@ -205,9 +163,9 @@
                                     </div>
                                     <div class="payment_option">
                                         <div class="custome-radio">
-                                            <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" value="option3" checked="">
-                                            <label class="form-check-label" for="exampleRadios3">{{ __("index.cash") }}</label>
-                                            <p data-method="option3" class="payment-text">{{ __("index.cash") }}</p>
+                                            <input class="form-check-input" required="" type="radio" name="payment_option" id="cash" value="cash" checked="">
+                                            <label class="form-check-label" for="cash">{{ __("index.cash") }}</label>
+{{--                                            <p data-method="option3" class="payment-text">{{ __("index.cash") }}</p>--}}
                                         </div>
                                     </div>
                                 </div>

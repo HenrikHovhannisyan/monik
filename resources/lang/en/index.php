@@ -184,7 +184,6 @@ return [
     'have_coupon' => 'Have a coupon?',
     'enter_coupon' => 'Enter Coupon Code',
     'apply_coupon' => 'Apply Coupon',
-    'ship_to_different_address' => 'Ship to a different address?',
     'order_notes' => 'Order notes',
 
 ];

@@ -7830,3 +7830,17 @@ input[type="range"] {
     background-color: #666;
 }
 
+.address_check {
+    color: #000000;
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.custome-radio input[type="radio"] + .address_check::after {
+    top: 12px;
+    left: 8px;
+}
+
