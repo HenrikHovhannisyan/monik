@@ -86,6 +86,7 @@ return [
     'dashboard_message' => 'From your account dashboard, you can easily check & view your recent orders, manage your shipping addresses, and edit your password and account details.',
     'orders' => 'Orders',
     'my_address' => 'My Address',
+    'my_addresses' => 'My Addresses',
     'account_details' => 'Account Details',
     'from_your_account_dashboard' => 'From your account dashboard you can easily check and view your ',
     'recent_orders' => 'recent orders',
@@ -176,7 +177,6 @@ return [
     'checkout' => 'Checkout',
 
     //    Checkout page
-    'billing_details' => 'Billing Details',
     'additional_information' => 'Additional information',
     'your_orders' => 'Your Orders',
     'payment' => 'Payment',

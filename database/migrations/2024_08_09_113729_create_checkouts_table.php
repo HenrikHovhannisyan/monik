@@ -20,7 +20,7 @@ class CreateCheckoutsTable extends Migration
             $table->string('order_notes')->nullable();
             $table->string('payment_option');
             $table->decimal('total_price', 10, 2);
-            $table->string('status')->default('pending');
+            $table->string('status')->default('processing');
             $table->timestamps();
         });
     }

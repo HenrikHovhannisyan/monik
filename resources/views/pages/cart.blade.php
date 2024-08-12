@@ -102,7 +102,7 @@
                                 @empty
                                     <div class="text-center mb-5">
                                         <h1>{{ __("index.cart_empty") }}😔</h1>
-                                        <a href="{{ route('products') }}" class="btn btn-fill-out">
+                                        <a href="{{ route('products') }}" class="btn btn-fill-out mt-3">
                                             {{ __("ad.shop_now") }}
                                         </a>
                                     </div>

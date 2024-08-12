@@ -46,10 +46,12 @@
                 <div class="row">
                     <div class="col">
                         <div class="toggle_info">
-                            <span><i class="fas fa-tag"></i>{{ __("index.have_coupon") }} <a href="checkout.html#coupon"
-                                                                                             data-bs-toggle="collapse"
-                                                                                             class="collapsed"
-                                                                                             aria-expanded="false">{{ __("index.enter_coupon") }}</a></span>
+                            <span>
+                                <i class="fas fa-tag"></i>{{ __("index.have_coupon") }}
+                                <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">
+                                    {{ __("index.enter_coupon") }}
+                                </a>
+                            </span>
                         </div>
                         <div class="panel-collapse collapse coupon_form" id="coupon">
                             <div class="panel-body">
@@ -77,26 +79,33 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
-                            <!-- Блок для выбора адреса доставки -->
                             <div class="heading_s1">
-                                <h4>{{ __("index.billing_details") }}</h4>
+                                <h4>
+                                    {{ __("index.address") }}
+                                    <span class="text-danger">*</span>
+                                </h4>
                             </div>
-                            @foreach($user->addresses as $address)
-                                <div class="custome-radio">
-                                    <input class="form-check-input" required="" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
-                                    <label class="form-check-label address_check" for="{{ $address->id }}">
-                                        {{ $address->city }},
-                                        {{ $address->state }},
-                                        {{ $address->address }},
-                                        @if($address->address2)
-                                            {{ $address->address2 }},
-                                        @endif
-                                        {{ $address->postcode }}
-                                    </label>
-                                </div>
-                        @endforeach
-
-                        <!-- Блок для добавления заметок -->
+                            @if($user->addresses->isEmpty())
+                                <p class="mb-1">{{ __("index.no_address_message") }}</p>
+                                <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                    {{ __("index.add_address") }}
+                                </button>
+                            @else
+                                @foreach($user->addresses as $address)
+                                    <div class="custome-radio">
+                                        <input class="form-check-input" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
+                                        <label class="form-check-label address_check" for="{{ $address->id }}">
+                                            {{ $address->city }},
+                                            {{ $address->state }},
+                                            {{ $address->address }},
+                                            @if($address->address2)
+                                                {{ $address->address2 }},
+                                            @endif
+                                            {{ $address->postcode }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            @endif
                             <div class="heading_s1 mt-3">
                                 <h4>{{ __("index.additional_information") }}</h4>
                             </div>
@@ -106,7 +115,6 @@
                         </div>
 
                         <div class="col-md-6">
-                            <!-- Блок для показа заказа -->
                             <div class="order_review">
                                 <div class="heading_s1">
                                     <h4>{{ __("index.your_orders") }}</h4>
@@ -159,26 +167,26 @@
                                     </table>
                                 </div>
 
-                                <!-- Блок для выбора способа оплаты -->
                                 <div class="payment_method">
                                     <div class="heading_s1">
-                                        <h4>{{ __("index.payment") }}</h4>
+                                        <h4>
+                                            {{ __("index.payment") }}
+                                            <span class="text-danger">*</span>
+                                        </h4>
                                     </div>
                                     <div class="payment_option">
                                         <div class="custome-radio">
-                                            <input class="form-check-input" required="" type="radio" name="payment_option" id="cash" value="cash" checked="">
+                                            <input class="form-check-input" required type="radio" name="payment_option" id="cash" value="cash" checked>
                                             <label class="form-check-label" for="cash">{{ __("index.cash") }}</label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Кнопка для отправки формы -->
-                                <button type="submit" class="btn btn-fill-out btn-block">{{ __("index.checkout") }}</button>
+                                <button type="submit" class="btn btn-fill-out btn-block" id="checkout" disabled>{{ __("index.checkout") }}</button>
                             </div>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

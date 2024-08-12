@@ -32,8 +32,7 @@ class CheckoutController extends Controller
             return redirect()->back()->withErrors(__('Your cart is empty.'));
         }
 
-        $totalPrice = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount / 100)) * $item->quantity
-        );
+        $totalPrice = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount / 100)) * $item->quantity);
 
         $checkout = new Checkout();
         $checkout->user_id = auth()->id();
@@ -46,12 +45,19 @@ class CheckoutController extends Controller
 
         foreach ($cartItems as $item) {
             $product = $item->product;
-
             $size = json_decode($product->size, true);
+
             if (isset($size[$item->size])) {
                 $size[$item->size]['quantity'] -= $item->quantity;
+
+                // Если количество стало равно 0, устанавливаем значение null
+                if ($size[$item->size]['quantity'] <= 0) {
+                    $size[$item->size]['quantity'] = null;
+                }
             }
+
             $product->size = json_encode($size);
+            $product->quantity = $this->calculateTotalQuantity($size);
             $product->save();
 
             OrderItem::create([
@@ -67,7 +73,6 @@ class CheckoutController extends Controller
 
         return redirect()->route('home')->with('success', __('index.checkout_success'));
     }
-
 
     public function show(Checkout $checkout)
     {
@@ -97,6 +102,15 @@ class CheckoutController extends Controller
         $checkout->delete();
 
         return redirect()->route('home');
+    }
+
+    private function calculateTotalQuantity(array $sizes): int
+    {
+        $totalQuantity = collect($sizes)
+            ->filter(fn($size) => $size['quantity'] !== null)
+            ->sum(fn($size) => $size['quantity']);
+
+        return $totalQuantity > 0 ? $totalQuantity : 0;
     }
 }
 

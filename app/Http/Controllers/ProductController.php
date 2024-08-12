@@ -75,6 +75,19 @@ class ProductController extends Controller
                 $query->whereRaw("json_extract(size, '$.\"{$size}\".quantity') IS NOT NULL")
                     ->whereRaw("CAST(json_extract(size, '$.\"{$size}\".quantity') AS UNSIGNED) > 0");
             }
+        } else {
+            $query->where(function ($query) {
+                $query->whereRaw("json_length(size) > 0")
+                    ->where(function ($query) {
+                        $query->where(function ($query) {
+                            $query->orWhereRaw("CAST(json_extract(size, '$.\\\"0-3\\\".quantity') AS UNSIGNED) > 0")
+                                ->orWhereRaw("CAST(json_extract(size, '$.\\\"3-6\\\".quantity') AS UNSIGNED) > 0")
+                                ->orWhereRaw("CAST(json_extract(size, '$.\\\"6-12\\\".quantity') AS UNSIGNED) > 0")
+                                ->orWhereRaw("CAST(json_extract(size, '$.\\\"12-18\\\".quantity') AS UNSIGNED) > 0")
+                                ->orWhereRaw("CAST(json_extract(size, '$.\\\"18-24\\\".quantity') AS UNSIGNED) > 0");
+                        });
+                    });
+            });
         }
 
         if ($request->has('discount')) {
@@ -98,9 +111,5 @@ class ProductController extends Controller
 
         return view('pages.products', compact('products'));
     }
-
-
-
-
 
 }

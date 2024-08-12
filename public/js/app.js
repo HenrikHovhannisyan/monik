@@ -81,5 +81,23 @@ function copyProductCode(code) {
 
 // End copy product code
 
+// Start Checkout button activated
+document.addEventListener('DOMContentLoaded', function () {
+    const checkoutButton = document.querySelector('#checkout');
+    const addressRadios = document.querySelectorAll('input[name="shipping_address"]');
+    const paymentRadios = document.querySelectorAll('input[name="payment_option"]');
 
+    function checkFormValidity() {
+        const addressSelected = Array.from(addressRadios).some(radio => radio.checked);
+        const paymentSelected = Array.from(paymentRadios).some(radio => radio.checked);
 
+        checkoutButton.disabled = !(addressSelected && paymentSelected);
+    }
+
+    addressRadios.forEach(radio => radio.addEventListener('change', checkFormValidity));
+    paymentRadios.forEach(radio => radio.addEventListener('change', checkFormValidity));
+
+    checkFormValidity();
+});
+
+//End Checkout button activated

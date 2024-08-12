@@ -54,7 +54,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true" title="{{ __("index.my_address") }}">
                                         <i class="ti-location-pin"></i>
-                                        {{ __("index.my_address") }}
+                                        {{ __("index.my_addresses") }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -127,7 +127,7 @@
                                     <div class="col">
                                         <div class="card mb-3 mb-lg-0">
                                             <div class="card-header d-flex justify-content-between">
-                                                <h3>{{ __("index.my_address") }}</h3>
+                                                <h3>{{ __("index.my_addresses") }}</h3>
                                                 <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
                                                     {{ __("index.add_address") }}
                                                 </button>
