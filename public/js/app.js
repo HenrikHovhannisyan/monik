@@ -90,8 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function checkFormValidity() {
         const addressSelected = Array.from(addressRadios).some(radio => radio.checked);
         const paymentSelected = Array.from(paymentRadios).some(radio => radio.checked);
-
-        checkoutButton.disabled = !(addressSelected && paymentSelected);
+        if (checkoutButton) {
+            checkoutButton.disabled = !(addressSelected && paymentSelected);
+        }
     }
 
     addressRadios.forEach(radio => radio.addEventListener('change', checkFormValidity));
