@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Models\Checkout;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -43,22 +44,26 @@ class CheckoutController extends Controller
         $checkout->status = 'processing';
         $checkout->save();
 
+        $processedProducts = [];
+
         foreach ($cartItems as $item) {
             $product = $item->product;
-            $size = json_decode($product->size, true);
 
-            if (isset($size[$item->size])) {
-                $size[$item->size]['quantity'] -= $item->quantity;
+            if (!isset($processedProducts[$product->id])) {
+                $processedProducts[$product->id] = json_decode($product->size, true);
+            }
 
-                // Если количество стало равно 0, устанавливаем значение null
-                if ($size[$item->size]['quantity'] <= 0) {
-                    $size[$item->size]['quantity'] = null;
+            $sizes = $processedProducts[$product->id];
+
+            if (isset($sizes[$item->size])) {
+                $sizes[$item->size]['quantity'] -= $item->quantity;
+
+                if ($sizes[$item->size]['quantity'] <= 0) {
+                    $sizes[$item->size]['quantity'] = null;
                 }
             }
 
-            $product->size = json_encode($size);
-            $product->quantity = $this->calculateTotalQuantity($size);
-            $product->save();
+            $processedProducts[$product->id] = $sizes;
 
             OrderItem::create([
                 'checkout_id' => $checkout->id,
@@ -67,6 +72,13 @@ class CheckoutController extends Controller
                 'price' => $product->price - ($product->price * $product->discount / 100),
                 'size_details' => json_encode([$item->size => ['quantity' => $item->quantity]]),
             ]);
+        }
+
+        foreach ($processedProducts as $productId => $sizes) {
+            $product = Product::find($productId);
+            $product->size = json_encode($sizes);
+            $product->quantity = $this->calculateTotalQuantity($sizes);
+            $product->save();
         }
 
         CartItem::where('user_id', auth()->id())->delete();
