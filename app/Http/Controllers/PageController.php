@@ -23,7 +23,10 @@ class PageController extends Controller
     {
         $user = Auth::user();
         $user->load('addresses');
-        return view('pages.account', compact('user'));
+
+        $orders = $user->checkouts()->with('orderItems.product')->get();
+
+        return view('pages.account', compact('user', 'orders'));
     }
 
     public function checkout()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkout;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
@@ -32,9 +33,10 @@ class OrderItemController extends Controller
         return redirect()->route('order-items.index');
     }
 
-    public function show(OrderItem $orderItem)
+    public function show($id)
     {
-        return view('order_items.show', compact('orderItem'));
+        $order = Checkout::with('orderItems.product')->findOrFail($id);
+        return view('pages.order-detail', compact('order'));
     }
 
     public function edit(OrderItem $orderItem)

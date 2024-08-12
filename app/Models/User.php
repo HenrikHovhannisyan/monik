@@ -62,4 +62,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(Account::class);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function checkouts()
+    {
+        return $this->hasMany(Checkout::class);
+    }
+
 }

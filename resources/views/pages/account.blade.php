@@ -102,26 +102,26 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td>#1234</td>
-                                                    <td>March 15, 2020</td>
-                                                    <td>{{ __("index.processing") }}</td>
-                                                    <td>$78.00 for 1 item</td>
-                                                    <td><a href="#" class="btn btn-fill-out btn-sm">{{ __("index.view") }}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>#2366</td>
-                                                    <td>June 20, 2020	</td>
-                                                    <td>{{ __("index.completed") }}</td>
-                                                    <td>$78.00 for 1 item</td>
-                                                    <td><a href="#" class="btn btn-fill-out btn-sm">{{ __("index.view") }}</a></td>
-                                                </tr>
+                                                @foreach($orders->values() as $index => $order)
+                                                    <tr>
+                                                        <td class="p-2">{{ $index + 1 }}</td>
+                                                        <td class="p-2">{{ $order->created_at->format('Y-m-d') }}</td>
+                                                        <td class="p-2">{{ __("index." . $order->status) }}</td>
+                                                        <td class="p-2">{{ floor($order->total_price) }}֏ - {{ $order->orderItems->sum('quantity') }}</td>
+                                                        <td class="p-2">
+                                                            <a href="{{ route('order-items.show', $order->id) }}" class="btn btn-fill-out btn-sm">
+                                                                {{ __("index.view") }}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
                                 <div class="row">
                                     <div class="col">

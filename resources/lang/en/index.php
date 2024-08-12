@@ -185,5 +185,6 @@ return [
     'enter_coupon' => 'Enter Coupon Code',
     'apply_coupon' => 'Apply Coupon',
     'order_notes' => 'Order notes',
+    'pending' => 'Pending',
 
 ];

@@ -40,7 +40,7 @@ class CheckoutController extends Controller
         $checkout->order_notes = $validatedData['order_notes'] ?? '';
         $checkout->payment_option = $validatedData['payment_option'];
         $checkout->total_price = $totalPrice;
-        $checkout->status = 'pending';
+        $checkout->status = 'processing';
         $checkout->save();
 
         foreach ($cartItems as $item) {
