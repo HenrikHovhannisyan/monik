@@ -119,9 +119,9 @@ return [
 
 //    Add Address Modal
     'select_city' => 'Выберите город / населенный пункт...',
-    'state' => 'Область / Район *',
+    'state' => 'Область / Район',
     'address2' => 'Адрес 2',
-    'postcode' => 'Почтовый индекс *',
+    'postcode' => 'Почтовый индекс',
     'edit_address' => 'Редактировать адрес',
     "no_address_message" => 'У вас еще нет адреса. Вы можете добавить его сейчас.',
     'cities' => [
@@ -186,5 +186,17 @@ return [
     'apply_coupon' => 'Применить купон',
     'order_notes' => 'Примечания к заказу',
     'pending' => 'Ожидание',
+
+    //    Order detail page
+    'order_details' => 'Детали заказа',
+    'order_date' => 'Дата заказа',
+    'order_number' => 'Номер заказа',
+    'shipping_details' => 'Детали доставки',
+    'city' => 'Город',
+    'address_2' => 'Адрес 2',
+    'postal_code' => 'Почтовый код',
+    'payment_details' => 'Детали оплаты',
+    'payment_method' => 'Метод оплаты',
+
 
 ];

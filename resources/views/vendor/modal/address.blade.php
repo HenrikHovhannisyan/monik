@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }}"
+                        <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }} *"
                                required>
                     </div>
                     <div class="form-group mb-3">
@@ -53,7 +53,7 @@
                                placeholder="{{ __('index.address2') }}">
                     </div>
                     <div class="form-group mb-3">
-                        <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }}"
+                        <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }} *"
                                required>
                     </div>
                     <div class="d-flex justify-content-between">

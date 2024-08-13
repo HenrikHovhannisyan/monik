@@ -119,9 +119,9 @@ return [
 
 //    Add Address Modal
     'select_city' => 'Select a City / Town...',
-    'state' => 'State / County *',
+    'state' => 'State / County ',
     'address2' => 'Address Line 2',
-    'postcode' => 'Postcode *',
+    'postcode' => 'Postcode',
     'edit_address' => 'Edit Address',
     'no_address_message' => 'You have no address yet. You can add one now.',
     'cities' => [
@@ -186,5 +186,16 @@ return [
     'apply_coupon' => 'Apply Coupon',
     'order_notes' => 'Order notes',
     'pending' => 'Pending',
+
+    //    Order detail page
+    'order_details' => 'Order Details',
+    'order_date' => 'Order Date',
+    'order_number' => 'Order Number',
+    'shipping_details' => 'Shipping Details',
+    'city' => 'City',
+    'address_2' => 'Address 2',
+    'postal_code' => 'Postal Code',
+    'payment_details' => 'Payment Details',
+    'payment_method' => 'Payment Method',
 
 ];

@@ -33,6 +33,10 @@ p {
     margin-bottom: 25px;
 }
 
+td {
+    vertical-align: middle;
+}
+
 .accordion_style1 a > p {
     margin-bottom: 0;
     color: #292b2c;

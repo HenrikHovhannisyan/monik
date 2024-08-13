@@ -29,5 +29,10 @@ class Checkout extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function shippingAddress()
+    {
+        return $this->belongsTo(Address::class, 'shipping_address');
+    }
 }
 

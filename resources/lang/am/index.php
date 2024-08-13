@@ -119,9 +119,9 @@ return [
 
 //    Add Address Modal
     'select_city' => 'Ընտրեք քաղաք / ավան...',
-    'state' => 'Մարզ / շրջանի անուն *',
+    'state' => 'Մարզ / շրջանի անուն',
     'address2' => 'Հասցե 2',
-    'postcode' => 'Փոստային ինդեքս *',
+    'postcode' => 'Փոստային ինդեքս',
     'edit_address' => 'Խմբագրել հասցեն',
     "no_address_message" => 'Դուք դեռ չունեք հասցե։ Դուք կարող եք ավելացնել հասցե։',
     'cities' => [
@@ -186,5 +186,17 @@ return [
     'apply_coupon' => 'Կիրառել կուպոնը',
     'order_notes' => 'Պատվերի նշումներ',
     'pending' => 'Սպասվում',
+
+    //    Order detail page
+    'order_details' => 'Պատվերի տվյալները',
+    'order_date' => 'Պատվերի ամսաթիվը',
+    'order_number' => 'Պատվերի համարը',
+    'shipping_details' => 'Առաքման տվյալներ',
+    'city' => 'Քաղաք',
+    'address_2' => 'Հասցե 2',
+    'postal_code' => 'Փոստային կոդ',
+    'payment_details' => 'Վճարման տվյալները',
+    'payment_method' => 'Վճարման եղանակը',
+
 
 ];

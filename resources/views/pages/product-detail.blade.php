@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item active">
-                            {{ __("index.product") }} {{ $product->{lang('name')} }}
+                            {{ $product->{lang('name')} }}
                         </li>
                     </ol>
                 </div>

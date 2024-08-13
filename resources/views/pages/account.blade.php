@@ -102,11 +102,21 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($orders->values() as $index => $order)
+                                                @foreach($orders->sortByDesc('created_at') as $index => $order)
                                                     <tr>
                                                         <td class="p-2">{{ $index + 1 }}</td>
                                                         <td class="p-2">{{ $order->created_at->format('Y-m-d') }}</td>
-                                                        <td class="p-2">{{ __("index." . $order->status) }}</td>
+                                                        <td class="p-2">
+                                                            @if($order->status === 'processing')
+                                                                <span class="text-primary">{{ __("index." . $order->status) }}</span>
+                                                            @elseif($order->status === 'pending')
+                                                                <span class="text-warning">{{ __("index." . $order->status) }}</span>
+                                                            @elseif($order->status === 'completed')
+                                                                <span class="text-success">{{ __("index." . $order->status) }}</span>
+                                                            @else
+                                                                <span class="text-danger">{{ __("index." . $order->status) }}</span>
+                                                            @endif
+                                                        </td>
                                                         <td class="p-2">{{ floor($order->total_price) }}֏ - {{ $order->orderItems->sum('quantity') }}</td>
                                                         <td class="p-2">
                                                             <a href="{{ route('order-items.show', $order->id) }}" class="btn btn-fill-out btn-sm">
@@ -208,7 +218,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }}"
+                                                                                    <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }} *"
                                                                                            value="{{ $address->state }}" required>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
@@ -223,7 +233,7 @@
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
                                                                                     <input class="form-control" type="text" name="postcode"
-                                                                                           placeholder="{{ __('index.postcode') }}"
+                                                                                           placeholder="{{ __('index.postcode') }} *"
                                                                                            value="{{ $address->postcode }}" required>
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-between">

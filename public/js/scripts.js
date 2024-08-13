@@ -738,13 +738,22 @@ PAGE JS
                 $(".qty").val(current - 1);
             }
         });
+
+        $(".qty").on("input", function () {
+            let max = parseInt($(this).attr("data-max"));
+            let current = parseInt($(this).val());
+
+            if (current > max) {
+                $(this).val(max);
+            } else if (current < 1 || isNaN(current)) {
+                $(this).val(1);
+            }
+        });
     }
 
     $(document).ready(function () {
         pluseminus();
     });
-
-
 
     $(document).ready(function () {
         ajax_magnificPopup();

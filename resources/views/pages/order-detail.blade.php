@@ -1,62 +1,148 @@
 @extends('layouts.app')
 
 @section('title')
-    @parent | {{ __('Order Details') }}
+    @parent | {{ __('index.order_details') }}
 @endsection
 
 @section('content')
-    <!-- START SECTION ORDER DETAIL -->
-    <div class="order_detail_section">
+    <!-- START SECTION BREADCRUMB -->
+    <div class="breadcrumb_section bg_gray page-title-mini">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>{{ __('Order Details') }}</h1>
-                    <div class="order_summary">
-                        <h2>{{ __('Order Number') }}: {{ $order->id }}</h2>
-                        <p><strong>{{ __('Order Date') }}:</strong> {{ $order->created_at->format('d/m/Y H:i') }}</p>
-                        <p><strong>{{ __('Total Price') }}:</strong> {{ $order->total_price }}֏</p>
-                        <p><strong>{{ __('Status') }}:</strong> {{ $order->status }}</p>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-title">
+                        <h1>{{ __('index.order_details') }}</h1>
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <ol class="breadcrumb justify-content-md-end">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route("home") }}">
+                                {{ __("index.home") }}
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('account') }}">
+                                {{ __('index.my_account') }}
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            {{ __('index.order_details') }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SECTION BREADCRUMB -->
 
-                    <div class="order_items">
-                        <h3>{{ __('Items') }}</h3>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>{{ __('Product') }}</th>
-                                <th>{{ __('Quantity') }}</th>
-                                <th>{{ __('Price') }}</th>
-                                <th>{{ __('Total') }}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($order->orderItems as $item)
-                                <tr>
-                                    <td>{{ $item->product->{lang('name')} }}</td>
-                                    <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->price }}֏</td>
-                                    <td>{{ $item->quantity * $item->price }}֏</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+    <!-- START MAIN CONTENT -->
+    <div class="main_content">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="order_summary">
+                            <h3>{{ __('index.order_details') }}</h3>
+                            <p>
+                                <strong>{{ __('index.order_number') }}:</strong>
+                                {{ $order->id }}
+                            </p>
+                            <p>
+                                <strong>{{ __('index.order_date') }}:</strong>
+                                {{ $order->created_at->format('Y-m-d') }}
+                            </p>
+                            <p>
+                                <strong>{{ __('index.total') }}:</strong>
+                                {{ $order->total_price }}֏
+                            </p>
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.status') }}:</strong>
+                                @if($order->status === 'processing')
+                                    <span class="text-primary">{{ __("index." . $order->status) }}</span>
+                                @elseif($order->status === 'pending')
+                                    <span class="text-warning">{{ __("index." . $order->status) }}</span>
+                                @elseif($order->status === 'completed')
+                                    <span class="text-success">{{ __("index." . $order->status) }}</span>
+                                @else
+                                    <span class="text-danger">{{ __("index." . $order->status) }}</span>
+                                @endif
+                            </p>
+                        </div>
 
-                    <div class="order_shipping">
-                        <h3>{{ __('Shipping Details') }}</h3>
-                        <p><strong>{{ __('Address') }}:</strong> {{ $order->shipping_address }}</p>
-                        <p><strong>{{ __('City') }}:</strong> {{ $order->shipping_city }}</p>
-                        <p><strong>{{ __('Postal Code') }}:</strong> {{ $order->shipping_postal_code }}</p>
-                    </div>
+                        <div class="order_items">
+                            <h3>{{ __('index.products') }}</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>{{ __('index.product') }}</th>
+                                        <th>{{ __('index.quantity') }}</th>
+                                        <th>{{ __('index.price') }}</th>
+                                        <th>{{ __('index.total') }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($order->orderItems as $item)
+                                        <tr>
+                                            <td>
+                                                <a href="{{ route('product', $item->product_id) }}">
+                                                    <img src="{{ asset(json_decode($item->product->images)[0]) }}"
+                                                         width="100" alt="{{ $item->product->{lang('name')} }}">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('product', $item->product_id) }}">
+                                                    {{ $item->product->{lang('name')} }}
+                                                </a>
+                                            </td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ $item->price }}֏</td>
+                                            <td>{{ $item->quantity * $item->price }}֏</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="order_shipping">
+                            <h3>{{ __('index.shipping_details') }}</h3>
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.city') }}:</strong>
+                                {{ __('index.cities.' . $order->shippingAddress->city) }}
+                            </p>
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.state') }}:</strong>
+                                {{ $order->shippingAddress->state }}
+                            </p>
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.address') }}:</strong>
+                                {{ $order->shippingAddress->address }}
+                            </p>
+                            @if($order->shippingAddress->address2)
+                                <p class="text-capitalize">
+                                    <strong>{{ __('index.address2') }}:</strong>
+                                    {{ $order->shippingAddress->address2 }}
+                                </p>
+                            @endif
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.postcode') }}:</strong>
+                                {{ $order->shippingAddress->postcode }}
+                            </p>
+                        </div>
 
-                    <div class="order_payment">
-                        <h3>{{ __('Payment Details') }}</h3>
-                        <p><strong>{{ __('Payment Method') }}:</strong> {{ $order->payment_method }}</p>
-                        <p><strong>{{ __('Transaction ID') }}:</strong> {{ $order->transaction_id }}</p>
+                        <div class="order_payment">
+                            <h3>{{ __('index.payment_details') }}</h3>
+                            <p class="text-capitalize">
+                                <strong>{{ __('index.payment_method') }}:</strong>
+                                {{ __("index." . $order->payment_option) }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- END SECTION ORDER DETAIL -->
+    <!-- END MAIN CONTENT -->
 @endsection

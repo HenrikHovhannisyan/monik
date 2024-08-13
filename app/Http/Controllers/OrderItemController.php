@@ -35,7 +35,7 @@ class OrderItemController extends Controller
 
     public function show($id)
     {
-        $order = Checkout::with('orderItems.product')->findOrFail($id);
+        $order = Checkout::with(['orderItems.product', 'shippingAddress'])->findOrFail($id);
         return view('pages.order-detail', compact('order'));
     }
 
