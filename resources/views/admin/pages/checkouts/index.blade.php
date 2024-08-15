@@ -8,11 +8,7 @@
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Faqs List</h2>
-            <a class="btn btn-success" href="{{ route('faqs.create') }}">
-                <i class="fa-solid fa-plus"></i>
-                New Faq
-            </a>
+            <h2 class="text-white">Checkouts List</h2>
         </div>
         <div class="table-responsive">
             <table class="table table-dark table-striped table-bordered">
@@ -57,7 +53,7 @@
                         <td>
                             <form action="{{ route('faqs.destroy',$checkout->id) }}" method="POST">
                                 <a class="btn btn-outline-success btn-sm m-1"
-                                   href="{{ route('faqs.show',$checkout->id) }}">
+                                   href="{{ route('checkouts.show',$checkout->id) }}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
                             </form>

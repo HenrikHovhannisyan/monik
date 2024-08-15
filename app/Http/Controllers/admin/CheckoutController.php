@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
-use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -50,21 +49,22 @@ class CheckoutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Product $product
-     * @return void
+     * @param Checkout $checkout
+     * @return Factory|View
      */
-    public function show(Product $product)
+    public function show(Checkout $checkout)
     {
-
+        $checkout->load('user.account.phones');
+        return view('admin.pages.checkouts.show', compact('checkout'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Product $product
+     * @param Checkout $checkout
      * @return void
      */
-    public function edit(Product $product)
+    public function edit(Checkout $checkout)
     {
 
     }
@@ -73,11 +73,11 @@ class CheckoutController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Product $product
+     * @param Checkout $checkout
      * @return void
      */
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Checkout $checkout)
     {
 
     }
@@ -86,10 +86,10 @@ class CheckoutController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Product $product
+     * @param Checkout $checkout
      * @return void
      */
-    public function destroy(Product $product)
+    public function destroy(Checkout $checkout)
     {
 
     }
