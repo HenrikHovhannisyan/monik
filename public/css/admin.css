@@ -79,7 +79,11 @@ input[type=number] {
 }
 
 #sidebar .fa-shirt {
-    color: #00d25b;
+    color: #8e44ad;
+}
+
+#sidebar .fa-cart-shopping {
+    color: #16a085;
 }
 
 #sidebar .fa-clipboard-question {

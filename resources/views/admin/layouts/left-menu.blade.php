@@ -24,6 +24,12 @@
                 Products
             </a>
         </li>
+        <li class="{{isActiveRoute('checkouts.index')}}">
+            <a href="{{route('checkouts.index')}}">
+                <i class="fa-solid fa-cart-shopping me-1"></i>
+                Checkouts
+            </a>
+        </li>
         <li class="{{isActiveRoute('faqs.index')}}">
             <a href="{{route('faqs.index')}}">
                 <i class="fa-solid fa-clipboard-question me-1"></i>

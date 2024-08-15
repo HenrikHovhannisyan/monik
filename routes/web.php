@@ -61,6 +61,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['web', 'auth', 'is_admin'],
     Route::get('/users', 'HomeController@users')->name('users');
     Route::resource('categories', 'CategoryController');
     Route::resource('products', 'ProductController');
+    Route::resource('checkouts', 'CheckoutController');
     Route::resource('faqs', 'FaqController');
 });
 

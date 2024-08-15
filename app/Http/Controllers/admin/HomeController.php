@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Checkout;
 use App\Models\Faq;
 use App\Models\Product;
 use App\Models\User;
@@ -32,8 +33,9 @@ class HomeController extends Controller
         $usersCount = count(User::all());
         $categoryCount = count(Category::all());
         $productCount = count(Product::all());
+        $checkoutCount = count(Checkout::all());
         $faqCount = count(Faq::all());
-        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'faqCount'));
+        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'checkoutCount', 'faqCount'));
     }
 
     /**
