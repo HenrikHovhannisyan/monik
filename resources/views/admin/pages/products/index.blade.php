@@ -34,9 +34,7 @@
                         <td>{{ ++$i }}</td>
                         <td>{{ $product->code }}</td>
                         <td>
-                            @foreach(json_decode($product->images) as $imagePath)
-                                <img src="{{asset($imagePath)}}" width="55px">
-                            @endforeach
+                            <img src="{{ asset(json_decode($product->images)[0]) }}" width="55px">
                         </td>
                         <td>{{ $product->category->name_ru }}</td>
                         <td>{{ $product->name_en }}</td>
