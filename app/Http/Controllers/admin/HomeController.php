@@ -35,7 +35,9 @@ class HomeController extends Controller
         $productCount = count(Product::all());
         $checkoutCount = count(Checkout::all());
         $faqCount = count(Faq::all());
-        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'checkoutCount', 'faqCount'));
+        $processingCheckouts = Checkout::where("status", 'processing')->get();
+        $pendingCheckouts = Checkout::where("status", 'pending')->get();
+        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'checkoutCount', 'faqCount', 'processingCheckouts', 'pendingCheckouts'));
     }
 
     /**

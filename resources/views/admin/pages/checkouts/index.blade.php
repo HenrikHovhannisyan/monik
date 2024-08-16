@@ -51,12 +51,10 @@
                             </p>
                         </td>
                         <td>
-                            <form action="{{ route('faqs.destroy',$checkout->id) }}" method="POST">
-                                <a class="btn btn-outline-success btn-sm m-1"
-                                   href="{{ route('checkouts.show',$checkout->id) }}">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
-                            </form>
+                            <a class="btn btn-outline-success btn-sm m-1"
+                               href="{{ route('checkouts.show',$checkout->id) }}">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

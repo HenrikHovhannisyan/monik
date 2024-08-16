@@ -61,7 +61,10 @@ Route::group(['prefix' => '/admin', 'middleware' => ['web', 'auth', 'is_admin'],
     Route::get('/users', 'HomeController@users')->name('users');
     Route::resource('categories', 'CategoryController');
     Route::resource('products', 'ProductController');
-    Route::resource('checkouts', 'CheckoutController');
+    Route::resource('checkouts-admin', 'CheckoutController');
+    Route::get('/checkouts/{checkout}/show', 'CheckoutController@show')->name('checkouts.show');
+    Route::patch('/checkouts/{checkout}/pending', 'CheckoutController@changeStatusPending')->name('checkouts.changeStatusPending');
+    Route::patch('/checkouts/{checkout}/completed', 'CheckoutController@changeStatusCompleted')->name('checkouts.changeStatusCompleted');
     Route::resource('faqs', 'FaqController');
 });
 

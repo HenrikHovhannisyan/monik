@@ -9,7 +9,7 @@
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
             <h2 class="text-white">Show Checkout</h2>
-            <a class="btn btn-success" href="{{ route('checkouts.index') }}">
+            <a class="btn btn-success" href="{{ url()->previous() }}">
                 <i class="fa-solid fa-arrow-left-long"></i>
                 Back
             </a>

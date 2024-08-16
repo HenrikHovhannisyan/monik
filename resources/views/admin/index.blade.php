@@ -49,7 +49,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
                         <h3 class="m-0">Checkouts - {{ $checkoutCount }}</h3>
-                        <a href="{{route('checkouts.index')}}" class="btn">
+                        <a href="{{route('checkouts-admin.index')}}" class="btn">
                             View
                         </a>
                     </div>
@@ -66,6 +66,96 @@
                             View
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h2 class="text-white mb-3">Orders list</h2>
+            <div class="col-lg-6">
+                <h4 class="text-white mb-3">Processing list</h4>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Sum</th>
+                            <th scope="col">Payment</th>
+                            <th width="80px">{{ 'Action' }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($processingCheckouts as $checkout)
+                            <tr>
+                                <td>{{ $checkout->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    <form action="{{ route('checkouts.changeStatusPending', $checkout->id) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-outline-warning btn-sm m-1">
+                                            Change status to "Pending"
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>{{ floor($checkout->total_price) }}֏</td>
+                                <td>
+                                    <p class="text-capitalize">
+                                        {{ $checkout->payment_option }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-success btn-sm m-1"
+                                       href="{{ route('checkouts.show',$checkout->id) }}">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h4 class="text-white mb-3">Pending list</h4>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Sum</th>
+                            <th scope="col">Payment</th>
+                            <th width="80px">{{ 'Action' }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($pendingCheckouts as $checkout)
+                            <tr>
+                                <td>{{ $checkout->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    <form action="{{ route('checkouts.changeStatusCompleted', $checkout->id) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-outline-warning btn-sm m-1">
+                                            Change status to "Completed"
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>{{ floor($checkout->total_price) }}֏</td>
+                                <td>
+                                    {{ $checkout->payment_option }}
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-success btn-sm m-1"
+                                       href="{{ route('checkouts.show',$checkout->id) }}">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

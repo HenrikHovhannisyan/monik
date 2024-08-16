@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 
@@ -19,32 +20,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $checkouts = Checkout::latest()->paginate(5);
+        $checkouts = Checkout::latest()->paginate(10);
         return view('admin.pages.checkouts.index', compact('checkouts'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return void
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function store(Request $request)
-    {
-
-    }
-
 
     /**
      * Display the specified resource.
@@ -59,39 +38,35 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Checkout $checkout
-     * @return void
-     */
-    public function edit(Checkout $checkout)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Change the status of a checkout.
      *
      * @param Request $request
      * @param Checkout $checkout
-     * @return void
+     * @return RedirectResponse
      */
-
-    public function update(Request $request, Checkout $checkout)
+    public function changeStatusPending(Request $request, Checkout $checkout)
     {
 
+        $checkout->update([
+            'status' => 'pending',
+        ]);
+
+        return redirect()->back()->with('success', 'Checkout status updated successfully.');
     }
 
-
     /**
-     * Remove the specified resource from storage.
-     *
+     * @param Request $request
      * @param Checkout $checkout
-     * @return void
+     * @return RedirectResponse
      */
-    public function destroy(Checkout $checkout)
+    public function changeStatusCompleted(Request $request, Checkout $checkout)
     {
 
+        $checkout->update([
+            'status' => 'completed',
+        ]);
+
+        return redirect()->back()->with('success', 'Checkout status updated successfully.');
     }
 
 }

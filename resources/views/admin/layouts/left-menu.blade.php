@@ -24,8 +24,8 @@
                 Products
             </a>
         </li>
-        <li class="{{isActiveRoute('checkouts.index')}}">
-            <a href="{{route('checkouts.index')}}">
+        <li class="{{isActiveRoute('checkouts-admin.index')}}">
+            <a href="{{route('checkouts-admin.index')}}">
                 <i class="fa-solid fa-cart-shopping me-1"></i>
                 Checkouts
             </a>
