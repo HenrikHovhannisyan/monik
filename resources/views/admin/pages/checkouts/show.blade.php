@@ -73,7 +73,16 @@
                                                 </a>
                                             </td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>{{ $item->price }}֏</td>
+                                            <td>
+                                                @if($item->product->discount)
+                                                    <del>{{ $item->product->price }}֏</del>
+                                                    <span class="price">
+                                                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                                                </span>
+                                                @else
+                                                    {{ $item->product->price }}֏
+                                                @endif
+                                            </td>
                                             <td>{{ $item->quantity * $item->price }}֏</td>
                                         </tr>
                                     @endforeach

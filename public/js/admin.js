@@ -26,9 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let discount_percent = document.querySelector('#discount_percent');
     let discount = document.querySelector('#discount');
 
-    discount_percent.addEventListener('input', () => {
-        discount.value = price.value - (price.value * discount_percent.value) / 100;
-    });
+    if (price && discount_percent && discount) {
+        discount_percent.addEventListener('input', () => {
+            discount.value = price.value - (price.value * discount_percent.value) / 100;
+        });
+    }
 });
 
 function textEditor(name) {

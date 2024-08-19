@@ -73,7 +73,10 @@
         <div class="row">
             <h2 class="text-white mb-3">Orders list</h2>
             <div class="col-lg-6">
-                <h4 class="text-white mb-3">Processing list</h4>
+                <h4 class="text-success mb-3">
+                    <i class="fa-solid fa-circle fa-beat"></i>
+                    Processing list
+                </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
                         <thead>
@@ -117,7 +120,10 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <h4 class="text-white mb-3">Pending list</h4>
+                <h4 class="text-warning mb-3">
+                    <i class="fa-solid fa-circle fa-beat"></i>
+                    Pending list
+                </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
                         <thead>
