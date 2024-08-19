@@ -197,6 +197,6 @@ return [
     'postal_code' => 'Փոստային կոդ',
     'payment_details' => 'Վճարման տվյալները',
     'payment_method' => 'Վճարման եղանակը',
-
+    'no_shipping_address' => 'Առաքման հասցեն հասանելի չէ:',
 
 ];

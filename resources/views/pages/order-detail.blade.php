@@ -117,30 +117,34 @@
                         </div>
                         <div class="order_shipping">
                             <h3>{{ __('index.shipping_details') }}</h3>
-                            <p class="text-capitalize">
-                                <strong>{{ __('index.city') }}:</strong>
-                                {{ __('index.cities.' . $order->shippingAddress->city) }}
-                            </p>
-                            <p class="text-capitalize">
-                                <strong>{{ __('index.state') }}:</strong>
-                                {{ $order->shippingAddress->state }}
-                            </p>
-                            <p class="text-capitalize">
-                                <strong>{{ __('index.address') }}:</strong>
-                                {{ $order->shippingAddress->address }}
-                            </p>
-                            @if($order->shippingAddress->address2)
-                                <p class="text-capitalize">
-                                    <strong>{{ __('index.address2') }}:</strong>
-                                    {{ $order->shippingAddress->address2 }}
-                                </p>
-                            @endif
-                            <p class="text-capitalize">
-                                <strong>{{ __('index.postcode') }}:</strong>
-                                {{ $order->shippingAddress->postcode }}
-                            </p>
-                        </div>
 
+                            @if($order->shippingAddress)
+                                <p class="text-capitalize">
+                                    <strong>{{ __('index.city') }}:</strong>
+                                    {{ __('index.cities.' . $order->shippingAddress->city) }}
+                                </p>
+                                <p class="text-capitalize">
+                                    <strong>{{ __('index.state') }}:</strong>
+                                    {{ $order->shippingAddress->state }}
+                                </p>
+                                <p class="text-capitalize">
+                                    <strong>{{ __('index.address') }}:</strong>
+                                    {{ $order->shippingAddress->address }}
+                                </p>
+                                @if($order->shippingAddress->address2)
+                                    <p class="text-capitalize">
+                                        <strong>{{ __('index.address2') }}:</strong>
+                                        {{ $order->shippingAddress->address2 }}
+                                    </p>
+                                @endif
+                                <p class="text-capitalize">
+                                    <strong>{{ __('index.postcode') }}:</strong>
+                                    {{ $order->shippingAddress->postcode }}
+                                </p>
+                            @else
+                                <p>{{ __('index.no_shipping_address') }}</p>
+                            @endif
+                        </div>
                         <div class="order_payment">
                             <h3>{{ __('index.payment_details') }}</h3>
                             <p class="text-capitalize">

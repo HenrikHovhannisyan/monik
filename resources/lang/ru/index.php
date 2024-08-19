@@ -197,6 +197,6 @@ return [
     'postal_code' => 'Почтовый код',
     'payment_details' => 'Детали оплаты',
     'payment_method' => 'Метод оплаты',
-
+    'no_shipping_address' => 'Адрес доставки недоступен.',
 
 ];

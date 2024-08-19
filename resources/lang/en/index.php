@@ -197,5 +197,6 @@ return [
     'postal_code' => 'Postal Code',
     'payment_details' => 'Payment Details',
     'payment_method' => 'Payment Method',
+    'no_shipping_address' => 'Shipping address is not available.',
 
 ];

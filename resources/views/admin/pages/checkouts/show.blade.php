@@ -92,28 +92,33 @@
                         </div>
                         <div class="order_shipping">
                             <h3>Shipping Details</h3>
-                            <p class="text-capitalize">
-                                <strong>City:</strong>
-                                {{ $checkout->shippingAddress->city }}
-                            </p>
-                            <p class="text-capitalize">
-                                <strong>State:</strong>
-                                {{ $checkout->shippingAddress->state }}
-                            </p>
-                            <p class="text-capitalize">
-                                <strong>Address:</strong>
-                                {{ $checkout->shippingAddress->address }}
-                            </p>
-                            @if($checkout->shippingAddress->address2)
+
+                            @if($checkout->shippingAddress)
                                 <p class="text-capitalize">
-                                    <strong>Address 2:</strong>
-                                    {{ $checkout->shippingAddress->address2 }}
+                                    <strong>City:</strong>
+                                    {{ $checkout->shippingAddress->city }}
                                 </p>
+                                <p class="text-capitalize">
+                                    <strong>State:</strong>
+                                    {{ $checkout->shippingAddress->state }}
+                                </p>
+                                <p class="text-capitalize">
+                                    <strong>Address:</strong>
+                                    {{ $checkout->shippingAddress->address }}
+                                </p>
+                                @if($checkout->shippingAddress->address2)
+                                    <p class="text-capitalize">
+                                        <strong>Address 2:</strong>
+                                        {{ $checkout->shippingAddress->address2 }}
+                                    </p>
+                                @endif
+                                <p class="text-capitalize">
+                                    <strong>Postcode:</strong>
+                                    {{ $checkout->shippingAddress->postcode }}
+                                </p>
+                            @else
+                                <p>{{ __('index.no_shipping_address') }}</p>
                             @endif
-                            <p class="text-capitalize">
-                                <strong>Postcode:</strong>
-                                {{ $checkout->shippingAddress->postcode }}
-                            </p>
                         </div>
                         <div class="customer_info">
                             <h3>Customer Details</h3>

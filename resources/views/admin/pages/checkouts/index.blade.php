@@ -41,13 +41,17 @@
                         <td>{{ floor($checkout->total_price) }}֏</td>
                         <td>
                             <p class="text-capitalize">
-                                {{ $checkout->shippingAddress->city }},
-                                {{ $checkout->shippingAddress->state }},
-                                {{ $checkout->shippingAddress->address }},
-                                @if($checkout->shippingAddress->address2)
-                                    {{ $checkout->shippingAddress->address2 }},
+                                @if($checkout->shippingAddress)
+                                    {{ $checkout->shippingAddress->city }},
+                                    {{ $checkout->shippingAddress->state }},
+                                    {{ $checkout->shippingAddress->address }},
+                                    @if($checkout->shippingAddress->address2)
+                                        {{ $checkout->shippingAddress->address2 }},
+                                    @endif
+                                    {{ $checkout->shippingAddress->postcode }}
+                                @else
+                                    <span>{{ __('index.no_shipping_address') }}</span>
                                 @endif
-                                {{ $checkout->shippingAddress->postcode }}
                             </p>
                         </td>
                         <td>
