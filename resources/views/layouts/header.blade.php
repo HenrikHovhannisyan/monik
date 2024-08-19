@@ -210,9 +210,9 @@
                             <span class="close-search">
                                 <i class="ion-ios-close-empty"></i>
                              </span>
-                            <form>
+                            <form action="{{ route('search') }}" method="GET">
                                 <input type="text" placeholder="{{ __("index.search") }}" class="form-control"
-                                       id="search_input"/>
+                                       id="search_input" name="search"/>
                                 <button type="submit" class="search_icon">
                                     <i class="ion-ios-search-strong"></i>
                                 </button>

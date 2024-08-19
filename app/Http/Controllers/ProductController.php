@@ -43,6 +43,10 @@ class ProductController extends Controller
         return view('pages.product-detail', compact('product', 'size', 'gender', 'randomProducts'));
     }
 
+    /**
+     * @param Request $request
+     * @return Factory|View
+     */
     public function products(Request $request)
     {
         $query = Product::query();
@@ -103,5 +107,21 @@ class ProductController extends Controller
         return view('pages.products', compact('products'));
     }
 
+    /**
+     * @param Request $request
+     * @return Factory|View
+     */
+    public function search(Request $request)
+    {
+        $searchQuery = $request->input('search');
+
+        $products = Product::where('name_am', 'like', '%' . $searchQuery . '%')
+            ->orWhere('name_ru', 'like', '%' . $searchQuery . '%')
+            ->orWhere('name_en', 'like', '%' . $searchQuery . '%')
+            ->orWhere('code', 'like', '%' . $searchQuery . '%')
+            ->paginate(12);
+
+        return view('pages.search-results', compact('products'));
+    }
 
 }

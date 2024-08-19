@@ -205,4 +205,9 @@ return [
     'order_thank_you' => 'Thank you for your order! Your order is being processed and we will call you.',
     'continue_shopping' => 'Continue Shopping',
 
+    //    Order search page
+    'search_results' => 'Search Results',
+    'view_product' => 'View Product',
+    'no_results' => 'No products found for your query.',
+
 ];
