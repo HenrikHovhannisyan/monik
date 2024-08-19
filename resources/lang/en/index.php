@@ -199,4 +199,10 @@ return [
     'payment_method' => 'Payment Method',
     'no_shipping_address' => 'Shipping address is not available.',
 
+    //    Order completed page
+    'order_completed' => 'Order Completed',
+    'order_completed_message' => 'Your order is completed!',
+    'order_thank_you' => 'Thank you for your order! Your order is being processed and we will call you.',
+    'continue_shopping' => 'Continue Shopping',
+
 ];

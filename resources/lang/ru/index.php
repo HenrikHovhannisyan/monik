@@ -199,4 +199,10 @@ return [
     'payment_method' => 'Метод оплаты',
     'no_shipping_address' => 'Адрес доставки недоступен.',
 
+    //    Order completed page
+    'order_completed' => 'Заказ завершен',
+    'order_completed_message' => 'Ваш заказ завершен!',
+    'order_thank_you' => 'Спасибо за ваш заказ! Ваш заказ обрабатывается, и мы вам позвоним.',
+    'continue_shopping' => 'Продолжить покупки',
+
 ];

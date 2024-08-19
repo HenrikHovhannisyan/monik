@@ -83,7 +83,7 @@ class CheckoutController extends Controller
 
         CartItem::where('user_id', auth()->id())->delete();
 
-        return redirect()->route('home')->with('success', __('index.checkout_success'));
+        return redirect()->route('order-completed');
     }
 
     public function show(Checkout $checkout)

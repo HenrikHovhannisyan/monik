@@ -51,6 +51,7 @@ Route::group(
             Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
             Route::resource('checkouts', CheckoutController::class);
             Route::resource('order-items', OrderItemController::class);
+            Route::get('/order-completed',  [PageController::class, 'order_completed'])->name('order-completed');
         });
 
     }

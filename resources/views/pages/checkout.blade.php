@@ -22,11 +22,6 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route("products") }}">
-                                {{ __("index.products") }}
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
                             <a href="{{ route("cart.index") }}">
                                 {{ __("index.cart") }}
                             </a>

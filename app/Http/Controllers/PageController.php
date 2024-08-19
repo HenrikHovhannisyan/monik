@@ -35,4 +35,9 @@ class PageController extends Controller
         $user->load('addresses');
         return view('pages.checkout', compact('user'));
     }
+
+    public function order_completed()
+    {
+        return view('pages.order-completed');
+    }
 }

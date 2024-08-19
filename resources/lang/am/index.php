@@ -199,4 +199,10 @@ return [
     'payment_method' => 'Վճարման եղանակը',
     'no_shipping_address' => 'Առաքման հասցեն հասանելի չէ:',
 
+    //    Order completed page
+    'order_completed' => 'Պատվերը ավարտված է',
+    'order_completed_message' => 'Ձեր պատվերը ավարտված է!',
+    'order_thank_you' => 'Շնորհակալություն ձեր պատվերի համար: Ձեր պատվերը մշակվում է, և մենք կզանգահարենք ձեզ:',
+    'continue_shopping' => 'Շարունակել գնումները',
+
 ];
