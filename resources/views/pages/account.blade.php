@@ -151,11 +151,9 @@
                                                 @else
                                                     @foreach($user->addresses as $address)
                                                         <address>
-                                                            {{ $address->state }}<br>
-                                                            {{ $address->address }}<br>
-                                                            @if($address->address2)
-                                                                {{ $address->address2 }}<br>
-                                                            @endif
+                                                            {{ $address->region }}<br>
+                                                            {{ $address->street }}<br>
+                                                            {{ $address->house_number }}<br>
                                                             {{ $address->postcode }}<br>
                                                         </address>
                                                         <p>{{ $address->city }}</p>
@@ -188,6 +186,8 @@
                                                                             <form method="post" action="{{ route('addresses.update', ['address' => $address->id]) }}">
                                                                                 @csrf
                                                                                 @method('PUT')
+                                                                                <input type="hidden" name="latitude" value="{{ $address->latitude }}">
+                                                                                <input type="hidden" name="longitude" value="{{ $address->longitude }}">
                                                                                 <div class="form-group mb-3">
                                                                                     <div class="custom_select">
                                                                                         <select class="form-control" name="city" required>
@@ -207,7 +207,7 @@
                                                                                             <option value="Charentsavan" {{ $address->city == 'Charentsavan' ? 'selected' : '' }} disabled>{{ __('index.cities.Charentsavan') }}</option>
                                                                                             <option value="Goris" {{ $address->city == 'Goris' ? 'selected' : '' }} disabled>{{ __('index.cities.Goris') }}</option>
                                                                                             <option value="Masis" {{ $address->city == 'Masis' ? 'selected' : '' }} disabled>{{ __('index.cities.Masis') }}</option>
-                                                                                            <option value="Ashtarak" {{ $address->city == 'Ashtarak' ? 'selected' : '' }} disabled>{{ __('index.cities.Asharak') }}</option>
+                                                                                            <option value="Ashtarak" {{ $address->city == 'Ashtarak' ? 'selected' : '' }} disabled>{{ __('index.cities.Ashtarak') }}</option>
                                                                                             <option value="Sisian" {{ $address->city == 'Sisian' ? 'selected' : '' }} disabled>{{ __('index.cities.Sisian') }}</option>
                                                                                             <option value="Spitak" {{ $address->city == 'Spitak' ? 'selected' : '' }} disabled>{{ __('index.cities.Spitak') }}</option>
                                                                                             <option value="Sevan" {{ $address->city == 'Sevan' ? 'selected' : '' }} disabled>{{ __('index.cities.Sevan') }}</option>
@@ -218,23 +218,16 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input class="form-control" type="text" name="state" placeholder="{{ __('index.state') }} *"
-                                                                                           value="{{ $address->state }}" required>
+                                                                                    <input class="form-control" type="text" name="region" placeholder="{{ __('index.region') }} *" value="{{ $address->region }}" required>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input type="text" class="form-control" name="address"
-                                                                                           placeholder="{{ __('index.address') }} *"
-                                                                                           value="{{ $address->address }}" required>
+                                                                                    <input type="text" class="form-control" name="street" placeholder="{{ __('index.street') }} *" value="{{ $address->street }}" required>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input type="text" class="form-control" name="address2"
-                                                                                           placeholder="{{ __('index.address2') }}"
-                                                                                           value="{{ $address->address2 }}">
+                                                                                    <input type="text" class="form-control" name="house_number" placeholder="{{ __('index.house_number') }} *" value="{{ $address->house_number }}" required>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input class="form-control" type="text" name="postcode"
-                                                                                           placeholder="{{ __('index.postcode') }} *"
-                                                                                           value="{{ $address->postcode }}" required>
+                                                                                    <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }}" value="{{ $address->postcode }}" required>
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-between">
                                                                                     <button type="submit" class="btn btn-fill-out btn-sm">

@@ -11,10 +11,13 @@ class CreateAddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('address')->nullable();
             $table->string('city');
-            $table->string('state');
-            $table->string('address');
-            $table->string('address2')->nullable();
+            $table->string('region');
+            $table->string('street');
+            $table->string('house_number');
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->string('postcode');
             $table->timestamps();
         });

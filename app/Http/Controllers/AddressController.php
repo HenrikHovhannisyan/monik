@@ -35,14 +35,19 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'address' => 'nullable|string|max:255',
             'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'address2' => 'nullable|string|max:255',
+            'region' => 'required|string|max:255',
+            'street' => 'required|string|max:255',
+            'house_number' => 'required|string|max:255',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
             'postcode' => 'required|string|max:10',
         ]);
 
-        Auth::user()->addresses()->create($request->all());
+        Auth::user()->addresses()->create($request->only([
+            'address', 'city', 'region', 'street', 'house_number', 'latitude', 'longitude', 'postcode'
+        ]));
 
         return redirect()->back()->with('success', __('messages.address_added'));
     }
@@ -58,13 +63,12 @@ class AddressController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param string $id
+     * @param Address $address
      * @return Factory|View
      */
-    public function edit($id)
+    public function edit(Address $address)
     {
-        $address = Address::findOrFail($id);
-        return view('pages.account', compact('address'));
+        return view('pages.edit_address', compact('address'));
     }
 
     /**
@@ -76,26 +80,30 @@ class AddressController extends Controller
     public function update(Request $request, Address $address)
     {
         $request->validate([
+            'address' => 'nullable|string|max:255',
             'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'address2' => 'nullable|string|max:255',
+            'region' => 'required|string|max:255',
+            'street' => 'required|string|max:255',
+            'house_number' => 'required|string|max:255',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
             'postcode' => 'required|string|max:10',
         ]);
 
-        $address->update($request->all());
+        $address->update($request->only([
+            'address', 'city', 'region', 'street', 'house_number', 'latitude', 'longitude', 'postcode'
+        ]));
 
         return redirect()->back()->with('success', __('messages.address_updated'));
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     * @param Address $address
      * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Address $address)
     {
-        $address = Address::findOrFail($id);
         $address->delete();
 
         return redirect()->back()->with('success', __('messages.address_deleted'));
