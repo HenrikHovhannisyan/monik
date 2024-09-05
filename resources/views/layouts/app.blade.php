@@ -78,6 +78,9 @@
     <script defer src="{{asset('js/slick.min.js?v=' . time())}}"></script>
     <!-- elevatezoom js -->
     <script defer src="{{asset('js/jquery.elevatezoom.js?v=' . time())}}"></script>
+    <!-- yandex js -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en_US&amp;apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
+    <script defer src="{{asset('js/map.js?v=' . time())}}"></script>
     <!-- scripts js -->
     <script defer src="{{asset('js/scripts.js?v=' . time())}}"></script>
     <script defer src="{{asset('js/app.js?v=' . time())}}"></script>

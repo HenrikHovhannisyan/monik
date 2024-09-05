@@ -7848,3 +7848,8 @@ input[type="range"] {
     left: 8px;
 }
 
+.map-container {
+    width: 100%;
+    height: 400px;
+}
+

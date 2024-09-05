@@ -18,7 +18,7 @@ class CreateAddressesTable extends Migration
             $table->string('house_number');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
-            $table->string('postcode');
+            $table->string('postcode')->nullable();
             $table->timestamps();
         });
     }

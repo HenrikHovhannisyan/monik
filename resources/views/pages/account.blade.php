@@ -156,7 +156,7 @@
                                                             {{ $address->house_number }}<br>
                                                             {{ $address->postcode }}<br>
                                                         </address>
-                                                        <p>{{ $address->city }}</p>
+                                                        <p>{{ __('index.cities.' . $address->city)  }}</p>
                                                         <div class="d-flex">
                                                             <a href="#" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#editAddressModal{{ $address->id }}">
                                                                 {{ __("index.edit") }}
@@ -186,8 +186,9 @@
                                                                             <form method="post" action="{{ route('addresses.update', ['address' => $address->id]) }}">
                                                                                 @csrf
                                                                                 @method('PUT')
-                                                                                <input type="hidden" name="latitude" value="{{ $address->latitude }}">
-                                                                                <input type="hidden" name="longitude" value="{{ $address->longitude }}">
+                                                                                <input type="hidden" name="address" value="{{ $address->address }}">
+                                                                                <input type="hidden" name="latitude" data-id="{{ $address->id }}" value="{{ $address->latitude }}">
+                                                                                <input type="hidden" name="longitude" data-id="{{ $address->id }}" value="{{ $address->longitude }}">
                                                                                 <div class="form-group mb-3">
                                                                                     <div class="custom_select">
                                                                                         <select class="form-control" name="city" required>
@@ -227,7 +228,10 @@
                                                                                     <input type="text" class="form-control" name="house_number" placeholder="{{ __('index.house_number') }} *" value="{{ $address->house_number }}" required>
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
-                                                                                    <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }}" value="{{ $address->postcode }}" required>
+                                                                                    <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }}" value="{{ $address->postcode }}">
+                                                                                </div>
+                                                                                <div class="form-group mb-3">
+                                                                                    <div id="editMap{{ $address->id }}" class="map-container"></div>
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-between">
                                                                                     <button type="submit" class="btn btn-fill-out btn-sm">

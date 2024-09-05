@@ -42,7 +42,7 @@ class AddressController extends Controller
             'house_number' => 'required|string|max:255',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
-            'postcode' => 'required|string|max:10',
+            'postcode' => 'nullable|string|max:10',
         ]);
 
         Auth::user()->addresses()->create($request->only([
@@ -87,7 +87,7 @@ class AddressController extends Controller
             'house_number' => 'required|string|max:255',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
-            'postcode' => 'required|string|max:10',
+            'postcode' => 'nullable|string|max:10',
         ]);
 
         $address->update($request->only([

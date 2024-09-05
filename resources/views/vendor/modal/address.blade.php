@@ -11,9 +11,9 @@
             <div class="modal-body">
                 <form method="post" action="{{ route('addresses.store') }}">
                     @csrf
-                    <input type="hidden" name="address" value="address">
-                    <input type="hidden" name="latitude" value="40.1772">
-                    <input type="hidden" name="longitude" value="44.5035">
+                    <input type="hidden" name="address" value="">
+                    <input type="hidden" name="latitude" value="">
+                    <input type="hidden" name="longitude" value="">
                     <div class="form-group mb-3">
                         <div class="custom_select">
                             <select class="form-control" name="city" required>
@@ -56,8 +56,10 @@
                                placeholder="{{ __('index.house_number') }} *" required>
                     </div>
                     <div class="form-group mb-3">
-                        <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }} *"
-                               required>
+                        <input class="form-control" type="text" name="postcode" placeholder="{{ __('index.postcode') }}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <div id="map" class="map-container"></div>
                     </div>
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-fill-out btn-sm">
