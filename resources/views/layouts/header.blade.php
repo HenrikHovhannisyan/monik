@@ -178,8 +178,7 @@
                         <li class="dropdown">
                             @php $lng = config('main.lang.' . App::getLocale()); @endphp
                             <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">
-                                <img src="{{ asset($lng['icon']) }}" class="rounded-circle" width="18"
-                                     alt="{{ $lng['name'] }}"/>
+                                <img src="{{ asset($lng['icon']) }}" class="rounded-circle" width="18" alt="{{ $lng['name'] }}"/>
                                 {{ $lng['name'] }}
                             </a>
                             <div class="dropdown-menu">
@@ -189,8 +188,7 @@
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}"
                                                    title="{{ $v['name'] }}" data-lang="{{ $k }}">
-                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18"
-                                                         alt="{{ $v['name'] }}"/>
+                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18" alt="{{ $v['name'] }}"/>
                                                     {{ $v['name'] }}
                                                 </a>
                                             </li>
@@ -199,6 +197,7 @@
                                 </ul>
                             </div>
                         </li>
+
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">

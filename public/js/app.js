@@ -1,21 +1,3 @@
-// Start Get Language
-/*document.addEventListener('DOMContentLoaded', function () {
-    const dropdownItems = document.querySelectorAll('.select-lang');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const selectedLanguage = this.getAttribute('data-lang');
-            localStorage.setItem('selectedLanguage', selectedLanguage);
-        });
-    });
-
-    const selectedLanguage = localStorage.getItem('selectedLanguage');
-    if (selectedLanguage && selectedLanguage !== "null" && window.location.pathname.slice(1, 3) !== selectedLanguage) {
-        window.location.href = `/${selectedLanguage}`;
-    }
-});*/
-
-// End Get Language
-
 // Start add new phone
 document.addEventListener('DOMContentLoaded', function() {
     const phoneContainer = document.querySelector('.phone-container');
