@@ -91,12 +91,12 @@
                                         <input class="form-check-input" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
                                         <label class="form-check-label address_check" for="{{ $address->id }}">
                                             {{ $address->city }},
-                                            {{ $address->state }},
-                                            {{ $address->address }},
-                                            @if($address->address2)
-                                                {{ $address->address2 }},
+                                            {{ $address->region }},
+                                            {{ $address->street }},
+                                            {{ $address->house_number }},
+                                            @if($address->postcode)
+                                                {{ $address->postcode }},
                                             @endif
-                                            {{ $address->postcode }}
                                         </label>
                                     </div>
                                 @endforeach
