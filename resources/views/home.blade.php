@@ -147,7 +147,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
@@ -163,7 +163,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -215,7 +215,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
@@ -231,7 +231,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -283,7 +283,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
@@ -299,7 +299,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -351,7 +351,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="product_img">
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                                     </a>
                                                     <div class="product_action_box">
@@ -367,7 +367,7 @@
                                                 <div class="product_info">
                                                     <h6 class="product_title">
                                                         <b>
-                                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                                 {{ $product->{lang('name')} }}
                                                             </a>
                                                         </b>
@@ -446,7 +446,7 @@
                                             @endif
                                         </div>
                                         <div class="product_img">
-                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                 <img src="{{ asset(json_decode($product->images)[0]) }}" alt="{{ $product->{lang('name')} }}"/>
                                             </a>
                                             <div class="product_action_box">
@@ -462,7 +462,7 @@
                                         <div class="product_info">
                                             <h6 class="product_title">
                                                 <b>
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         {{ $product->{lang('name')} }}
                                                     </a>
                                                 </b>

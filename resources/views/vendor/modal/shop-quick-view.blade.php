@@ -20,7 +20,7 @@
             <div class="pr_detail">
                 <div class="product_description">
                     <h4 class="product_title">
-                        <a href="{{ route('product', ['id' => $product->id]) }}" title="{{ $product->{lang('name')} }}">
+                        <a href="{{ route('product', ['slug' => $product->slug]) }}" title="{{ $product->{lang('name')} }}">
                             {{ $product->{lang('name')} }}
                         </a>
                     </h4>

@@ -57,12 +57,12 @@
                                 @forelse($cartItems as $item)
                                     <tr>
                                         <td class="product-thumbnail">
-                                            <a href="{{ route('product', $item->product_id) }}">
+                                            <a href="{{ route('product', $item->product->slug) }}">
                                                 <img src="{{ asset(json_decode($item->product->images)[0]) }}" alt="{{ $item->product->{lang('name')} }}">
                                             </a>
                                         </td>
                                         <td class="product-name" data-title="{{ __("index.name") }}">
-                                            <a href="{{ route('product', $item->product_id) }}">
+                                            <a href="{{ route('product', $item->product->slug) }}">
                                                 {{ $item->product->{lang('name')} }}
                                             </a>
                                         </td>

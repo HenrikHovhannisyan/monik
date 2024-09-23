@@ -65,7 +65,7 @@
                         <div class="pr_detail">
                             <div class="product_description">
                                 <h4 class="product_title">
-                                    <a href="{{ route('product', ['id' => $product->id]) }}"
+                                    <a href="{{ route('product', ['slug' => $product->slug]) }}"
                                        title="{{ $product->{lang('name')} }}">
                                         {{ $product->{lang('name')} }}
                                     </a>
@@ -328,14 +328,14 @@
                                             @endif
                                         </div>
                                         <div class="product_img">
-                                            <a href="{{ route('product', ['id' => $product->id]) }}">
+                                            <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                 <img src="{{ asset(json_decode($product->images)[0]) }}"
                                                      alt="{{ $product->{lang('name')} }}"/>
                                             </a>
                                             <div class="product_action_box">
                                                 <ul class="list_none pr_action_btn">
                                                     <li>
-                                                        <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                        <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                             <i class="fa-regular fa-eye"></i>
                                                         </a>
                                                     </li>
@@ -345,7 +345,7 @@
                                         <div class="product_info">
                                             <h6 class="product_title">
                                                 <b>
-                                                    <a href="{{ route('product', ['id' => $product->id]) }}">
+                                                    <a href="{{ route('product', ['slug' => $product->slug]) }}">
                                                         {{ $product->{lang('name')} }}
                                                     </a>
                                                 </b>

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
     use HasFactory;
+
     protected $table = 'products';
 
     protected $fillable = [
@@ -15,6 +17,7 @@ class Product extends Model
         'name_am',
         'name_ru',
         'name_en',
+        'slug',
         'description_am',
         'description_ru',
         'description_en',
@@ -36,5 +39,10 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($this->name_en);
     }
 }

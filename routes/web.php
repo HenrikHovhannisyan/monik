@@ -27,7 +27,7 @@ Route::group(
         Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
         Route::get('/shop-quick-view/{id}', [ProductController::class, 'quickView'])->name('shop.quick.view');
-        Route::get('/product/{id}', [ProductController::class, 'product'])->name('product');
+        Route::get('/product/{slug}', [ProductController::class, 'product'])->name('product');
         Route::get('/products', [ProductController::class, 'products'])->name('products');
         Route::get('/search', [ProductController::class, 'search'])->name('search');
 

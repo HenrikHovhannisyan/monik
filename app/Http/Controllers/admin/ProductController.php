@@ -65,6 +65,8 @@ class ProductController extends Controller
 
         $input = $request->all();
 
+        $input['slug'] = Str::slug($request->input('name_en'), '-');
+
         if ($request->hasFile('images')) {
             $imagePaths = [];
 
@@ -160,6 +162,8 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->input('name_en'), '-');
 
         if ($request->status === null) {
             $input['status'] = 'null';

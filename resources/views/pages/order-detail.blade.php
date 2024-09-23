@@ -87,13 +87,13 @@
                                     @foreach($order->orderItems as $item)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('product', $item->product_id) }}">
+                                                <a href="{{ route('product', $item->product->slug) }}">
                                                     <img src="{{ asset(json_decode($item->product->images)[0]) }}"
                                                          width="100" alt="{{ $item->product->{lang('name')} }}">
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('product', $item->product_id) }}">
+                                                <a href="{{ route('product', $item->product->slug) }}">
                                                     {{ $item->product->{lang('name')} }}
                                                 </a>
                                             </td>
@@ -119,28 +119,36 @@
                             <h3>{{ __('index.shipping_details') }}</h3>
 
                             @if($order->shippingAddress)
-                                <p class="text-capitalize">
-                                    <strong>{{ __('index.city') }}:</strong>
-                                    {{ __('index.cities.' . $order->shippingAddress->city) }}
-                                </p>
-                                <p class="text-capitalize">
-                                    <strong>{{ __('index.state') }}:</strong>
-                                    {{ $order->shippingAddress->state }}
-                                </p>
-                                <p class="text-capitalize">
-                                    <strong>{{ __('index.address') }}:</strong>
-                                    {{ $order->shippingAddress->address }}
-                                </p>
+                                @if($order->shippingAddress->city)
+                                    <p class="text-capitalize">
+                                        <strong>{{ __('index.city') }}:</strong>
+                                        {{ __('index.cities.' . $order->shippingAddress->city) }}
+                                    </p>
+                                @endif
+                                @if($order->shippingAddress->state)
+                                    <p class="text-capitalize">
+                                        <strong>{{ __('index.state') }}:</strong>
+                                        {{ $order->shippingAddress->state }}
+                                    </p>
+                                @endif
+                                @if($order->shippingAddress->address)
+                                    <p class="text-capitalize">
+                                        <strong>{{ __('index.address') }}:</strong>
+                                        {{ $order->shippingAddress->address }}
+                                    </p>
+                                @endif
                                 @if($order->shippingAddress->address2)
                                     <p class="text-capitalize">
                                         <strong>{{ __('index.address2') }}:</strong>
                                         {{ $order->shippingAddress->address2 }}
                                     </p>
                                 @endif
-                                <p class="text-capitalize">
-                                    <strong>{{ __('index.postcode') }}:</strong>
-                                    {{ $order->shippingAddress->postcode }}
-                                </p>
+                                @if($order->shippingAddress->postcode)
+                                    <p class="text-capitalize">
+                                        <strong>{{ __('index.postcode') }}:</strong>
+                                        {{ $order->shippingAddress->postcode }}
+                                    </p>
+                                @endif
                             @else
                                 <p>{{ __('index.no_shipping_address') }}</p>
                             @endif

@@ -28,12 +28,12 @@ class ProductController extends Controller
     }
 
     /**
-     * @param $id
+     * @param $slug
      * @return Factory|View
      */
-    public function product($id)
+    public function product($slug)
     {
-        $product = Product::find($id);
+        $product = Product::where('slug', $slug)->firstOrFail();
         $size = json_decode($product->size, true);
         $gender = json_decode($product->gender, true);
 
@@ -101,6 +101,8 @@ class ProductController extends Controller
                     break;
             }
         }
+
+        $query->orderBy('created_at', 'desc');
 
         $products = $query->paginate(12)->appends($request->query());
 

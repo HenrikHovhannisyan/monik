@@ -62,13 +62,13 @@
                                     @foreach($checkout->orderItems as $item)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('product', $item->product_id) }}">
+                                                <a href="{{ route('product', $item->product->slug) }}">
                                                     <img src="{{ asset(json_decode($item->product->images)[0]) }}"
                                                          width="100" alt="{{ $item->product->{lang('name')} }}">
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('product', $item->product_id) }}">
+                                                <a href="{{ route('product', $item->product->slug) }}">
                                                     {{ $item->product->name_en }}
                                                 </a>
                                             </td>
