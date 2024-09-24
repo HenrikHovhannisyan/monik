@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 
@@ -95,6 +96,7 @@ class ProductController extends Controller
         $input['code'] = random_int(1000, 9999) . '-' . random_int(1000, 9999);
 
         Product::create($input);
+        Artisan::call('sitemap:generate');
 
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
@@ -207,6 +209,7 @@ class ProductController extends Controller
         $input['quantity'] = $totalQuantity; // Store the total quantity
 
         $product->update($input);
+        Artisan::call('sitemap:generate');
 
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully');
@@ -232,6 +235,7 @@ class ProductController extends Controller
         }
 
         $product->delete();
+        Artisan::call('sitemap:generate');
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully');
