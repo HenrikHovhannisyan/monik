@@ -15,6 +15,14 @@
         content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store"
     />
 
+    <!-- Connecting the manifest -->
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#202325">
+
+    <!-- Support for iOS -->
+    <link rel="apple-touch-icon" href="{{ asset('images/pwa/icon-192x192.png') }}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Sofia') }} @yield('title')</title>

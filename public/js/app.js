@@ -1,5 +1,5 @@
 // Start add new phone
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const phoneContainer = document.querySelector('.phone-container');
     const addPhoneBtn = document.querySelector('.add-phone');
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    addPhoneBtn.addEventListener('click', function() {
+    addPhoneBtn.addEventListener('click', function () {
         const phoneGroup = document.createElement('div');
         phoneGroup.classList.add('form-group', 'col-md-12', 'mb-3', 'phone-group', 'd-flex');
         phoneGroup.innerHTML = `
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateRemoveButtons() {
         const phoneGroups = phoneContainer.querySelectorAll('.phone-group');
-        phoneGroups.forEach(function(group) {
+        phoneGroups.forEach(function (group) {
             const removeBtn = group.querySelector('.remove-phone');
             if (phoneGroups.length > 1) {
                 removeBtn.style.display = 'inline-block';
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    phoneContainer.addEventListener('click', function(event) {
+    phoneContainer.addEventListener('click', function (event) {
         if (event.target.classList.contains('remove-phone')) {
             const phoneGroups = phoneContainer.querySelectorAll('.phone-group');
             if (phoneGroups.length > 1) {
@@ -56,7 +56,7 @@ function copyProductCode(code) {
     copiedSKU.textContent = code;
     successMessage.classList.remove('hidden');
 
-    setTimeout(function() {
+    setTimeout(function () {
         successMessage.classList.add('hidden');
     }, 5000);
 }
@@ -84,3 +84,37 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //End Checkout button activated
+
+
+// Start service worker registration
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceworker.js')
+        .then();
+}
+
+// End service worker registration
+
+// Start PWA download button
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById('installBtn');
+    installBtn.style.display = 'block';
+
+    installBtn.addEventListener('click', () => {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt = null;
+        });
+    });
+});
+
+window.addEventListener('appinstalled', () => {
+    console.log('PWA установлено');
+    document.getElementById('installBtn').style.display = 'none';
+});
+
+// End PWA download button

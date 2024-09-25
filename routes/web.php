@@ -25,6 +25,7 @@ Route::group(
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/faq', [PageController::class, 'faq'])->name('faq');
         Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+        Route::view('/offline', 'offline');
 
         Route::get('/shop-quick-view/{id}', [ProductController::class, 'quickView'])->name('shop.quick.view');
         Route::get('/product/{slug}', [ProductController::class, 'product'])->name('product');

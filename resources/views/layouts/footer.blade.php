@@ -13,6 +13,10 @@
                         <p>
                             <b>{{ __('messages.comfort_and_style') }}</b>
                         </p>
+                        <button class="btn btn-fill-out btn-sm" id="installBtn" style="display: none;">
+                            <i class="fa-solid fa-download"></i>
+                            {{ __("index.install_app") }}
+                        </button>
                     </div>
                     <div class="widget">
                         <ul class="social_icons social_white">

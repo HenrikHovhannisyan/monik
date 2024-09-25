@@ -34,6 +34,7 @@ return [
     'add_to_cart' => 'Add to cart',
     'price' => 'Price',
     'close' => 'Close',
+    'install_app' => 'Install App',
 
     'home' => 'Home',
     'products' => 'Products',
@@ -212,5 +213,15 @@ return [
     'search_results' => 'Search Results',
     'view_product' => 'View Product',
     'no_results' => 'No products found for your query.',
+
+    //    Game
+    'back_online' => 'The connection has been restored',
+    'title' => 'BLOCK MENJA',
+    'play_game' => 'PLAY GAME',
+    'paused' => 'Paused',
+    'resume_game' => 'RESUME GAME',
+    'game_over' => 'Game Over',
+    'your_score' => 'Your Score:',
+    'play_again' => 'PLAY AGAIN',
 
 ];
