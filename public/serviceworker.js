@@ -12,10 +12,8 @@ const URLS_TO_CACHE = [
 
 
 self.addEventListener('install', (event) => {
-    console.log('[ServiceWorker] Устанавливается...');
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            console.log('[ServiceWorker] Кешируется оффлайн-страница и ресурсы');
             return cache.addAll(URLS_TO_CACHE);
         })
     );
@@ -24,13 +22,11 @@ self.addEventListener('install', (event) => {
 
 
 self.addEventListener('activate', (event) => {
-    console.log('[ServiceWorker] Активируется...');
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        console.log('[ServiceWorker] Удаляется старый кеш:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
