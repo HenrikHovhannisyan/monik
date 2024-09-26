@@ -202,6 +202,7 @@ return [
     'payment_details' => 'Payment Details',
     'payment_method' => 'Payment Method',
     'no_shipping_address' => 'Shipping address is not available.',
+    'open_in_yandex_maps' => 'Open in Yandex map',
 
     //    Order completed page
     'order_completed' => 'Order Completed',

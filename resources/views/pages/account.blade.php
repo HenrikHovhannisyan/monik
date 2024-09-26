@@ -150,18 +150,31 @@
                                                     </button>
                                                 @else
                                                     @foreach($user->addresses as $address)
+                                                        @if($address->address)
+                                                            <a href="https://yandex.ru/maps/?text={{ urlencode($address->address) }}"
+                                                               class="text-danger" target="_blank">
+                                                                <i class="fa-solid fa-location-dot fa-beat"></i>
+                                                                {{ __('index.open_in_yandex_maps') }}
+                                                            </a>
+                                                        @else
+                                                            <a href="https://yandex.ru/maps/?text={{ urlencode($address->city) }}, {{ urlencode($address->region) }}, {{ urlencode($address->street) }}, {{ urlencode($address->house_number) }}"
+                                                               class="text-danger" target="_blank">
+                                                                <i class="fa-solid fa-location-dot fa-beat"></i>
+                                                                {{ __('index.open_in_yandex_maps') }}
+                                                            </a>
+                                                        @endif
+                                                        <p class="mt-3">{{ __('index.cities.' . $address->city)  }}</p>
                                                         <address>
-                                                            {{ $address->region }}<br>
-                                                            {{ $address->street }}<br>
-                                                            {{ $address->house_number }}<br>
-                                                            {{ $address->postcode }}<br>
+                                                            {{ $address->region }},
+                                                            {{ $address->street }},
+                                                            {{ $address->house_number }},
+                                                            {{ $address->postcode }}
                                                         </address>
-                                                        <p>{{ __('index.cities.' . $address->city)  }}</p>
-                                                        <div class="d-flex">
+                                                        <div class="d-flex gap-2">
                                                             <a href="#" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#editAddressModal{{ $address->id }}">
                                                                 {{ __("index.edit") }}
                                                             </a>
-                                                            <form action="{{ route('addresses.destroy', ['address' => $address->id]) }}" method="POST" class="ms-2">
+                                                            <form action="{{ route('addresses.destroy', ['address' => $address->id]) }}" method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit" class="btn btn-line-fill btn-sm">

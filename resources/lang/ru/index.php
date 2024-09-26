@@ -202,6 +202,7 @@ return [
     'payment_details' => 'Детали оплаты',
     'payment_method' => 'Метод оплаты',
     'no_shipping_address' => 'Адрес доставки недоступен.',
+    'open_in_yandex_maps' => 'Открыть в Яндекс карте',
 
     //    Order completed page
     'order_completed' => 'Заказ завершен',

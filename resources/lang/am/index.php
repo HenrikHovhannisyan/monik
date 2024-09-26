@@ -202,6 +202,7 @@ return [
     'payment_details' => 'Վճարման տվյալները',
     'payment_method' => 'Վճարման եղանակը',
     'no_shipping_address' => 'Առաքման հասցեն հասանելի չէ:',
+    'open_in_yandex_maps' => 'Բացեք Yandex քարտեզում',
 
     //    Order completed page
     'order_completed' => 'Պատվերը ավարտված է',

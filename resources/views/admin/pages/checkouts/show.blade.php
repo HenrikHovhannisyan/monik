@@ -45,6 +45,7 @@
                                 @endif
                             </p>
                         </div>
+                        <hr>
                         <div class="order_items">
                             <h3>Products</h3>
                             <div class="table-responsive">
@@ -90,36 +91,63 @@
                                 </table>
                             </div>
                         </div>
+                        <hr>
                         <div class="order_shipping">
                             <h3>Shipping Details</h3>
-
                             @if($checkout->shippingAddress)
                                 <p class="text-capitalize">
                                     <strong>City:</strong>
                                     {{ $checkout->shippingAddress->city }}
                                 </p>
                                 <p class="text-capitalize">
-                                    <strong>State:</strong>
-                                    {{ $checkout->shippingAddress->state }}
+                                    <strong>Region:</strong>
+                                    {{ $checkout->shippingAddress->region }}
                                 </p>
                                 <p class="text-capitalize">
-                                    <strong>Address:</strong>
-                                    {{ $checkout->shippingAddress->address }}
+                                    <strong>Street:</strong>
+                                    {{ $checkout->shippingAddress->street }}
                                 </p>
-                                @if($checkout->shippingAddress->address2)
+                                <p class="text-capitalize">
+                                    <strong>House Number:</strong>
+                                    {{ $checkout->shippingAddress->house_number }}
+                                </p>
+                                @if($checkout->shippingAddress->postcode)
                                     <p class="text-capitalize">
-                                        <strong>Address 2:</strong>
-                                        {{ $checkout->shippingAddress->address2 }}
+                                        <strong>Postcode:</strong>
+                                        {{ $checkout->shippingAddress->postcode }}
                                     </p>
                                 @endif
-                                <p class="text-capitalize">
-                                    <strong>Postcode:</strong>
-                                    {{ $checkout->shippingAddress->postcode }}
-                                </p>
+                                @if($checkout->shippingAddress->address)
+                                    <p class="text-capitalize">
+                                        <strong>Address:</strong>
+                                        {{ $checkout->shippingAddress->address }}
+                                    </p>
+                                @endif
+                                @if($checkout->order_notes)
+                                    <p class="text-capitalize">
+                                        <strong>Order Notes:</strong>
+                                        {{ $checkout->order_notes }}
+                                    </p>
+                                @endif
+
+                                @if($checkout->shippingAddress->address)
+                                    <a href="https://yandex.ru/maps/?text={{ urlencode($checkout->shippingAddress->address) }}"
+                                       class="btn btn-danger text-bg-danger" target="_blank">
+                                        <i class="fa-solid fa-location-dot fa-beat"></i>
+                                        Open in Yandex map
+                                    </a>
+                                @else
+                                    <a href="https://yandex.ru/maps/?text={{ urlencode($checkout->shippingAddress->city) }}, {{ urlencode($checkout->shippingAddress->region) }}, {{ urlencode($checkout->shippingAddress->street) }}, {{ urlencode($checkout->shippingAddress->house_number) }}"
+                                       class="btn btn-danger text-bg-danger" target="_blank">
+                                        <i class="fa-solid fa-location-dot fa-beat"></i>
+                                        Open in Yandex map
+                                    </a>
+                                @endif
                             @else
                                 <p>{{ __('index.no_shipping_address') }}</p>
                             @endif
                         </div>
+                        <hr>
                         <div class="customer_info">
                             <h3>Customer Details</h3>
                             <p><strong>Name:</strong> {{ $checkout->user->name }}</p>
@@ -144,6 +172,7 @@
                                 @endif
                             </ul>
                         </div>
+                        <hr>
                         <div class="order_payment">
                             <h3>Payment Details</h3>
                             <p class="text-capitalize">
