@@ -116,7 +116,7 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost:8000/product/pajamas-5</loc>
+        <loc>http://localhost:8000/product/pajama-5</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>

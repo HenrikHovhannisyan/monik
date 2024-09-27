@@ -60,3 +60,21 @@ textEditor("#answer_en");
 textEditor("#question_am");
 textEditor("#question_ru");
 textEditor("#question_en");
+
+
+// Start product search
+$(document).ready(function() {
+    $('table').DataTable({
+        "paging": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "lengthChange": true,
+        "responsive": true,
+        "columnDefs": [
+            { "orderable": false, "targets": [2, 6, 7] }
+        ]
+    });
+});
+
+// End product search

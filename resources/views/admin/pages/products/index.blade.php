@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="table-responsive">
-            <table class="table table-dark table-striped table-bordered">
+            <table id="products-table" class="table table-dark table-striped table-bordered">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -36,7 +36,7 @@
                         <td>
                             <img src="{{ asset(json_decode($product->images)[0]) }}" width="55px">
                         </td>
-                        <td>{{ $product->category->name_ru }}</td>
+                        <td>{{ $product->category->name_en }}</td>
                         <td>{{ $product->name_en }}</td>
                         <td>
                             <span class="d-block text-success">Price - {{ $product->price }}֏</span>
@@ -85,7 +85,6 @@
                 </tbody>
             </table>
         </div>
-        {!! $products->links('vendor.pagination.bootstrap-4') !!}
     </div>
 
 @endsection
