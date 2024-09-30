@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductMetadata;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -83,7 +84,7 @@ class ProductController extends Controller
         $totalQuantity = 0;
         foreach ($request->size as $size) {
             if (isset($size['quantity']) && is_numeric($size['quantity'])) {
-                $totalQuantity += (int) $size['quantity'];
+                $totalQuantity += (int)$size['quantity'];
             }
         }
 
@@ -94,13 +95,19 @@ class ProductController extends Controller
         $input['quantity'] = $totalQuantity;
         $input['code'] = random_int(1000, 9999) . '-' . random_int(1000, 9999);
 
-        Product::create($input);
+        $product = Product::create($input);
+        if ($request->primary_price || $request->product_link) {
+            ProductMetadata::create([
+                'product_id' => $product->id,
+                'primary_price' => $request->primary_price,
+                'product_link' => $request->product_link,
+            ]);
+        }
         Artisan::call('sitemap:generate');
 
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }
-
 
 
     /**
@@ -114,7 +121,8 @@ class ProductController extends Controller
         $size = json_decode($product->size, true);
         $gender = json_decode($product->gender, true);
         $status = json_decode($product->status, true);
-        return view('admin.pages.products.show', compact('product', 'size', 'gender', 'status'));
+        $metadata = $product->metadata;
+        return view('admin.pages.products.show', compact('product', 'size', 'gender', 'status', 'metadata'));
     }
 
     /**
@@ -133,8 +141,9 @@ class ProductController extends Controller
         $availableGender = ['boy', 'girl'];
         $availableStatus = ['new', 'top'];
         $discount = $product->price - ($product->price * $product->discount) / 100;
+        $metadata = $product->metadata;
 
-        return view('admin.pages.products.edit', compact('product', 'categories', 'selectedSizes', 'selectedStatus', 'selectedGender', 'availableSizes', 'availableGender', 'availableStatus', 'discount'));
+        return view('admin.pages.products.edit', compact('product', 'categories', 'selectedSizes', 'selectedStatus', 'selectedGender', 'availableSizes', 'availableGender', 'availableStatus', 'discount', 'metadata'));
     }
 
     /**
@@ -199,7 +208,7 @@ class ProductController extends Controller
         $totalQuantity = 0;
         foreach ($request->size as $size) {
             if (isset($size['quantity']) && is_numeric($size['quantity'])) {
-                $totalQuantity += (int) $size['quantity'];
+                $totalQuantity += (int)$size['quantity'];
             }
         }
 
@@ -208,6 +217,14 @@ class ProductController extends Controller
         $input['quantity'] = $totalQuantity; // Store the total quantity
 
         $product->update($input);
+        if ($request->primary_price || $request->product_link) {
+            $product->metadata()->updateOrCreate(
+                ['product_id' => $product->id],
+                ['primary_price' => $request->primary_price, 'product_link' => $request->product_link]
+            );
+        } else {
+            $product->metadata()->delete();
+        }
         Artisan::call('sitemap:generate');
 
         return redirect()->route('products.index')

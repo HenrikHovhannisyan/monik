@@ -18,6 +18,24 @@
             <div class="card col-12 col-md-10">
                 <div class="card-body p-2">
                     <table class="table table-dark table-striped table-bordered table-responsive">
+                        @if($metadata->primary_price)
+                            <tr>
+                                <th>Primary Price</th>
+                                <td class="text-white">
+                                    {{ $metadata->primary_price }}
+                                </td>
+                            </tr>
+                        @endif
+                        @if($metadata->product_link)
+                            <tr>
+                                <th>Product Link</th>
+                                <td class="text-white">
+                                    <a href="{{ $metadata->product_link }}" target="_blank">
+                                        {{ $metadata->product_link }}
+                                    </a>
+                                </td>
+                            </tr>
+                        @endif
                         <tr>
                             <th>Code</th>
                             <td class="text-white">

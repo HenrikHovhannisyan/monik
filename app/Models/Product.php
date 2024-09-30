@@ -45,4 +45,11 @@ class Product extends Model
     {
         $this->attributes['slug'] = Str::slug($this->name_en);
     }
+
+    public function metadata()
+    {
+        return $this->hasOne(ProductMetadata::class);
+    }
+
+
 }

@@ -17,7 +17,26 @@
 
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" data-bs-theme="dark">
             @csrf
+            <hr class="text-white">
             <div class="row">
+                <h3 class="text-white">Product Metadata</h3>
+
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="primary_price" class="form-label text-white">Primary Price</label>
+                        <input type="text" name="primary_price" class="form-control" value="{{ old('primary_price') }}">
+                    </div>
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="product_link" class="form-label text-white">Product Link</label>
+                        <input type="url" name="product_link" class="form-control" value="{{ old('product_link') }}">
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white">
+            <div class="row">
+                <h3 class="text-white">Product Info</h3>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="name_am" class="form-label text-white">
                         Name AM
@@ -111,23 +130,28 @@
                     <div id="sizes-container" class="d-flex">
                         <div class="d-grid size-group">
                             <label for="size-0-3" class="form-check-label text-white">0-3</label>
-                            <input type="number" id="size-0-3" name="size[0-3][quantity]" class="form-control" placeholder="Quantity" min="0">
+                            <input type="number" id="size-0-3" name="size[0-3][quantity]" class="form-control"
+                                   placeholder="Quantity" min="0">
                         </div>
                         <div class="d-grid size-group">
                             <label for="size-3-6" class="form-check-label text-white">3-6</label>
-                            <input type="number" id="size-3-6" name="size[3-6][quantity]" class="form-control" placeholder="Quantity" min="0">
+                            <input type="number" id="size-3-6" name="size[3-6][quantity]" class="form-control"
+                                   placeholder="Quantity" min="0">
                         </div>
                         <div class="d-grid size-group">
                             <label for="size-6-12" class="form-check-label text-white">6-12</label>
-                            <input type="number" id="size-6-12" name="size[6-12][quantity]" class="form-control" placeholder="Quantity" min="0">
+                            <input type="number" id="size-6-12" name="size[6-12][quantity]" class="form-control"
+                                   placeholder="Quantity" min="0">
                         </div>
                         <div class="d-grid size-group">
                             <label for="size-12-18" class="form-check-label text-white">12-18</label>
-                            <input type="number" id="size-12-18" name="size[12-18][quantity]" class="form-control" placeholder="Quantity" min="0">
+                            <input type="number" id="size-12-18" name="size[12-18][quantity]" class="form-control"
+                                   placeholder="Quantity" min="0">
                         </div>
                         <div class="d-grid size-group">
                             <label for="size-18-24" class="form-check-label text-white">18-24</label>
-                            <input type="number" id="size-18-24" name="size[18-24][quantity]" class="form-control" placeholder="Quantity" min="0">
+                            <input type="number" id="size-18-24" name="size[18-24][quantity]" class="form-control"
+                                   placeholder="Quantity" min="0">
                         </div>
                     </div>
                 </div>

@@ -19,8 +19,27 @@
               data-bs-theme="dark">
             @csrf
             @method('PUT')
-
+            <hr class="text-white">
             <div class="row">
+                <h3 class="text-white">Product Metadata</h3>
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="primary_price" class="form-label text-white">Primary Price</label>
+                        <input type="number" name="primary_price" id="primary_price" class="form-control"
+                               value="{{ old('primary_price', $metadata->primary_price ?? '') }}">
+                    </div>
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="product_link" class="form-label text-white">Product Link</label>
+                        <input type="text" name="product_link" id="product_link" class="form-control"
+                               value="{{ old('product_link', $metadata->product_link ?? '') }}">
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white">
+            <div class="row">
+                <h3 class="text-white">Product Info</h3>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="name_am" class="form-label text-white">
                         Name AM
@@ -114,8 +133,10 @@
                         @foreach($availableSizes as $size)
                             <div class="d-grid size-group">
                                 <label for="size-{{ $size }}" class="form-check-label text-white">{{ $size }}</label>
-                                <input type="number" id="size-{{ $size }}" name="size[{{ $size }}][quantity]" class="form-control" placeholder="Quantity"
-                                       min="0" value="{{ isset($selectedSizes[$size]['quantity']) ? $selectedSizes[$size]['quantity'] : '' }}">
+                                <input type="number" id="size-{{ $size }}" name="size[{{ $size }}][quantity]"
+                                       class="form-control" placeholder="Quantity"
+                                       min="0"
+                                       value="{{ isset($selectedSizes[$size]['quantity']) ? $selectedSizes[$size]['quantity'] : '' }}">
                             </div>
                         @endforeach
                     </div>
