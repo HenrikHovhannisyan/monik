@@ -174,6 +174,7 @@ return [
         App\Providers\CartServiceProvider::class,
 
         \App\Services\Localization\LocalizationServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ])->toArray(),
 
     /*

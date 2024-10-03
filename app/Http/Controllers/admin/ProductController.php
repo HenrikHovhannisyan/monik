@@ -13,6 +13,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+
 
 
 class ProductController extends Controller
@@ -74,7 +76,16 @@ class ProductController extends Controller
             foreach ($request->file('images') as $image) {
                 $destinationPath = 'upload/img/products/';
                 $profileImage = date('YmdHis') . '_' . Str::random(5) . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
+
+                // Обработка изображения с водяным знаком
+                $img = Image::make($image->getRealPath());
+
+                // Настройка водяного знака
+                $watermark = Image::make(public_path('images/logo.png'));
+                $img->insert($watermark, 'bottom-right', 10, 10);
+
+                $img->save($destinationPath . $profileImage);
+
                 $imagePaths[] = $destinationPath . $profileImage;
             }
 
@@ -183,11 +194,17 @@ class ProductController extends Controller
             $imagePaths = [];
 
             foreach ($request->file('images') as $image) {
-                $destinationPath = 'upload/img/products';
+                $destinationPath = 'upload/img/products/';
                 $profileImage = date('YmdHis') . '_' . Str::random(5) . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
-                $imagePaths[] = $destinationPath . '/' . $profileImage;
+
+                $img = Image::make($image->getRealPath());
+                $watermark = Image::make(public_path('images/logo.png'));
+                $img->insert($watermark, 'bottom-right', 10, 10);
+
+                $img->save($destinationPath . $profileImage);
+                $imagePaths[] = $destinationPath . $profileImage;
             }
+
             $input['images'] = json_encode($imagePaths);
 
             // Delete existing images
