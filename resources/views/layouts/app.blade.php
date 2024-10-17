@@ -25,7 +25,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Sofia') }} @yield('title')</title>
+    <title>{{ config('app.name', 'Monik') }} @yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <!-- Fonts -->

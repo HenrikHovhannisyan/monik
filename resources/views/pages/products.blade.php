@@ -157,7 +157,7 @@
                             <div class="widget">
                                 <div class="shop_banner">
                                     <div class="banner_img overlay_bg_20">
-                                        <img src="{{ "/images/ad/sidebar_banner_img.png" }}" alt="{{ config('app.name', 'Sofia') }}">
+                                        <img src="{{ "/images/ad/sidebar_banner_img.png" }}" alt="{{ config('app.name', 'Monik') }}">
                                     </div>
                                     <div class="shop_bn_content2 text_white">
                                         <h5 class="text-uppercase shop_subtitle">

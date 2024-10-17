@@ -7,7 +7,7 @@
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="{{ route("home") }}">
-                                <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Sofia') }}"/>
+                                <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Monik') }}"/>
                             </a>
                         </div>
                         <p>
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="mb-md-0 text-center text-md-start">
-                        © {{ date('Y') }} {{ __("messages.all_rights_reserved") }} {{ config('app.name', 'Sofia') }}
+                        © {{ date('Y') }} {{ __("messages.all_rights_reserved") }} {{ config('app.name', 'Monik') }}
                     </p>
                 </div>
                 <div class="col-md-6">

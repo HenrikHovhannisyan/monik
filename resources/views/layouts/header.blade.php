@@ -5,7 +5,7 @@
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img class="logo_dark" src="{{ asset('images/logo.png?v=' . time()) }}"
-                         alt="{{ config('app.name', 'Sofia') }}"/>
+                         alt="{{ config('app.name', 'Monik') }}"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-expanded="false">
