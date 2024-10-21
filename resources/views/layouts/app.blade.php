@@ -20,13 +20,13 @@
     <meta name="theme-color" content="#202325">
 
     <!-- Support for iOS -->
-    <link rel="apple-touch-icon" href="{{ asset('images/pwa/icon-192x192.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/pwa/icon-192x192.png?v=' . time()) }}">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Monik') }} @yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico?v=' . time()) }}"/>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"/>
