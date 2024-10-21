@@ -28,70 +28,23 @@
     <title>{{ config('app.name', 'Monik') }} @yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="{{asset('css/animate.css?v=' . time())}}" />
-    <!-- Latest Bootstrap min CSS -->
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css?v=' . time())}}" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
-    <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="{{asset('css/all.min.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/ionicons.min.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/themify-icons.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/linearicons.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/simple-line-icons.css?v=' . time())}}" />
-    <!--- owl carousel CSS-->
-    <link rel="stylesheet" href="{{asset('owlcarousel/css/owl.carousel.min.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('owlcarousel/css/owl.theme.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('owlcarousel/css/owl.theme.default.min.css?v=' . time())}}"/>
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="{{asset('css/magnific-popup.css?v=' . time())}}" />
-    <!-- jquery-ui CSS -->
-    <link rel="stylesheet" href="{{asset('css/jquery-ui.css?v=' . time())}}">
-    <!-- Slick CSS -->
-    <link rel="stylesheet" href="{{asset('css/slick.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/slick-theme.css?v=' . time())}}" />
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{asset('css/root.css?v=' . time())}}">
-    <link rel="stylesheet" href="{{asset('css/main.css?v=' . time())}}">
-    <link rel="stylesheet" href="{{asset('css/style.css?v=' . time())}}" />
-    <link rel="stylesheet" href="{{asset('css/responsive.css?v=' . time())}}">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 
-    <!-- Latest jQuery -->
-    <script defer src="{{asset('js/jquery-3.7.1.min.js?v=' . time())}}"></script>
-    <!-- jquery-ui -->
-    <script defer src="{{asset('js/jquery-ui.js?v=' . time())}}"></script>
-    <!-- popper min js -->
-    <script defer src="{{asset('js/popper.min.js?v=' . time())}}"></script>
-    <!-- Latest compiled and minified Bootstrap -->
-    <script defer src="{{asset('bootstrap/js/bootstrap.min.js?v=' . time())}}"></script>
-    <!-- owl-carousel min js  -->
-    <script defer src="{{asset('owlcarousel/js/owl.carousel.min.js?v=' . time())}}"></script>
-    <!-- magnific-popup min js  -->
-    <script defer src="{{asset('js/magnific-popup.min.js?v=' . time())}}"></script>
-    <!-- waypoints min js  -->
-    <script defer src="{{asset('js/waypoints.min.js?v=' . time())}}"></script>
-    <!-- parallax js  -->
-    <script defer src="{{asset('js/parallax.js?v=' . time())}}"></script>
-    <!-- countdown js  -->
-    <script defer src="{{asset('js/jquery.countdown.min.js?v=' . time())}}"></script>
-    <!-- imagesloaded js -->
-    <script defer src="{{asset('js/imagesloaded.pkgd.min.js?v=' . time())}}"></script>
-    <!-- isotope min js -->
-    <script defer src="{{asset('js/isotope.min.js?v=' . time())}}"></script>
-    <!-- slick js -->
-    <script defer src="{{asset('js/slick.min.js?v=' . time())}}"></script>
-    <!-- elevatezoom js -->
-    <script defer src="{{asset('js/jquery.elevatezoom.js?v=' . time())}}"></script>
+    <!--  Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- yandex js -->
     <script src="https://api-maps.yandex.ru/2.1/?lang={{ getLanguagePrefix() }}&amp;apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
-    <script defer src="{{asset('js/map.js?v=' . time())}}"></script>
-    <!-- scripts js -->
-    <script defer src="{{asset('js/scripts.js?v=' . time())}}"></script>
-    <script defer src="{{asset('js/app.js?v=' . time())}}"></script>
+    <!-- Script -->
+    <script src="{{ asset('js/site.js') }}" defer></script>
+
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
