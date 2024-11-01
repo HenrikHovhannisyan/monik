@@ -63,7 +63,7 @@ textEditor("#question_en");
 
 
 // Start product search
-$(document).ready(function() {
+$(document).ready(function () {
     $('table').DataTable({
         "paging": true,
         "searching": true,
@@ -72,9 +72,23 @@ $(document).ready(function() {
         "lengthChange": true,
         "responsive": true,
         "columnDefs": [
-            { "orderable": false, "targets": [2, 6, 7] }
+            {"orderable": false, "targets": [2, 6, 7]}
         ]
     });
 });
 
 // End product search
+
+// Start (check that the expiry_date field is required.)
+document.querySelector('select[name="type"]').addEventListener('change', function () {
+    const expiryDateField = document.querySelector('input[name="expiry_date"]');
+    const isMultiUse = this.value === 'multi-use';
+    expiryDateField.required = isMultiUse;
+    expiryDateField.disabled = !isMultiUse;
+
+    if (!isMultiUse) {
+        expiryDateField.value = '';
+    }
+});
+
+// End (check that the expiry_date field is required.)

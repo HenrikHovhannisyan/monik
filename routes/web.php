@@ -44,6 +44,7 @@ Route::group(
             Route::resource('checkouts', CheckoutController::class);
             Route::resource('order-items', OrderItemController::class);
             Route::get('/order-completed',  [PageController::class, 'order_completed'])->name('order-completed');
+            Route::post('/checkout/apply-promocode', [CheckoutController::class, 'applyPromocode'])->name('checkout.applyPromocode');
         });
 
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -60,4 +61,5 @@ Route::group(['prefix' => '/admin', 'middleware' => ['web', 'auth', 'is_admin'],
     Route::patch('/checkouts/{checkout}/pending', 'CheckoutController@changeStatusPending')->name('checkouts.changeStatusPending');
     Route::patch('/checkouts/{checkout}/completed', 'CheckoutController@changeStatusCompleted')->name('checkouts.changeStatusCompleted');
     Route::resource('faqs', 'FaqController');
+    Route::resource('promocodes', 'PromocodeController');
 });

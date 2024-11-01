@@ -6,19 +6,35 @@ use App\Models\CartItem;
 use App\Models\Checkout;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Models\Promocode;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cookie;
 
 class CheckoutController extends Controller
 {
+    /**
+     *
+     */
     public function index()
     {
     }
 
+    /**
+     * @return Factory|View
+     */
     public function create()
     {
         return view('checkouts.create');
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -34,6 +50,26 @@ class CheckoutController extends Controller
         }
 
         $totalPrice = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount / 100)) * $item->quantity);
+
+        $promocodeCode = Cookie::get('applied_promocode');
+        if ($promocodeCode) {
+            $promocode = Promocode::where('code', $promocodeCode)->first();
+
+            if ($promocode) {
+                if ($promocode->type === 'multi-use' && $promocode->expiry_date && now()->gt($promocode->expiry_date)) {
+                    return redirect()->back()->withErrors(__('Promocode has expired.'));
+                }
+
+                if ($promocode->type === 'one-time' && $promocode->status === 'active') {
+                    $promocode->status = 'inactive';
+                    $promocode->save();
+                }
+
+                if ($promocode->discount) {
+                    $totalPrice -= ($totalPrice * $promocode->discount / 100);
+                }
+            }
+        }
 
         $checkout = new Checkout();
         $checkout->user_id = auth()->id();
@@ -83,17 +119,33 @@ class CheckoutController extends Controller
 
         CartItem::where('user_id', auth()->id())->delete();
 
+        // Удаляем промокод из куки после успешной покупки
+        if ($promocodeCode) {
+            Cookie::queue(Cookie::forget('applied_promocode'));
+        }
+
         return redirect()->route('order-completed');
     }
 
+    /**
+     * @param Checkout $checkout
+     */
     public function show(Checkout $checkout)
     {
     }
 
+    /**
+     * @param Checkout $checkout
+     */
     public function edit(Checkout $checkout)
     {
     }
 
+    /**
+     * @param Request $request
+     * @param Checkout $checkout
+     * @return RedirectResponse
+     */
     public function update(Request $request, Checkout $checkout)
     {
         $validatedData = $request->validate([
@@ -109,6 +161,10 @@ class CheckoutController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * @param Checkout $checkout
+     * @return RedirectResponse
+     */
     public function destroy(Checkout $checkout)
     {
         $checkout->delete();
@@ -116,6 +172,10 @@ class CheckoutController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * @param array $sizes
+     * @return int
+     */
     private function calculateTotalQuantity(array $sizes): int
     {
         $totalQuantity = collect($sizes)
@@ -124,5 +184,35 @@ class CheckoutController extends Controller
 
         return $totalQuantity > 0 ? $totalQuantity : 0;
     }
+
+    public function applyPromocode(Request $request)
+    {
+        $request->validate([
+            'promocode' => 'required|string',
+        ]);
+
+        $promocode = Promocode::where('code', $request->input('promocode'))->first();
+
+        if (!$promocode) {
+            return redirect()->back()->withErrors(['promocode' => __('Invalid promocode')]);
+        }
+
+        // Проверяем статус промокода
+        if ($promocode->status === 'inactive') {
+            return redirect()->back()->withErrors(['promocode' => __('This promocode is no longer valid')]);
+        }
+
+        // Проверяем срок действия для многоразового промокода
+        if ($promocode->type === 'multi-use') {
+            if ($promocode->expiry_date && Carbon::parse($promocode->expiry_date)->isPast()) {
+                return redirect()->back()->withErrors(['promocode' => __('Promocode has expired')]);
+            }
+        }
+
+        Cookie::queue(Cookie::make('applied_promocode', $promocode->code, 30));
+
+        return redirect()->back()->with('success', __('Promocode applied successfully'));
+    }
+
 }
 

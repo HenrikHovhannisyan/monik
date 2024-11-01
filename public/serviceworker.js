@@ -3,11 +3,11 @@ const OFFLINE_URL = '/offline';
 const URLS_TO_CACHE = [
     OFFLINE_URL,
     '/',
-    '/css/app.css',
-    '/js/app.js',
-    '/images/pwa/icon-72x72.png',
-    '/images/pwa/icon-192x192.png',
-    '/images/pwa/icon-512x512.png',
+    '/css/site.css',
+    '/js/site.js',
+    '/images/pwa/icon-72_72.png',
+    '/images/pwa/icon-192_192.png',
+    '/images/pwa/icon-512_512.png',
 ];
 
 

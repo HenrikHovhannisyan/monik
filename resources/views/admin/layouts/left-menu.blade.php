@@ -30,6 +30,12 @@
                 Checkouts
             </a>
         </li>
+        <li class="{{isActiveRoute('promocodes.index')}}">
+            <a href="{{route('promocodes.index')}}">
+                <i class="fa-solid fa-barcode me-1"></i>
+                Promocodes
+            </a>
+        </li>
         <li class="{{isActiveRoute('faqs.index')}}">
             <a href="{{route('faqs.index')}}">
                 <i class="fa-solid fa-clipboard-question me-1"></i>

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Checkout;
 use App\Models\Faq;
 use App\Models\Product;
+use App\Models\Promocode;
 use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -34,10 +35,11 @@ class HomeController extends Controller
         $categoryCount = count(Category::all());
         $productCount = count(Product::all());
         $checkoutCount = count(Checkout::all());
+        $promocodeCount = count(Promocode::all());
         $faqCount = count(Faq::all());
         $processingCheckouts = Checkout::where("status", 'processing')->get();
         $pendingCheckouts = Checkout::where("status", 'pending')->get();
-        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'checkoutCount', 'faqCount', 'processingCheckouts', 'pendingCheckouts'));
+        return view('admin.index', compact('usersCount', 'categoryCount', 'productCount', 'checkoutCount', 'promocodeCount', 'faqCount', 'processingCheckouts', 'pendingCheckouts'));
     }
 
     /**

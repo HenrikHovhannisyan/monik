@@ -40,6 +40,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
+                        @if($errors->has('promocode'))
+                            <div class="alert alert-danger mt-2">{{ $errors->first('promocode') }}</div>
+                        @endif
                         <div class="toggle_info">
                             <span>
                                 <i class="fas fa-tag"></i>{{ __("index.have_coupon") }}
@@ -49,16 +52,16 @@
                             </span>
                         </div>
                         <div class="panel-collapse collapse coupon_form" id="coupon">
-                            <div class="panel-body">
-                                <p>{{ __("index.apply_coupon_message") }}</p>
-                                <div class="coupon field_form input-group">
-                                    <input type="text" value="" class="form-control"
-                                           placeholder="{{ __("index.enter_coupon") }}">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-fill-out btn-sm"
-                                                type="submit">{{ __("index.apply_coupon") }}</button>
+                            <div class="panel-body">                               <p>{{ __("index.apply_coupon_message") }}</p>
+                                <form action="{{ route('checkout.applyPromocode') }}" method="POST">
+                                    @csrf
+                                    <div class="coupon field_form input-group">
+                                        <input type="text" name="promocode" class="form-control" placeholder="{{ __('index.enter_coupon') }}" required>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-fill-out btn-sm" type="submit">{{ __('index.apply_coupon') }}</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -147,15 +150,26 @@
                                             <td class="product-subtotal">
                                                 {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        </tr>    <tr>
                                             <th>{{ __("index.shipping") }}</th>
                                             <td>{{ __("index.free_ship") }}</td>
                                         </tr>
+
+                                        @if($promocodeDiscount > 0)
+                                            <tr>
+                                                <th>{{ __("index.promocode") }}</th>
+                                                <td>-{{ $promocodeDiscount }}%</td>
+                                            </tr>
+                                        @endif
+
                                         <tr>
                                             <th>{{ __("index.total") }}</th>
                                             <td class="product-subtotal">
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
+                                                @php
+                                                    $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity);
+                                                    $discountedTotal = $promocodeDiscount > 0 ? $total - ($total * $promocodeDiscount / 100) : $total;
+                                                @endphp
+                                                {{ number_format($discountedTotal, 0) }}֏
                                             </td>
                                         </tr>
                                         </tfoot>

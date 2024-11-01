@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Promocode;
+use Illuminate\Support\Facades\Cookie;
 
 class PageController extends Controller
 {
@@ -33,7 +35,18 @@ class PageController extends Controller
     {
         $user = Auth::user();
         $user->load('addresses');
-        return view('pages.checkout', compact('user'));
+
+        $promocodeCode = Cookie::get('applied_promocode');
+        $promocodeDiscount = 0;
+
+        if ($promocodeCode) {
+            $promocode = Promocode::where('code', $promocodeCode)->first();
+            if ($promocode && $promocode->status === 'active') {
+                $promocodeDiscount = $promocode->discount;
+            }
+        }
+
+        return view('pages.checkout', compact('user', 'promocodeDiscount'));
     }
 
     public function order_completed()
