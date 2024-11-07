@@ -18,9 +18,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $user)
+                @foreach($users as $index => $user)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $index + 1 }}</th>
                         <td>{{$user->name}}</td>
                         <td>@if($user->is_admin === 1) <span class="text-danger">Admin</span> @else User @endif</td>
                         <td>{{$user->email}}</td>

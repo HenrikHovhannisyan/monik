@@ -85,10 +85,12 @@
         <hr>
         <div class="row">
             <h2 class="text-white mb-3">Orders list</h2>
-            <div class="col-lg-6">
-                <h4 class="text-success mb-3">
-                    <i class="fa-solid fa-circle fa-beat"></i>
-                    Processing list
+            <div class="col-lg-6 mb-3">
+                <h4 class="text-white mb-3">
+                    <i class="fa-solid fa-n fa-beat text-success"></i>
+                    <i class="fa-solid fa-e fa-beat text-success"></i>
+                    <i class="fa-solid fa-w fa-beat text-success"></i>
+                    Processing list <span class="fs-6">(Новые заказы)</span>
                 </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
@@ -132,10 +134,10 @@
                     </table>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <h4 class="text-warning mb-3">
-                    <i class="fa-solid fa-circle fa-beat"></i>
-                    Pending list
+            <div class="col-lg-6 mb-3">
+                <h4 class="text-white mb-3">
+                    <i class="fa-solid fa-truck fa-beat text-warning"></i>
+                    Pending list <span class="fs-6">(В доставке)</span>
                 </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
