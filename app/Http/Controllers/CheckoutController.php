@@ -221,6 +221,8 @@ class CheckoutController extends Controller
         // Проверяем срок действия для многоразового промокода
         if ($promocode->type === 'multi-use') {
             if ($promocode->expiry_date && Carbon::parse($promocode->expiry_date)->isPast()) {
+                $promocode->status = 'inactive';
+                $promocode->save();
                 return redirect()->back()->withErrors(['promocode' => __('Promocode has expired')]);
             }
         }
