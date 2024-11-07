@@ -43,12 +43,12 @@
                             <p class="text-capitalize">
                                 @if($checkout->shippingAddress)
                                     {{ $checkout->shippingAddress->city }},
-                                    {{ $checkout->shippingAddress->state }},
-                                    {{ $checkout->shippingAddress->address }},
-                                    @if($checkout->shippingAddress->address2)
-                                        {{ $checkout->shippingAddress->address2 }},
+                                    {{ $checkout->shippingAddress->region }},
+                                    {{ $checkout->shippingAddress->street }},
+                                    {{ $checkout->shippingAddress->house_number }},
+                                    @if($checkout->shippingAddress->postcode)
+                                        {{ $checkout->shippingAddress->postcode }}
                                     @endif
-                                    {{ $checkout->shippingAddress->postcode }}
                                 @else
                                     <span>{{ __('index.no_shipping_address') }}</span>
                                 @endif

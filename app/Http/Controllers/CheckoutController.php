@@ -49,9 +49,10 @@ class CheckoutController extends Controller
             return redirect()->back()->withErrors(__('Your cart is empty.'));
         }
 
-        $totalPrice = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount / 100)) * $item->quantity);
-
+        // Инициализируем переменную для скидки промокода
+        $promocodeDiscount = 0;
         $promocodeCode = Cookie::get('applied_promocode');
+
         if ($promocodeCode) {
             $promocode = Promocode::where('code', $promocodeCode)->first();
 
@@ -65,25 +66,34 @@ class CheckoutController extends Controller
                     $promocode->save();
                 }
 
-                if ($promocode->discount) {
-                    $totalPrice -= ($totalPrice * $promocode->discount / 100);
-                }
+                $promocodeDiscount = $promocode->discount ?? 0;
             }
         }
 
-        $checkout = new Checkout();
-        $checkout->user_id = auth()->id();
-        $checkout->shipping_address = $validatedData['shipping_address'];
-        $checkout->order_notes = $validatedData['order_notes'] ?? '';
-        $checkout->payment_option = $validatedData['payment_option'];
-        $checkout->total_price = $totalPrice;
-        $checkout->status = 'processing';
-        $checkout->save();
-
+        $totalPrice = 0;
         $processedProducts = [];
+
+        // Создаем и сохраняем основной заказ перед добавлением записей товаров
+        $checkout = Checkout::create([
+            'user_id' => auth()->id(),
+            'shipping_address' => $validatedData['shipping_address'],
+            'order_notes' => $validatedData['order_notes'] ?? '',
+            'payment_option' => $validatedData['payment_option'],
+            'status' => 'processing',
+            'total_price' => 0, // Временно устанавливаем 0, пересчитаем после добавления товаров
+        ]);
 
         foreach ($cartItems as $item) {
             $product = $item->product;
+
+            // Применяем скидку промокода только если скидка на продукт меньше
+            if ($product->discount >= $promocodeDiscount) {
+                $finalPrice = $product->price - ($product->price * $product->discount / 100);
+            } else {
+                $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
+            }
+
+            $totalPrice += $finalPrice * $item->quantity;
 
             if (!isset($processedProducts[$product->id])) {
                 $processedProducts[$product->id] = json_decode($product->size, true);
@@ -105,10 +115,14 @@ class CheckoutController extends Controller
                 'checkout_id' => $checkout->id,
                 'product_id' => $product->id,
                 'quantity' => $item->quantity,
-                'price' => $product->price - ($product->price * $product->discount / 100),
+                'price' => $finalPrice,
                 'size_details' => json_encode([$item->size => ['quantity' => $item->quantity]]),
             ]);
         }
+
+        // Обновляем общую сумму заказа
+        $checkout->total_price = $totalPrice;
+        $checkout->save();
 
         foreach ($processedProducts as $productId => $sizes) {
             $product = Product::find($productId);
@@ -117,6 +131,7 @@ class CheckoutController extends Controller
             $product->save();
         }
 
+        // Очищаем корзину
         CartItem::where('user_id', auth()->id())->delete();
 
         // Удаляем промокод из куки после успешной покупки
@@ -126,6 +141,7 @@ class CheckoutController extends Controller
 
         return redirect()->route('order-completed');
     }
+
 
     /**
      * @param Checkout $checkout

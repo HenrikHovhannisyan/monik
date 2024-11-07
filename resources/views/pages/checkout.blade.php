@@ -98,7 +98,7 @@
                                             {{ $address->street }},
                                             {{ $address->house_number }},
                                             @if($address->postcode)
-                                                {{ $address->postcode }},
+                                                {{ $address->postcode }}
                                             @endif
                                         </label>
                                     </div>
@@ -166,12 +166,30 @@
                                             <th>{{ __("index.total") }}</th>
                                             <td class="product-subtotal">
                                                 @php
-                                                    $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity);
-                                                    $discountedTotal = $promocodeDiscount > 0 ? $total - ($total * $promocodeDiscount / 100) : $total;
+                                                    $total = 0;
+
+                                                    foreach ($cartItems as $item) {
+                                                        $product = $item->product;
+
+                                                        // Проверяем, нужно ли применить промокод к этому товару
+                                                        if ($product->discount >= $promocodeDiscount) {
+                                                            // Если скидка продукта больше или равна скидке промокода, применяем скидку продукта
+                                                            $finalPrice = $product->price - ($product->price * $product->discount / 100);
+                                                        } else {
+                                                            // Если скидка продукта меньше скидки промокода, применяем скидку промокода
+                                                            $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
+                                                        }
+
+                                                        $total += $finalPrice * $item->quantity;
+                                                    }
+
+                                                    // Форматируем итоговую сумму
+                                                    $discountedTotal = number_format($total, 0);
                                                 @endphp
-                                                {{ number_format($discountedTotal, 0) }}֏
+                                                {{ $discountedTotal }}֏
                                             </td>
                                         </tr>
+
                                         </tfoot>
                                     </table>
                                 </div>
