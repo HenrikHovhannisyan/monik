@@ -47,12 +47,13 @@
                             <span>
                                 <i class="fas fa-tag"></i>{{ __("index.have_coupon") }}
                                 <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">
-                                    {{ __("index.enter_coupon") }}
+                                    {{ __("index.have_coupon_click") }}
                                 </a>
                             </span>
                         </div>
                         <div class="panel-collapse collapse coupon_form" id="coupon">
-                            <div class="panel-body">                               <p>{{ __("index.apply_coupon_message") }}</p>
+                            <div class="panel-body">
+                                <p>{{ __("index.apply_coupon_message") }}</p>
                                 <form action="{{ route('checkout.applyPromocode') }}" method="POST">
                                     @csrf
                                     <div class="coupon field_form input-group">

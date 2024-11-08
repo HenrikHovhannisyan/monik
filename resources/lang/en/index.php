@@ -181,13 +181,16 @@ return [
     'checkout' => 'Checkout',
 
     //    Checkout page
+    'promocode' => 'Promocode',
     'additional_information' => 'Additional information',
     'your_orders' => 'Your Orders',
     'payment' => 'Payment',
     'cash' => 'Cash',
-    'have_coupon' => 'Have a coupon?',
-    'enter_coupon' => 'Enter Coupon Code',
-    'apply_coupon' => 'Apply Coupon',
+    'have_coupon' => 'Have a promocode?',
+    'have_coupon_click' => 'Click here to enter your promocode',
+    'apply_coupon_message' => 'If the product discount is greater than the promocode discount, then the promocode discount is not applied.',
+    'enter_coupon' => 'Enter Promocode Code',
+    'apply_coupon' => 'Apply Promocode',
     'order_notes' => 'Order notes',
     'pending' => 'Pending',
 

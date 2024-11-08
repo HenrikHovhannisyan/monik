@@ -46,7 +46,7 @@ class CheckoutController extends Controller
         $cartItems = CartItem::where('user_id', auth()->id())->get();
 
         if ($cartItems->isEmpty()) {
-            return redirect()->back()->withErrors(__('Your cart is empty.'));
+            return redirect()->back()->withErrors(__('messages.cart_empty'));
         }
 
         // Инициализируем переменную для скидки промокода
@@ -58,7 +58,7 @@ class CheckoutController extends Controller
 
             if ($promocode) {
                 if ($promocode->type === 'multi-use' && $promocode->expiry_date && now()->gt($promocode->expiry_date)) {
-                    return redirect()->back()->withErrors(__('Promocode has expired.'));
+                    return redirect()->back()->withErrors(__('messages.promocode_expired'));
                 }
 
                 if ($promocode->type === 'one-time' && $promocode->status === 'active') {
@@ -210,12 +210,12 @@ class CheckoutController extends Controller
         $promocode = Promocode::where('code', $request->input('promocode'))->first();
 
         if (!$promocode) {
-            return redirect()->back()->withErrors(['promocode' => __('Invalid promocode')]);
+            return redirect()->back()->withErrors(['promocode' => __('messages.invalid_promocode')]);
         }
 
         // Проверяем статус промокода
         if ($promocode->status === 'inactive') {
-            return redirect()->back()->withErrors(['promocode' => __('This promocode is no longer valid')]);
+            return redirect()->back()->withErrors(['promocode' => __('messages.promocode_inactive')]);
         }
 
         // Проверяем срок действия для многоразового промокода
@@ -223,13 +223,13 @@ class CheckoutController extends Controller
             if ($promocode->expiry_date && Carbon::parse($promocode->expiry_date)->isPast()) {
                 $promocode->status = 'inactive';
                 $promocode->save();
-                return redirect()->back()->withErrors(['promocode' => __('Promocode has expired')]);
+                return redirect()->back()->withErrors(['promocode' => __('messages.promocode_expired')]);
             }
         }
 
         Cookie::queue(Cookie::make('applied_promocode', $promocode->code, 30));
 
-        return redirect()->back()->with('success', __('Promocode applied successfully'));
+        return redirect()->back()->with('success', __('messages.promocode_applied'));
     }
 
 }
