@@ -4,6 +4,10 @@
     @parent | {{ __("index.cart") }}
 @endsection
 
+@php
+$total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity);
+@endphp
+
 @section('content')
     <!-- START SECTION BREADCRUMB -->
     <div class="breadcrumb_section bg_gray page-title-mini">
@@ -132,18 +136,25 @@
                                     <tr>
                                         <td class="cart_total_label">{{ __("index.cart_subtotal") }}</td>
                                         <td class="cart_total_amount">
-                                            {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
+                                            {{ $total }}֏
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="cart_total_label">{{ __("index.shipping") }}</td>
-                                        <td class="cart_total_amount">{{ __("index.free_ship") }}</td>
+                                        <td class="cart_total_amount">
+                                            @if($total <= 10000)
+                                                @php $total += 1000 @endphp
+                                                1000֏
+                                            @else
+                                                {{ __("index.free_ship") }}
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="cart_total_label">{{ __("index.total") }}</td>
                                         <td class="cart_total_amount">
                                             <strong>
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
+                                                {{ $total }}֏
                                             </strong>
                                         </td>
                                     </tr>
