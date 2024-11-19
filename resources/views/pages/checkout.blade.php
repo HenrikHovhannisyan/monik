@@ -4,6 +4,28 @@
     @parent | {{ __("index.checkout") }}
 @endsection
 
+@php
+    $total = 0;
+
+    foreach ($cartItems as $item) {
+        $product = $item->product;
+
+        // Проверяем, нужно ли применить промокод к этому товару
+        if ($product->discount >= $promocodeDiscount) {
+            // Если скидка продукта больше или равна скидке промокода, применяем скидку продукта
+            $finalPrice = $product->price - ($product->price * $product->discount / 100);
+        } else {
+            // Если скидка продукта меньше скидки промокода, применяем скидку промокода
+            $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
+        }
+
+        $total += $finalPrice * $item->quantity;
+    }
+
+    $progressPercentage = min(($total / 10000) * 100, 100);
+    $progressBarClass = $progressPercentage >= 100 ? "bg-success" : "bg-danger";
+@endphp
+
 @section('content')
     <!-- START SECTION BREADCRUMB -->
     <div class="breadcrumb_section bg_gray page-title-mini">
@@ -57,9 +79,11 @@
                                 <form action="{{ route('checkout.applyPromocode') }}" method="POST">
                                     @csrf
                                     <div class="coupon field_form input-group">
-                                        <input type="text" name="promocode" class="form-control" placeholder="{{ __('index.enter_coupon') }}" required>
+                                        <input type="text" name="promocode" class="form-control"
+                                               placeholder="{{ __('index.enter_coupon') }}" required>
                                         <div class="input-group-append">
-                                            <button class="btn btn-fill-out btn-sm" type="submit">{{ __('index.apply_coupon') }}</button>
+                                            <button class="btn btn-fill-out btn-sm"
+                                                    type="submit">{{ __('index.apply_coupon') }}</button>
                                         </div>
                                     </div>
                                 </form>
@@ -86,13 +110,15 @@
                             </div>
                             @if($user->addresses->isEmpty())
                                 <p class="mb-1">{{ __("index.no_address_message") }}</p>
-                                <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                <button type="button" class="btn btn-fill-out btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#addAddressModal">
                                     {{ __("index.add_address") }}
                                 </button>
                             @else
                                 @foreach($user->addresses as $address)
                                     <div class="custome-radio">
-                                        <input class="form-check-input" type="radio" name="shipping_address" id="{{ $address->id }}" value="{{ $address->id }}">
+                                        <input class="form-check-input" type="radio" name="shipping_address"
+                                               id="{{ $address->id }}" value="{{ $address->id }}">
                                         <label class="form-check-label address_check" for="{{ $address->id }}">
                                             {{ $address->city }},
                                             {{ $address->region }},
@@ -109,7 +135,8 @@
                                 <h4>{{ __("index.additional_information") }}</h4>
                             </div>
                             <div class="form-group mb-0">
-                                <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}" name="order_notes"></textarea>
+                                <textarea rows="5" class="form-control" placeholder="{{ __("index.order_notes") }}"
+                                          name="order_notes"></textarea>
                             </div>
                         </div>
 
@@ -118,6 +145,23 @@
                                 <div class="heading_s1">
                                     <h4>{{ __("index.your_orders") }}</h4>
                                 </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span>{{ $total }}֏</span>
+                                    <div class="progress w-100 ms-2 me-2">
+                                        <div
+                                            class="progress-bar progress-bar-striped {{ $progressBarClass }} progress-bar-animated"
+                                            role="progressbar"
+                                            aria-valuenow="{{ $progressPercentage }}"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                            style="width: {{ $progressPercentage }}%;">
+                                            {{ $progressPercentage }}%
+                                        </div>
+                                    </div>
+                                    <span>10000֏</span>
+                                </div>
+
                                 <div class="table-responsive order_table">
                                     <table class="table">
                                         <thead>
@@ -149,11 +193,20 @@
                                         <tr>
                                             <th>{{ __("index.cart_subtotal") }}</th>
                                             <td class="product-subtotal">
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}֏
+                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
+                                                ֏
                                             </td>
-                                        </tr>    <tr>
+                                        </tr>
+                                        <tr>
                                             <th>{{ __("index.shipping") }}</th>
-                                            <td>{{ __("index.free_ship") }}</td>
+                                            <td>
+                                                @if($total <= 10000)
+                                                    @php $total += 1000 @endphp
+                                                    1000֏
+                                                @else
+                                                    {{ __("index.free_ship") }}
+                                                @endif
+                                            </td>
                                         </tr>
 
                                         @if($promocodeDiscount > 0)
@@ -166,28 +219,7 @@
                                         <tr>
                                             <th>{{ __("index.total") }}</th>
                                             <td class="product-subtotal">
-                                                @php
-                                                    $total = 0;
-
-                                                    foreach ($cartItems as $item) {
-                                                        $product = $item->product;
-
-                                                        // Проверяем, нужно ли применить промокод к этому товару
-                                                        if ($product->discount >= $promocodeDiscount) {
-                                                            // Если скидка продукта больше или равна скидке промокода, применяем скидку продукта
-                                                            $finalPrice = $product->price - ($product->price * $product->discount / 100);
-                                                        } else {
-                                                            // Если скидка продукта меньше скидки промокода, применяем скидку промокода
-                                                            $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
-                                                        }
-
-                                                        $total += $finalPrice * $item->quantity;
-                                                    }
-
-                                                    // Форматируем итоговую сумму
-                                                    $discountedTotal = number_format($total, 0);
-                                                @endphp
-                                                {{ $discountedTotal }}֏
+                                                {{ $total }}֏
                                             </td>
                                         </tr>
 
@@ -204,13 +236,15 @@
                                     </div>
                                     <div class="payment_option">
                                         <div class="custome-radio">
-                                            <input class="form-check-input" required type="radio" name="payment_option" id="cash" value="cash" checked>
+                                            <input class="form-check-input" required type="radio" name="payment_option"
+                                                   id="cash" value="cash" checked>
                                             <label class="form-check-label" for="cash">{{ __("index.cash") }}</label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-fill-out btn-block" id="checkout" disabled>{{ __("index.checkout") }}</button>
+                                <button type="submit" class="btn btn-fill-out btn-block" id="checkout"
+                                        disabled>{{ __("index.checkout") }}</button>
                             </div>
                         </div>
                     </div>

@@ -121,7 +121,10 @@ class CheckoutController extends Controller
         }
 
         // Обновляем общую сумму заказа
-        $checkout->total_price = $totalPrice;
+
+        $checkout->total_price = ($totalPrice <= 10000) ? $totalPrice + 1000 : $totalPrice;
+
+        dd($totalPrice, $checkout);
         $checkout->save();
 
         foreach ($processedProducts as $productId => $sizes) {

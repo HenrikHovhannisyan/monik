@@ -18,7 +18,7 @@ return [
     'exclusive_products' => 'Exclusive Products',
     'featured_products' => 'Featured Products',
     'free_delivery' => 'Free Delivery',
-    'free_shipping' => 'Free shipping on orders over 20000 drams.',
+    'free_shipping' => 'Free shipping on orders over 10000 drams.',
     '14_day_return' => '14 Day Return',
     '14_day_return_policy' => 'You can return the item within 14 days',
     'support' => '24/7 Support',
@@ -177,7 +177,7 @@ return [
     'cart_totals' => 'Cart Totals',
     'cart_subtotal' => 'Cart Subtotal',
     'shipping' => 'Shipping',
-    'free_ship' => 'Free Shipping',
+    'free_ship' => 'Free',
     'checkout' => 'Checkout',
 
     //    Checkout page
