@@ -28,7 +28,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <h6 class="widget_title">{{ __("index.pages") }}</h6>
                         <ul class="widget_links">
@@ -45,7 +45,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <h6 class="widget_title">
                             {{ __("index.categories") }}
@@ -58,25 +58,6 @@
                                     </a>
                                 </li>
                             @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="widget">
-                        <h6 class="widget_title">{{ __('index.contact_info') }}</h6>
-                        <ul class="contact_info contact_info_light">
-                            <li>
-                                <i class="ti-location-pin"></i>
-                                <p>123 Street, Old Trafford, New South London , UK</p>
-                            </li>
-                            <li>
-                                <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@sitename.com</a>
-                            </li>
-                            <li>
-                                <i class="ti-mobile"></i>
-                                <p>+ 457 789 789 65</p>
-                            </li>
                         </ul>
                     </div>
                 </div>
