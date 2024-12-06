@@ -42,6 +42,10 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
+    if (event.request.method !== 'GET') {
+        return;
+    }
+
     if (event.request.mode === 'navigate') {
         event.respondWith(
             fetch(event.request)
