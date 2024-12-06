@@ -12348,6 +12348,10 @@ header.light_skin.nav-fixed .social_icons li a:hover {
     width: 100%;
 }
 
+.btn-white::before, .btn-white::after {
+    width: 51%;
+}
+
 .sidebar_menu {
     padding: 50px 30px 30px;
     position: fixed;

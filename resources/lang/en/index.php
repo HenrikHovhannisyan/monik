@@ -228,4 +228,9 @@ return [
     'your_score' => 'Your Score:',
     'play_again' => 'PLAY AGAIN',
 
+//    Banner
+    'banner_title_style' => 'Creating style for your little ones with love!',
+    'banner_title_discount' => 'Catch the moment: children\'s fashion with discounts is here!',
+    'banner_title_price' => 'Trendy children\'s clothing at prices everyone can afford!',
+
 ];
