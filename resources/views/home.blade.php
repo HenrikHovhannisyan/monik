@@ -142,7 +142,7 @@
                                                     @endif
                                                     @if($product->discount)
                                                         <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }}
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                 </div>
@@ -174,9 +174,6 @@
                                                                 {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                                             </span>
                                                             <del>{{ $product->price }}֏</del>
-                                                            <div class="on_sale">
-                                                                <span>{{ $product->discount }}%</span>
-                                                            </div>
                                                         @else
                                                             <span class="price">
                                                                 {{ $product->price }}֏
@@ -210,7 +207,7 @@
                                                     @endif
                                                     @if($product->discount)
                                                         <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }}
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                 </div>
@@ -242,9 +239,6 @@
                                                                 {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                                             </span>
                                                             <del>{{ $product->price }}֏</del>
-                                                            <div class="on_sale">
-                                                                <span>{{ $product->discount }}%</span>
-                                                            </div>
                                                         @else
                                                             <span class="price">
                                                                 {{ $product->price }}֏
@@ -278,7 +272,7 @@
                                                     @endif
                                                     @if($product->discount)
                                                         <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }}
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                 </div>
@@ -310,9 +304,6 @@
                                                                 {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                                             </span>
                                                             <del>{{ $product->price }}֏</del>
-                                                            <div class="on_sale">
-                                                                <span>{{ $product->discount }}%</span>
-                                                            </div>
                                                         @else
                                                             <span class="price">
                                                                 {{ $product->price }}֏
@@ -336,7 +327,7 @@
                                                     @endphp
                                                     @if($product->discount)
                                                         <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }}
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                     @if(in_array('top', $statusArray))
@@ -378,9 +369,6 @@
                                                                 {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                                             </span>
                                                             <del>{{ $product->price }}֏</del>
-                                                            <div class="on_sale">
-                                                                <span>{{ $product->discount }}%</span>
-                                                            </div>
                                                         @else
                                                             <span class="price">
                                                                 {{ $product->price }}֏
@@ -436,7 +424,7 @@
                                             @endif
                                             @if($product->discount)
                                                 <span class="pr_flash bg-success">
-                                                    {{ __('index.sale') }}
+                                                    {{ __('index.sale') }} {{ $product->discount }}%
                                                 </span>
                                             @endif
                                             @if(in_array('new', $statusArray))
@@ -473,9 +461,6 @@
                                                         {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                                     </span>
                                                     <del>{{ $product->price }}֏</del>
-                                                    <div class="on_sale">
-                                                        <span>{{ $product->discount }}%</span>
-                                                    </div>
                                                 @else
                                                     <span class="price">
                                                         {{ $product->price }}֏

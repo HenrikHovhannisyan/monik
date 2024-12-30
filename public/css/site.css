@@ -10744,17 +10744,19 @@ button:focus:not(:focus-visible) {
 }
 
 .scrollup {
-    background-color: #171717;
-    bottom: 20px;
-    color: #ffffff;
-    font-size: 24px;
-    height: 40px;
-    line-height: 40px;
+    width: 45px;
+    height: 45px;
     position: fixed;
     right: 20px;
+    bottom: 20px;
+    line-height: 45px;
+    background-color: #171717;
+    color: #ffffff;
+    font-size: 24px;
     text-align: center;
-    width: 40px;
     z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    border-radius: 4px;
 }
 
 .scrollup:hover {
@@ -15111,6 +15113,8 @@ footer .widget_title {
     padding: 2px 8px;
     font-size: 13px;
     z-index: 1;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 3px 10px;
 }
 
 .product_flashes {
@@ -18501,6 +18505,10 @@ input[type="range"] {
     .pr_search_icon {
         display: none;
     }
+
+    .pr_flash {
+        font-size: 12px;
+    }
 }
 
 /* -------------------------------------------------
@@ -19782,6 +19790,17 @@ input[type="range"] {
     .subscribe_popup .modal-dialog {
         max-width: 100%;
     }
+
+    .pr_flash {
+        padding: 1px 3px;
+        font-size: 11px;
+    }
+
+    .product_flashes {
+        top: 3px;
+        left: 3px;
+        gap: 3px;
+    }
 }
 
 /* -------------------------------------------------
@@ -20197,8 +20216,6 @@ input[type="range"] {
 
     .shop_container .col-6 {
         max-width: 100%;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
     }
 
     .mfp-ajax-holder .mfp-content .ajax_quick_view {

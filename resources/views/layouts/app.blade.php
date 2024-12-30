@@ -84,7 +84,7 @@
         {{ __("index.copied_sku") }}: <span id="copiedSKU"></span>
     </div>
     <a href="#" class="scrollup" style="display: none">
-        <i class="ion-ios-arrow-up"></i>
+        <i class="fa-solid fa-chevron-up"></i>
     </a>
     @yield('script')
 </div>

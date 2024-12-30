@@ -569,6 +569,10 @@
     .pr_search_icon {
         display: none;
     }
+
+    .pr_flash {
+        font-size: 12px;
+    }
 }
 
 /* -------------------------------------------------
@@ -1850,6 +1854,17 @@
     .subscribe_popup .modal-dialog {
         max-width: 100%;
     }
+
+    .pr_flash {
+        padding: 1px 3px;
+        font-size: 11px;
+    }
+
+    .product_flashes {
+        top: 3px;
+        left: 3px;
+        gap: 3px;
+    }
 }
 
 /* -------------------------------------------------
@@ -2265,8 +2280,6 @@
 
     .shop_container .col-6 {
         max-width: 100%;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
     }
 
     .mfp-ajax-holder .mfp-content .ajax_quick_view {
