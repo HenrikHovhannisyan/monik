@@ -765,7 +765,7 @@ PAGE JS
 
     document.addEventListener('DOMContentLoaded', () => {
         const COLOR_TRACK = "#CBD5E1";
-        const COLOR_RANGE = "#ff324d";
+        const COLOR_RANGE = "#ff6b6b";
 
         // Function to set up slider events and initial state
         function setupSlider(fromSlider, toSlider, fromTooltip, toTooltip, scale) {

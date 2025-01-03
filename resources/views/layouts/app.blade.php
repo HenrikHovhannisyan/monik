@@ -36,14 +36,14 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <!-- Style -->
-    <link rel="stylesheet" href="{{ asset('css/site.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/site.css?v=' . time()) }}">
 
     <!--  Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- yandex js -->
     <script src="https://api-maps.yandex.ru/2.1/?lang={{ getLanguagePrefix() }}&amp;apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
     <!-- Script -->
-    <script src="{{ asset('js/site.js') }}" defer></script>
+    <script src="{{ asset('js/site.js?v=' . time()) }}" defer></script>
 
 
     <!-- Yandex.Metrika counter -->

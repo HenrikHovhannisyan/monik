@@ -130,6 +130,11 @@
                                                     @php
                                                         $statusArray = json_decode($product->status, true) ?? [];
                                                     @endphp
+                                                    @if($product->discount)
+                                                        <span class="pr_flash bg-success">
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
+                                                        </span>
+                                                    @endif
                                                     @if(in_array('new', $statusArray))
                                                         <span class="pr_flash">
                                                             {{ __('index.new') }}
@@ -138,11 +143,6 @@
                                                     @if(in_array('top', $statusArray))
                                                         <span class="pr_flash bg-danger">
                                                             {{ __('index.top') }}
-                                                        </span>
-                                                    @endif
-                                                    @if($product->discount)
-                                                        <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                 </div>
@@ -195,6 +195,11 @@
                                                     @php
                                                         $statusArray = json_decode($product->status, true) ?? [];
                                                     @endphp
+                                                    @if($product->discount)
+                                                        <span class="pr_flash bg-success">
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
+                                                        </span>
+                                                    @endif
                                                     @if(in_array('new', $statusArray))
                                                         <span class="pr_flash">
                                                             {{ __('index.new') }}
@@ -203,11 +208,6 @@
                                                     @if(in_array('top', $statusArray))
                                                         <span class="pr_flash bg-danger">
                                                             {{ __('index.top') }}
-                                                        </span>
-                                                    @endif
-                                                    @if($product->discount)
-                                                        <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                 </div>
@@ -260,9 +260,9 @@
                                                     @php
                                                         $statusArray = json_decode($product->status, true) ?? [];
                                                     @endphp
-                                                    @if(in_array('top', $statusArray))
-                                                        <span class="pr_flash bg-danger">
-                                                            {{ __('index.top') }}
+                                                    @if($product->discount)
+                                                        <span class="pr_flash bg-success">
+                                                            {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
                                                     @if(in_array('new', $statusArray))
@@ -270,9 +270,9 @@
                                                             {{ __('index.new') }}
                                                         </span>
                                                     @endif
-                                                    @if($product->discount)
-                                                        <span class="pr_flash bg-success">
-                                                            {{ __('index.sale') }} {{ $product->discount }}%
+                                                    @if(in_array('top', $statusArray))
+                                                        <span class="pr_flash bg-danger">
+                                                            {{ __('index.top') }}
                                                         </span>
                                                     @endif
                                                 </div>
@@ -330,14 +330,14 @@
                                                             {{ __('index.sale') }} {{ $product->discount }}%
                                                         </span>
                                                     @endif
-                                                    @if(in_array('top', $statusArray))
-                                                        <span class="pr_flash bg-danger">
-                                                            {{ __('index.top') }}
-                                                        </span>
-                                                    @endif
                                                     @if(in_array('new', $statusArray))
                                                         <span class="pr_flash">
                                                             {{ __('index.new') }}
+                                                        </span>
+                                                    @endif
+                                                    @if(in_array('top', $statusArray))
+                                                        <span class="pr_flash bg-danger">
+                                                            {{ __('index.top') }}
                                                         </span>
                                                     @endif
                                                 </div>
@@ -417,11 +417,6 @@
                                             @php
                                                 $statusArray = json_decode($product->status, true) ?? [];
                                             @endphp
-                                            @if(in_array('top', $statusArray))
-                                                <span class="pr_flash bg-danger">
-                                                    {{ __('index.top') }}
-                                                </span>
-                                            @endif
                                             @if($product->discount)
                                                 <span class="pr_flash bg-success">
                                                     {{ __('index.sale') }} {{ $product->discount }}%
@@ -430,6 +425,11 @@
                                             @if(in_array('new', $statusArray))
                                                 <span class="pr_flash">
                                                     {{ __('index.new') }}
+                                                </span>
+                                            @endif
+                                            @if(in_array('top', $statusArray))
+                                                <span class="pr_flash bg-danger">
+                                                    {{ __('index.top') }}
                                                 </span>
                                             @endif
                                         </div>
