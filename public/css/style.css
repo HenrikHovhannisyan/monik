@@ -7495,7 +7495,7 @@ blockquote p:last-child {
     color: #fff;
     padding: 0px 5px;
     border-radius: 20px;
-    background-color: #28a745;
+    background-color: #1dd1a1;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -7731,7 +7731,7 @@ blockquote p:last-child {
 }
 
 .success {
-    background-color: #28a745;
+    background-color: #1dd1a1;
 }
 
 .hidden {

@@ -115,15 +115,16 @@
                 <ul class="product-meta">
                     <li>
                         SKU:
-                        <a href="#" title="{{ $product->code }}">
+                        <span class="text-dark" title="{{ $product->code }}">
                             {{ $product->code }}
-                        </a>
-                        <button class="btn btn-outline-secondary ps-2 pe-1 p-0" onclick="copyProductCode('{{ $product->code }}')">
+                        </span>
+                        <button class="btn btn-outline-secondary ps-2 pe-1 p-0"
+                                onclick="copyProductCode('{{ $product->code }}')">
                             <i class="fa-solid fa-copy copy-icon"></i>
                         </button>
                     </li>
                     <li>{{ __("index.category") }}:
-                        <a href="#" title="{{ $product->category->{lang('name')} }}">
+                        <a href="{{route('products')}}?categories%5B%5D={{ $product->category->id }}" title="{{ $product->category->{lang('name')} }}" title="{{ $product->category->{lang('name')} }}">
                             {{ $product->category->{lang('name')} }}
                         </a>
                     </li>
