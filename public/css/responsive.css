@@ -1312,48 +1312,6 @@
         width: 200px;
     }
 
-    .shop_cart_table td,
-    .wishlist_table .table td {
-        display: block;
-        width: 100%;
-        text-align: right;
-    }
-
-    .shop_cart_table thead,
-    .wishlist_table thead {
-        display: none;
-    }
-
-    .shop_cart_table td::before,
-    .wishlist_table td::before {
-        content: attr(data-title) " ";
-        float: left;
-        text-transform: capitalize;
-        margin-right: 15px;
-        font-weight: bold;
-    }
-
-    .shop_cart_table td.product-quantity::before {
-        margin-top: 10px;
-    }
-
-    .shop_cart_table td.product-name,
-    .wishlist_table td.product-name {
-        text-align: right;
-    }
-
-    .shop_cart_table td.product-thumbnail,
-    .shop_cart_table td.product-add-to-cart,
-    .wishlist_table td.product-thumbnail,
-    .wishlist_table td.product-add-to-cart {
-        text-align: center;
-    }
-
-    .shop_cart_table .quantity {
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-    }
-
     .order_review {
         margin-top: 20px;
     }
