@@ -193,6 +193,11 @@ return [
     'apply_coupon' => 'Применить промокод',
     'order_notes' => 'Примечания к заказу',
     'pending' => 'Ожидание',
+    'standard' => 'Стандарт',
+    'standard_conditions' => 'Доставка осуществляется в течение 2-3 рабочих дней.',
+    'express' => 'Экспресс',
+    'express_conditions' => 'Доставка осуществляется в течение 1 рабочего дня',
+    'free' => 'Бесплатно',
 
     //    Order detail page
     'order_details' => 'Детали заказа',

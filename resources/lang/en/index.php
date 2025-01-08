@@ -193,6 +193,11 @@ return [
     'apply_coupon' => 'Apply Promocode',
     'order_notes' => 'Order notes',
     'pending' => 'Pending',
+    'standard' => 'Standard',
+    'standard_conditions' => 'Delivery is made within 2-3 business days.',
+    'express' => 'Express',
+    'express_conditions' => 'Delivery is made within 1 business day.',
+    'free' => 'Free',
 
     //    Order detail page
     'order_details' => 'Order Details',

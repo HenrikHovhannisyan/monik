@@ -143,8 +143,8 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                         <td class="cart_total_label">{{ __("index.shipping") }}</td>
                                         <td class="cart_total_amount">
                                             @if($total <= 10000)
-                                                @php $total += 1000 @endphp
-                                                1000֏
+                                                @php $total += 500 @endphp
+                                                500֏
                                             @else
                                                 {{ __("index.free_ship") }}
                                             @endif

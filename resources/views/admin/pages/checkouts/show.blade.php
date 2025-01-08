@@ -29,6 +29,14 @@
                                 {{ $checkout->created_at->format('Y-m-d') }}
                             </p>
                             <p>
+                                <strong>Cart:</strong>
+                                {{ $checkout->cart_price }}֏
+                            </p>
+                            <p>
+                                <strong>Shipping:</strong>
+                                {{ number_format($checkout->shipping_cost, 0) }}֏ <span class="text-capitalize">({{ $checkout->shipping_option }})</span>
+                            </p>
+                            <p>
                                 <strong>Total:</strong>
                                 {{ $checkout->total_price }}֏
                             </p>

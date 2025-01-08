@@ -53,6 +53,14 @@
                                 {{ $order->created_at->format('Y-m-d') }}
                             </p>
                             <p>
+                                <strong>{{ __('index.cart') }}:</strong>
+                                {{ $order->cart_price }}֏
+                            </p>
+                            <p>
+                                <strong>{{ __('index.shipping') }}:</strong>
+                                {{ number_format($order->shipping_cost, 0) }}֏ ({{ __('index.' . $order->shipping_option) }})
+                            </p>
+                            <p>
                                 <strong>{{ __('index.total') }}:</strong>
                                 {{ $order->total_price }}֏
                             </p>
@@ -125,22 +133,22 @@
                                         {{ __('index.cities.' . $order->shippingAddress->city) }}
                                     </p>
                                 @endif
-                                @if($order->shippingAddress->state)
+                                @if($order->shippingAddress->region)
                                     <p class="text-capitalize">
-                                        <strong>{{ __('index.state') }}:</strong>
-                                        {{ $order->shippingAddress->state }}
+                                        <strong>{{ __('index.region') }}:</strong>
+                                        {{ $order->shippingAddress->region }}
                                     </p>
                                 @endif
-                                @if($order->shippingAddress->address)
+                                @if($order->shippingAddress->street)
                                     <p class="text-capitalize">
-                                        <strong>{{ __('index.address') }}:</strong>
-                                        {{ $order->shippingAddress->address }}
+                                        <strong>{{ __('index.street') }}:</strong>
+                                        {{ $order->shippingAddress->street }}
                                     </p>
                                 @endif
-                                @if($order->shippingAddress->address2)
+                                @if($order->shippingAddress->house_number)
                                     <p class="text-capitalize">
-                                        <strong>{{ __('index.address2') }}:</strong>
-                                        {{ $order->shippingAddress->address2 }}
+                                        <strong>{{ __('index.house_number') }}:</strong>
+                                        {{ $order->shippingAddress->house_number }}
                                     </p>
                                 @endif
                                 @if($order->shippingAddress->postcode)

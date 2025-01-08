@@ -193,6 +193,11 @@ return [
     'apply_coupon' => 'Կիրառել պրոմոկոդը',
     'order_notes' => 'Պատվերի նշումներ',
     'pending' => 'Սպասվում',
+    'standard' => 'Ստանդարտ',
+    'standard_conditions' => 'Առաքումը կատարվում է 2-3 աշխատանքային օրվա ընթացքում',
+    'express' => 'Էքսպրես',
+    'express_conditions' => 'Առաքումը կատարվում է 1 աշխատանքային օրվա ընթացքում',
+    'free' => 'Անվճար',
 
     //    Order detail page
     'order_details' => 'Պատվերի տվյալները',

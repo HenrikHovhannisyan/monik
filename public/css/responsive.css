@@ -2307,8 +2307,12 @@
         padding: 15px;
     }
 
+    .custome-radio input[type="radio"] + .address_check::after {
+        top: 11px !important;
+    }
+
     .custome-radio input[type="radio"] + .form-check-label::after {
-        top: 7px;
+        top: 6px;
     }
 }
 

@@ -21770,3 +21770,36 @@ window.addEventListener('appinstalled', () => {
 });
 
 // End PWA download button
+
+// Start shipping total calculator
+document.addEventListener('DOMContentLoaded', function () {
+    const shippingOptions = document.querySelectorAll('input[name="shipping_option"]');
+    const shippingTotal = document.getElementById('shippingTotal');
+    const productSubtotalElement = document.getElementById('product-subtotal');
+
+    if (!shippingOptions.length || !shippingTotal || !productSubtotalElement) {
+        return;
+    }
+
+    const productSubtotal = parseInt(productSubtotalElement.textContent) || 0;
+    let baseTotal = parseInt(shippingTotal.textContent) || 0;
+
+    shippingOptions.forEach(option => {
+        option.addEventListener('change', function () {
+            let additionalShipping = 0;
+
+            if (this.value === "express") {
+                additionalShipping = productSubtotal > 10000 ? 1000 : 500;
+            } else if (this.value === "standard") {
+                additionalShipping = productSubtotal > 10000 ? 0 : 0;
+            } else if (this.value === "free") {
+                additionalShipping = 0;
+            }
+
+            shippingTotal.textContent = baseTotal + additionalShipping;
+        });
+    });
+});
+
+// End shipping total calculator
+

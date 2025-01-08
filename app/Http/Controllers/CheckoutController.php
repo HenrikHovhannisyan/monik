@@ -37,10 +37,12 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'shipping_address' => 'required|exists:addresses,id',
             'order_notes' => 'nullable|string|max:255',
             'payment_option' => 'required|string|in:cash,card',
+            'shipping_option' => 'required|string|in:free,standard,express',
         ]);
 
         $cartItems = CartItem::where('user_id', auth()->id())->get();
@@ -79,8 +81,11 @@ class CheckoutController extends Controller
             'shipping_address' => $validatedData['shipping_address'],
             'order_notes' => $validatedData['order_notes'] ?? '',
             'payment_option' => $validatedData['payment_option'],
+            'shipping_option' => $validatedData['shipping_option'],
             'status' => 'processing',
-            'total_price' => 0, // Временно устанавливаем 0, пересчитаем после добавления товаров
+            'shipping_cost' => 0,
+            'cart_price' => 0,
+            'total_price' => 0,
         ]);
 
         foreach ($cartItems as $item) {
@@ -120,11 +125,17 @@ class CheckoutController extends Controller
             ]);
         }
 
-        // Обновляем общую сумму заказа
+        $shippingOption = $request->shipping_option;
+        if ($totalPrice <= 10000) {
+            $shippingCost = ($shippingOption === 'express') ? 1000 : 500;
+        } else {
+            $shippingCost = ($shippingOption === 'express') ? 1000 : 0;
+        }
 
-        $checkout->total_price = ($totalPrice <= 10000) ? $totalPrice + 1000 : $totalPrice;
+        $checkout->shipping_cost = $shippingCost;
+        $checkout->cart_price = $totalPrice;
+        $checkout->total_price = $totalPrice + $shippingCost;
 
-        dd($totalPrice, $checkout);
         $checkout->save();
 
         foreach ($processedProducts as $productId => $sizes) {

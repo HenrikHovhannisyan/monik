@@ -192,7 +192,7 @@
                                         <tfoot>
                                         <tr>
                                             <th>{{ __("index.cart_subtotal") }}</th>
-                                            <td class="product-subtotal">
+                                            <td class="product-subtotal" id="product-subtotal">
                                                 {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
                                                 ֏
                                             </td>
@@ -200,12 +200,36 @@
                                         <tr>
                                             <th>{{ __("index.shipping") }}</th>
                                             <td>
-                                                @if($total <= 10000)
-                                                    @php $total += 1000 @endphp
-                                                    1000֏
-                                                @else
-                                                    {{ __("index.free_ship") }}
-                                                @endif
+                                                <span id="shippingCost" data-free-ship="{{ __('index.free_ship') }}" >
+                                                    <div class="custome-radio">
+                                                        @if($total <= 10000)
+                                                            @php $total += 500 @endphp
+                                                            <input class="form-check-input" required type="radio" name="shipping_option" id="standard" value="standard" checked>
+                                                            <label class="form-check-label text-dark" for="standard">
+                                                                <strong>{{ __('index.standard') }} 500֏</strong>
+                                                                <br>
+                                                                <small>{{ __('index.standard_conditions') }}</small>
+                                                            </label>
+                                                            <hr class="mt-1 mb-1">
+                                                        @else
+                                                            <input class="form-check-input" required type="radio" name="shipping_option" id="free" value="free" checked>
+                                                            <label class="form-check-label text-dark" for="free">
+                                                                <strong>{{ __("index.free_ship") }}</strong>
+                                                                <br>
+                                                                <small>{{ __('index.standard_conditions') }}</small>
+                                                            </label>
+                                                            <hr class="mt-1 mb-1">
+                                                        @endif
+                                                    </div>
+                                                    <div class="custome-radio">
+                                                        <input class="form-check-input" required type="radio" name="shipping_option" id="express" value="express">
+                                                        <label class="form-check-label text-dark" for="express">
+                                                            <strong>{{ __("index.express") }} 1000֏</strong>
+                                                            <br>
+                                                            <small>{{ __('index.express_conditions') }}</small>
+                                                        </label>
+                                                    </div>
+                                                </span>
                                             </td>
                                         </tr>
 
@@ -219,7 +243,8 @@
                                         <tr>
                                             <th>{{ __("index.total") }}</th>
                                             <td class="product-subtotal">
-                                                {{ $total }}֏
+                                                <span id="shippingTotal">{{ $total }}</span>֏
+
                                             </td>
                                         </tr>
 

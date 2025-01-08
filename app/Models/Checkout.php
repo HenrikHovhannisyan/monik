@@ -16,6 +16,9 @@ class Checkout extends Model
         'shipping_address',
         'order_notes',
         'payment_option',
+        'shipping_option',
+        'shipping_cost',
+        'cart_price',
         'total_price',
         'status',
     ];

@@ -19,6 +19,9 @@ class CreateCheckoutsTable extends Migration
             $table->string('shipping_address');
             $table->string('order_notes')->nullable();
             $table->string('payment_option');
+            $table->string('shipping_option');
+            $table->decimal('shipping_cost', 10, 2);
+            $table->decimal('cart_price', 10, 2);
             $table->decimal('total_price', 10, 2);
             $table->string('status')->default('processing');
             $table->timestamps();
