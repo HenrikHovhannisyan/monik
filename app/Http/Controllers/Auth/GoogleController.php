@@ -45,7 +45,7 @@ class GoogleController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id' => $user->id,
-                    'password' => Hash::make($randomPassword), // Хэшируем случайный пароль
+                    'password' => Hash::make($randomPassword),
                 ]);
 
                 Auth::login($newUser, true);
