@@ -202,7 +202,7 @@
                                             <td>
                                                 <span id="shippingCost" data-free-ship="{{ __('index.free_ship') }}" >
                                                     <div class="custome-radio">
-                                                        @if($total <= 10000)
+                                                        @if($total < 10000)
                                                             @php $total += 500 @endphp
                                                             <input class="form-check-input" required type="radio" name="shipping_option" id="standard" value="standard" checked>
                                                             <label class="form-check-label text-dark" for="standard">

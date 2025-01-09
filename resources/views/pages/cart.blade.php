@@ -45,7 +45,8 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive shop_cart_table">
-                            <table class="table">
+                            @if(empty($cartItems))
+                                <table class="table">
                                 <thead>
                                 <tr>
                                     <th class="product-thumbnail">&nbsp;</th>
@@ -58,7 +59,7 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($cartItems as $item)
+                                @foreach($cartItems as $item)
                                     <tr>
                                         <td class="product-thumbnail">
                                             <a href="{{ route('product', $item->product->slug) }}">
@@ -103,16 +104,17 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                             </form>
                                         </td>
                                     </tr>
-                                @empty
-                                    <div class="text-center mb-5">
-                                        <h1>{{ __("index.cart_empty") }}😔</h1>
-                                        <a href="{{ route('products') }}" class="btn btn-fill-out mt-3">
-                                            {{ __("ad.shop_now") }}
-                                        </a>
-                                    </div>
-                                @endforelse
+                                @endforeach
                                 </tbody>
                             </table>
+                                @else
+                                <div class="text-center mb-5">
+                                    <h1>{{ __("index.cart_empty") }}😔</h1>
+                                    <a href="{{ route('products') }}" class="btn btn-fill-out mt-3">
+                                        {{ __("ad.shop_now") }}
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -142,7 +144,7 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                     <tr>
                                         <td class="cart_total_label">{{ __("index.shipping") }}</td>
                                         <td class="cart_total_amount">
-                                            @if($total <= 10000)
+                                            @if($total < 10000)
                                                 @php $total += 500 @endphp
                                                 500֏
                                             @else

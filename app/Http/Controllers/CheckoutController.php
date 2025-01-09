@@ -126,7 +126,7 @@ class CheckoutController extends Controller
         }
 
         $shippingOption = $request->shipping_option;
-        if ($totalPrice <= 10000) {
+        if ($totalPrice < 10000) {
             $shippingCost = ($shippingOption === 'express') ? 1000 : 500;
         } else {
             $shippingCost = ($shippingOption === 'express') ? 1000 : 0;
