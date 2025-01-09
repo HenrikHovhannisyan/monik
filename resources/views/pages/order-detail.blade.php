@@ -58,7 +58,7 @@
                             </p>
                             <p>
                                 <strong>{{ __('index.shipping') }}:</strong>
-                                {{ number_format($order->shipping_cost, 0) }}֏ ({{ __('index.' . $order->shipping_option) }})
+                                {{ floor($order->shipping_cost) }}֏ ({{ __('index.' . $order->shipping_option) }})
                             </p>
                             <p>
                                 <strong>{{ __('index.total') }}:</strong>
@@ -77,7 +77,6 @@
                                 @endif
                             </p>
                         </div>
-
                         <div class="order_items">
                             <h3>{{ __('index.products') }}</h3>
                             <div class="table-responsive">
@@ -94,10 +93,9 @@
                                     <tbody>
                                     @foreach($order->orderItems as $item)
                                         <tr>
-                                            <td>
+                                            <td class="product-thumbnail">
                                                 <a href="{{ route('product', $item->product->slug) }}">
-                                                    <img src="{{ asset(json_decode($item->product->images)[0]) }}"
-                                                         width="100" alt="{{ $item->product->{lang('name')} }}">
+                                                    <img src="{{ asset(json_decode($item->product->images)[0]) }}" alt="{{ $item->product->{lang('name')} }}">
                                                 </a>
                                             </td>
                                             <td>
@@ -107,14 +105,7 @@
                                             </td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>
-                                                @if($item->product->discount)
-                                                    <del>{{ $item->product->price }}֏</del>
-                                                    <span class="price">
-                                                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                                                </span>
-                                                @else
-                                                    {{ $item->product->price }}֏
-                                                @endif
+                                                {{ floor($item->price) }}֏
                                             </td>
                                             <td>{{ $item->quantity * $item->price }}֏</td>
                                         </tr>

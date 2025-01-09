@@ -34,7 +34,7 @@
                             </p>
                             <p>
                                 <strong>Shipping:</strong>
-                                {{ number_format($checkout->shipping_cost, 0) }}֏ <span class="text-capitalize">({{ $checkout->shipping_option }})</span>
+                                {{ floor($checkout->shipping_cost) }}֏ <span class="text-capitalize">({{ $checkout->shipping_option }})</span>
                             </p>
                             <p>
                                 <strong>Total:</strong>
@@ -83,14 +83,7 @@
                                             </td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>
-                                                @if($item->product->discount)
-                                                    <del>{{ $item->product->price }}֏</del>
-                                                    <span class="price">
-                                                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                                                </span>
-                                                @else
-                                                    {{ $item->product->price }}֏
-                                                @endif
+                                                {{ floor($item->price) }}֏
                                             </td>
                                             <td>{{ $item->quantity * $item->price }}֏</td>
                                         </tr>
