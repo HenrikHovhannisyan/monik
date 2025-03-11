@@ -62,6 +62,7 @@
                                     <tr>
                                         <th></th>
                                         <th>Product</th>
+                                        <th>Size</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Total</th>
@@ -81,6 +82,7 @@
                                                     {{ $item->product->name_en }}
                                                 </a>
                                             </td>
+                                            <td>{{ key(json_decode($item->size_details, true)) }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>
                                                 {{ floor($item->price) }}֏
