@@ -45,7 +45,7 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive shop_cart_table">
-                            @if(empty($cartItems))
+                            @if($cartItems->isNotEmpty())
                                 <table class="table">
                                 <thead>
                                 <tr>
