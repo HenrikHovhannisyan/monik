@@ -85,6 +85,7 @@
                                     <tr>
                                         <th></th>
                                         <th>{{ __('index.product') }}</th>
+                                        <th>{{ __('index.size') }}</th>
                                         <th>{{ __('index.quantity') }}</th>
                                         <th>{{ __('index.price') }}</th>
                                         <th>{{ __('index.total') }}</th>
@@ -103,6 +104,7 @@
                                                     {{ $item->product->{lang('name')} }}
                                                 </a>
                                             </td>
+                                            <td> {{ key(json_decode($item->size_details, true)) }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>
                                                 {{ floor($item->price) }}֏
