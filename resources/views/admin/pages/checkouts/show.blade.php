@@ -16,9 +16,9 @@
         </div>
         <section class="content">
             <div class="card col-12 col-md-10">
-                <div class="card-body p-2">
-                    <div class="col-12 text-white">
-                        <div class="order_summary">
+                <div class="card-body p-2 text-white">
+                    <div class="row">
+                        <div class="col-xl-4 mb-3 order_summary">
                             <h3>Order Details</h3>
                             <p>
                                 <strong>Order Number:</strong>
@@ -53,49 +53,7 @@
                                 @endif
                             </p>
                         </div>
-                        <hr>
-                        <div class="order_items">
-                            <h3>Products</h3>
-                            <div class="table-responsive">
-                                <table class="table table-dark table-striped table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Product</th>
-                                        <th>Size</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($checkout->orderItems as $item)
-                                        <tr>
-                                            <td>
-                                                <a href="{{ route('product', $item->product->slug) }}">
-                                                    <img src="{{ asset(json_decode($item->product->images)[0]) }}"
-                                                         width="100" alt="{{ $item->product->{lang('name')} }}">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('product', $item->product->slug) }}">
-                                                    {{ $item->product->name_en }}
-                                                </a>
-                                            </td>
-                                            <td>{{ key(json_decode($item->size_details, true)) }}</td>
-                                            <td>{{ $item->quantity }}</td>
-                                            <td>
-                                                {{ floor($item->price) }}֏
-                                            </td>
-                                            <td>{{ $item->quantity * $item->price }}֏</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="order_shipping">
+                        <div class="col-xl-4 mb-3 order_shipping">
                             <h3>Shipping Details</h3>
                             @if($checkout->shippingAddress)
                                 <p class="text-capitalize">
@@ -150,38 +108,79 @@
                                 <p>{{ __('index.no_shipping_address') }}</p>
                             @endif
                         </div>
-                        <hr>
-                        <div class="customer_info">
-                            <h3>Customer Details</h3>
-                            <p><strong>Name:</strong> {{ $checkout->user->name }}</p>
-                            <p>
-                                <strong>Email:</strong>
-                                <a href="mailto:{{ $checkout->user->email }}">
-                                    {{ $checkout->user->email }}
-                                </a>
-                            </p>
-                            <p><strong>Phones:</strong></p>
-                            <ul>
-                                @if($checkout->user->account && $checkout->user->account->phones->isNotEmpty())
-                                    @foreach($checkout->user->account->phones as $phone)
-                                        <li>
-                                            <a href="tel:{{ $phone->phone_number }}">
-                                                {{ $phone->phone_number }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                @else
-                                    <li>No phones available</li>
-                                @endif
-                            </ul>
+                        <div class="col-xl-4 mb-3 customer_info">
+                            <span>
+                                <h3>Customer Details</h3>
+                                <p><strong>Name:</strong> {{ $checkout->user->name }}</p>
+                                <p>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:{{ $checkout->user->email }}">
+                                        {{ $checkout->user->email }}
+                                    </a>
+                                </p>
+                                <p><strong>Phones:</strong></p>
+                                <ul>
+                                    @if($checkout->user->account && $checkout->user->account->phones->isNotEmpty())
+                                        @foreach($checkout->user->account->phones as $phone)
+                                            <li>
+                                                <a href="tel:{{ $phone->phone_number }}">
+                                                    {{ $phone->phone_number }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li>No phones available</li>
+                                    @endif
+                                </ul>
+                            </span>
+                            <div class="order_payment">
+                                <h3>Payment Details</h3>
+                                <p class="text-capitalize">
+                                    <strong>Payment Method:</strong>
+                                    {{ $checkout->payment_option }}
+                                </p>
+                            </div>
                         </div>
                         <hr>
-                        <div class="order_payment">
-                            <h3>Payment Details</h3>
-                            <p class="text-capitalize">
-                                <strong>Payment Method:</strong>
-                                {{ $checkout->payment_option }}
-                            </p>
+                        <div class="col-12 order_items">
+                            <h3>Products</h3>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Product</th>
+                                        <th>Size</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($checkout->orderItems as $item)
+                                        <tr>
+                                            <td>
+                                                <a href="{{ route('product', $item->product->slug) }}">
+                                                    <img src="{{ asset(json_decode($item->product->images)[0]) }}"
+                                                         width="100" alt="{{ $item->product->{lang('name')} }}">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('product', $item->product->slug) }}">
+                                                    {{ $item->product->name_en }}
+                                                </a>
+                                            </td>
+                                            <td>{{ key(json_decode($item->size_details, true)) }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>
+                                                {{ floor($item->price) }}֏
+                                            </td>
+                                            <td>{{ $item->quantity * $item->price }}֏</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
