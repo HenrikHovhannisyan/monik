@@ -120,8 +120,8 @@ class CheckoutController extends Controller
                 'checkout_id' => $checkout->id,
                 'product_id' => $product->id,
                 'quantity' => $item->quantity,
+                'size' => $item->size,
                 'price' => $finalPrice,
-                'size_details' => json_encode([$item->size => ['quantity' => $item->quantity]]),
             ]);
         }
 

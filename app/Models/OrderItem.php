@@ -13,8 +13,8 @@ class OrderItem extends Model
         'checkout_id',
         'product_id',
         'quantity',
+        'size',
         'price',
-        'size_details',
     ];
 
     public function checkout()

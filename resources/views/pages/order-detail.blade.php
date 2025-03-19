@@ -149,7 +149,7 @@
                                                 {{ $item->product->{lang('name')} }}
                                             </a>
                                         </td>
-                                        <td> {{ key(json_decode($item->size_details, true)) }}</td>
+                                        <td> {{ $item->size }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>
                                             {{ floor($item->price) }}֏
