@@ -179,6 +179,9 @@ return [
     'shipping' => 'Առաքում',
     'free_ship' => 'Անվճար',
     'checkout' => 'Պատվիրել',
+    'in_stock' => 'Առկա է',
+    'out_of_stock' => 'Առկա չէ',
+    'low_stock_warning' => ':size մնացել է :available հատ!',
 
     //    Checkout page
     'promocode' => 'Պրոմոկոդ',

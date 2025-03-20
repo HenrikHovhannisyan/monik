@@ -14,6 +14,7 @@ class CreateCartItemsTable extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->string('size');
             $table->integer('quantity');
+            $table->enum('status', ['in_stock', 'out_of_stock'])->default('in_stock');
             $table->timestamps();
         });
     }

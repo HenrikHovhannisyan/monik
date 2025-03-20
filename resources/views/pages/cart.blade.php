@@ -5,7 +5,8 @@
 @endsection
 
 @php
-$total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity);
+    $total = $cartItems->filter(fn($item) => $item->status === 'in_stock')
+                       ->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity);
 @endphp
 
 @section('content')
@@ -70,6 +71,15 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                             <a href="{{ route('product', $item->product->slug) }}">
                                                 {{ $item->product->{lang('name')} }}
                                             </a>
+                                            @if($item->status === 'out_of_stock')
+                                                @php
+                                                    $sizes = json_decode($item->product->size, true);
+                                                    $availableStock = isset($sizes[$item->size]['quantity']) ? $sizes[$item->size]['quantity'] : 0;
+                                                @endphp
+                                                <p class="text-danger">
+                                                    {{ __("index.low_stock_warning", ['size' => $item->size, 'available' => $availableStock]) }}
+                                                </p>
+                                            @endif
                                         </td>
                                         <td class="product-size" data-title="{{ __("index.size") }}">
                                             {{ $item->size }}
@@ -78,8 +88,8 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                             @if($item->product->discount)
                                                 <del>{{ $item->product->price }}֏</del>
                                                 <span class="price">
-                                                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                                                </span>
+                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                </span>
                                             @else
                                                 {{ $item->product->price }}֏
                                             @endif
@@ -88,10 +98,14 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                                             {{ $item->quantity }}
                                         </td>
                                         <td class="product-subtotal" data-title="{{ __("index.total") }}">
-                                            @if($item->product->discount)
-                                                {{ ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity }}֏
+                                            @if($item->status === 'out_of_stock')
+                                                0
                                             @else
-                                                {{ $item->product->price * $item->quantity }}֏
+                                                @if($item->product->discount)
+                                                    {{ ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity }}֏
+                                                @else
+                                                    {{ $item->product->price * $item->quantity }}֏
+                                                @endif
                                             @endif
                                         </td>
                                         <td class="product-remove" data-title="{{ __("index.remove") }}">
@@ -127,46 +141,46 @@ $total = $cartItems->sum(fn($item) => ($item->product->price - ($item->product->
                 </div>
                 @if($cartItems->isNotEmpty())
                     <div class="row">
-                    <div class="col">
-                        <div class="border p-3 p-md-4">
-                            <div class="heading_s1 mb-3">
-                                <h6>{{ __("index.cart_totals") }}</h6>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                    <tr>
-                                        <td class="cart_total_label">{{ __("index.cart_subtotal") }}</td>
-                                        <td class="cart_total_amount">
-                                            {{ $total }}֏
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart_total_label">{{ __("index.shipping") }}</td>
-                                        <td class="cart_total_amount">
-                                            @if($total < 10000)
-                                                @php $total += 500 @endphp
-                                                500֏
-                                            @else
-                                                {{ __("index.free_ship") }}
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart_total_label">{{ __("index.total") }}</td>
-                                        <td class="cart_total_amount">
-                                            <strong>
+                        <div class="col">
+                            <div class="border p-3 p-md-4">
+                                <div class="heading_s1 mb-3">
+                                    <h6>{{ __("index.cart_totals") }}</h6>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="cart_total_label">{{ __("index.cart_subtotal") }}</td>
+                                            <td class="cart_total_amount">
                                                 {{ $total }}֏
-                                            </strong>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cart_total_label">{{ __("index.shipping") }}</td>
+                                            <td class="cart_total_amount">
+                                                @if($total < 10000)
+                                                    @php $total += 500 @endphp
+                                                    500֏
+                                                @else
+                                                    {{ __("index.free_ship") }}
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cart_total_label">{{ __("index.total") }}</td>
+                                            <td class="cart_total_amount">
+                                                <strong>
+                                                    {{ $total }}֏
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <a href="{{ route('checkout') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
                             </div>
-                            <a href="{{ route('checkout') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>

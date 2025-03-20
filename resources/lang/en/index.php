@@ -179,6 +179,9 @@ return [
     'shipping' => 'Shipping',
     'free_ship' => 'Free',
     'checkout' => 'Checkout',
+    'in_stock' => 'In stock',
+    'out_of_stock' => 'Out of stock',
+    'low_stock_warning' => ':size left :available pcs',
 
     //    Checkout page
     'promocode' => 'Promocode',

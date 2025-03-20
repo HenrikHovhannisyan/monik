@@ -179,6 +179,9 @@ return [
     'shipping' => 'Доставка',
     'free_ship' => 'Бесплатно',
     'checkout' => 'Оформить заказ',
+    'in_stock' => 'В наличии',
+    'out_of_stock' => 'Нет в наличии',
+    'low_stock_warning' => ':size осталось :available шт!',
 
     //    Checkout page
     'promocode' => 'Промокод',
