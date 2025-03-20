@@ -12,15 +12,30 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Promocode;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 class CheckoutController extends Controller
 {
     /**
-     *
+     * @return Factory|View
      */
     public function index()
     {
+        $user = Auth::user();
+        $user->load('addresses');
+
+        $promocodeCode = Cookie::get('applied_promocode');
+        $promocodeDiscount = 0;
+
+        if ($promocodeCode) {
+            $promocode = Promocode::where('code', $promocodeCode)->first();
+            if ($promocode && $promocode->status === 'active') {
+                $promocodeDiscount = $promocode->discount;
+            }
+        }
+
+        return view('pages.checkout', compact('user', 'promocodeDiscount'));
     }
 
     /**
@@ -37,7 +52,6 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'shipping_address' => 'required|exists:addresses,id',
             'order_notes' => 'nullable|string|max:255',
@@ -89,40 +103,42 @@ class CheckoutController extends Controller
         ]);
 
         foreach ($cartItems as $item) {
-            $product = $item->product;
+            if ($item->status === 'in_stock') {
+                $product = $item->product;
 
-            // Применяем скидку промокода только если скидка на продукт меньше
-            if ($product->discount >= $promocodeDiscount) {
-                $finalPrice = $product->price - ($product->price * $product->discount / 100);
-            } else {
-                $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
-            }
-
-            $totalPrice += $finalPrice * $item->quantity;
-
-            if (!isset($processedProducts[$product->id])) {
-                $processedProducts[$product->id] = json_decode($product->size, true);
-            }
-
-            $sizes = $processedProducts[$product->id];
-
-            if (isset($sizes[$item->size])) {
-                $sizes[$item->size]['quantity'] -= $item->quantity;
-
-                if ($sizes[$item->size]['quantity'] <= 0) {
-                    $sizes[$item->size]['quantity'] = null;
+                // Применяем скидку промокода только если скидка на продукт меньше
+                if ($product->discount >= $promocodeDiscount) {
+                    $finalPrice = $product->price - ($product->price * $product->discount / 100);
+                } else {
+                    $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
                 }
+
+                $totalPrice += $finalPrice * $item->quantity;
+
+                if (!isset($processedProducts[$product->id])) {
+                    $processedProducts[$product->id] = json_decode($product->size, true);
+                }
+
+                $sizes = $processedProducts[$product->id];
+
+                if (isset($sizes[$item->size])) {
+                    $sizes[$item->size]['quantity'] -= $item->quantity;
+
+                    if ($sizes[$item->size]['quantity'] <= 0) {
+                        $sizes[$item->size]['quantity'] = null;
+                    }
+                }
+
+                $processedProducts[$product->id] = $sizes;
+
+                OrderItem::create([
+                    'checkout_id' => $checkout->id,
+                    'product_id' => $product->id,
+                    'quantity' => $item->quantity,
+                    'size' => $item->size,
+                    'price' => $finalPrice,
+                ]);
             }
-
-            $processedProducts[$product->id] = $sizes;
-
-            OrderItem::create([
-                'checkout_id' => $checkout->id,
-                'product_id' => $product->id,
-                'quantity' => $item->quantity,
-                'size' => $item->size,
-                'price' => $finalPrice,
-            ]);
         }
 
         $shippingOption = $request->shipping_option;
@@ -146,7 +162,7 @@ class CheckoutController extends Controller
         }
 
         // Очищаем корзину
-        CartItem::where('user_id', auth()->id())->delete();
+        CartItem::where('user_id', auth()->id())->where('status', 'in_stock')->delete();
 
         // Удаляем промокод из куки после успешной покупки
         if ($promocodeCode) {
@@ -155,7 +171,6 @@ class CheckoutController extends Controller
 
         return redirect()->route('order-completed');
     }
-
 
     /**
      * @param Checkout $checkout

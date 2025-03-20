@@ -40,7 +40,6 @@ Route::group(
             Route::resource('addresses', AddressController::class);
             Route::resource('account', AccountController::class);
             Route::resource('cart', CartController::class);
-            Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
             Route::resource('checkouts', CheckoutController::class);
             Route::resource('order-items', OrderItemController::class);
             Route::get('/order-completed',  [PageController::class, 'order_completed'])->name('order-completed');

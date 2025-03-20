@@ -8,23 +8,27 @@
     $total = 0;
 
     foreach ($cartItems as $item) {
-        $product = $item->product;
+        // Проверяем, что товар в наличии (status == 'in_stock')
+        if ($item->status === 'in_stock') {
+            $product = $item->product;
 
-        // Проверяем, нужно ли применить промокод к этому товару
-        if ($product->discount >= $promocodeDiscount) {
-            // Если скидка продукта больше или равна скидке промокода, применяем скидку продукта
-            $finalPrice = $product->price - ($product->price * $product->discount / 100);
-        } else {
-            // Если скидка продукта меньше скидки промокода, применяем скидку промокода
-            $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
+            // Проверяем, нужно ли применить промокод к этому товару
+            if ($product->discount >= $promocodeDiscount) {
+                // Если скидка продукта больше или равна скидке промокода, применяем скидку продукта
+                $finalPrice = $product->price - ($product->price * $product->discount / 100);
+            } else {
+                // Если скидка продукта меньше скидки промокода, применяем скидку промокода
+                $finalPrice = $product->price - ($product->price * $promocodeDiscount / 100);
+            }
+
+            $total += $finalPrice * $item->quantity;
         }
-
-        $total += $finalPrice * $item->quantity;
     }
 
     $progressPercentage = min(($total / 10000) * 100, 100);
     $progressBarClass = $progressPercentage >= 100 ? "bg-success" : "bg-danger";
 @endphp
+
 
 @section('content')
     <!-- START SECTION BREADCRUMB -->
@@ -171,29 +175,29 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($cartItems as $item)
-                                            <tr>
-                                                <td>{{ $item->product->{lang('name')} }}
-                                                    <span class="product-qty">x {{ $item->quantity }}</span>
-                                                </td>
-                                                <td>
-                                                    @if($item->product->discount)
-                                                        <del>{{ $item->product->price }}֏</del>
-                                                        <span class="price">
-                                            {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                                        </span>
-                                                    @else
-                                                        {{ $item->product->price }}֏
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                            @foreach($cartItems->filter(fn($item) => $item->status === 'in_stock') as $item)
+                                                <tr>
+                                                    <td>{{ $item->product->{lang('name')} }}
+                                                        <span class="product-qty">x {{ $item->quantity }}</span>
+                                                    </td>
+                                                    <td>
+                                                        @if($item->product->discount)
+                                                            <del>{{ $item->product->price }}֏</del>
+                                                            <span class="price">
+                                                                {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                                                            </span>
+                                                        @else
+                                                            {{ $item->product->price }}֏
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                         <tfoot>
                                         <tr>
                                             <th>{{ __("index.cart_subtotal") }}</th>
                                             <td class="product-subtotal" id="product-subtotal">
-                                                {{ $cartItems->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
+                                                {{ $cartItems->filter(fn($item) => $item->status === 'in_stock')->sum(fn($item) => ($item->product->price - ($item->product->price * $item->product->discount) / 100) * $item->quantity) }}
                                                 ֏
                                             </td>
                                         </tr>

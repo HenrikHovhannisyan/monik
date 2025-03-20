@@ -88,8 +88,8 @@
                                             @if($item->product->discount)
                                                 <del>{{ $item->product->price }}֏</del>
                                                 <span class="price">
-                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
-                </span>
+                                                    {{ $item->product->price - ($item->product->price * $item->product->discount) / 100 }}֏
+                                                </span>
                                             @else
                                                 {{ $item->product->price }}֏
                                             @endif
@@ -177,7 +177,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="{{ route('checkout') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
+                                <a href="{{ route('checkouts.index') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
                             </div>
                         </div>
                     </div>
