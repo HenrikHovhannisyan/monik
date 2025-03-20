@@ -140,6 +140,20 @@
                                     {{ $checkout->payment_option }}
                                 </p>
                             </div>
+                            @if($checkout->promocode)
+                                <div class="promocode">
+                                    <h3>Promocode Details:</h3>
+                                    <p class="text-capitalize">
+                                        <strong>Promocode:</strong> {{ $checkout->promocode->code }}
+                                    </p>
+                                    <p>
+                                        <strong>Discount:</strong> {{ $checkout->promocode->discount }}%
+                                    </p>
+                                    <p>
+                                        <strong>Type:</strong> {{ $checkout->promocode->type }}
+                                    </p>
+                                </div>
+                            @endif
                         </div>
                         <hr>
                         <div class="col-12 order_items">

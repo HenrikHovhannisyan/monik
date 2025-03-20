@@ -92,6 +92,7 @@ class CheckoutController extends Controller
         // Создаем и сохраняем основной заказ перед добавлением записей товаров
         $checkout = Checkout::create([
             'user_id' => auth()->id(),
+            'promocode_id' => $promocode->id ?? null,
             'shipping_address' => $validatedData['shipping_address'],
             'order_notes' => $validatedData['order_notes'] ?? '',
             'payment_option' => $validatedData['payment_option'],

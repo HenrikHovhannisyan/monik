@@ -16,6 +16,7 @@ class CreateCheckoutsTable extends Migration
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('promocode_id')->nullable()->constrained('promocodes')->onDelete('set null');
             $table->string('shipping_address');
             $table->string('order_notes')->nullable();
             $table->string('payment_option');
