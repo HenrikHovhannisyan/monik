@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Faqs List' }}
+    @parent | {{ 'Список FAQ' }}
 @endsection
 
 @section('content')
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Faqs List</h2>
+            <h2 class="text-white">Список FAQ</h2>
             <a class="btn btn-success" href="{{ route('faqs.create') }}">
                 <i class="fa-solid fa-plus"></i>
-                New Faq
+                Новый FAQ
             </a>
         </div>
         <div class="table-responsive">
@@ -19,10 +19,10 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Question AM</th>
-                    <th scope="col">Answer AM</th>
-                    <th width="280px">{{ 'Action' }}</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Вопрос AM</th>
+                    <th scope="col">Ответ AM</th>
+                    <th width="280px">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,9 +31,9 @@
                         <td>{{ ++$i }}</td>
                         <td>
                             @if($faq->status)
-                                <span class="text-success">Active</span>
+                                <span class="text-success">Активен</span>
                             @else
-                                <span class="text-danger">Inactive</span>
+                                <span class="text-danger">Неактивен</span>
                             @endif
                         </td>
                         <td>{!! html_entity_decode($faq->question_am) !!}</td>

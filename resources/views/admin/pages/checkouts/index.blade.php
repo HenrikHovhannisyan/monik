@@ -1,25 +1,25 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Checkouts List' }}
+    @parent | {{ 'Список заказов' }}
 @endsection
 
 @section('content')
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Checkouts List</h2>
+            <h2 class="text-white">Список заказов</h2>
         </div>
         <div class="table-responsive">
             <table class="table table-dark table-striped table-bordered">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Sum</th>
-                    <th scope="col">Address</th>
-                    <th width="80px">{{ 'Action' }}</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Сумма</th>
+                    <th scope="col">Адрес</th>
+                    <th width="80px">{{ 'Действие' }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,13 +29,13 @@
                         <td>{{ $checkout->created_at->format('Y-m-d') }}</td>
                         <td>
                             @if($checkout->status === 'processing')
-                                <span class="text-primary">Processing</span>
+                                <span class="text-primary">В обработке</span>
                             @elseif($checkout->status === 'pending')
-                                <span class="text-warning">Pending</span>
+                                <span class="text-warning">В доставке</span>
                             @elseif($checkout->status === 'completed')
-                                <span class="text-success">Completed</span>
+                                <span class="text-success">Завершено</span>
                             @else
-                                <span class="text-danger">Cancel</span>
+                                <span class="text-danger">Отменено</span>
                             @endif
                         </td>
                         <td>{{ floor($checkout->total_price) }}֏</td>

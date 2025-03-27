@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 
+@section('title')
+    @parent | {{ 'Панель' }}
+@endsection
+
 @section('content')
     <div class="container-fluid p-0">
         <div class="row">
@@ -9,9 +13,9 @@
                         <i class="fa-solid fa-users fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Users - {{ $usersCount }}</h3>
+                        <h3 class="m-0">Пользователи - {{ $usersCount }}</h3>
                         <a href="{{route('users')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
@@ -22,9 +26,9 @@
                         <i class="fa-solid fa-layer-group fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Category - {{ $categoryCount }}</h3>
+                        <h3 class="m-0">Категория - {{ $categoryCount }}</h3>
                         <a href="{{route('categories.index')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
@@ -35,9 +39,9 @@
                         <i class="fa-solid fa-shirt fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Products - {{ $productCount }}</h3>
+                        <h3 class="m-0">Продукты - {{ $productCount }}</h3>
                         <a href="{{route('products.index')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
@@ -48,9 +52,9 @@
                         <i class="fa-solid fa-cart-shopping fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Checkouts - {{ $checkoutCount }}</h3>
+                        <h3 class="m-0">Заказы - {{ $checkoutCount }}</h3>
                         <a href="{{route('checkouts-admin.index')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
@@ -61,9 +65,9 @@
                         <i class="fa-solid fa-barcode fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Promocodes - {{ $promocodeCount }}</h3>
+                        <h3 class="m-0">Промокоды - {{ $promocodeCount }}</h3>
                         <a href="{{route('promocodes.index')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
@@ -74,33 +78,33 @@
                         <i class="fa-solid fa-clipboard-question fa-5x"></i>
                     </div>
                     <div class="d-flex justify-content-between align-items-start mt-3">
-                        <h3 class="m-0">Faqs - {{ $faqCount }}</h3>
+                        <h3 class="m-0">Вопросы - {{ $faqCount }}</h3>
                         <a href="{{route('faqs.index')}}" class="btn">
-                            View
+                            Просмотреть
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="text-white">
         <div class="row">
-            <h2 class="text-white mb-3">Orders list</h2>
+            <h2 class="text-white mb-3">Список заказов</h2>
             <div class="col-lg-6 mb-3">
                 <h4 class="text-white mb-3">
                     <i class="fa-solid fa-n fa-beat text-success"></i>
                     <i class="fa-solid fa-e fa-beat text-success"></i>
                     <i class="fa-solid fa-w fa-beat text-success"></i>
-                    Processing list <span class="fs-6">(Новые заказы)</span>
+                    Новые заказы
                 </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Sum</th>
-                            <th scope="col">Payment</th>
-                            <th width="80px">{{ 'Action' }}</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Сумма</th>
+                            <th scope="col">Оплата</th>
+                            <th width="80px">{{ 'Действие' }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -112,7 +116,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-outline-warning btn-sm m-1">
-                                            Change status to "Pending"
+                                            Изменить статус на "В доставке"
                                         </button>
                                     </form>
                                 </td>
@@ -137,17 +141,17 @@
             <div class="col-lg-6 mb-3">
                 <h4 class="text-white mb-3">
                     <i class="fa-solid fa-truck fa-beat text-warning"></i>
-                    Pending list <span class="fs-6">(В доставке)</span>
+                    В доставке
                 </h4>
                 <div class="table-responsive">
                     <table class="table table-dark table-striped table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Sum</th>
-                            <th scope="col">Payment</th>
-                            <th width="80px">{{ 'Action' }}</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Сумма</th>
+                            <th scope="col">Оплата</th>
+                            <th width="80px">{{ 'Действие' }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -159,7 +163,7 @@
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-outline-warning btn-sm m-1">
-                                            Change status to "Completed"
+                                            Изменить статус на "Завершено"
                                         </button>
                                     </form>
                                 </td>

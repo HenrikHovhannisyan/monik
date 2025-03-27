@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Categories List' }}
+    @parent | {{ 'Список категорий' }}
 @endsection
 
 @section('content')
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Categories List</h2>
+            <h2 class="text-white">Список категорий</h2>
             <a class="btn btn-success" href="{{ route('categories.create') }}">
                 <i class="fa-solid fa-plus"></i>
-                New Category
+                Новая категория
             </a>
         </div>
         <div class="table-responsive">
@@ -19,11 +19,11 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name AM</th>
-                    <th scope="col">Name RU</th>
-                    <th scope="col">Name EN</th>
-                    <th width="280px">{{ 'Action' }}</th>
+                    <th scope="col">Изображение</th>
+                    <th scope="col">Название AM</th>
+                    <th scope="col">Название RU</th>
+                    <th scope="col">Название EN</th>
+                    <th width="280px">{{ 'Действие' }}</th>
                 </tr>
                 </thead>
                 <tbody>

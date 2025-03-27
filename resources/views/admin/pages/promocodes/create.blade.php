@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Create New Promo Code' }}
+    @parent | {{ 'Создать новый промокод' }}
 @endsection
 
 @section('content')
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Create New Promo Code</h2>
+            <h2 class="text-white">Создать новый промокод</h2>
             <a class="btn btn-success" href="{{ route('promocodes.index') }}">
                 <i class="fa-solid fa-arrow-left-long"></i>
-                Back
+                Назад
             </a>
         </div>
 
@@ -18,11 +18,11 @@
             @csrf
             <hr class="text-white">
             <div class="row">
-                <h3 class="text-white">Promo Code Details</h3>
+                <h3 class="text-white">Детали промокода</h3>
 
                 <div class="mb-3 col-12 col-lg-6">
                     <label for="code" class="form-label text-white">
-                        Promo Code
+                        Промокод
                         <span class="text-danger"> *</span>
                     </label>
                     <input type="text" name="code" id="code" value="{{ old('code') }}" class="form-control" required>
@@ -30,7 +30,7 @@
 
                 <div class="mb-3 col-12 col-lg-6">
                     <label for="discount" class="form-label text-white">
-                        Discount (%)
+                        Скидка (%)
                         <span class="text-danger"> *</span>
                     </label>
                     <input type="number" name="discount" id="discount" class="form-control" min="1" max="100" value="{{ old('discount') }}" required>
@@ -38,7 +38,7 @@
 
                 <div class="mb-3 col-12 col-lg-6">
                     <label for="type" class="form-label text-white">
-                        Promo Code Type
+                        Тип промокода
                         <span class="text-danger"> *</span>
                     </label>
                     <select name="type" id="type" class="form-control" required>
@@ -49,7 +49,7 @@
 
                 <div class="mb-3 col-12 col-lg-6">
                     <label for="status" class="form-label text-white">
-                        Status
+                        Статус
                     </label>
                     <select name="status" id="status" class="form-control">
                         <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Активен</option>
@@ -59,7 +59,7 @@
 
                 <div class="mb-3 col-12 col-lg-6">
                     <label for="expiry_date" class="form-label text-white">
-                        Expiry Date (for Multi-Use Only)
+                        Дата окончания (только для многоразового)
                     </label>
                     <input type="date" name="expiry_date" id="expiry_date" class="form-control" value="{{ old('expiry_date') }}" disabled>
                 </div>
@@ -67,7 +67,7 @@
 
             <button type="submit" class="btn btn-success">
                 <i class="fa-solid fa-plus"></i>
-                Add Promo Code
+                Добавить промокод
             </button>
         </form>
     </div>

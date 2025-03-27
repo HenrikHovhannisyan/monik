@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Promocodes List' }}
+    @parent | {{ 'Список промокодов' }}
 @endsection
 
 @section('content')
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Promocodes List</h2>
+            <h2 class="text-white">Список промокодов</h2>
             <a class="btn btn-success" href="{{ route('promocodes.create') }}">
                 <i class="fa-solid fa-plus"></i>
-                New Promocode
+                Новый промокод
             </a>
         </div>
         <div class="table-responsive">
@@ -19,12 +19,12 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Discount (%)</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Expiry Date</th>
-                    <th width="280px">Action</th>
+                    <th scope="col">Код</th>
+                    <th scope="col">Скидка (%)</th>
+                    <th scope="col">Тип</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Дата окончания</th>
+                    <th width="280px">Действие</th>
                 </tr>
                 </thead>
                 <tbody>

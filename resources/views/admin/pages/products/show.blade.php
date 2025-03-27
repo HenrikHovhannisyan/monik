@@ -1,55 +1,57 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @parent | {{ 'Show Product' }}
+    @parent | {{ 'Показать продукт' }}
 @endsection
 
 @section('content')
 
     <div class="container-fluid p-0">
         <div class="d-flex align-items-center gap-3 mb-3">
-            <h2 class="text-white">Show Product</h2>
+            <h2 class="text-white">Показать продукт</h2>
             <a class="btn btn-success" href="{{ route('products.index') }}">
                 <i class="fa-solid fa-arrow-left-long"></i>
-                Back
+                Назад
             </a>
         </div>
         <section class="content">
             <div class="card col-12 col-md-10">
                 <div class="card-body p-2">
                     <table class="table table-dark table-striped table-bordered table-responsive">
-                        @if($metadata->primary_price)
-                            <tr>
-                                <th>Primary Price</th>
-                                <td class="text-white">
-                                    {{ $metadata->primary_price }}
-                                </td>
-                            </tr>
-                        @endif
-                        @if($metadata->product_link)
-                            <tr>
-                                <th>Product Link</th>
-                                <td class="text-white">
-                                    <a href="{{ $metadata->product_link }}" target="_blank">
-                                        {{ $metadata->product_link }}
-                                    </a>
-                                </td>
-                            </tr>
+                        @if($metadata)
+                            @if($metadata->primary_price)
+                                <tr>
+                                    <th>Первичная цена</th>
+                                    <td class="text-white">
+                                        {{ $metadata->primary_price }}
+                                    </td>
+                                </tr>
+                            @endif
+                            @if($metadata->product_link)
+                                <tr>
+                                    <th>Ссылка на продукт</th>
+                                    <td class="text-white">
+                                        <a href="{{ $metadata->product_link }}" target="_blank">
+                                            {{ $metadata->product_link }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endif
                         @endif
                         <tr>
-                            <th>Code</th>
+                            <th>Код</th>
                             <td class="text-white">
                                 {{ $product->code }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Quantity</th>
+                            <th>Количество</th>
                             <td class="text-white">
                                 {{ $product->quantity }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Sizes</th>
+                            <th>Размеры</th>
                             <td class="text-white">
                                 @foreach($size as $sizeName => $item)
                                     @if( $item['quantity'])
@@ -61,13 +63,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Category</th>
+                            <th>Категория</th>
                             <td class="text-white">
                                 {{ $product->category->name_ru }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Status</th>
+                            <th>Статус</th>
                             <td class="text-white">
                                 @if($status)
                                     @foreach($status as $key => $value)
@@ -77,76 +79,76 @@
                                         @endif
                                     @endforeach
                                 @else
-                                    No status available
+                                    Статус не доступен
                                 @endif
                             </td>
                         </tr>
                         <tr>
-                            <th>Price</th>
+                            <th>Цена</th>
                             <td class="text-white">
                                 {{ $product->price }}֏
                             </td>
                         </tr>
                         @if($product->discount)
                             <tr>
-                                <th>Discount</th>
+                                <th>Скидка</th>
                                 <td class="text-white">
                                     {{ $product->discount }}%
                                 </td>
                             </tr>
                             <tr>
-                                <th>Final price</th>
+                                <th>Итоговая цена</th>
                                 <td class="text-white">
                                     {{ $product->price - ($product->price * $product->discount) / 100 }}֏
                                 </td>
                             </tr>
                         @endif
                         <tr>
-                            <th>Name AM</th>
+                            <th>Название AM</th>
                             <td class="text-white">
                                 {{ $product->name_am }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Name RU</th>
+                            <th>Название RU</th>
                             <td class="text-white">
                                 {{ $product->name_ru }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Name EN</th>
+                            <th>Название EN</th>
                             <td class="text-white">
                                 {{ $product->name_en }}
                             </td>
                         </tr>
                         <tr>
-                            <th>Description AM</th>
+                            <th>Описание AM</th>
                             <td class="text-white">
                                 {!! html_entity_decode($product->description_am) !!}
                             </td>
                         </tr>
                         <tr>
-                            <th>Description RU</th>
+                            <th>Описание RU</th>
                             <td class="text-white">
                                 {!! html_entity_decode($product->description_ru) !!}
                             </td>
                         </tr>
                         <tr>
-                            <th>Description EN</th>
+                            <th>Описание EN</th>
                             <td class="text-white">
                                 {!! html_entity_decode($product->description_en) !!}
                             </td>
                         </tr>
                         @if($product->color)
                             <tr>
-                                <th>Color</th>
+                                <th>Цвет</th>
                                 <td class="text-white">
                                     {{ $product->color }}
                                 </td>
                             </tr>
                         @endif
                         <tr>
-                            <th>Gender</th>
+                            <th>Пол</th>
                             <td class="text-white">
                                 @foreach($gender as $key => $value)
                                     {{ $value }}
@@ -157,7 +159,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Image</th>
+                            <th>Изображение</th>
                             <td>
                                 @foreach(json_decode($product->images) as $imagePath)
                                     <img src="{{asset($imagePath)}}" width="200" class="m-1 img-fluid">
@@ -170,4 +172,3 @@
         </section>
     </div>
 @endsection
-
