@@ -160,7 +160,7 @@
                             <hr/>
                             <ul class="product-meta">
                                 <li>
-                                    SKU:
+                                    {{ __("index.sku") }}:
                                     <span class="text-dark" title="{{ $product->code }}">
                                         {{ $product->code }}
                                     </span>
@@ -233,7 +233,7 @@
                                      aria-labelledby="Additional-info-tab">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td>SKU</td>
+                                            <td>{{ __("index.sku") }}</td>
                                             <td>
                                                 {{ $product->code }}
                                                 <button class="btn btn-outline-secondary ps-2 pe-1 p-0"

@@ -114,7 +114,7 @@
                 <hr />
                 <ul class="product-meta">
                     <li>
-                        SKU:
+                        {{ __("index.sku") }}:
                         <span class="text-dark" title="{{ $product->code }}">
                             {{ $product->code }}
                         </span>
