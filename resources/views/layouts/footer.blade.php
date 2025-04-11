@@ -6,8 +6,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="{{ route("home") }}">
-                                <img src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Monik') }}"/>
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Monik') }}" />
                             </a>
                         </div>
                         <p>
@@ -33,12 +33,12 @@
                         <h6 class="widget_title">{{ __("index.pages") }}</h6>
                         <ul class="widget_links">
                             <li>
-                                <a href="{{ route('contact') }}" title="{{ __("index.contact") }}">
+                                <a href="{{ route('contact') }}" title="{{ __('index.contact') }}">
                                     {{ __("index.contact") }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('faq') }}" title="{{ __("index.faqs") }}">
+                                <a href="{{ route('faq') }}" title="{{ __('index.faqs') }}">
                                     {{ __("index.faqs") }}
                                 </a>
                             </li>
@@ -52,11 +52,11 @@
                         </h6>
                         <ul class="widget_links">
                             @foreach($categories->shuffle()->slice(0, 5) as $category)
-                                <li>
-                                    <a href="{{route('products')}}?categories%5B%5D={{ $category->id }}">
-                                        {{ $category->{lang('name')} }}
-                                    </a>
-                                </li>
+                            <li>
+                                <a href="{{route('products')}}?categories%5B%5D={{ $category->id }}" title="{{ $category->{lang('name')} }}">
+                                    {{ $category->{lang('name')} }}
+                                </a>
+                            </li>
                             @endforeach
                         </ul>
                     </div>
@@ -75,13 +75,13 @@
                 <div class="col-md-6">
                     <ul class="footer_payment text-center text-lg-end">
                         <li>
-                            <img src="{{ asset('images/payment/visa.png') }}" alt="visa"/>
+                            <img src="{{ asset('images/payment/visa.png') }}" alt="visa" />
                         </li>
                         <li>
-                            <img src="{{ asset('images/payment/master_card.png') }}" alt="master_card"/>
+                            <img src="{{ asset('images/payment/master_card.png') }}" alt="master_card" />
                         </li>
                         <li>
-                            <img src="{{ asset('images/payment/amarican_express.png') }}" alt="amarican_express"/>
+                            <img src="{{ asset('images/payment/amarican_express.png') }}" alt="amarican_express" />
                         </li>
                     </ul>
                 </div>
