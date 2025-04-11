@@ -19,8 +19,8 @@ return [
     'featured_products' => 'Рекомендуемые продукты',
     'free_delivery' => 'Бесплатная доставка',
     'free_shipping' => 'Бесплатная доставка при заказе на сумму от 10000 драм.',
-    '14_day_return' => 'Возврат в течение 14 дней',
-    '14_day_return_policy' => 'Вы можете вернуть товар в течение 14 дней.',
+    'high_quality_title' => 'Высокое качество',
+    'high_quality_description' => 'Только проверенные и безопасные товары для ваших малышей.',
     'support' => 'Поддержка 24/7',
     'ready_to_help' => 'Рады помочь в любое время суток!',
     'color' => 'Цвет',
@@ -48,7 +48,7 @@ return [
     'cart' => 'Корзина',
     'wish-list' => 'Список избранного',
 
-//    Login
+    //    Login
     'login' => 'Вход',
     'your_email' => 'Ваш Email',
     'password' => 'Пароль',
@@ -58,7 +58,7 @@ return [
     'no_account' => 'Нет аккаунта?',
     'sign_up_now' => 'Зарегистрироваться сейчас',
 
-//    Register
+    //    Register
     'register' => 'Регистрация',
     'create_account' => 'Создать аккаунт',
     'enter_name' => 'Введите ваше имя',
@@ -66,10 +66,10 @@ return [
     'confirm_password' => 'Подтвердите пароль',
     'already_account' => 'Уже есть аккаунт?',
 
-//    Faq
+    //    Faq
     'faqs' => 'Часто задаваемые вопросы',
 
-// Contact page
+    // Contact page
     'address' => 'Адрес',
     'email_address' => 'Эл. адрес',
     'phone' => 'Телефон',
@@ -82,7 +82,7 @@ return [
     'send_message' => 'Отправить сообщение',
     'contact_info_text' => 'Отправьте нам свои вопросы, и мы незамедлительно ответим вам. Мы всегда рады помочь вам с информацией о наших продуктах, предоставить консультацию по выбору товаров и решить любые возникшие вопросы. Наша команда профессионалов готова обеспечить вас высококачественным обслуживанием и поддержкой.',
 
-// Account page
+    // Account page
     'my_account' => 'Мой аккаунт',
     'dashboard' => 'Панель управления',
     'dashboard_message' => 'С панели управления аккаунтом вы легко можете проверить и просмотреть свои последние заказы, управлять адресами доставки и редактировать пароль и данные аккаунта.',
@@ -114,12 +114,12 @@ return [
     'add_address' => 'Добавить адрес',
     'add_phone' => 'Добавить телефон',
 
-//  Logout modal
+    //  Logout modal
     'confirm_logout' => 'Подтвердите выход',
     'confirm_logout_message' => 'Вы уверены, что хотите выйти из системы?',
     'cancel' => 'Отмена',
 
-//    Add Address Modal
+    //    Add Address Modal
     'select_city' => 'Выберите город / населенный пункт...',
     'state' => 'Область / Район',
     'address2' => 'Адрес 2',
@@ -154,13 +154,13 @@ return [
         'Yeghvard' => 'Егвард',
     ],
 
-//    Product detail
+    //    Product detail
     'product' => 'Продукт',
     'description' => 'Описание',
     'additional_info' => 'Дополнительная информация',
     'similar_products' => 'Похожие продукты',
 
-//    Products page
+    //    Products page
     'filter' => 'Фильтр',
     'clear_filter' => 'Очистить',
     'widget_title' => 'Сортировка',
@@ -169,7 +169,7 @@ return [
     'sort_by_price_high_to_low' => 'цене: от высокой к низкой',
     'no_products_available' => 'Нет такого товара',
 
-//    Cart page
+    //    Cart page
     'shopping_cart' => 'Корзина',
     'name' => 'Название',
     'quantity' => 'Количество',
@@ -237,7 +237,7 @@ return [
     'your_score' => 'Ваш счет:',
     'play_again' => 'ИГРАТЬ СНОВА',
 
-//    Banner
+    //    Banner
     'banner_title_style' => 'Создаем стиль для ваших малышей с любовью!',
     'banner_title_discount' => 'Лови момент: детская мода со скидками уже здесь!',
     'banner_title_price' => 'Модная одежда для детей по ценам, доступным каждому!',

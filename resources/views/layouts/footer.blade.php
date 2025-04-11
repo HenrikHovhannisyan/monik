@@ -7,7 +7,7 @@
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Monik') }}" />
+                                <img src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Monik') }}" title="{{ config('app.name', 'Monik') }}" />
                             </a>
                         </div>
                         <p>
@@ -21,8 +21,13 @@
                     <div class="widget">
                         <ul class="social_icons social_white">
                             <li>
-                                <a href="index.html#">
+                                <a href="index.html#" title="Instagram">
                                     <i class="fa-brands fa-instagram fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#" title="Facebook">
+                                    <i class="fa-brands fa-square-facebook fa-2x"></i>
                                 </a>
                             </li>
                         </ul>

@@ -7,11 +7,11 @@
                 </div>
                 <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4" data-slides-to-scroll="1" data-infinite="false">
                     @foreach(json_decode($product->images) as $index => $imagePath)
-                        <div class="item">
-                            <a href="#" class="product_gallery_item {{ $index == 0 ? 'active' : '' }}" data-image="{{asset($imagePath)}}" data-zoom-image="{{asset($imagePath)}}">
-                                <img src="{{asset($imagePath)}}" alt="product_small_img{{ $index + 1 }}" />
-                            </a>
-                        </div>
+                    <div class="item">
+                        <a href="#" class="product_gallery_item {{ $index == 0 ? 'active' : '' }}" data-image="{{asset($imagePath)}}" data-zoom-image="{{asset($imagePath)}}">
+                            <img src="{{asset($imagePath)}}" alt="product_small_img{{ $index + 1 }}" />
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -26,41 +26,31 @@
                     </h4>
                     <div class="product_price">
                         @if($product->discount)
-                            <span class="price">
-                                {{ $product->price - ($product->price * $product->discount) / 100 }}֏
-                            </span>
-                            <del>{{ $product->price }}֏</del>
-                            <div class="on_sale">
-                                <span>{{ $product->discount }}%</span>
-                            </div>
+                        <span class="price">
+                            {{ $product->price - ($product->price * $product->discount) / 100 }}֏
+                        </span>
+                        <del>{{ $product->price }}֏</del>
+                        <div class="on_sale">
+                            <span>{{ $product->discount }}%</span>
+                        </div>
                         @else
-                            <span class="price">
-                                {{ $product->price }}֏
-                            </span>
+                        <span class="price">
+                            {{ $product->price }}֏
+                        </span>
                         @endif
                     </div>
                     <div class="pr_desc">
-                        <p>
-                            {!! html_entity_decode( $product->{lang('description')})  !!}
-                        </p>
-                    </div>
-                    <div class="product_sort_info">
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-rotate"></i>
-                                {{ __('index.14_day_return') }}
-                            </li>
-                        </ul>
+                        {!! html_entity_decode( $product->{lang('description')}) !!}
                     </div>
                     @if($product->color)
-                        <div class="pr_switch_wrap">
-                            <span class="switch_lable">
-                                {{ __("index.color") }}
-                            </span>
-                            <div class="product_color_switch">
-                                <span data-color="{{ $product->color }}"></span>
-                            </div>
+                    <div class="pr_switch_wrap">
+                        <span class="switch_lable">
+                            {{ __("index.color") }}
+                        </span>
+                        <div class="product_color_switch">
+                            <span data-color="{{ $product->color }}"></span>
                         </div>
+                    </div>
                     @endif
                     <div class="pr_switch_wrap">
                         <span class="switch_lable">
@@ -68,10 +58,10 @@
                         </span>
                         <div class="product_color_switch">
                             @foreach($gender as $key => $value)
-                                {{ __("index.$value") }}
-                                @if(!$loop->last)
-                                    ,
-                                @endif
+                            {{ __("index.$value") }}
+                            @if(!$loop->last)
+                            ,
+                            @endif
                             @endforeach
                         </div>
                     </div>
@@ -81,11 +71,11 @@
                         </span>
                         <div class="product_size_switch">
                             @foreach($size as $sizeName => $item)
-                                @if($item['quantity'])
-                                    <span data-size="{{ $sizeName }}" data-max="{{ $item['quantity'] }}">
-                                        {{ $sizeName }}
-                                    </span>
-                                @endif
+                            @if($item['quantity'])
+                            <span data-size="{{ $sizeName }}" data-max="{{ $item['quantity'] }}">
+                                {{ $sizeName }}
+                            </span>
+                            @endif
                             @endforeach
                         </div>
                     </div>
@@ -119,7 +109,7 @@
                             {{ $product->code }}
                         </span>
                         <button class="btn btn-outline-secondary ps-2 pe-1 p-0"
-                                onclick="copyProductCode('{{ $product->code }}')">
+                            onclick="copyProductCode('{{ $product->code }}')">
                             <i class="fa-solid fa-copy copy-icon"></i>
                         </button>
                     </li>

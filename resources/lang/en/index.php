@@ -19,8 +19,8 @@ return [
     'featured_products' => 'Featured Products',
     'free_delivery' => 'Free Delivery',
     'free_shipping' => 'Free shipping on orders over 10000 drams.',
-    '14_day_return' => '14 Day Return',
-    '14_day_return_policy' => 'You can return the item within 14 days',
+    'high_quality_title' => 'High Quality',
+    'high_quality_description' => 'Only tested and safe products for your little ones.',
     'support' => '24/7 Support',
     'ready_to_help' => 'Ready to help around the clock!',
     'color' => 'Color',
@@ -48,7 +48,7 @@ return [
     'cart' => 'Cart',
     'wish-list' => 'Wish List',
 
-//    Login
+    //    Login
     'login' => 'Login',
     'your_email' => 'Your Email',
     'password' => 'Password',
@@ -58,7 +58,7 @@ return [
     'no_account' => "Don't Have an Account?",
     'sign_up_now' => 'Sign up now',
 
-//    Register
+    //    Register
     'register' => 'Register',
     'create_account' => 'Create an Account',
     'enter_name' => 'Enter Your Name',
@@ -66,10 +66,10 @@ return [
     'confirm_password' => 'Confirm Password',
     'already_account' => 'Already have an account?',
 
-//    Faq
+    //    Faq
     'faqs' => 'Frequently asked questions',
 
-// Contact page
+    // Contact page
     'address' => 'Address',
     'email_address' => 'Email Address',
     'phone' => 'Phone',
@@ -82,7 +82,7 @@ return [
     'send_message' => 'Send Message',
     'contact_info_text' => 'Send us your questions, and we will respond promptly. We are always happy to assist you with information about our products, provide advice on selecting goods, and resolve any issues that may arise. Our team of professionals is ready to provide you with high-quality service and support.',
 
-// Account page
+    // Account page
     'my_account' => 'My Account',
     'dashboard' => 'Dashboard',
     'dashboard_message' => 'From your account dashboard, you can easily check & view your recent orders, manage your shipping addresses, and edit your password and account details.',
@@ -114,12 +114,12 @@ return [
     'add_address' => 'Add Address',
     'add_phone' => 'Add Phone',
 
-//  Logout modal
+    //  Logout modal
     'confirm_logout' => 'Confirm Logout',
     'confirm_logout_message' => 'Are you sure you want to log out?',
     'cancel' => 'Cancel',
 
-//    Add Address Modal
+    //    Add Address Modal
     'select_city' => 'Select a City / Town...',
     'state' => 'State / County ',
     'address2' => 'Address Line 2',
@@ -154,13 +154,13 @@ return [
         'Yeghvard' => 'Yeghvard',
     ],
 
-//    Product detail
+    //    Product detail
     'product' => 'Product',
     'description' => 'Description',
     'additional_info' => 'Additional information',
     'similar_products' => 'Similar Products',
 
-//    Products page
+    //    Products page
     'filter' => 'Filter',
     'clear_filter' => 'Clear',
     'widget_title' => 'Sort',
@@ -169,7 +169,7 @@ return [
     'sort_by_price_high_to_low' => 'price: high to low',
     'no_products_available' => 'There is no such product',
 
-//    Cart page
+    //    Cart page
     'shopping_cart' => 'Shopping Cart',
     'name' => 'Name',
     'quantity' => 'Quantity',
@@ -237,7 +237,7 @@ return [
     'your_score' => 'Your Score:',
     'play_again' => 'PLAY AGAIN',
 
-//    Banner
+    //    Banner
     'banner_title_style' => 'Creating style for your little ones with love!',
     'banner_title_discount' => 'Catch the moment: children\'s fashion with discounts is here!',
     'banner_title_price' => 'Trendy children\'s clothing at prices everyone can afford!',
