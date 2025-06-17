@@ -59,33 +59,32 @@
 
 </head>
 <body>
-<div id="app">
-    @include('vendor.modal.ad')
-    @include('vendor.modal.logout')
-    @include('vendor.modal.address')
-    @include('vendor.modal.success-message')
-    @include('vendor.modal.products-filter')
-    @include('layouts.header')
-    <main>
-        @yield('content')
-    </main>
-    @include('layouts.footer')
+    <div id="app">
+        @include('vendor.modal.ad')
+        @include('vendor.modal.logout')
+        @include('vendor.modal.address')
+        @include('vendor.modal.success-message')
+        @include('vendor.modal.products-filter')
+        @include('layouts.header')
+        <main>
+            @yield('content')
+        </main>
+        @include('layouts.footer')
 
 
-    <div id="successMessage" class="message success hidden">
-        {{ __("index.copied_sku") }}: <span id="copiedSKU"></span>
+        <div id="successMessage" class="message success hidden">
+            {{ __("index.copied_sku") }}: <span id="copiedSKU"></span>
+        </div>
+        <a href="#" class="scrollup" style="display: none">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
     </div>
-    <a href="#" class="scrollup" style="display: none">
-        <i class="fa-solid fa-chevron-up"></i>
-    </a>
-
     <!--  Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- yandex js -->
-    <script src="https://api-maps.yandex.ru/2.1/?lang={{ getLanguagePrefix() }}&amp;apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang={{ App::getLocale() === 'am' ? 'hy' : App::getLocale() }}&apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
     <!-- Script -->
     <script src="{{ asset('js/site.min.js?v=' . time()) }}" defer></script>
     @yield('script')
-</div>
 </body>
 </html>
