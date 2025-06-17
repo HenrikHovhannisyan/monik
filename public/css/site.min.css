@@ -10070,6 +10070,11 @@ a.ui-button:active,
     --pale-green: #CCFFCC;
 }
 
+.disabled-link {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 /*===================================*
   01.GENERAL STYLE

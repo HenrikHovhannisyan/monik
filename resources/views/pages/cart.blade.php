@@ -177,7 +177,10 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="{{ route('checkouts.index') }}" class="btn btn-fill-out">{{ __("index.checkout") }}</a>
+
+                                <a href="{{ $total !== 500 ? route('checkouts.index') : '#' }}" class="btn btn-fill-out {{ $total === 500 ? 'disabled-link' : '' }}">
+                                    {{ __("index.checkout") }}
+                                </a>                                
                             </div>
                         </div>
                     </div>
