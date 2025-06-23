@@ -82,7 +82,7 @@
     <!--  Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- yandex js -->
-    <script src="https://api-maps.yandex.ru/2.1/?lang={{ App::getLocale() === 'am' ? 'hy' : App::getLocale() }}&apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang={{ App::getLocale() === 'am' ? 'hy' : App::getLocale() }}&apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f&?v={{ time() }}" type="text/javascript"></script>
     <!-- Script -->
     <script src="{{ asset('js/site.min.js?v=' . time()) }}" defer></script>
     @yield('script')
