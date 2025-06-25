@@ -205,7 +205,7 @@
                 <ul class="navbar-nav attr-nav align-items-center">
                     <li>
                         <a href="javascript:;" class="nav-link search_trigger" title="{{ __("index.search") }}">
-                            <i class="linearicons-magnifier"></i>
+                            <i class="linearicons-magnifier mt-0"></i>
                         </a>
                         <div class="search_wrap">
                             <span class="close-search">
@@ -229,39 +229,38 @@
                     @auth
                         @php
                             $unreadCount = auth()->user()->unreadNotifications()->count();
-                            $notifications = auth()->user()->notifications()->latest()->take(2)->get();
+                            $notifications = auth()->user()->notifications()->latest()->take(5)->get();
                         @endphp
-
-                        <li class="dropdown">
-                            <a class="nav-link nav_item dropdown-toggle" href="#" data-bs-toggle="dropdown" title="{{ __('index.notifications') }}">
-                                <i class="fas fa-bell"></i>
-                                <span id="notification-count" class="cart_count bg-danger" {{ $unreadCount === 0 ? 'style=display:none' : '' }}>
+                        <li class="dropdown cart_dropdown">
+                            <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown" title="{{ __('index.notifications') }}">
+                                <i class="linearicons-alarm mt-0"></i>
+                                <span id="notification-count" class="cart_count" {{ $unreadCount === 0 ? 'style=display:none' : '' }}>
                                     {{ $unreadCount }}
                                 </span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 300px; max-width: 350px;">
-                                <h6 class="mb-2">{{ __('index.notifications') }}</h6>
-                                <div class="list-group">
+                            <div class="cart_box dropdown-menu dropdown-menu-end" style="min-width: 320px; max-width: 380px;">
+                                <ul class="cart_list">
                                     @forelse($notifications as $notification)
-                                        <a href="{{ $notification->link ?? '#' }}"
-                                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-start {{ $notification->status === 'unread' ? 'fw-bold' : '' }}">
-                                            <div class="ms-2 me-auto">
-                                                {{ $notification->{lang('title')} }}
-                                                <div class="small text-muted notification_text">{{ $notification->{lang('message')} }}</div>
-                                            </div>
+                                        <li class="list-group-item {{ $notification->status === 'unread' ? 'fw-bold' : '' }}">
                                             @if($notification->status === 'unread')
-                                                <form method="POST" action="{{ route('notifications.read', $notification->id) }}">
-                                                    @csrf
-                                                    <button class="notification-read-btn btn btn-sm btn-link text-decoration-none p-0" data-id="{{ $notification->id }}" title="Mark as read">
-                                                        ✕
-                                                    </button>
-                                                </form>
+                                                <button class="item_remove btn btn-sm border rounded px-2 py-1 text-center notification-read-btn"
+                                                        data-id="{{ $notification->id }}"
+                                                        title="Mark as read">
+                                                        <i class="fas fa-times me-0"></i> 
+                                                </button>
                                             @endif
-                                        </a>
+                                            <a href="{{ $notification->link ?? '#' }}">
+                                                <strong>{{ $notification->{lang('title')} }}</strong>
+                                                <div class="small text-muted notification_text">
+                                                    {{ $notification->{lang('message')} }}
+                                                </div>
+                                            </a>
+                                        </li>
                                     @empty
-                                        <span class="text-muted">{{ __('index.no_notifications') }}</span>
+                                        <li class="text-muted px-3">{{ __('index.no_notifications') }}</li>
                                     @endforelse
-                                </div>
+                                </ul>
+                                </ul>
                             </div>
                         </li>
                     @endauth
@@ -290,8 +289,10 @@
                 }).then(response => response.json())
                   .then(data => {
                     if (data.success) {
-                        this.remove();
-                        item.classList.remove('fw-bold');
+                        this.remove(); // удалить кнопку
+                        if (item) {
+                            item.classList.remove('fw-bold'); // убрать жирность
+                        }
 
                         const counter = document.getElementById('notification-count');
                         if (counter) {
