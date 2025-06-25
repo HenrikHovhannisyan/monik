@@ -37,6 +37,16 @@ return [
     'close' => 'Close',
     'install_app' => 'Install App',
 
+    // Notifications
+    'notifications' => 'Notifications',
+    'no_notifications' => 'No new notifications',
+    'order_status_updated' => 'Order status updated',
+    'hello' => 'Hello, :name',
+    'order_status_message' => 'Your order №:id is now in ":status" status.',
+    'thank_you' => 'Thank you for shopping with us!',
+    'status_pending' => 'pending',
+    'status_completed' => 'completed',
+
     'home' => 'Home',
     'products' => 'Products',
     'about-us' => 'About us',

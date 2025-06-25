@@ -37,6 +37,16 @@ return [
     'close' => 'Փակել',
     'install_app' => 'Տեղադրել հավելվածը',
 
+    // Notifications
+    'notifications' => 'Ծանուցումներ',
+    'no_notifications' => 'Նոր ծանուցումներ չկան',
+    'order_status_updated' => 'Պատվերի կարգավիճակը թարմացվել է',
+    'hello' => 'Բարեւ, :name',
+    'order_status_message' => 'Ձեր պատվերը №:id այժմ գտնվում է «:status» կարգավիճակում։',
+    'thank_you' => 'Շնորհակալություն գնումների համար մեր խանութում!',
+    'status_pending' => 'սպասման մեջ',
+    'status_completed' => 'ավարտված',
+
     'home' => 'Գլխավոր էջ',
     'products' => 'Ապրանքներ',
     'about-us' => 'Մեր մասին',
@@ -48,7 +58,7 @@ return [
     'cart' => 'Զամբյուղ',
     'wish-list' => 'Հավանածների ցուցակ',
 
-//    Login
+    //    Login
     'login' => 'Մուտք',
     'your_email' => 'Ձեր Էլ. Փոստը',
     'password' => 'Գաղտնաբառ',
@@ -58,7 +68,7 @@ return [
     'no_account' => 'Հաշիվ չունե՞ք',
     'sign_up_now' => 'Գրանցվեք հիմա',
 
-//    Register
+    //    Register
     'register' => 'Գրանցվել',
     'create_account' => 'Գրանցվել',
     'enter_name' => 'Մուտքագրեք ձեր անունը',
@@ -66,10 +76,10 @@ return [
     'confirm_password' => 'Հաստատեք գաղտնաբառը',
     'already_account' => 'Արդեն ունեք հաշիվ?',
 
-//    Faq
+    //    Faq
     'faqs' => 'Հաճախակի տրվող հարցեր',
 
-// Contact page
+    // Contact page
     'address' => 'Հասցե',
     'email_address' => 'Էլ. հասցե',
     'phone' => 'Հեռախոս',
@@ -82,7 +92,7 @@ return [
     'send_message' => 'Ուղարկել նամակը',
     'contact_info_text' => 'Ուղարկեք մեզ ձեր հարցերը, և մենք անմիջապես կպատասխանենք ձեզ: Մենք միշտ ուրախ ենք օգնել ձեզ մեր ապրանքների վերաբերյալ տեղեկատվության հարցում, տրամադրել խորհրդատվություն ապրանքների ընտրության վերաբերյալ և լուծել ցանկացած հարց: Մեր պրոֆեսիոնալ թիմը պատրաստ է ապահովել ձեզ բարձրորակ սպասարկում և աջակցություն:',
 
-// Account page
+    // Account page
     'my_account' => 'Իմ հաշիվը',
     'dashboard' => 'Կառավարման վահանակ',
     'dashboard_message' => 'Ձեր հաշվի կառավարման վահանակից դուք հեշտությամբ կարող եք ստուգել և դիտել ձեր վերջին պատվերները, կառավարել առաքման հասցեները և խմբագրել ձեր գաղտնաբառը և հաշվի մանրամասները։',
@@ -114,12 +124,12 @@ return [
     'add_address' => 'Ավելացնել հասցե',
     'add_phone' => 'Ավելացնել Հեռախոս',
 
-//  Logout modal
+    //  Logout modal
     'confirm_logout' => 'Հաստատեք դուրս գալը',
     'confirm_logout_message' => 'Համոզվա՞ծ եք, որ ցանկանում եք դուրս գալ:',
     'cancel' => 'Չեղարկել',
 
-//    Add Address Modal
+    //    Add Address Modal
     'select_city' => 'Ընտրեք քաղաք / ավան...',
     'state' => 'Մարզ / շրջանի անուն',
     'address2' => 'Հասցե 2',
@@ -154,13 +164,13 @@ return [
         'Yeghvard' => 'Եղվարդ',
     ],
 
-//    Product detail
+    //    Product detail
     'product' => 'Ապրանք',
     'description' => 'Նկարագրություն',
     'additional_info' => 'Լրացուցիչ տեղեկություն',
     'similar_products' => 'Նմանատիպ Ապրանքներ',
 
-//    Products page
+    //    Products page
     'filter' => 'Ֆիլտր',
     'clear_filter' => 'Մաքրել',
     'widget_title' => 'Դասավորել',
@@ -169,7 +179,7 @@ return [
     'sort_by_price_high_to_low' => 'գինը՝ նվազման կարգով',
     'no_products_available' => 'Նման ապրանք չկա',
 
-//    Cart page
+    //    Cart page
     'shopping_cart' => 'Գնումների զամբյուղ',
     'name' => 'Անուն',
     'quantity' => 'Քանակ',
@@ -237,7 +247,7 @@ return [
     'your_score' => 'Ձեր միավորները:',
     'play_again' => 'Խաղալ նորից',
 
-//    Banner
+    //    Banner
     'banner_title_style' => 'Ստեղծում ենք ոճ՝ ձեր փոքրիկների համար սիրով:',
     'banner_title_discount' => 'Բաց մի թողեք պահը՝ մանկական նորաձևությունը զեղչերով արդեն այստեղ է:',
     'banner_title_price' => 'Մանկական նորաձև հագուստ՝ մատչելի գներով:',

@@ -80,4 +80,13 @@ class User extends Authenticatable
         return $this->hasManyThrough(Phone::class, Account::class);
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function unreadNotifications()
+    {
+        return $this->notifications()->where('status', 'unread');
+    }
 }

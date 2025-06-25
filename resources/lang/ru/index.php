@@ -37,6 +37,16 @@ return [
     'close' => 'Закрыть',
     'install_app' => 'Установить приложение',
 
+    // Notifications
+    'notifications' => 'Уведомления',
+    'no_notifications' => 'Нет новых уведомлений',
+    'order_status_updated' => 'Статус заказа обновлён',
+    'hello' => 'Здравствуйте, :name',
+    'order_status_message' => 'Ваш заказ №:id теперь в статусе: «:status».',
+    'thank_you' => 'Спасибо за покупку в нашем магазине!',
+    'status_pending' => 'в ожидании',
+    'status_completed' => 'завершён',
+
     'home' => 'Главная',
     'products' => 'Продукты',
     'about-us' => 'О нас',

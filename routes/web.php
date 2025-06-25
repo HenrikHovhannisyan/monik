@@ -44,6 +44,21 @@ Route::group(
             Route::resource('order-items', OrderItemController::class);
             Route::get('/order-completed',  [PageController::class, 'order_completed'])->name('order-completed');
             Route::post('/checkout/apply-promocode', [CheckoutController::class, 'applyPromocode'])->name('checkout.applyPromocode');
+
+            Route::post('/notifications/read/{notification}', function (\App\Models\Notification $notification) {
+                if (auth()->id() === $notification->user_id) {
+                    $notification->update(['status' => 'read']);
+                }
+                return back();
+            })->middleware('auth')->name('notifications.read');
+            Route::post('/notifications/ajax-read/{notification}', function (\App\Models\Notification $notification) {
+                if (auth()->id() === $notification->user_id) {
+                    $notification->update(['status' => 'read']);
+                    return response()->json(['success' => true]);
+                }
+
+                return response()->json(['success' => false], 403);
+            })->name('notifications.ajax.read');
         });
 
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

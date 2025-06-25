@@ -11126,24 +11126,24 @@ button:focus:not(:focus-visible) {
 }
 
 .header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header.nav-fixed {
+        [class*="bg-"]
+    ).transparent_header.nav-fixed {
     background-color: #fff;
 }
 
 .header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header.light_skin.nav-fixed,
+        [class*="bg-"]
+    ).transparent_header.light_skin.nav-fixed,
 .header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header.nav-fixed
-.light_skin {
+        [class*="bg-"]
+    ).transparent_header.nav-fixed
+    .light_skin {
     background-color: #1d2224;
 }
 
 .header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header.sticky_dark_skin.nav-fixed,
+        [class*="bg-"]
+    ).transparent_header.sticky_dark_skin.nav-fixed,
 .light_skin .sidetoggle_icon::after,
 .light_skin .sidetoggle_icon::before,
 .light_skin .toggle_center_line {
@@ -11187,14 +11187,14 @@ button:focus:not(:focus-visible) {
 .dark_skin .navbar .navbar-nav .dropdown-menu li a:hover,
 .dark_skin .navbar .navbar-nav .dropdown-menu > ul > li:hover > a,
 .dark_skin
-.navbar
-.navbar-nav
-.dropdown-menu
-> ul
-> .mega-menu-col
-ul
-> li:hover
-> a {
+    .navbar
+    .navbar-nav
+    .dropdown-menu
+    > ul
+    > .mega-menu-col
+    ul
+    > li:hover
+    > a {
     color: var(--red);
 }
 
@@ -11368,11 +11368,11 @@ ul
 }
 
 .sticky_light_skin.nav-fixed.header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header,
+        [class*="bg-"]
+    ).transparent_header,
 .sticky_light_skin.nav-fixed.header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ) {
+        [class*="bg-"]
+    ) {
     background-color: #1d2224;
 }
 
@@ -11395,21 +11395,21 @@ ul
 }
 
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).sticky_light_skin.nav-fixed
-.navbar-nav
-.dropdown-menu {
+    .navbar-nav
+    .dropdown-menu {
     background-color: #252a2c;
     border-color: #252a2c;
 }
 
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).sticky_light_skin.nav-fixed
-.navbar-nav
-.dropdown-menu
-.mega-menu
-.dropdown-menu,
+    .navbar-nav
+    .dropdown-menu
+    .mega-menu
+    .dropdown-menu,
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).sticky_light_skin.nav-fixed
-.navbar-nav
-.dropdown-menu
-.dropdown-menu {
+    .navbar-nav
+    .dropdown-menu
+    .dropdown-menu {
     background-color: #303537;
 }
 
@@ -11626,8 +11626,8 @@ ul
 }
 
 .header_wrap:not([class*="bg_"]):not(
-    [class*="bg-"]
-  ).transparent_header.nav-fixed.no-sticky {
+        [class*="bg-"]
+    ).transparent_header.nav-fixed.no-sticky {
     background-color: transparent;
     box-shadow: none;
 }
@@ -12360,7 +12360,8 @@ header.light_skin.nav-fixed .social_icons li a:hover {
     width: 100%;
 }
 
-.btn-white::before, .btn-white::after {
+.btn-white::before,
+.btn-white::after {
     width: 51%;
 }
 
@@ -12567,11 +12568,11 @@ body.active {
 }
 
 .hover_menu_style1.nav-fixed
-.navbar
-.navbar-collapse
-.navbar-nav
-> li
-> .nav-link {
+    .navbar
+    .navbar-collapse
+    .navbar-nav
+    > li
+    > .nav-link {
     padding: 20px 0px;
 }
 
@@ -15129,12 +15130,12 @@ footer .widget_title {
 }
 
 .pr_flash.bg-success {
-    background-color: #1dd1a1!important;
+    background-color: #1dd1a1 !important;
 }
 
 .phone-container > .phone-group > .btn-danger.remove-phone,
 .pr_flash.bg-danger {
-    background-color: var(--red)!important;
+    background-color: var(--red) !important;
 }
 
 .phone-container > .phone-group > .btn-danger.remove-phone {
@@ -15142,7 +15143,7 @@ footer .widget_title {
 }
 
 .card-body > .text-danger {
-    color: var(--red)!important;
+    color: var(--red) !important;
 }
 
 .product_flashes {
@@ -17784,8 +17785,8 @@ blockquote p:last-child {
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group
-> .input-group-prepend:first-child
-> .input-group-text:not(:first-child),
+    > .input-group-prepend:first-child
+    > .input-group-text:not(:first-child),
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
     border-top-left-radius: 0;
@@ -17831,7 +17832,6 @@ blockquote p:last-child {
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 
-
 .range_container {
     width: 100%;
     display: flex;
@@ -17864,14 +17864,14 @@ blockquote p:last-child {
     bottom: -0.25rem;
     left: 50%;
     translate: -50% 0;
-    width: .5rem;
-    height: .5rem;
+    width: 0.5rem;
+    height: 0.5rem;
     rotate: 45deg;
     z-index: -1;
     background-color: inherit;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     pointer-events: all;
     width: 15px;
@@ -17882,7 +17882,7 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
     -webkit-appearance: none;
     pointer-events: all;
     width: 15px;
@@ -17893,11 +17893,11 @@ input[type=range]::-moz-range-thumb {
     cursor: pointer;
 }
 
-input[type=range]::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover {
     background: #f7f7f7;
 }
 
-input[type=range]::-webkit-slider-thumb:active {
+input[type="range"]::-webkit-slider-thumb:active {
     box-shadow: inset 0 0 3px var(--red), 0 0 9px var(--red);
     -webkit-box-shadow: inset 0 0 3px var(--red), 0 0 9px var(--red);
 }
@@ -17912,7 +17912,8 @@ input[type="range"] {
     pointer-events: none;
 }
 
-#fromSlider, #fromSlider_mobile {
+#fromSlider,
+#fromSlider_mobile {
     height: 0;
     z-index: 1;
 }
@@ -17933,7 +17934,7 @@ input[type="range"] {
 }
 
 .scale div::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 50%;
@@ -17962,6 +17963,15 @@ input[type="range"] {
     height: 400px;
 }
 
+.notification_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em;
+    max-height: 2.8em;
+}
 
 /* -------------------------------------------------
   (min-width: 1680px)

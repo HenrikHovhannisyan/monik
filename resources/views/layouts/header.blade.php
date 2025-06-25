@@ -226,9 +226,87 @@
                             <span class="cart_count">{{ $cartItems->count() }}</span>
                         </a>
                     </li>
+                    @auth
+                        @php
+                            $unreadCount = auth()->user()->unreadNotifications()->count();
+                            $notifications = auth()->user()->notifications()->latest()->take(2)->get();
+                        @endphp
+
+                        <li class="dropdown">
+                            <a class="nav-link nav_item dropdown-toggle" href="#" data-bs-toggle="dropdown" title="{{ __('index.notifications') }}">
+                                <i class="fas fa-bell"></i>
+                                <span id="notification-count" class="cart_count bg-danger" {{ $unreadCount === 0 ? 'style=display:none' : '' }}>
+                                    {{ $unreadCount }}
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 300px; max-width: 350px;">
+                                <h6 class="mb-2">{{ __('index.notifications') }}</h6>
+                                <div class="list-group">
+                                    @forelse($notifications as $notification)
+                                        <a href="{{ $notification->link ?? '#' }}"
+                                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-start {{ $notification->status === 'unread' ? 'fw-bold' : '' }}">
+                                            <div class="ms-2 me-auto">
+                                                {{ $notification->{lang('title')} }}
+                                                <div class="small text-muted notification_text">{{ $notification->{lang('message')} }}</div>
+                                            </div>
+                                            @if($notification->status === 'unread')
+                                                <form method="POST" action="{{ route('notifications.read', $notification->id) }}">
+                                                    @csrf
+                                                    <button class="notification-read-btn btn btn-sm btn-link text-decoration-none p-0" data-id="{{ $notification->id }}" title="Mark as read">
+                                                        ✕
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        </a>
+                                    @empty
+                                        <span class="text-muted">{{ __('index.no_notifications') }}</span>
+                                    @endforelse
+                                </div>
+                            </div>
+                        </li>
+                    @endauth
                 </ul>
             </nav>
         </div>
     </div>
 </header>
 <!-- END HEADER -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.notification-read-btn').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const notificationId = this.dataset.id;
+                const item = this.closest('.list-group-item');
+
+                fetch(`/notifications/ajax-read/${notificationId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                }).then(response => response.json())
+                  .then(data => {
+                    if (data.success) {
+                        this.remove();
+                        item.classList.remove('fw-bold');
+
+                        const counter = document.getElementById('notification-count');
+                        if (counter) {
+                            let count = parseInt(counter.innerText);
+                            if (!isNaN(count) && count > 1) {
+                                counter.innerText = count - 1;
+                            } else {
+                                counter.style.display = 'none';
+                            }
+                        }
+                    }
+                }).catch(error => {
+                    console.error('Ошибка при отметке уведомления:', error);
+                });
+            });
+        });
+    });
+</script>
