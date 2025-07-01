@@ -7879,18 +7879,3 @@ input[type="range"] {
     top: 12px;
     left: 8px;
 }
-
-.map-container {
-    width: 100%;
-    height: 400px;
-}
-
-.notification_text {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.4em;
-    max-height: 2.8em;
-}

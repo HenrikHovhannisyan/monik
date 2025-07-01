@@ -241,7 +241,7 @@
                             <div class="cart_box dropdown-menu dropdown-menu-end" style="min-width: 320px; max-width: 380px;">
                                 <ul class="cart_list">
                                     @forelse($notifications as $notification)
-                                        <li class="list-group-item {{ $notification->status === 'unread' ? 'fw-bold' : '' }}">
+                                        <li class="list-group-item">
                                             @if($notification->status === 'unread')
                                                 <button class="item_remove btn btn-sm border rounded px-2 py-1 text-center notification-read-btn"
                                                         data-id="{{ $notification->id }}"
@@ -250,7 +250,7 @@
                                                 </button>
                                             @endif
                                             <a href="{{ $notification->link ?? '#' }}">
-                                                <strong>{{ $notification->{lang('title')} }}</strong>
+                                                <strong class="{{ $notification->status === 'unread' ? 'notification-unread' : '' }}">{{ $notification->{lang('title')} }}</strong>
                                                 <div class="small text-muted notification_text">
                                                     {{ $notification->{lang('message')} }}
                                                 </div>
@@ -291,7 +291,7 @@
                     if (data.success) {
                         this.remove(); // удалить кнопку
                         if (item) {
-                            item.classList.remove('fw-bold'); // убрать жирность
+                            item.querySelector('strong').classList.remove('notification-unread'); // убрать жирность
                         }
 
                         const counter = document.getElementById('notification-count');
