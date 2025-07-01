@@ -46,6 +46,8 @@ return [
     'thank_you' => 'Շնորհակալություն գնումների համար մեր խանութում!',
     'status_pending' => 'սպասման մեջ',
     'status_completed' => 'ավարտված',
+    'notifications_order_completed' => 'Պատվերը հաջողությամբ գրանցվեց',
+    'notifications_order_completed_message' => 'Ձեր պատվերի համարը է՝ №:id։ Շնորհակալություն գնումների համար։',
 
     'home' => 'Գլխավոր էջ',
     'products' => 'Ապրանքներ',

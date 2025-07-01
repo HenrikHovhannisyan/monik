@@ -14,6 +14,11 @@ use App\Models\Promocode;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use App\Mail\OrderPlacedMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\Notification;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\App;
 
 class CheckoutController extends Controller
 {
@@ -170,22 +175,41 @@ class CheckoutController extends Controller
             Cookie::queue(Cookie::forget('applied_promocode'));
         }
 
+        // Отправляем письмо о покупке
+        Mail::to(auth()->user()->email)->send(new OrderPlacedMail($checkout, App::getLocale()));
+
+        $title_am = Lang::get('index.notifications_order_completed', [], 'am');
+        $title_ru = Lang::get('index.notifications_order_completed', [], 'ru');
+        $title_en = Lang::get('index.notifications_order_completed', [], 'en');
+
+        $message_am = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'am');
+        $message_ru = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'ru');
+        $message_en = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'en');
+
+        Notification::create([
+            'user_id' => $checkout->user_id,
+            'title_am' => $title_am,
+            'title_ru' => $title_ru,
+            'title_en' => $title_en,
+            'message_am' => $message_am,
+            'message_ru' => $message_ru,
+            'message_en' => $message_en,
+            'link' => route('order-items.show', $checkout->id),
+        ]);
+
+
         return redirect()->route('order-completed');
     }
 
     /**
      * @param Checkout $checkout
      */
-    public function show(Checkout $checkout)
-    {
-    }
+    public function show(Checkout $checkout) {}
 
     /**
      * @param Checkout $checkout
      */
-    public function edit(Checkout $checkout)
-    {
-    }
+    public function edit(Checkout $checkout) {}
 
     /**
      * @param Request $request
@@ -261,6 +285,4 @@ class CheckoutController extends Controller
 
         return redirect()->back()->with('success', __('messages.promocode_applied'));
     }
-
 }
-

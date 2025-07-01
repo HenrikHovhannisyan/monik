@@ -46,6 +46,8 @@ return [
     'thank_you' => 'Thank you for shopping with us!',
     'status_pending' => 'pending',
     'status_completed' => 'completed',
+    'notifications_order_completed' => 'Order successfully placed',
+    'notifications_order_completed_message' => 'Your order number is: №:id. Thank you for your purchase.',
 
     'home' => 'Home',
     'products' => 'Products',

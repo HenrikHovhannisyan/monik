@@ -46,6 +46,8 @@ return [
     'thank_you' => 'Спасибо за покупку в нашем магазине!',
     'status_pending' => 'в ожидании',
     'status_completed' => 'завершён',
+    'notifications_order_completed' => 'Заказ успешно оформлен',
+    'notifications_order_completed_message' => 'Ваш номер заказа: №:id. Спасибо за покупку.',
 
     'home' => 'Главная',
     'products' => 'Продукты',
