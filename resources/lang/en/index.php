@@ -37,18 +37,6 @@ return [
     'close' => 'Close',
     'install_app' => 'Install App',
 
-    // Notifications
-    'notifications' => 'Notifications',
-    'no_notifications' => 'No new notifications',
-    'order_status_updated' => 'Order status updated',
-    'hello' => 'Hello, :name',
-    'order_status_message' => 'Your order №:id is now in ":status" status.',
-    'thank_you' => 'Thank you for shopping with us!',
-    'status_pending' => 'pending',
-    'status_completed' => 'completed',
-    'notifications_order_completed' => 'Order successfully placed',
-    'notifications_order_completed_message' => 'Your order number is: №:id. Thank you for your purchase.',
-
     'home' => 'Home',
     'products' => 'Products',
     'about-us' => 'About us',
@@ -229,7 +217,7 @@ return [
     'open_in_yandex_maps' => 'Open in Yandex map',
 
     //    Order completed page
-    'order_completed' => 'Order Completed',
+    'order_completed' => 'Order successfully placed',
     'order_completed_message' => 'Your order is completed!',
     'order_thank_you' => 'Thank you for your order! Your order is being processed and we will call you.',
     'continue_shopping' => 'Continue Shopping',

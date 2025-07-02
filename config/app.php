@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Monik'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:8000'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -85,7 +85,7 @@ return [
 
     'locale' => 'am',
 
-    'locales' => ['am','ru','en'],
+    'locales' => ['am', 'ru', 'en'],
 
     /*
     |--------------------------------------------------------------------------

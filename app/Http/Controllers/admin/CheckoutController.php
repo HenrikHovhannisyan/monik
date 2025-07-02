@@ -32,23 +32,15 @@ class CheckoutController extends Controller
 
         Mail::to($checkout->user->email)->send(new OrderStatusChanged($checkout, App::getLocale()));
 
-        $title_am = Lang::get('index.order_status_updated', [], 'am');
-        $title_ru = Lang::get('index.order_status_updated', [], 'ru');
-        $title_en = Lang::get('index.order_status_updated', [], 'en');
-
-        $message_am = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'pending'], 'am');
-        $message_ru = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'pending'], 'ru');
-        $message_en = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'pending'], 'en');
-
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => $title_am,
-            'title_ru' => $title_ru,
-            'title_en' => $title_en,
-            'message_am' => $message_am,
-            'message_ru' => $message_ru,
-            'message_en' => $message_en,
-            'link' => route('order-items.show', $checkout->id),
+            'title_am' => Lang::get('notifications.order_status_updated', [], 'am'),
+            'title_ru' => Lang::get('notifications.order_status_updated', [], 'ru'),
+            'title_en' => Lang::get('notifications.order_status_updated', [], 'en'),
+            'message_am' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'am')], 'am'),
+            'message_ru' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'ru')], 'ru'),
+            'message_en' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'en')], 'en'),
+            'link' => relative_route('order-items.show', $checkout->id),
         ]);
 
         return redirect()->back()->with('success', 'Checkout status updated and user notified.');
@@ -60,23 +52,15 @@ class CheckoutController extends Controller
 
         Mail::to($checkout->user->email)->send(new OrderStatusChanged($checkout, App::getLocale()));
 
-        $title_am = Lang::get('index.order_status_updated', [], 'am');
-        $title_ru = Lang::get('index.order_status_updated', [], 'ru');
-        $title_en = Lang::get('index.order_status_updated', [], 'en');
-
-        $message_am = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'completed'], 'am');
-        $message_ru = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'completed'], 'ru');
-        $message_en = Lang::get('index.order_status_message', ['id' => $checkout->id, 'status' => 'completed'], 'en');
-
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => $title_am,
-            'title_ru' => $title_ru,
-            'title_en' => $title_en,
-            'message_am' => $message_am,
-            'message_ru' => $message_ru,
-            'message_en' => $message_en,
-            'link' => route('order-items.show', $checkout->id),
+            'title_am' => Lang::get('notifications.order_status_updated', [], 'am'),
+            'title_ru' => Lang::get('notifications.order_status_updated', [], 'ru'),
+            'title_en' => Lang::get('notifications.order_status_updated', [], 'en'),
+            'message_am' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'am')], 'am'),
+            'message_ru' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'ru')], 'ru'),
+            'message_en' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'en')], 'en'),
+            'link' => relative_route('order-items.show', $checkout->id),
         ]);
 
         return redirect()->back()->with('success', 'Checkout status updated and user notified.');

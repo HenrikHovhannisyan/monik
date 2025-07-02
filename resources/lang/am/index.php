@@ -37,18 +37,6 @@ return [
     'close' => 'Փակել',
     'install_app' => 'Տեղադրել հավելվածը',
 
-    // Notifications
-    'notifications' => 'Ծանուցումներ',
-    'no_notifications' => 'Նոր ծանուցումներ չկան',
-    'order_status_updated' => 'Պատվերի կարգավիճակը թարմացվել է',
-    'hello' => 'Բարեւ, :name',
-    'order_status_message' => 'Ձեր պատվերը №:id այժմ գտնվում է «:status» կարգավիճակում։',
-    'thank_you' => 'Շնորհակալություն գնումների համար մեր խանութում!',
-    'status_pending' => 'սպասման մեջ',
-    'status_completed' => 'ավարտված',
-    'notifications_order_completed' => 'Պատվերը հաջողությամբ գրանցվեց',
-    'notifications_order_completed_message' => 'Ձեր պատվերի համարը է՝ №:id։ Շնորհակալություն գնումների համար։',
-
     'home' => 'Գլխավոր էջ',
     'products' => 'Ապրանքներ',
     'about-us' => 'Մեր մասին',
@@ -229,7 +217,7 @@ return [
     'open_in_yandex_maps' => 'Բացեք Yandex քարտեզում',
 
     //    Order completed page
-    'order_completed' => 'Պատվերը ավարտված է',
+    'order_completed' => 'Պատվերը հաջողությամբ գրանցվեց',
     'order_completed_message' => 'Ձեր պատվերը ավարտված է!',
     'order_thank_you' => 'Շնորհակալություն ձեր պատվերի համար: Ձեր պատվերը մշակվում է, և մենք կզանգահարենք ձեզ:',
     'continue_shopping' => 'Շարունակել գնումները',

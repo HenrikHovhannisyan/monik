@@ -178,23 +178,15 @@ class CheckoutController extends Controller
         // Отправляем письмо о покупке
         Mail::to(auth()->user()->email)->send(new OrderPlacedMail($checkout, App::getLocale()));
 
-        $title_am = Lang::get('index.notifications_order_completed', [], 'am');
-        $title_ru = Lang::get('index.notifications_order_completed', [], 'ru');
-        $title_en = Lang::get('index.notifications_order_completed', [], 'en');
-
-        $message_am = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'am');
-        $message_ru = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'ru');
-        $message_en = Lang::get('index.notifications_order_completed_message', ['id' => $checkout->id], 'en');
-
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => $title_am,
-            'title_ru' => $title_ru,
-            'title_en' => $title_en,
-            'message_am' => $message_am,
-            'message_ru' => $message_ru,
-            'message_en' => $message_en,
-            'link' => route('order-items.show', $checkout->id),
+            'title_am' => Lang::get('notifications.order_completed', [], 'am'),
+            'title_ru' => Lang::get('notifications.order_completed', [], 'ru'),
+            'title_en' => Lang::get('notifications.order_completed', [], 'en'),
+            'message_am' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'am'),
+            'message_ru' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'ru'),
+            'message_en' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'en'),
+            'link' => relative_route('order-items.show', $checkout->id),
         ]);
 
 

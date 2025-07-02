@@ -23,7 +23,7 @@ class OrderPlacedMail extends Mailable
     {
         app()->setLocale($this->locale);
 
-        return $this->subject(__('messages.notifications_order_completed'))
+        return $this->subject(__('notifications.order_completed'))
             ->view('emails.order_placed');
     }
 }

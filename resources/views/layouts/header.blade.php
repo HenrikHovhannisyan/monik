@@ -234,8 +234,8 @@
                         <li class="dropdown cart_dropdown">
                             <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown" title="{{ __('index.notifications') }}">
                                 <i class="linearicons-alarm mt-0"></i>
-                                <span id="notification-count" class="cart_count" {{ $unreadCount === 0 ? 'style=display:none' : '' }}>
-                                    {{ $unreadCount }}
+                                <span id="notification-count" class="cart_count">
+                                    {{ $unreadCount ?? 0 }}
                                 </span>
                             </a>
                             <div class="cart_box dropdown-menu dropdown-menu-end" style="min-width: 320px; max-width: 380px;">
@@ -300,7 +300,7 @@
                             if (!isNaN(count) && count > 1) {
                                 counter.innerText = count - 1;
                             } else {
-                                counter.style.display = 'none';
+                                counter.innerText = 0;
                             }
                         }
                     }

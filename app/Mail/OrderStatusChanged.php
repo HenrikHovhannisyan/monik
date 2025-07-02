@@ -24,7 +24,7 @@ class OrderStatusChanged extends Mailable
     {
         app()->setLocale($this->locale);
 
-        return $this->subject(__('index.order_status_updated'))
+        return $this->subject(__('notifications.order_status_updated'))
             ->view('emails.order-status')
             ->with(['checkout' => $this->checkout]);
     }
