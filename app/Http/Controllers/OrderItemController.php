@@ -36,6 +36,9 @@ class OrderItemController extends Controller
     public function show($id)
     {
         $order = Checkout::with(['orderItems.product', 'shippingAddress'])->findOrFail($id);
+        if ($order->user_id !== auth()->id()) {
+            return redirect()->route('account')->with('error', 'Access denied to this order.');
+        }
         return view('pages.order-detail', compact('order'));
     }
 
@@ -63,4 +66,3 @@ class OrderItemController extends Controller
         return redirect()->route('order-items.index');
     }
 }
-
