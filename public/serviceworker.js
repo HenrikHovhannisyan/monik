@@ -1,19 +1,16 @@
-const CACHE_NAME = 'pwa-cache-v2';
-const OFFLINE_URL = '/offline';
+const CACHE_NAME = "pwa-cache-v3";
+const OFFLINE_URL = "/offline";
 
 // Статические ресурсы, которые точно нужны
 const URLS_TO_CACHE = [
     OFFLINE_URL,
-    '/',
-    '/css/site.css',
-    '/js/site.js',
-    '/images/pwa/icon-72_72.png',
-    '/images/pwa/icon-192_192.png',
-    '/images/pwa/icon-512_512.png',
+    "/images/pwa/icon-72_72.png",
+    "/images/pwa/icon-192_192.png",
+    "/images/pwa/icon-512_512.png",
 ];
 
 // Устанавливаем только нужные файлы
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(URLS_TO_CACHE))
     );
@@ -21,7 +18,7 @@ self.addEventListener('install', (event) => {
 });
 
 // Удаляем старые кэши
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
@@ -35,19 +32,19 @@ self.addEventListener('activate', (event) => {
 });
 
 // Только навигационные запросы (HTML-страницы)
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
     // Не кешируем расширения и POST-запросы
     if (
-        event.request.method !== 'GET' ||
-        event.request.url.startsWith('chrome-extension://') ||
-        event.request.url.includes('/api/') || // игнорировать API
-        event.request.url.includes('/admin')   // игнорировать админку
+        event.request.method !== "GET" ||
+        event.request.url.startsWith("chrome-extension://") ||
+        event.request.url.includes("/api/") || // игнорировать API
+        event.request.url.includes("/admin") // игнорировать админку
     ) {
         return;
     }
 
     // Для навигации — offline fallback
-    if (event.request.mode === 'navigate') {
+    if (event.request.mode === "navigate") {
         event.respondWith(
             fetch(event.request).catch(() => caches.match(OFFLINE_URL))
         );
