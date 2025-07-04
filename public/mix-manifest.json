@@ -1,6 +1,6 @@
 {
-    "/css/site.css": "/css/site.css",
-    "/js/site.js": "/js/site.js",
-    "/css/site.min.css": "/css/site.min.css",
-    "/js/site.min.js": "/js/site.min.js"
+    "/css/site.css": "/css/site.css?id=73f666d580347cb0cfe67e0eaa4fa013",
+    "/js/site.js": "/js/site.js?id=be2e1f25fb95fafd091439aa83d7cdc4",
+    "/css/site.min.css": "/css/site.min.css?id=73f666d580347cb0cfe67e0eaa4fa013",
+    "/js/site.min.js": "/js/site.min.js?id=be2e1f25fb95fafd091439aa83d7cdc4"
 }
