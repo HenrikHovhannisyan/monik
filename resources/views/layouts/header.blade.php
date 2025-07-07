@@ -199,7 +199,6 @@
                                 </ul>
                             </div>
                         </li>
-
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">

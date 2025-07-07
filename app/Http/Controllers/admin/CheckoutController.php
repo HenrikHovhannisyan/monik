@@ -29,8 +29,7 @@ class CheckoutController extends Controller
     public function changeStatusPending(Request $request, Checkout $checkout)
     {
         $checkout->update(['status' => 'pending']);
-
-        Mail::to($checkout->user->email)->send(new OrderStatusChanged($checkout, App::getLocale()));
+        Mail::to($checkout->user->email)->locale($checkout->user->locale)->send(new OrderStatusChanged($checkout, $checkout->user->locale));
 
         Notification::create([
             'user_id' => $checkout->user_id,
@@ -50,7 +49,7 @@ class CheckoutController extends Controller
     {
         $checkout->update(['status' => 'completed']);
 
-        Mail::to($checkout->user->email)->send(new OrderStatusChanged($checkout, App::getLocale()));
+        Mail::to($checkout->user->email)->locale($checkout->user->locale)->send(new OrderStatusChanged($checkout, $checkout->user->locale));
 
         Notification::create([
             'user_id' => $checkout->user_id,
