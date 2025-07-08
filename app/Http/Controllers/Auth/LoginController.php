@@ -27,8 +27,6 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $input = $request->all();
-
         $this->validate($request, [
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8',
@@ -36,17 +34,18 @@ class LoginController extends Controller
 
         $remember = $request->has('remember');
 
-        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']], $remember)) {
-            $locale = Cookie::get('locale', config('app.locale'));
+        if (auth()->attempt($request->only('email', 'password'), $remember)) {
+            $user = auth()->user();
 
-            if (auth()->user()->is_admin == 1) {
-                return redirect()->to("/$locale/admin/dashboard");
-            } else {
-                return redirect()->to("/$locale/");
-            }
-        } else {
-            return redirect()->route('login')->with('error', __('messages.invalid_credentials'));
+            $locale = $user->locale ?? Cookie::get('locale', config('app.locale'));
+            Cookie::queue('locale', $locale, 60 * 24 * 365);
+
+            return $user->is_admin
+                ? redirect()->to("/$locale/admin/dashboard")
+                : redirect()->to("/$locale/");
         }
+
+        return redirect()->route('login')->with('error', __('messages.invalid_credentials'));
     }
 
     /**
@@ -55,14 +54,14 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $locale = Cookie::get('locale', config('app.locale'));
+        $locale = auth()->user()->locale ?? Cookie::get('locale', config('app.locale'));
 
         $this->guard()->logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        Cookie::queue('locale', $locale, 60 * 24 * 365);
+
         return redirect()->to("/$locale/");
     }
-
 }

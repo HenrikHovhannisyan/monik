@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 use Exception;
 
 class GoogleController extends Controller
@@ -30,31 +31,37 @@ class GoogleController extends Controller
     public function handleGoogleCallback(Request $request)
     {
         try {
-            $user = Socialite::driver('google')->user();
+            $googleUser = Socialite::driver('google')->user();
+            $locale = $request->cookie('locale', config('app.locale'));
 
-            $findUser = User::where('google_id', $user->id)
-                ->orWhere('email', $user->email)
+            $findUser = User::where('google_id', $googleUser->id)
+                ->orWhere('email', $googleUser->email)
                 ->first();
 
             if ($findUser) {
                 Auth::login($findUser, true);
-            } else {
-                $randomPassword = Str::random(16);
 
+                // Если в базе нет языка — записываем
+                if (!$findUser->locale) {
+                    $findUser->locale = $locale;
+                    $findUser->save();
+                }
+            } else {
                 $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'google_id' => $user->id,
-                    'password' => Hash::make($randomPassword),
+                    'name' => $googleUser->name,
+                    'email' => $googleUser->email,
+                    'google_id' => $googleUser->id,
+                    'password' => Hash::make(Str::random(16)),
+                    'locale' => $locale,
                 ]);
 
                 Auth::login($newUser, true);
             }
 
-            $locale = $request->cookie('locale', config('app.locale'));
+            Cookie::queue('locale', $locale, 60 * 24 * 365);
 
             return redirect()->to("/$locale/");
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return redirect('/')->withErrors(['error' => $e->getMessage()]);
         }
     }

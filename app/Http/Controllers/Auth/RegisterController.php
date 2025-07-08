@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
@@ -55,10 +56,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $locale = request()->cookie('locale', config('app.locale'));
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'locale' => $locale,
         ]);
     }
 
@@ -71,8 +75,9 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        $locale = $request->cookie('locale', config('app.locale'));
+        $locale = $user->locale ?? config('app.locale');
+        Cookie::queue('locale', $locale, 60 * 24 * 365);
 
-        return Redirect::to("/$locale/");
+        return redirect()->to("/$locale/");
     }
 }

@@ -7,35 +7,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class SetLocale
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  Request  $request
-     * @param  Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $langPrefix = ltrim($request->route()->getPrefix(), '/');
-
-        /** @var \App\Models\User|null $user */
+        $prefix = ltrim($request->route()?->getPrefix(), '/');
         $user = Auth::user();
 
-        if ($langPrefix) {
-            App::setLocale($langPrefix);
-            Cookie::queue('locale', $langPrefix, 60 * 24 * 365);
+        if ($prefix) {
+            App::setLocale($prefix);
+            Cookie::queue('locale', $prefix, 60 * 24 * 365);
 
-            if ($user && $user->locale !== $langPrefix) {
-                $user->locale = $langPrefix;
+            if ($user && $user->locale !== $prefix) {
+                $user->locale = $prefix;
                 $user->save();
             }
         } else {
-            $locale = Cookie::get('locale', config('app.locale'));
-            App::setLocale($locale);
+            if ($user && $user->locale) {
+                App::setLocale($user->locale);
+                Cookie::queue('locale', $user->locale, 60 * 24 * 365);
+            } else {
+                $locale = Cookie::get('locale', config('app.locale'));
+                App::setLocale($locale);
+            }
         }
 
         return $next($request);
