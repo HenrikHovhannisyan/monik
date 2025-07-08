@@ -114,13 +114,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-6 pt-2 pt-lg-0 mt-4 mt-lg-0">
-                        <div style="width: 100%">
-                            <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0"
-                                    marginwidth="0"
-                                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Yerevan+(Yerevan)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                            </iframe>
-                        </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <img src="{{ asset("images/contact.webp") }}" class="img-fluid" title="Contact" alt="Contact">
                     </div>
                 </div>
             </div>
