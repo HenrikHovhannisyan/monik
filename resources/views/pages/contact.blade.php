@@ -61,25 +61,16 @@
                                     <div class="form-group col-md-6 mb-3">
                                         <input
                                             required
-                                            placeholder="{{ __("index.enter_name_placeholder") }} *"
-                                            id="email"
-                                            class="form-control"
-                                            name="email"
-                                            type="email"
-                                        />
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <input
-                                            required
                                             placeholder="{{ __("index.enter_phone_placeholder") }} *"
                                             id="phone"
                                             class="form-control"
                                             name="phone"
                                         />
                                     </div>
-                                    <div class="form-group col-md-6 mb-3">
+                                    <div class="form-group col mb-3">
                                         <input
-                                            placeholder="{{ __("index.enter_subject_placeholder") }}"
+                                            required
+                                            placeholder="{{ __("index.enter_subject_placeholder") }} *"
                                             id="subject"
                                             class="form-control"
                                             name="subject"
