@@ -17,6 +17,8 @@ use App\Http\Controllers\{
     ProductController
 };
 
+Route::get('/change-language/{locale}', [HomeController::class, 'changeLanguage'])->name('change.language');
+
 // Локализованные маршруты
 Route::group([
     'prefix' => LocalizationService::locale(),

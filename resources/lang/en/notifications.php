@@ -12,4 +12,5 @@ return [
     'order_completed' => 'Order successfully placed',
     'order_completed_message' => 'Your order number is: №:id. Thank you for your purchase.',
     'view_order' => 'View order',
+    'mark_as_read' => 'Mark as read',
 ];

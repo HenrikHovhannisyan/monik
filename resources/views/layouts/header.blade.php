@@ -186,15 +186,16 @@
                             <div class="dropdown-menu">
                                 <ul>
                                     @foreach(config('main.lang') as $k => $v)
-                                    @if($k !== $lng['key'])
-                                    <li>
-                                        <a class="dropdown-item nav-link nav_item select-lang" href="/{{ $k }}"
-                                            title="{{ $v['name'] }}" data-lang="{{ $k }}">
-                                            <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18" alt="{{ $v['name'] }}" />
-                                            {{ $v['name'] }}
-                                        </a>
-                                    </li>
-                                    @endif
+                                        @if($k !== $lng['key'])
+                                            <li>
+                                                <a class="dropdown-item nav-link nav_item select-lang"
+                                                href="{{ route('change.language', ['locale' => $k]) }}"
+                                                title="{{ $v['name'] }}" data-lang="{{ $k }}">
+                                                    <img src="{{ asset($v['icon']) }}" class="rounded-circle" width="18" alt="{{ $v['name'] }}" />
+                                                    {{ $v['name'] }}
+                                                </a>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>
@@ -231,7 +232,7 @@
                             $notifications = auth()->user()->notifications()->latest()->take(5)->get();
                         @endphp
                         <li class="dropdown cart_dropdown">
-                            <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown" title="{{ __('index.notifications') }}">
+                            <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown" title="{{ __('notifications.notifications') }}">
                                 <i class="linearicons-alarm mt-0"></i>
                                 <span id="notification-count" class="cart_count">
                                     {{ $unreadCount ?? 0 }}
@@ -244,7 +245,7 @@
                                             @if($notification->status === 'unread')
                                                 <button class="item_remove btn btn-sm border rounded px-2 py-1 text-center notification-read-btn"
                                                         data-id="{{ $notification->id }}"
-                                                        title="Mark as read">
+                                                        title="{{ __('notifications.mark_as_read') }}">
                                                         <i class="fas fa-times me-0"></i> 
                                                 </button>
                                             @endif
@@ -271,42 +272,44 @@
 <!-- END HEADER -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.notification-read-btn').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const locale = "{{ app()->getLocale() }}";  // Получаем текущую локаль из Laravel
 
-                const notificationId = this.dataset.id;
-                const item = this.closest('.list-group-item');
+    document.querySelectorAll('.notification-read-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
 
-                fetch(`/notifications/ajax-read/${notificationId}`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
+            const notificationId = this.dataset.id;
+            const item = this.closest('.list-group-item');
+
+            fetch(`/${locale}/notifications/ajax-read/${notificationId}`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            }).then(response => response.json())
+              .then(data => {
+                if (data.success) {
+                    this.remove(); // удалить кнопку
+                    if (item) {
+                        item.querySelector('strong').classList.remove('notification-unread'); // убрать жирность
                     }
-                }).then(response => response.json())
-                  .then(data => {
-                    if (data.success) {
-                        this.remove(); // удалить кнопку
-                        if (item) {
-                            item.querySelector('strong').classList.remove('notification-unread'); // убрать жирность
-                        }
 
-                        const counter = document.getElementById('notification-count');
-                        if (counter) {
-                            let count = parseInt(counter.innerText);
-                            if (!isNaN(count) && count > 1) {
-                                counter.innerText = count - 1;
-                            } else {
-                                counter.innerText = 0;
-                            }
+                    const counter = document.getElementById('notification-count');
+                    if (counter) {
+                        let count = parseInt(counter.innerText);
+                        if (!isNaN(count) && count > 1) {
+                            counter.innerText = count - 1;
+                        } else {
+                            counter.innerText = 0;
                         }
                     }
-                }).catch(error => {
-                    console.error('Ошибка при отметке уведомления:', error);
-                });
+                }
+            }).catch(error => {
+                console.error('Ошибка при отметке уведомления:', error);
             });
         });
     });
+});
 </script>
