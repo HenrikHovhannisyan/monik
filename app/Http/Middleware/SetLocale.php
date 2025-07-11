@@ -12,7 +12,7 @@ class SetLocale
 {
     public function handle(Request $request, Closure $next)
     {
-        $supportedLocales = ['am', 'ru', 'en'];
+        $supportedLocales = ['hy', 'ru', 'en'];
         $user = Auth::user();
         $segments = $request->segments();
         $prefix = $segments[0] ?? null;

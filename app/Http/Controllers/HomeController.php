@@ -38,7 +38,7 @@ class HomeController extends Controller
 
     public function changeLanguage($locale)
     {
-        $supportedLocales = ['am', 'ru', 'en'];
+        $supportedLocales = ['hy', 'ru', 'en'];
 
         if (!in_array($locale, $supportedLocales)) {
             abort(400, 'Unsupported language');

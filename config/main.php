@@ -1,8 +1,8 @@
 <?php
 return [
     'lang' => [
-        'am' => [
-            'key' => 'am',
+        'hy' => [
+            'key' => 'hy',
             'name' => 'Հայերեն',
             'icon' => 'images/lang/am.png',
         ],
