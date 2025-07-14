@@ -227,16 +227,6 @@ return [
     'view_product' => 'View Product',
     'no_results' => 'No products found for your query.',
 
-    //    Game
-    'back_online' => 'The connection has been restored',
-    'title' => 'BLOCK MENJA',
-    'play_game' => 'PLAY GAME',
-    'paused' => 'Paused',
-    'resume_game' => 'RESUME GAME',
-    'game_over' => 'Game Over',
-    'your_score' => 'Your Score:',
-    'play_again' => 'PLAY AGAIN',
-
     //    Banner
     'banner_title_style' => 'Creating style for your little ones with love!',
     'banner_title_discount' => 'Catch the moment: children\'s fashion with discounts is here!',

@@ -196,7 +196,7 @@ return [
     'enter_coupon' => 'Введите промокод',
     'apply_coupon' => 'Применить промокод',
     'order_notes' => 'Примечания к заказу',
-    'pending' => 'Ожидание',
+    'pending' => 'В пути',
     'standard' => 'Стандарт',
     'standard_conditions' => 'Доставка осуществляется в течение 2-3 рабочих дней.',
     'express' => 'Экспресс',
@@ -226,16 +226,6 @@ return [
     'search_results' => 'Результаты поиска',
     'view_product' => 'Посмотреть продукт',
     'no_results' => 'По вашему запросу продукты не найдены.',
-
-    //    Game
-    'back_online' => 'Соединение восстановлено',
-    'title' => 'BLOCK MENJA',
-    'play_game' => 'ИГРАТЬ',
-    'paused' => 'Пауза',
-    'resume_game' => 'ПРОДОЛЖИТЬ ИГРУ',
-    'game_over' => 'Игра окончена',
-    'your_score' => 'Ваш счет:',
-    'play_again' => 'ИГРАТЬ СНОВА',
 
     //    Banner
     'banner_title_style' => 'Создаем стиль для ваших малышей с любовью!',

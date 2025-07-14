@@ -103,7 +103,7 @@ return [
     'total' => 'Ընդհանուր',
     'actions' => 'Գործողություններ',
     'processing' => 'Վերամշակման մեջ',
-    'completed' => 'Ավարտված',
+    'completed' => 'Ավարտված է',
     'first_name' => 'Անուն',
     'last_name' => 'Ազգանուն',
     'display_name' => 'Ցուցադրման անունը',
@@ -196,7 +196,7 @@ return [
     'enter_coupon' => 'Մուտքագրեք պրոմոկոդը',
     'apply_coupon' => 'Կիրառել պրոմոկոդը',
     'order_notes' => 'Պատվերի նշումներ',
-    'pending' => 'Սպասվում',
+    'pending' => 'Ճանապարհին է',
     'standard' => 'Ստանդարտ',
     'standard_conditions' => 'Առաքումը կատարվում է 2-3 աշխատանքային օրվա ընթացքում',
     'express' => 'Էքսպրես',
@@ -226,16 +226,6 @@ return [
     'search_results' => 'Որոնման արդյունքները',
     'view_product' => 'Դիտել ապրանքը',
     'no_results' => 'Ձեր հարցմանը համապատասխան ապրանքներ չկան:',
-
-    //    Game
-    'back_online' => 'Կապը վերականգնվել է',
-    'title' => 'BLOCK MENJA',
-    'play_game' => 'Խաղալ',
-    'paused' => 'Դադարեցված',
-    'resume_game' => 'ՇԱՐՈՒՆԱԿԵԼ ԽԱՂԸ',
-    'game_over' => 'Խաղը ավարտված է',
-    'your_score' => 'Ձեր միավորները:',
-    'play_again' => 'Խաղալ նորից',
 
     //    Banner
     'banner_title_style' => 'Ստեղծում ենք ոճ՝ ձեր փոքրիկների համար սիրով:',

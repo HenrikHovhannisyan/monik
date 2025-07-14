@@ -7,7 +7,7 @@ return [
     'hello' => 'Hello, :name',
     'order_status_message' => 'Your order №:id is now in ":status" status.',
     'thank_you' => 'Thank you for shopping with us!',
-    'status_pending' => 'pending',
+    'status_pending' => 'on the way',
     'status_completed' => 'completed',
     'order_completed' => 'Order successfully placed',
     'order_completed_message' => 'Your order number is: №:id. Thank you for your purchase.',
