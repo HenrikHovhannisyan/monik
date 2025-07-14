@@ -1,7 +1,16 @@
 @extends('layouts.app')
+@php
+    use Illuminate\Support\Str;
+@endphp
+{{-- SEO мета-теги --}}
+@section('meta_description', Str::limit(strip_tags($product->{lang('description')}), 160))
+@section('meta_keywords', $product->{lang('name')} . ', ' . __('index.products') . ', ' . config('app.name'))
+@section('og_title', $product->{lang('name')} . ' | ' . config('app.name'))
+@section('og_description', Str::limit(strip_tags($product->{lang('description')}), 160))
+@section('og_image', asset(json_decode($product->images)[0]))
 
 @section('title')
-@parent | {{ __("index.product") }} {{ $product->{lang('name')} }}
+@parent | {{ $product->{lang('name')} }}
 @endsection
 
 @section('content')

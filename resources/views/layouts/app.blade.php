@@ -4,12 +4,19 @@
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="Henrik" name="author" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="description" content="Shopwise is a powerful eCommerce template for various products including fashion, electronics, furniture, and more." />
-    <meta name="keywords" content="ecommerce, fashion, furniture, electronics, responsive, modern, online store" />
+    {{-- Динамические SEO‑мета‑теги с разумными значениями по умолчанию --}}
+    <meta name="description" content="@yield('meta_description', __('index.meta_products_description'))" />
+    <meta name="keywords" content="@yield('meta_keywords', __('index.meta_products_keywords'))" />
+
+    {{-- Open Graph (для соцсетей) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@yield('og_title', config('app.name'))">
+    <meta property="og:description" content="@yield('og_description', __('index.meta_products_og_description'))">
+    <meta property="og:image" content="@yield('og_image', asset('images/logo.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
 
     <!-- PWA -->
     <link rel="manifest" href="{{ asset('manifest.json') }}">

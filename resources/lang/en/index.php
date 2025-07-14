@@ -232,4 +232,9 @@ return [
     'banner_title_discount' => 'Catch the moment: children\'s fashion with discounts is here!',
     'banner_title_price' => 'Trendy children\'s clothing at prices everyone can afford!',
 
+    // Meta
+    'meta_products_description' => config('app.name') . ' online store: quality children’s products, affordable prices, fast delivery.',
+    'meta_products_keywords' => 'baby clothes, kids clothing, newborn clothes, baby bodysuits, toddler clothes, boys clothing, girls clothing, baby outfits, children\'s fashion, baby clothes online, kids clothes Armenia, ' . config('app.name') . ', online store',
+    'meta_products_og_description' => 'Welcome to ' . config('app.name') . ' online store!',
+
 ];
