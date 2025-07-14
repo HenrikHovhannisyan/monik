@@ -51,7 +51,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name_am' => 'required|unique:categories',
+            'name_hy' => 'required|unique:categories',
             'name_ru' => 'required|unique:categories',
             'name_en' => 'required|unique:categories',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -105,7 +105,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         request()->validate([
-            'name_am' => 'required',
+            'name_hy' => 'required',
             'name_ru' => 'required',
             'name_en' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',

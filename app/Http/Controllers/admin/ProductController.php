@@ -52,10 +52,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_am' => 'required',
+            'name_hy' => 'required',
             'name_ru' => 'required',
             'name_en' => 'required',
-            'description_am' => 'required',
+            'description_hy' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
             'price' => 'required|numeric|min:0',
@@ -168,10 +168,10 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name_am' => 'required',
+            'name_hy' => 'required',
             'name_ru' => 'required',
             'name_en' => 'required',
-            'description_am' => 'required',
+            'description_hy' => 'required',
             'description_ru' => 'required',
             'description_en' => 'required',
             'price' => 'required|numeric|min:0',

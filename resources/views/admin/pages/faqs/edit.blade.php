@@ -21,10 +21,10 @@
             <div class="row">
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="question_am" class="form-label text-white">
-                        Вопрос AM
+                        Вопрос HY
                     </label>
-                    <textarea class="form-control" style="height:150px" name="question_am" id="question_am"
-                              placeholder="Введите вопрос на армянском">{{ old('question_am', $faq->question_am) }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="question_hy" id="question_am"
+                              placeholder="Введите вопрос на армянском">{{ old('question_hy', $faq->question_hy) }}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="question_ru" class="form-label text-white">
@@ -42,10 +42,10 @@
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="answer_am" class="form-label text-white">
-                        Ответ AM
+                        Ответ HY
                     </label>
-                    <textarea class="form-control" style="height:150px" name="answer_am" id="answer_am"
-                              placeholder="Введите ответ на армянском">{{ old('answer_am', $faq->answer_am) }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="answer_hy" id="answer_am"
+                              placeholder="Введите ответ на армянском">{{ old('answer_hy', $faq->answer_hy) }}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="answer_ru" class="form-label text-white">

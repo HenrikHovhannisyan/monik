@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('question_am');
+            $table->string('question_hy');
             $table->string('question_ru');
             $table->string('question_en');
-            $table->text('answer_am');
+            $table->text('answer_hy');
             $table->text('answer_ru');
             $table->text('answer_en');
             $table->boolean('status')->default(true);

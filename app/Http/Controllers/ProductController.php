@@ -117,7 +117,7 @@ class ProductController extends Controller
     {
         $searchQuery = $request->input('search');
 
-        $products = Product::where('name_am', 'like', '%' . $searchQuery . '%')
+        $products = Product::where('name_hy', 'like', '%' . $searchQuery . '%')
             ->orWhere('name_ru', 'like', '%' . $searchQuery . '%')
             ->orWhere('name_en', 'like', '%' . $searchQuery . '%')
             ->orWhere('code', 'like', '%' . $searchQuery . '%')

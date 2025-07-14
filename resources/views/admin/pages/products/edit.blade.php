@@ -42,11 +42,11 @@
                 <h3 class="text-white">Информация о продукте</h3>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="name_am" class="form-label text-white">
-                        Название AM
+                        Название HY
                         <span class="text-danger"> *</span>
                     </label>
-                    <input type="text" name="name_am" id="name_am" value="{{$product->name_am}}" class="form-control"
-                           placeholder="Название AM" required>
+                    <input type="text" name="name_hy" id="name_am" value="{{$product->name_hy}}" class="form-control"
+                           placeholder="Название HY" required>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="name_ru" class="form-label text-white">
@@ -66,11 +66,11 @@
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="description_am" class="form-label text-white">
-                        Описание AM
+                        Описание HY
                         <span class="text-danger"> *</span>
                     </label>
-                    <textarea class="form-control" style="height:150px" name="description_am" id="description_am"
-                              placeholder="Описание AM">{{$product->description_am}}</textarea>
+                    <textarea class="form-control" style="height:150px" name="description_hy" id="description_am"
+                              placeholder="Описание HY">{{$product->description_hy}}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="description_ru" class="form-label text-white">

@@ -14,11 +14,11 @@ class Product extends Model
 
     protected $fillable = [
         'code',
-        'name_am',
+        'name_hy',
         'name_ru',
         'name_en',
         'slug',
-        'description_am',
+        'description_hy',
         'description_ru',
         'description_en',
         'price',
@@ -50,6 +50,4 @@ class Product extends Model
     {
         return $this->hasOne(ProductMetadata::class);
     }
-
-
 }

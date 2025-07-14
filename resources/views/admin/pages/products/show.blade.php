@@ -104,9 +104,9 @@
                             </tr>
                         @endif
                         <tr>
-                            <th>Название AM</th>
+                            <th>Название HY</th>
                             <td class="text-white">
-                                {{ $product->name_am }}
+                                {{ $product->name_hy }}
                             </td>
                         </tr>
                         <tr>
@@ -122,9 +122,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Описание AM</th>
+                            <th>Описание HY</th>
                             <td class="text-white">
-                                {!! html_entity_decode($product->description_am) !!}
+                                {!! html_entity_decode($product->description_hy) !!}
                             </td>
                         </tr>
                         <tr>

@@ -20,10 +20,10 @@
             <div class="row">
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="question_am" class="form-label text-white">
-                        Вопрос AM
+                        Вопрос HY
                     </label>
-                    <textarea class="form-control" style="height:150px" name="question_am" id="question_am"
-                              placeholder="Вопрос AM">{{ old('question_am') }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="question_hy" id="question_am"
+                              placeholder="Вопрос HY">{{ old('question_hy') }}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="question_ru" class="form-label text-white">
@@ -43,8 +43,8 @@
                     <label for="answer_am" class="form-label text-white">
                         Ответ AM
                     </label>
-                    <textarea class="form-control" style="height:150px" name="answer_am" id="answer_am"
-                              placeholder="Ответ AM">{{ old('answer_am') }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="answer_hy" id="answer_am"
+                              placeholder="Ответ AM">{{ old('answer_hy') }}</textarea>
                 </div>
                 <div class="mb-3 col-12 col-lg-4">
                     <label for="answer_ru" class="form-label text-white">

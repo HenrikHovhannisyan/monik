@@ -28,15 +28,15 @@
                         </li>
                         <hr>
                         <li class="mb-2">
-                            <strong>Вопрос AM :</strong>
+                            <strong>Вопрос HY :</strong>
                             <span class="text-white">
-                                {!! html_entity_decode($faq->question_am) !!}
+                                {!! html_entity_decode($faq->question_hy) !!}
                             </span>
                         </li>
                         <li class="mb-2">
-                            <strong>Ответ AM :</strong>
+                            <strong>Ответ HY :</strong>
                             <span class="text-white">
-                                {!! html_entity_decode($faq->answer_am) !!}
+                                {!! html_entity_decode($faq->answer_hy) !!}
                             </span>
                         </li>
                         <hr>

@@ -274,6 +274,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const locale = "{{ app()->getLocale() }}";  // Получаем текущую локаль из Laravel
+    console.log(locale);
+    
 
     document.querySelectorAll('.notification-read-btn').forEach(function (btn) {
         btn.addEventListener('click', function (e) {

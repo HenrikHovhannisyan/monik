@@ -180,10 +180,10 @@ class CheckoutController extends Controller
 
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => Lang::get('notifications.order_completed', [], 'am'),
+            'title_hy' => Lang::get('notifications.order_completed', [], 'hy'),
             'title_ru' => Lang::get('notifications.order_completed', [], 'ru'),
             'title_en' => Lang::get('notifications.order_completed', [], 'en'),
-            'message_am' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'am'),
+            'message_hy' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'hy'),
             'message_ru' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'ru'),
             'message_en' => Lang::get('notifications.order_completed_message', ['id' => $checkout->id], 'en'),
             'link' => relative_route('order-items.show', $checkout->id),

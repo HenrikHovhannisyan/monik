@@ -20,7 +20,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Изображение</th>
-                    <th scope="col">Название AM</th>
+                    <th scope="col">Название HY</th>
                     <th scope="col">Название RU</th>
                     <th scope="col">Название EN</th>
                     <th width="280px">{{ 'Действие' }}</th>
@@ -33,7 +33,7 @@
                         <td>
                             <img style="height: 55px" src="{{ asset( $category->image ) }}" alt="">
                         </td>
-                        <td>{{ $category->name_am }}</td>
+                        <td>{{ $category->name_hy }}</td>
                         <td>{{ $category->name_ru }}</td>
                         <td>{{ $category->name_en }}</td>
                         <td>

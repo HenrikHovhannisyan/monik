@@ -11,10 +11,10 @@ class Notification extends Model
 
     protected $fillable = [
         'user_id',
-        'title_am',
+        'title_hy',
         'title_ru',
         'title_en',
-        'message_am',
+        'message_hy',
         'message_ru',
         'message_en',
         'status',

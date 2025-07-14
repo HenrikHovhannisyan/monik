@@ -20,8 +20,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Статус</th>
-                    <th scope="col">Вопрос AM</th>
-                    <th scope="col">Ответ AM</th>
+                    <th scope="col">Вопрос HY</th>
+                    <th scope="col">Ответ HY</th>
                     <th width="280px">Действие</th>
                 </tr>
                 </thead>
@@ -36,8 +36,8 @@
                                 <span class="text-danger">Неактивен</span>
                             @endif
                         </td>
-                        <td>{!! html_entity_decode($faq->question_am) !!}</td>
-                        <td>{!! html_entity_decode($faq->answer_am) !!}</td>
+                        <td>{!! html_entity_decode($faq->question_hy) !!}</td>
+                        <td>{!! html_entity_decode($faq->answer_hy) !!}</td>
                         <td>
                             <form action="{{ route('faqs.destroy',$faq->id) }}" method="POST">
                                 <a class="btn btn-outline-success btn-sm m-1"

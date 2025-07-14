@@ -15,10 +15,10 @@ class Faq extends Model
      * @var array
      */
     protected $fillable = [
-        'question_am',
+        'question_hy',
         'question_ru',
         'question_en',
-        'answer_am',
+        'answer_hy',
         'answer_ru',
         'answer_en',
         'status',

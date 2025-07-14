@@ -15,10 +15,10 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name_am',
+        'name_hy',
         'name_ru',
         'name_en',
-        'description_am',
+        'description_hy',
         'description_ru',
         'description_en',
         'image',

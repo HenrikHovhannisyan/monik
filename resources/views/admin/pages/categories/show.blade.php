@@ -19,9 +19,9 @@
                 <div class="card-body p-2">
                     <ul>
                         <li class="mb-2">
-                            <strong>Название AM :</strong>
+                            <strong>Название HY :</strong>
                             <span class="text-white">
-                                {{ $category->name_am }}
+                                {{ $category->name_hy }}
                             </span>
                         </li>
                         <li class="mb-2">
@@ -36,12 +36,12 @@
                                 {{ $category->name_en }}
                             </span>
                         </li>
-                        @if($category->description_am)
+                        @if($category->description_hy)
                             <hr class="text-white">
                             <li class="mb-2">
-                                <strong>Описание AM :</strong>
+                                <strong>Описание HY :</strong>
                                 <span class="text-white">
-                                    {!! html_entity_decode($category->description_am) !!}
+                                    {!! html_entity_decode($category->description_hy) !!}
                                 </span>
                             </li>
                         @endif

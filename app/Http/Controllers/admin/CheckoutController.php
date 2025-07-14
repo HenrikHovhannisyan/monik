@@ -33,10 +33,10 @@ class CheckoutController extends Controller
 
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => Lang::get('notifications.order_status_updated', [], 'am'),
+            'title_hy' => Lang::get('notifications.order_status_updated', [], 'hy'),
             'title_ru' => Lang::get('notifications.order_status_updated', [], 'ru'),
             'title_en' => Lang::get('notifications.order_status_updated', [], 'en'),
-            'message_am' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'am')], 'am'),
+            'message_hy' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'hy')], 'hy'),
             'message_ru' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'ru')], 'ru'),
             'message_en' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_pending', [], 'en')], 'en'),
             'link' => relative_route('order-items.show', $checkout->id),
@@ -53,10 +53,10 @@ class CheckoutController extends Controller
 
         Notification::create([
             'user_id' => $checkout->user_id,
-            'title_am' => Lang::get('notifications.order_status_updated', [], 'am'),
+            'title_hy' => Lang::get('notifications.order_status_updated', [], 'hy'),
             'title_ru' => Lang::get('notifications.order_status_updated', [], 'ru'),
             'title_en' => Lang::get('notifications.order_status_updated', [], 'en'),
-            'message_am' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'am')], 'am'),
+            'message_hy' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'hy')], 'hy'),
             'message_ru' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'ru')], 'ru'),
             'message_en' => Lang::get('notifications.order_status_message', ['id' => $checkout->id, 'status' => Lang::get('notifications.status_completed', [], 'en')], 'en'),
             'link' => relative_route('order-items.show', $checkout->id),
