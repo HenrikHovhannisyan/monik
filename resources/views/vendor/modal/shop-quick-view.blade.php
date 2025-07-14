@@ -119,13 +119,33 @@
                         </a>
                     </li>
                 </ul>
-
                 <div class="product_share">
                     <span>{{ __("index.share") }}:</span>
                     <ul class="social_icons">
-                        <li><a href="shop-quick-view.html#"><i class="ion-social-facebook"></i></a></li>
-                        <li><a href="shop-quick-view.html#"><i class="ion-social-twitter"></i></a></li>
-                        <li><a href="shop-quick-view.html#"><i class="ion-social-instagram-outline"></i></a></li>
+                        {{-- Копировать ссылку --}}
+                        <li>
+                            <a href="#" onclick="copyProductCode('{{ url()->current() }}'); return false;" title="Copy link">
+                                <i class="fa-solid fa-copy"></i>
+                            </a>
+                        </li>
+                        {{-- WhatsApp --}}
+                        <li>
+                            <a href="https://wa.me/?text={{ urlencode($product->{lang('name')} . ' ' . url()->current()) }}" target="_blank" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </li>
+                        {{-- Telegram --}}
+                        <li>
+                            <a href="https://t.me/share/url?url={{ urlencode(url()->current()) }}&text={{ urlencode($product->{lang('name')}) }}" target="_blank" title="Telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                        </li>
+                        {{-- Viber --}}
+                        <li>
+                            <a href="viber://forward?text={{ urlencode($product->{lang('name')} . ' ' . url()->current()) }}" title="Viber">
+                                <i class="fab fa-viber"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -30,7 +30,7 @@ return [
     'girl' => 'Girl',
     'category' => 'Category',
     'share' => 'Share',
-    'copied_sku' => 'Article copied',
+    'copied' => 'Copied',
     'sku' => 'Article',
     'add_to_cart' => 'Add to cart',
     'price' => 'Price',
