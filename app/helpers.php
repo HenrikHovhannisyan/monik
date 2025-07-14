@@ -28,8 +28,13 @@ if (!function_exists('relative_route')) {
 
         // удаляем локаль, если она есть в начале пути
         $locale = app()->getLocale();
-        $relative = preg_replace("#^/($locale)(/)?#", '', $relative); // удаляет /am/, /ru/, /en
+        $relative = preg_replace("#^/($locale)(/)?#", '', $relative); // удаляет /hy/, /ru/, /en
 
-        return ltrim($relative, '/'); // окончательно — order-items/262
+        // Добавляем слэш впереди, если его нет
+        if (!str_starts_with($relative, '/')) {
+            $relative = '/' . $relative;
+        }
+
+        return $relative; // будет: /order-items/262
     }
 }

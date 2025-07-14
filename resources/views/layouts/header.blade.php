@@ -25,55 +25,62 @@
                                             <li class="dropdown-header">
                                                 {{ __("index.boy") }}
                                             </li>
-                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                            @foreach ($categoriesBoy as $category)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
-                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=boy" title="{{ $category->{lang('name')} }}">
+                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=boy"
+                                                    title="{{ $category->{lang('name')} }}">
                                                     {{ $category->{lang('name')} }}
                                                 </a>
                                             </li>
                                             @endforeach
                                         </ul>
                                     </li>
+
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
                                             <li class="dropdown-header">
                                                 {{ __("index.girl") }}
                                             </li>
-                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                            @foreach ($categoriesGirl as $category)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
-                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=girl" title="{{ $category->{lang('name')} }}">
+                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&gender%5B%5D=girl"
+                                                    title="{{ $category->{lang('name')} }}">
                                                     {{ $category->{lang('name')} }}
                                                 </a>
                                             </li>
                                             @endforeach
                                         </ul>
                                     </li>
+
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
                                             <li class="dropdown-header">
                                                 {{ __("index.new") }}
                                             </li>
-                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                            @foreach ($categoriesNew as $category)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
-                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&status%5B%5D=new" title="{{ $category->{lang('name')} }}">
+                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&status%5B%5D=new"
+                                                    title="{{ $category->{lang('name')} }}">
                                                     {{ $category->{lang('name')} }}
                                                 </a>
                                             </li>
                                             @endforeach
                                         </ul>
                                     </li>
+
                                     <li class="mega-menu-col col-lg-3">
                                         <ul>
                                             <li class="dropdown-header">
                                                 {{ __("index.sale") }}
                                             </li>
-                                            @foreach ($categories->shuffle()->take(5) as $category)
+                                            @foreach ($categoriesSale as $category)
                                             <li>
                                                 <a class="dropdown-item nav-link nav_item"
-                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&discount=sale" title="{{ $category->{lang('name')} }}">
+                                                    href="{{route('products')}}?categories%5B%5D={{ $category->id }}&discount=sale"
+                                                    title="{{ $category->{lang('name')} }}">
                                                     {{ $category->{lang('name')} }}
                                                 </a>
                                             </li>
@@ -227,10 +234,6 @@
                         </a>
                     </li>
                     @auth
-                        @php
-                            $unreadCount = auth()->user()->unreadNotifications()->count();
-                            $notifications = auth()->user()->notifications()->latest()->take(5)->get();
-                        @endphp
                         <li class="dropdown cart_dropdown">
                             <a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown" title="{{ __('notifications.notifications') }}">
                                 <i class="linearicons-alarm mt-0"></i>
@@ -257,9 +260,8 @@
                                             </a>
                                         </li>
                                     @empty
-                                        <li class="text-muted px-3">{{ __('index.no_notifications') }}</li>
+                                        <li class="text-muted px-3">{{ __('notifications.no_notifications') }}</li>
                                     @endforelse
-                                </ul>
                                 </ul>
                             </div>
                         </li>
@@ -274,9 +276,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const locale = "{{ app()->getLocale() }}";  // Получаем текущую локаль из Laravel
-    console.log(locale);
     
-
     document.querySelectorAll('.notification-read-btn').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();

@@ -175,6 +175,7 @@ return [
 
         \App\Services\Localization\LocalizationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
     ])->toArray(),
 
     /*
