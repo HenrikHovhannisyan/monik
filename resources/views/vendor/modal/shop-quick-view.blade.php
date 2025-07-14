@@ -124,25 +124,25 @@
                     <ul class="social_icons">
                         {{-- Копировать ссылку --}}
                         <li>
-                            <a href="#" onclick="copyProductCode('{{ url()->current() }}'); return false;" title="Copy link">
+                            <a href="#" onclick="copyProductCode('{{ route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()]) }}'); return false;" title="Copy link">
                                 <i class="fa-solid fa-copy"></i>
                             </a>
                         </li>
                         {{-- WhatsApp --}}
                         <li>
-                            <a href="https://wa.me/?text={{ urlencode($product->{lang('name')} . ' ' . url()->current()) }}" target="_blank" title="WhatsApp">
+                            <a href="https://wa.me/?text={{ urlencode($product->{lang('name')} . ' ' . route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()])) }}" target="_blank" title="WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </li>
                         {{-- Telegram --}}
                         <li>
-                            <a href="https://t.me/share/url?url={{ urlencode(url()->current()) }}&text={{ urlencode($product->{lang('name')}) }}" target="_blank" title="Telegram">
+                            <a href="https://t.me/share/url?url={{ urlencode(route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()])) }}&text={{ urlencode($product->{lang('name')}) }}" target="_blank" title="Telegram">
                                 <i class="fab fa-telegram-plane"></i>
                             </a>
                         </li>
                         {{-- Viber --}}
                         <li>
-                            <a href="viber://forward?text={{ urlencode($product->{lang('name')} . ' ' . url()->current()) }}" title="Viber">
+                            <a href="viber://forward?text={{ urlencode($product->{lang('name')} . ' ' . route('product', ['slug' => $product->slug, 'locale' => app()->getLocale()])) }}" title="Viber">
                                 <i class="fab fa-viber"></i>
                             </a>
                         </li>
