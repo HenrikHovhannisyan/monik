@@ -163,7 +163,7 @@
                                         <h3 class="text-uppercase shop_title">
                                             {{ __("ad.sale_30_off") }}
                                         </h3>
-                                        <a href="{{ route('products') }}" class="btn btn-white rounded-0 btn-sm text-uppercase">
+                                        <a href="{{ route('products') }}?status%5B%5D=new&discount=sale" class="btn btn-white rounded-0 btn-sm text-uppercase">
                                             {{ __("ad.shop_now") }}
                                         </a>
                                     </div>
