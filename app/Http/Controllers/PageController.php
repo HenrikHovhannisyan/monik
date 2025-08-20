@@ -49,4 +49,12 @@ class PageController extends Controller
     {
         return view('pages.order-completed');
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function privacyPolicy()
+    {
+        return view('pages.privacy');
+    }
 }

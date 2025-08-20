@@ -33,6 +33,7 @@ Route::group([
     Route::view('/offline', 'offline');
     Route::get('/faq', [PageController::class, 'faq'])->name('faq');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+    Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 
     // Продукты
     Route::prefix('product')->group(function () {

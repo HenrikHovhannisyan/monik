@@ -7879,3 +7879,11 @@ input[type="range"] {
     top: 12px;
     left: 8px;
 }
+
+.privacy-policy-container ul {
+    padding-left: 2rem;
+}
+
+.privacy-policy-container section {
+    margin-bottom: 2rem;
+}

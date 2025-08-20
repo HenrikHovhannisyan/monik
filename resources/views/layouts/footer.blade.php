@@ -47,6 +47,11 @@
                                     {{ __("index.faqs") }}
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('privacy-policy') }}" title="{{ __('privacy.title') }}">
+                                    {{ __("privacy.title") }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -74,19 +79,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="mb-md-0 text-center text-md-start">
-                        © {{ date('Y') }} {{ __("messages.all_rights_reserved") }} {{ config('app.name', 'Monik') }}
+                        © {{ date('Y') }} {{ __("messages.all_rights_reserved") }} <strong class="text-lowercase">{{ config('app.name', 'Monik') }}.am</strong>
                     </p>
                 </div>
                 <div class="col-md-6">
                     <ul class="footer_payment text-center text-lg-end">
                         <li>
+                            <img src="{{ asset('images/payment/arca.png') }}" alt="arca" />
+                        </li>
+                        <li>
                             <img src="{{ asset('images/payment/visa.png') }}" alt="visa" />
                         </li>
                         <li>
                             <img src="{{ asset('images/payment/master_card.png') }}" alt="master_card" />
-                        </li>
-                        <li>
-                            <img src="{{ asset('images/payment/amarican_express.png') }}" alt="amarican_express" />
                         </li>
                     </ul>
                 </div>
