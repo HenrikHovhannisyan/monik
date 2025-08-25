@@ -42,7 +42,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Main CSS (Laravel Mix) -->
-    <link rel="stylesheet" href="{{ mix('css/site.min.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ mix('css/site.min.css') }}">
 
     <!-- Yandex.Metrika -->
     <script type="text/javascript" defer>
@@ -97,7 +97,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang={{ App::getLocale() }}&apikey=69788c43-a05a-4647-a75e-a9e4f7625d6f" defer></script>
 
     <!-- Main JS (Laravel Mix) -->
-    <script src="{{ mix('js/site.min.js?v=' . time()) }}" defer></script>
+    <script src="{{ mix('js/site.min.js') }}" defer></script>
 
     @yield('script')
 </body>

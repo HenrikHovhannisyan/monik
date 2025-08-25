@@ -18,7 +18,7 @@
     {{--  Styles  --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="{{asset('css/admin.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{asset('css/admin.css') }}">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -26,7 +26,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <script defer src="{{asset('js/admin.js?v=' . time()) }}"></script>
+    <script defer src="{{asset('js/admin.js') }}"></script>
 </head>
 <body>
 <div id="app">
