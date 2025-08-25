@@ -7,7 +7,7 @@
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('images/logo.png?v=' . time()) }}" alt="{{ config('app.name', 'Monik') }}" title="{{ config('app.name', 'Monik') }}" />
+                                <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Monik') }}" title="{{ config('app.name', 'Monik') }}" />
                             </a>
                         </div>
                         <p>
