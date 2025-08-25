@@ -17977,12 +17977,14 @@ input[type="range"] {
     left: 8px;
 }
 
-.privacy-policy-container ul {
+.privacy-policy-container ul,
+.terms-container ul {
     padding-left: 2rem;
 }
 
-.privacy-policy-container section {
-    margin-bottom: 2rem;
+.privacy-policy-container h3,
+.terms-container h3 {
+    color: var(--red) !important;
 }
 
 /* -------------------------------------------------

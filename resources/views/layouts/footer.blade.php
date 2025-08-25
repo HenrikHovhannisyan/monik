@@ -52,6 +52,11 @@
                                     {{ __("privacy.title") }}
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('terms') }}" title="{{ __('terms.title') }}">
+                                    {{ __("terms.title") }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -57,4 +57,12 @@ class PageController extends Controller
     {
         return view('pages.privacy');
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function terms()
+    {
+        return view('pages.terms');
+    }
 }

@@ -34,6 +34,7 @@ Route::group([
     Route::get('/faq', [PageController::class, 'faq'])->name('faq');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
+    Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms');
 
     // Продукты
     Route::prefix('product')->group(function () {
