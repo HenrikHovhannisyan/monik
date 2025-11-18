@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name_hy');
             $table->string('name_ru');
             $table->string('name_en');
-            $table->string('slug')->unique()->after('name_en');
+            $table->string('slug')->unique();
             $table->text('description_hy');
             $table->text('description_ru');
             $table->text('description_en');

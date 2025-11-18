@@ -36,14 +36,22 @@ class Product extends Model
         'images' => 'array',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($product) {
+            $product->slug = Str::slug($product->name_en);
+        });
+
+        static::updating(function ($product) {
+            $product->slug = Str::slug($product->name_en);
+        });
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function setSlugAttribute($value)
-    {
-        $this->attributes['slug'] = Str::slug($this->name_en);
     }
 
     public function metadata()
